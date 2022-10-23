@@ -1,0 +1,71 @@
+1.JPA 소개
+    1.1 SQL 중식적인 개발의 문제점
+    1.2 JPA 소개
+
+
+    1.1 SQL 중식적인 개발의 문제점
+        - SQL 에 의존적인 개발을 피하기 어렵다.
+        - 패러다임의 불일치
+            - 객체 vs 관계형 데이터베이스
+
+        - 객체와 관계형 데이터베이스의 차이
+            1.상속
+            2.연관관계 (참조 vs PK/FK)
+            3.데이터 타입
+            4.데이터 식별 방법
+
+        - 계층형 아키텍쳐 -> 진정한 의미의 계층 분할이 어렵다.
+
+        - 객체답게 모델링 할수록 매핑 작업만 늘어난다.
+
+        - 객체를 자바 컬렉션에 저장 하듯이 DB 에 저장할 수는 없을까?
+            => JPA
+
+    1.2 JPA 소개
+        - Java Persistence API
+        - 자바 진영의 ORM 기술 표준
+
+        - ORM
+            - Object-relational mapping (객체 관계 매핑)
+            - 객체는 객체대로 설계
+            - 관계형 데이터베이스는 관계형 데이터베이스대로 설계
+            - ORM 프레임워크가 중간에서 매핑
+            - 대중적인 언어에는 대부분 ORM 기술이 존재
+
+        - JPA 는 어플리케이션과 JDBC 사이에서 동작
+
+        - JPA 는 표준 명세
+            - JPA 는 인터페이스의 모음
+            - JPA 2.1 표준 명세를 구현한 3가지 구현체
+            - Hibernate, EclipseLink, DataNucleus
+
+        - JPA 를 왜 사용해야 하는가?
+            - SQL 중심적인 개발에서 객체 중심으로 개발
+            - 생산성
+                - 저장: jpa.persist(member)
+                  조회: Member member = jpa.find(memberId)
+            - 유지보수
+                - 기존: 필드 변경시 모든 SQL 수정
+                  JPA: 필드만 추가하면 됨, SQL 은 JPA 가 처리
+            - 패러다임의 불일치 해결
+                - JPA 와 상속
+                - JPA 와 연관관계
+                - JPA 와 객체 그래프 탐색
+                - JPA 와 비교하기
+                    - 동일한 트랜잭션에서 조회한 엔티티는 같음을 보장
+            - 성능
+                - 1차 캐시와 동일성(identity) 보장
+                    - 같은 트랜잭션 안에서는 같은 엔티티를 반환 - 약간의 조회 성능 향상
+                    - DB Isolation Level 이 Read Commit 이어도 애플리케이션에서 Repeatable Read 보장
+                - 트랜잭션을 지원하는 쓰기 지연(transactional write-behind)
+                    - 트랜잭션을 커밋할 때까지 INSERT SQL 을 모음
+                    - UPDATE, DELETE 로 인한 로우(ROW)락 시간 최소화
+                    - JDBC BATCH SQL 기능을 사용해서 한번에 SQL 전송
+                - 지연 로딩(Lazy Loading)
+                    - 지연 로딩: 객체가 실제 사용될 때 로딩
+                    - 즉시 로딩: JOIN SQL 로 한번에 연관된 객체까지 미리 조회
+            - 데이터 접근 추상화와 벤더 독립성
+            - 표준
+
+        => ORM 은 객체와 RDB 두 기둥 위에 있는 기술
+

@@ -1,0 +1,319 @@
+12.annotataion
+	12.1 Annotation 정의
+	12.2 Annotation의 용도
+	12.3 Annotation의 조상
+	12.4 자바 리플렉션
+	12.5 Annotation의 분류
+	12.6 Standard Annotations
+	12.7 커스텀 애노테이션을 위한 메타 애노테이션
+	12.8 애노테이션 프로세서	
+	
+	12.1 Annotation 정의
+		- 자바를 개발한 사람들은 소스코드에 대한 문서를 따로 만들기보다 소스코드와 문서를 하나의 파일로 관리하는 것이 낫다고 생각했다.
+		- 그래서 소스코드의 주석 '/** ~ */'에 소스코드에 대한 정보를 저장하고, 소스코드의 주석으로부터 HTML 문서를 
+		  생성해내는 프로그램(javadoc.exe)를 만들어 사용했다.
+		- 프로그램의 소스코드 안에 다른 프로그램을 위한 정보를 미리 약속된 형식으로 포함시킨 것이 바로 애너테이션이다.
+		- 애너테이션은 주석(comment)처럼 프로그래밍 언어에 영향을 미치지 않으면서도 
+		  다른 프로그램에게 유용한 정보를 제공할 수 있다는 장점이 있다.
+		- 애너테이션(annotation)의 뜻은 주석, 주해, 메모이다.
+		
+			package com.ssonsh.study.annotationstudy;
+
+			public @interface SsonAnnotation {
+			} 
+		  
+		  	→ 컴파일된 결과 SsonAnnotation.class
+
+			Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+			Compiled from "SsonAnnotation.java"
+			public interface com.ssonsh.study.annotationstudy.SsonAnnotation extends java.lang.annotation.Annotation {
+			}
+			
+			컴파일 시점에 extends 한적 없는 java.lang.annotation.Annotation이 extends 되어 있다.
+			
+		- (Java Doc) - 메타데이터의 한 형태인 주석은 프로그램 내에 일부가 아닌 프로그램에 대한 데이터를 제공한다.
+			- @로 시작하며
+			- 애노테이션으로 인하여 컴파일된 프로그램의 동작을 변경하지 않는다.
+			- 애노테이션을 사용하면 인스턴스 변수, 생성자, 메서드, 클래스 등과 관련된 메타데이터를 연결할 수 있다.
+			- 애노테이션은 컴파일러에 의해 프로그램이 처리되는 방식을 바꿀 수 있기 때문에 단순한 주석이 아니다.
+			
+		- 왜 애노테이션이 생겼을까?
+			- 탄생 이유는 프로그래머에게 그들의 코드에 대한 메타데이터를 자신의 코드에 직접적으로 기술할 수 있는 것을 제공하기 위함이다. 
+			  어노테이션이 만들어지기전에 프로그래머가 자신의 코드를 기술하는 방법은 transient 키워드를 사용한다던가, 주석을 통하여, 
+			  인터페이스를 이용 등 중구난방이었다. 그리고 여러타입의 어플리케이션에서 코드를 기술하는 메커니즘은 
+			  주로 XML이 사용되어졌는데 이것은 그리 좋은 방법은 아닌게 코드와 XML 사이에 디커플링이 발생되고 
+			  이것은 어플리케이션에서 유지보수하기 힘들다.
+			- 메타데이터
+				- 데이터에 대한 데이터. 즉, 다른 데이터를 설명해주는 데이터.
+				  
+	12.2 Annotation의 용도
+		- 컴파일러를 위한 정보 - 애노테이션을 사용하여 컴파일러에게 오류를 감지하거나 경고를 차단할 수 있게끔 해준다.
+		- 컴파일 시간 및 배포 시간 처리 - 소프트웨어 도구는 주석 정보를 처리하여 코드, XML 파일 등을 생성할 수 있게 해준다.
+		- 런타임 처리 - 일부 주석은 런타임에 검사할 수 있다.	  
+			
+		- 애노테이션에 다이나믹하게 실행되는 코드는 들어가지 않는다. 즉, 런타임중에 알아내야 하는 값은 못들어 간다.
+		- 컴파일러 수준에서 해석이 되거나, 
+		- 완전히 정적이어야 한다.
+		- 동적으로 런타임중에 바뀌어야 하는 것들은 애노테이션에 사용할 수 없다.
+		
+		@RestController
+		public HelloController{
+			
+			private static final String hello = "hello";
+		
+			@GetMapping(hello)
+			public String hello(){
+				return "hello";
+			}
+		}
+	  
+	  	위와 같이 hello 변수는 static final한 정적 변수임으로 GetMapping 애노테이션에 사용할 수 있다.
+		but. hello가 동적인 변수라면?
+		private String hello = "hello"; -> @GetMapping(hello)
+		컴파일 에러 발생
+			
+		- Annotation 정의
+			- 커스텀 애노테이션이라고 부르며 이와 관련된 소스는 java.lang.annotation 패키지에 속해있다.
+			  커스텀 애노테이션을 정의하려면 interface라는 키워드를 쓰고 그 앞에 @를 붙여주면 애노테이션이 정의된다. 
+			  공백을 넣어 @interface도 가능하다고는 하지만, 표준 스타일을 맞추기 위해서 공백없이 붙여주는 게 좋은 방법이다.
+			  
+			- 인터페이스 공부할 때 인터페이스에서 추상 메소드를 선언할 수 있는 것처럼, 애노테이션도 추상 메소드로 선언한다. 
+			  추상 메소드로 선언하지만 구현할 필요는 없다. 대신 사용하는 쪽에서 애노테이션에 있는 요소들의 값들을 다 넣어줘야 한다.
+			  
+			  @interface BicMacAnnotation {
+				    int pickle();
+				    String madeBy();
+				    String bread();
+				    String[] pattys();
+				    String source();
+				
+				}
+				
+				@BicMacAnnotation(pickle = 3, madeBy = "JeongSeokLee", bread = "BicMacBurn", source = "BicMacSource", pattys = {"10:1 patty", "10:1  patty"})
+				public class CustomAnnotationTest {
+				
+				}  
+			
+			- 애노테이션을 만들때 값을 지정하지 않으면, 사용될 수 있는 기본값을 지정할 수 있다. (null값 제외)
+				@interface MyAnnotation {
+					int count() default 1;
+				}
+				
+				@MyAnnotation // @MyAnnotatio(count=1)과 동일한 결과이ㅏㄷ.
+				public class MyClass{
+					//...
+				}	
+				
+			- 요소가 하나이고, 이름이 value일 때는 이름을 생략할 수 있다.
+				@interface MyAnnotation {
+					String value();
+				}
+				
+				@MyAnnotation("test") //@MyAnnotation(value="test")과 동일한 결과이다.
+				public class MyClass {
+					//...
+				}		
+				
+	12.3 Annotation의 조상
+		- java.lang.annotation.Annotation 인터페이스가 모든 애노테이션의 조상이다.
+		
+		- 애노테이션 요소의 규칙
+			- 에노테이션의 요소로 선언할 때 기본형, String, enum, 애노테이션, Class 타입만 허용할 수 있다.
+			- 괄호()안에 매개변수를 선언할 수 없다.
+			- 예외를 선언할 수 없다.
+			- 요소를 타입 매개변수로 정의할 수 없다.
+					
+	12.4 자바 리플렉션
+		- 구체적인 클래스 타입을 알지 못해도 그 클래스의 메소드, 타입, 변수들에 접근할 수 있도록 해주는 자바 API
+		- 모든 클래스 파일은 클래스로더에 의해 메모리에 올라갈 때, 클래스에 대한 정보가 담긴 객체를 생성하는데 
+		  이 객체를 클래스 객체라고 한다. 이 객체를 참조할 때는 '클래스이름.class'의 형식을 사용한다.
+		  
+		- 런타임에 지금 실행되고 있는 클래스를 가져와서 실행해야하는 경우
+			- 코드를 작성할 시점에는 어떤 타입의 클래스를 사용할지 모르지만, 
+			  런타임 시점에 지금 실행되고 있는 클래스를 가져와서 실행해야 하는 경우
+		- 동적으로 객체를 생성하고 메서드를 호출하는 방법
+		- 자바의 리플렉션은 클래스, 인터페이스, 메소드들을 찾을 수 있고, 
+		  객체를 생성하거나 변수를 변경하거나 메소드를 호출할 수 있다.
+		- 프레임워크나 IDE에서 이런 동적인 바인딩을 이용한 기능을 제공한다. 
+		  intelliJ의 자동완성 기능, 스프링의 어노테이션이 리플렉션을 이용한 기능이다.
+		  
+		- 클래스이름.class를 이용해서 클래스의 필드, 생성자, 메서드에 대한 정보를 얻을 수 있다.
+			getFields()	Filed[]	접근 제어자가 public인 필드들을 Field 배열로 반환.
+								부모 클래스의 필드들도 함께 반환.
+			getConstructors()	Constructor[]	접근 제어자가 public인 생성자들을 Constructor 배열로 반환.
+												부모 클래스의 생성자들도 함께 반환.
+			getMethods()	Method[]	접근 제어자가 public인 메서드들을 Method 배열로 반환.
+										부모 클래스의 메서드들도 함께 반환.
+			getDeclaredFields()	Field[]	접근 제어자에 상관없이 모든 필드들을 Field배열로 반환.
+										부모 클래스의 필드들은 반환 X.
+			getDeclaredConstructors()	Constructor[]	접근 제어자에 상관없이 모든 생성자들을 Constructor배열로 반환.
+														부모 클래스의 생성자들은 반환 X.
+			getDeclaredMethod()	Method[]	접근 제어자에 상관없이 모든 메서드들을 Method배열로 반환.
+											부모 클래스의 메서드들은 반환 X.
+				  
+	12.5 Annotation의 분류
+		- 애노테이션은 메타데이터의 저장을 위해 클래스처럼 멤버를 가질 수 있는데, 이 때 멤버의 갯수에 따라 
+		  Marker Annotation, Single Value Annotation, Full Annotation으로 분류할 수 있다.
+
+  		- Marker Annotation
+		  멤버 변수가 없으며, 단순히 표식으로서 사용되는 애노테이션이다. 컴파일러에게 어떤 의미를 전달한다. 
+		  대표적으로 @Override 애노테이션이 Marker Annotation의 예이다.	
+			
+		- Single Value Annotations
+		  멤버로 단일변수만을 갖는 애노테이션이다. 단일변수 밖에 없기 때문에 (값)만을 명시하여 데이터를 전달 할 수 있다.
+		  
+		- Full Annotations
+		  멤버를 둘 이상의 변수로 갖는 애노테이션으로, 데이터를 (값=쌍)의 형태로 전달한다.     	
+		
+	12.6 Standard Annotations
+		- 자바에서 몇가지 애노테이션을 기본적으로 제공해준다. 모두 java.lang 패키지에 속하며, 총 5개의 애노테이션이 있다.
+		  
+		- @Override
+		  오버라이딩을 올바르게 했는지 컴파일러가 체크하게 해주는 애노테이션이다. 
+		  개발자가 오버라이딩할 때 메소드 이름을 오타내는 경우가 종종 있다.
+		  
+		- @Deprecated
+		  앞으로 사용하지 않을 것을 권장하는 필드나 메소드에 붙이고, 사용하면 위험하거나 해당 코드보다 개선된 코드가 
+		  존재하기 때문에 개발자에게 사용하지 말아야 하는 것을 알리기 위해 사용한다. @Deprecated의 사용 예를 
+		  확인해보기 위해 Date 클래스의 메소드를 몇 개 확인해봤다.
+		  삭제하지 않고 @Deprecated를 붙이는 가장 큰 이유는 하위버전과의 호환성 때문이다. 
+		  예전에 만들었던 프로그램들이 최신 버전으로 업데이트 될 때마다 재기능을 하지 못할 경우가 있기 때문에 
+		  이를 방지하기 위해 삭제하지 않는다고 한다.
+		  
+		- @SafeVarargs(JDK 1.7)
+		  Java 7이상에서 사용가능하고 제네릭같은 가변인자 매개변수 사용시 경고를 무시한다
+		  (가변인자란 String... values와 같은 형태를 가변인자라고 한다.)
+		  
+		- @FuntionalInterface
+		  함수형 인터페이스에는 하나의 추상메소드만 가져야 한다는 제약이 있는데, @FunctionalInterface를 붙이면 
+		  컴파일러가 올바르게 작성했는지 알려주는 역할을 한다. 즉, 이것도 컴파일러를 위한 애노테이션이다.
+		  
+		- @SuppressWarnings
+		  이미 인지하고 있는 컴파일러의 경고메시지가 나타나지 않게 제거해줄때 사용한다. 쉽게 말하면 경고를 안뜨게 해준다는 의미이다.
+		  @Deprecated를 공부하면서 사용했던 예제들을 다시 보면 getDate() 메소드는 deprecated 되었기 때문에 
+		  사용하지 말라는 경고를 확인했다. 이 상태에서 개발자가 이미 deprecated된 상황을 인지하고 있고, 경고 메시지를 
+		  확인하고 싶지 않을 때, 이를 호출하는 선언부에 @SuppressWarnings 애노테이션을 사용하면 된다.
+			  
+	12.7 커스텀 애노테이션을 위한 메타 애노테이션
+		- 커스텀 애노테이션을 작성시 애노테이션을 설명하기 위한 메타 애노테이션이 있다. 
+		
+		@Documented : javadoc 및 기타 문서툴에 의해 문서화될 떄, 해당 애노테이션이 문서에 표시된다.
+		@Target : 애노테이션 적용 가능한 대상을 지정할 수 있다.
+		@Retention : 애노테이션 유지 범위를 지정할 수 있다.
+		@Inherited : 자식 클래스에서 부모클래스에 선언된 애노테이션을 상속받을 수 있다.
+		@Repeatable : 동일한 위치에 같은 애노테이션을 여러 개 선언할 수 있다.	  
+		  
+		- @Target
+		  타입으로 enum인 ElementType[]을 받는다.
+		  
+		  - TYPE : class, interface, annotation, enum에만 적용 가능
+			FIELD : 필드, enum 상수에만 적용 가능
+			METHOD : 메소드에만 적용 가능
+			PARAMETER : 파라미터에만 적용 가능
+			CONSTRUCTOR : 생성자에만 적용 가능
+			LOCAL_VARIABLE : 지역변수에만 적용 가능
+			ANNOTATION_TYPE : 애노테이션에만 적용 가능
+			PACKAGE : 패키지에만 적용 가능
+			TYPE_PARAMETER : 자바8부터 추가되었으며, 타입 파라미터(T, E와 같은)에만 적용 가능
+			TYPE_USE : TYPE_PARAMETER와 동일하게 자바 8부터 추가되었으며, JLS의 15가지 타입과 
+			           타입 파라미터에 적용 가능, 참조형에 사용된다.
+		  
+		- @Retention
+			- SOURCE 정책
+			  Getter / Setter 같은 경우 롬복이 바이트 '코드를 생성'해서 넣어주는 것이기 때문에, 굳이 바이트코드에 어노테이션 정보가 
+			  들어갈 필요가 없습니다. (왜냐하면 롬복이 코드를 생성해주니까..) 이 점에 대해서는 글에도 잘 설명되어 있네요^^
+			
+			- RUNTIME 정책
+		 	  런타임에 어노테이션 정보를 뽑아 쓸수 있다는 의미입니다. 즉, Reflection API 등을 사용하여 어노테이션 정보를 
+		 	  알수가 있다는 의미입니다. 스프링 학습을 하시는 것 같아서 스프링을 예로 들자면, @Controller, @Service, 
+		 	  @Autowired 등이 있습니다. 스프링이 올라오는 실행 중인 시점에 컴포넌트 스캔이 가능해야하기 때문에 
+		 	  RUNTIME 정책이 필요합니다. (스프링도 내부적으로 Reflection 등을 활용하여 어노테이션이 붙은 놈들만 가져옵니다.)
+			
+			- CLASS 정책
+			  그러면, CLASS 정책은 왜 필요한지 궁금하실거에요. "아니 Reflection 같은걸로 정보를 얻을수도 없으면서 
+			  왜 필요한거지?" 말이죠 ㅎㅎ 그런데 이미 '참고사이트'에 첨부해주신 스택오버플로우
+			  ('retention-of-java-type-checker-annotations') 글에 설명이 되어있습니다. 인텔리제이를 써보셨다면, 
+			  @NonNull 등이 붙어있는 경우 null 값을 넣게되면 노랑색 경고로 알려줍니다. "아니 그러면 SOURCE로 해도 될거 
+			  같은데?" 싶으실텐데요, 중요한점은 Maven/Gradle로 다운받은 라이브러리와 같이 jar 파일에는 소스가 포함되어있지 
+			  않다는 점입니다. class 파일만 포함되어있죠 (Download Sources 옵션은 논외로 할께요) 즉, class 파일만 
+			  존재하는 라이브러리 같은 경우에도 타입체커, IDE 부가기능 등을 사용할수 있으려면 CLASS 정책이 필요하게 됩니다. 
+			  SOURCE 정책으로 사용한다면 컴파일된 라이브러리의 jar 파일에는 어노테이션 정보가 남아있지 않기 때문이죠.
+			  그외에도 클래스로딩시 무언가를 하고 싶은 경우에도 사용될수도 있고요^^	  
+	  
+		- @Inherited
+	   		- 해당 어노테이션을 적용하면 부모클래스에 선언된 애노테이션이 자식클래스에 상속된다. 
+		     ( '@Inherited'가 붙은 애너테이션을 조상 클래스에 붙이면, 자손 클래스도 이 애너테이션이 붙은 것과 같이 인식된다.)
+		  
+		- @Repeatable  
+		  	@Retention(RetentionPolicy.CLASS)
+			@interface MyRepeatable { } //간단하게 @Retention 애노테이션을 적용한 커스텀 애노테이션 생성
+			@Hamburger("Cheese")
+			@Hamburger("BicMac")
+			public class RepeatableAnnotationTest {
+			    public static void main(String[] args) {
+			    }
+			}
+			
+			위 코드 작성시 아래와 같은 컴파일 에러가 발생한다.
+			
+			이러한 문제를 해결하기 위해 @Repeatable을 사용하면 위와 같은 문제를 해결할 수 있다.
+			하지만 이때 중요한 것은 @Repeatable인 @Hamburger를 하나로 묶을 컨테이너 애노테이션을 정의해야 한다.
+			
+			@Repeatable(Hamburgers.class)
+			@interface Hamburger {
+				String value();
+			}
+			
+			// 여러 개의 Hamburger 애노테이션을 담을 컨테이너 애너테이션
+			@interface Hamburgers {
+				Hamburger[] value(); // Hamburger 애노테이션 배열 타입의 요소로 선언
+			    					 // 이름이 반드시 value 이어야 한다.
+			}
+			@Hamburger("Cheese")
+			@Hamburger("BicMac")
+			public class RepeatableAnnotationTest {
+				//TODO...
+			}
+				
+	12.8 애노테이션 프로세서		
+		- 애노테이션 프로세서는 소스코드 레벨에서 소스코드에 붙어있는 어노테이션을 읽어서 컴파일러가 컴파일 하는 중에 
+		  새로운 소스코드를 생성하거나 기존 소스코드를 바꿀 수 있다.
+		- 또는, 클래스(바이트 코드)도 생성할 수 있고 별개의 리소스 파일을 생성할 수 있는 강력한 기능이다.
+		
+		- 애노테이션 프로세서 사용 예  
+			- 롬복(기존코드를 변경)
+			- AutoService(리소스 파일을 생성)
+				java.util.ServiceLoader 용 파일 생성 유틸리티
+			- @Override
+			
+		- 애노테이션 프로세서 장점
+			- 바이트코드에 대한 조작은 런타임에 발생되는 조작임으로 런타임에 대한 비용이 발생
+			  but. 애노테이션 프로세서는 애플리케이션을 구동하는 런타임 시점이 아니라,
+			  컴파일 시점에 조작하여 사용함으로 런타임에 대한 비용이 제로가 된다.
+			  
+		- 단점은 기존의 코드를 고치는 방법은 현재로써는 public한 API가 없다.
+		  롬복 같은 경우, 기존 코드를 변경하는 방법이지만 public한 API를 이용하는 것이 아님으로 해킹이라고 할 수도 있다.
+		  
+		- 롬복 동작원리
+		  컴파일 시점에 "애노테이션 프로세서"를 사용하여 (자바가 제공하는 애노테이션 프로세서)
+		  소스코드의 AST(Abstract Syntax Tree)를 조작한다.
+		  
+		=> 소스코드의 AST를 원래는 참조만 할 수 있다. //수정하지 못한다. 그리고 하면 안된다
+		=> 그러나 수정이 됬음을 알 수 있다.(컴파일 이후 바이트코드 확인)
+		=> 참조만 해야 하는 것을 내부 클래스를 사용하여 기존 코드를 조작하는 것임으로 "해킹"이라고 애기하기도 한다.
+
+		- 논란 거리
+			공개된 API가 아닌 컴파일러 내부 클래스를 사용하여 기존 소스 코드를 조작한다.
+			특히 이클립스의 경우에는 Java Agent를 사용하여 컴파일러 클래스까지 조작하여 사용한다.
+			해당 클래스들 역시 공개된 API가 아니다보니 버전 호환성에 문제가 생길 수도 있고 언제라도 그런 문제가 발생해도 
+			이상하지 않다. 그럼에도 불구하고 엄청난 편리함 때문에 널리 쓰이고 있으며, 
+			대안이 몇가지 있지만 롬복의 모든 기능과 편의성을 대체하지 못하는 상황이다.
+				- AutoValue
+				- Immutables
+				    	  	
+				  
+			  	  
+			  
+			  
+			  
+			  

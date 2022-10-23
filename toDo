@@ -1,0 +1,37 @@
+- java 
+	- 자바 버전 하위 호환성
+	- Optional
+	- Reflection API
+	- maven vs gradle
+	- 빌드툴
+	- 단일쓰레드 vs 멀티쓰레드
+	- ServiceLoader 
+		(https://velog.io/@adduci/Java-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%A1%9C%EB%8D%94ServiceLoader)
+	- raw type
+		https://donghyeon.dev/%EC%9D%B4%ED%8E%99%ED%8B%B0%EB%B8%8C%EC%9E%90%EB%B0%94/2021/03/25/raw-%ED%83%80%EC%9E%85%EC%9D%80-%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EB%A7%90%EC%9E%90/
+	
+- spring
+	- queryString vs pathVariable 
+		(https://yusang.tistory.com/70)
+		
+	- TDD 란
+	
+	- @Transactional 
+		(https://devlog-wjdrbs96.tistory.com/424)
+
+	- 스프링부트의 authoconfigure
+		(https://donghyeon.dev/spring/2020/08/01/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8%EC%9D%98-AutoConfiguration%EC%9D%98-%EC%9B%90%EB%A6%AC-%EB%B0%8F-%EB%A7%8C%EB%93%A4%EC%96%B4-%EB%B3%B4%EA%B8%B0/)
+	
+	- 스프링 부트 순환 참조 
+		spring.main.allow-circular-references=true 
+		
+	- 싱글톤 패턴
+		https://drcode-devblog.tistory.com/338
+		
+- refactoring
+	- https://refactoring.guru/replace-conditional-with-polymorphism
+	
+
+
+
+*** @NoArgsConstructor AccessLevel.PROTECTED: 기본 생성자 막고 싶은데, JPA 스팩상 PROTECTED 로 열어두어야 함

@@ -1,0 +1,321 @@
+16.Stream_Optional
+	16.1 Stream
+	16.2 Optional
+	
+	
+	16.1 Stream
+		- 데이터를 담고 있는 저장소(컬렉션)이 아니다.
+		- Functional in nature, 스트림이 처리하는 데이터 소스를 변경하지 않는다.
+			- Functional 하다.
+			- 결과가 또 다른 stream이 되는 것이지, 전달받은 데이터 자체가 변경되는 것이 아니다.
+		- 스트림으로 처리하는 데이터는 오직 한번만 처리한다.	
+		- 무제한일 수도 있다. (Short Circuit 메소드를 사용해서 제한할 수 있다.)
+		- 중개 오퍼레이션은 근본적으로 lazy 하다.
+			- stream에 사용하는 것은 2개로 나눌 수 있다. (중개, 종료)
+			- 중개 오퍼레이션은 lazy : lazy하다는 말은 종료 오퍼레이션이 나오기 전까지는 실행하지 않는 것을 뜻한다. 
+			  즉, 결과가 필요하기 전까지 연산의 시점을 최대한 늦추는 것을 뜻한다.	
+			- 중개형 오퍼레이션은 종료 오퍼레이션이 오기 전까지 실행되지 않는다.
+				names.stream().map(x -> {
+		        	System.out.println(x);
+		            return x.toUpperCase(Locale.ROOT);
+		        });  
+			  
+			  	.map() 바디에 선언한 System.out.println은 찍히지 않는 것을 볼 수 있다.
+			  	즉, 종료형 오퍼레이션이 반드시 와야하며,
+				종료형 오퍼레이션이 오지 않으면 중계형 오퍼레이터는 의미가 없다.(실행 x)
+		
+		- 손쉽게 병렬 처리 할 수 있다.	  	
+			- 병렬처리를 하는 것이 모두 빠른 것이 아니다. 더 느릴 수 있다.
+			- Thread를 만들어서 Thread별로 처리하고 수집하는 일련의 과정이 발생된다.
+			- 데이터가 정말 방대하게 큰 경우 유용하게 사용될 수 있으나, 그게 아니라면 stream 권장
+				List<String> collect = names.parallelStream()
+							.map(String::toUpperCase)
+                            .collect(Collectors.toList());
+
+				collect.forEach(System.out::println);  	
+			
+		- Stream Pipline
+			- 0 또는 다수의 중개 오퍼레이션과 한 개의 종료 오퍼레이션으로 구성한다.
+			- 스트림의 데이터 소스는 오직 종료 오퍼레이션을 실행할 때만 처리한다.
+			
+		- 중개 오퍼레이션		
+			- Stream을 리턴한다.
+			- Stateless / Stateful 오퍼레이션으로 더 상세하게 구분할 수도 있다.
+			- 대부분 Stateless지만 distinct나 sorted처럼 이전 소스 데이터를 
+			  참조해야 하는 오퍼레이션은 Stateful 오퍼레이션이다.	
+			
+			- flatMap 메서드는  Array나 Object로 감싸져 있는 모든 원소를 단일 원소 스트림으로 반환할 수 있습니다. 
+				String[][] namesArray = new String[][]{
+				        {"kim", "taeng"}, {"mad", "play"}};
+				        
+				//flatMap
+				Arrays.stream(namesArray)
+						.flatMap(inner -> Arrays.stream(inner))
+				        .filter(name -> name.equals("taeng"))
+				        .forEach(System.out::println);
+				        
+				// map
+				Arrays.stream(namesArray)
+						.map(inner -> Arrays.stream(inner))
+				        .forEach(names -> names.filter(name -> name.equals("taeng"))
+				            .forEach(System.out::println));
+			  
+			  flatMap의 결과로 단일 원소 스트림을 반환하기 때문에 filter 메서드를 바로 체이닝하여 사용할 수 있습니다. 
+			  초기에 생성된 스트림이 배열인 경우엥 매우 유용합니다.
+			  
+			  flatMap은 결과를 스트림으로 반환하기 때문에 flatMap의 결과를 가지고 바로 forEach 메소드를 체이닝하여 
+			  모든 요소를 출력할 수 있습니다.
+			
+			  단일 요소로 리턴되기 때문에 map의 결과를 가지고 forEach 메서드로 루프를 진행한 후 
+			  그 내부에서 다시 한번 forEach 메소드를 체이닝하여 사용해야 합니다.
+			
+			- limit : 개수제한, skip : 개수만큼 넘김
+				Stream.iterate(10, i -> i + 1)
+	    		.skip(10)
+	            .limit(10)
+	            .forEach(System.out::println);
+			
+			- sorted : 정렬하기
+				list.stream().sorted( (v1, v2) -> v2 - v1).forEach(System.out::println);
+				
+			- distinct : 중복제거	
+				list.stream().distinct().forEach(System.out::println);
+				
+		- 종료 오퍼레이션
+			- Stream을 리턴하지 않는다.
+			
+			- findFirst/findAny : 해당 스트림에서 첫 번째 요소를 참조하는 Optional 객체를 반환
+				- findFirst : 스트림의 순서상 가장 첫번째 있는 것을 리턴		
+				- findAny : 순서와 관계없이 먼저 찾아지는 객체를 리턴
+					- 병렬 처리시(parallel()) 순서대로 탐색하지 않기 때문에 
+					  아래 예시에서 findAny는 b1 또는 b 중에 가장 먼저 찾은 것을 리턴한다.
+			
+			- allMatch/anyMatch/nonMatach/ : 세 메소드 모두 인수로 Predicate 객체를 전달받으며, 
+			  요소의 검사 결과는 boolean값으로 반환한다.
+				- anyMatch : 해당 스트림의 일부 요소가 특정 조건을 만족할 경우 true를 반환
+				- allMatch() : 해당 스트림의 모든 요소가 특정 조건을 만족할 경우 true를 반환
+				- noneMatch() : 해당 스트림의 모든 요소가 특정 조건을 만조하지 않을 경우 true를 반환
+				
+			- forEach : 스트림 요소들 훑기
+			
+			- min, max, count, sum
+			
+		- 요소의 수집
+			- collect() 메소드로 인수로 전달되는 Collectors 객체에 구현된 방법대로 스트림의 요소를 수집합니다.
+			  또한, Collectors 클래스에는 미리 정의된 다양한 방법이 클래스 메소드로 정의되어 있습니다.
+			- 이 외에도 사용자가 직접 Collector 인터페이스를 구현하여 자신만의 수집 방법을 정의할 수도 있습니다.
+			
+			1. 스트림을 배열이나 컬렉션으로 변환 : toArray(), toCollections(), toList(), toSet(), toMap()  
+			2. 요소의 통계와 연산 메소드와 같은 동작을 수행 : counting(), maxBy(), minBy(), 
+			   summingInt(), averagingInt() 등  
+			3. 요소의 소모와 같은 동작을 수행 : reducing(), joining()  
+			4. 요소의 그룹화와 분할 : groupingBy(), partitioningBy()
+			- Reduction : Stream의 데이터를 변환하지 않고, 더하거나 빼는 등의 연산을 수행하여 하나의 값으로 만든다면 
+			  reduce를 사용할 수 있습니다.
+				Stream<Integer> numbers = Stream.of(1,2,3,4,5,6,7,8,9,10);
+				Optional<Integer> sum = numbers.reduce( (x,y) -> x + y);
+				sum.ifPresent(s -> System.out.println("sum: " + s));
+				
+				//결과
+				sum: 55
+			 
+			  함수를 정의하지 않고 Integer::sum을 사용해도 위와 동일한 결과를 출력합니다.
+			  	Stream<Integer> numbers2 = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+				Optional<Integer> sum2 = numbers2.reduce(Integer::sum);
+				sum2.ifPresent(s -> System.out.println("sum2: " + s));		
+				
+			- 초기값 있는 Reduction		
+				위와 동일한 동작을 하지만 초기값을 지정해줄 수 있습니다. 첫번째 param으로 초기값을 넘겨주면 됩니다. 
+				초기값이 없는 위와 유사하게 '10 + 1 + 2 + ... 1 + 0'으로 연산됩니다.
+				
+				Stream<Integer> numbers3 = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+				Integer sum3 = numbers3.reduce(10, (total, n) -> total + n);
+				System.out.println("sum3: " + sum3);
+				
+				//결과
+				sum3 : 65
+				
+			- 병렬처리 & Reduction
+				parallel()을 사용하면 병렬처리로 연산을 수행할 수 있습니다. 순차적으로 연산을 수행하지 않고 
+				여러개의 작업을 병렬로 처리합니다. (1 + 2) + (3 + 4) + ... + (9 + 10)처럼 병렬적으로 처리됩니다.
+				
+				하지만 -(마이너스) 연산인 경우 병렬처리는 순차처리와 결과가 다릅니다. 아래 코드를 보면 결과가 
+				-55가 아니라 -5가 됩니다. (1 - 2) - (3 - 4) - ... - (9 - 10)처럼 연산의 순서가 어떻게 되냐에 따라서 
+				결과가 순차처리와 다르게 됩니다.
+			
+			- 순서가 있는 병렬처리 Reduction
+				병렬처리에서 연산 순서에 따라 발생하는 문제를 해결하기 위해 다음과 같이 다른 규칙을 추가할 수 있습니다. 
+				param으로 (total1, total2) -> total1 + total2를 추가하였는데 병렬처리된 결과의 관계를 나타냅니다. 
+				첫번째 연산과 두번째 연산은 합해야 한다는 규칙을 정의하여, 연산결과과 순차처리와 동일하게 됩니다.
+			
+				Stream<Integer> numbers6 = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+				Integer sum6 = numbers6.reduce(0,
+							(total, n) -> total - n,
+				            (total, total2) -> total1 + total2);
+				System.out.println("sum6: " + sum6);
+				
+				//결과
+				sum6: -55
+				
+			- groupingBy
+				- 컬렉션의 요소들을 그룹핑해서 Map객체를 생성하는 기능, groupingBy()는 Map객체를 리턴해줍니다.
+					
+				- groupingBy 쓰지 않았을 때
+					public Map<String, Long> toMap<List<String> strings) {
+						Map<String, Long> mpa = new HashMap<>(); //<문자열, 문자열빈도>
+					    for(String element : strings) {
+					    	if(map.containsKey(element)){ //
+					        	map.put(element, map.get(element) + 1);
+					        } else{
+								map.put(element, 1);
+					        }
+					    }
+					    return map;
+					}
+					
+				- groupingBy 사용했을 때	
+					예시1
+					public Map<String, Long> toMap(List<String> strings) {
+						return strings.stream()
+					    	.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+					      //.forEach( (key, value) -> System.out.println(key + " / " + value));
+					}
+					
+					Function.identity()는 x -> x와 같다.
+					
+					예시2
+					List<tempVO> tempList = new ArrayList<>();
+					tempList.add(new tempVO("KRW", 1000));
+					tempList.add(new tempVO("KRW", 2000));
+					tempList.add(new tempVO("USD", 100));
+					tempList.add(new tempVO("USD", 200));
+					tempList.add(new tempVO("JPY", 50));
+					
+					Map<String, Long> map1 = tempList.stream().collect(
+							Collectors.groupingBy(tempVO::getCurrency, Collectors.summingLong(tempVO::getAmount))
+					);
+					
+					class tempVO{
+					    String Currency;
+					    int amount;
+					    
+					// 결과
+					KRW / 3000
+					JPY / 50
+					USD / 300
+					
+					summingLong, summingInt 등 은 각 리스트에 선택된 값들을 합한 값으로 리턴한다.
+		
+	16.2 Optional			
+		- 자바 프로그래밍에서 NullPointerExceptin을 종종 보게 되는 이유
+			- null을 리턴하기 때문
+			- null 체크를 깜빡했기 때문
+		
+		- 메소드에서 작업 중 특별한 상황에서 값을 제대로 리턴할 수 없는 경우 선택할 수 있는 방법	
+			- 예외를 던진다	
+				- 비싸다. 스택 트레이스를 찍어두기 때문			
+			- null을 리턴한다.	
+				- 비용 문제는 없지만, 코드를 사용하는 클라이언트가 주의해야 한다.
+			- Optional을 리턴한다.
+				- 클라이언트에게 명시적으로 빈값일 수도 있다는 것을 알려주고, 빈 값에 대한 처리를 강제한다.
+				
+		- Optional 		
+			- 오직 값 한개가 들어있을 수도, 없을 수도 있는 컨테이너
+			
+			- 리턴값으로만 쓰기를 권장
+				- 메소드 매개변수 타입, 맵의 키 타입, 인스턴스 필드 타입으로 쓰지 말자.
+				- 파라미터를 호출할 때 Optional을 사용하는 경우, 결국 넘어온 파라미터를 null check를 해야 한다.
+				  (의도하지 않았더라도) 즉 의미가 없다는 것이다.
+				  사용자의 실수는 언제든지 발생할 수 있는 케이스가 열려 있다.
+			- Optional을 리턴하는 메소드에서 null을 리턴하지 말자.
+				- 정말 리턴할 것이 없다면 Optional.empty();를 반환하자.
+			- 프리미티브 타입용 Optional은 따로 있다.
+				- OptionalInt, OptionalLong, ...
+				- Optional.of(10)으로 사용할 수 있지만 성능상 좋지 않다.
+					- Boxing, UnBoxing이 일어나는 것 자체가 성능에 저하가 된다.			
+					- OptionalInt을 사용하자.
+			- Collection, Map, Stream, Array, Optional은 Optional로 감싸지 않는다.
+				- 그 자체로 비어 있음을 알 수 있음으로 Optional로 감쌀 필요가 없다.
+				- 감싸게 된다는 것 자체는 성능 저하를 발생할 수 있고, 의미 없는 코드이다.
+				
+			- 비어있는 값이 전달될 수 있다는 것을 클라이언트단에게 알려주기 위한 방법으로 Optional을 사용할 수 있다.
+				
+			- 객체가 null일 수 있다면, ofNullable로 Optional을 사용한다.
+			- of는 객체가 null이 아닐 때 사용하도록 한다.
+			
+		- Optional 만들기
+			- Optional.of() : null이 아닌 객체를 담고 있는 Optional 객체를 생성. null이 넘어올 경우 NPE를 던진다.	
+			- Optional.ofNullable() : null인지 아닌지 확신할 수 없는 객체를 담고 있는 Optional 객체를 생성.
+			- Optional.empty() : 비어있는 Optional 객체를 리턴
+			
+		- Optional에 값 있는지 없는지 확인하기				
+			- isPresent()
+			- isEmpty() -> Java11부터 제공
+			
+		- Optional에 있는 값 가져오기
+			- get() : 비추!!
+			  만약 비어있는 Optional에서 무언가를 꺼내면? : NoSuchElementException을 던진다.	
+			  예외를 발생시키므로 get()대신, orElset()/orElsetGet()/orElseThrow()를 사용하자.
+			  
+			  // 안 좋음
+			  Optional<Member> member = ...;
+		      if (member.isPresent()) {
+		          return member.get();
+		      } else {
+		          return null;
+		      }
+		      
+		      // 좋음
+		      Optional<Member> member = ...;
+		      return member.orElse(null);
+		      
+		      
+		      
+		      // 안 좋음
+		      Optional<Member> member = ...;
+		      if (member.isPresent()) {
+		          return member.get();
+		      } else {
+		          throw new NoSuchElementException();
+		      }
+		      
+		      // 좋음
+		      Optional<Member> member = ...;
+		      return member.orElseThrow(() -> new NoSuchElementException()); 
+			  
+			 ifPresent(Consumer) : 비추 ( != null 처리랑 똑같음) 
+			
+			- orElse(T) : Optional에 값이 있으면 가져오고 없는 경우에 ~~를 리턴하라.
+				- Optional에 값이 있든 없는 T부분은 무조건 실행이 된다.
+			 	- Optional에 값이 있으면 orElse()의 인자로서 실행된 값이 무시되고 버려진다.
+			 	- 따라서, T부분은 새 객체 생성이나 새로운 연산을 유발하지 않고 이미 생성되었거나, 이미 계산된 값일 때만 사용해야 한다.
+			 	
+			- orElseGet(Supplier)	
+				- Supplier가 새로운 객체를 생성하거나 새로운 연산을 수행하는 경우 사용한다.
+				- Supplier는 Optional에 값이 없을 때만 실행된다. 따라서 Optional에 값이 없을때만 
+				  새 객체를 생성하거나 새 연산을 수행하므로 불필요한 오버헤드가 없다.
+				  
+			- orElseThrow()
+				- Optional에 값이 있으면 가져오고 없는 경우에 에러를 발생시켜라
+				- // supplier -> 메소드 레퍼런스 / 람다 표현식
+				  jpa.orElseThrow(IllegalStateException::new);
+				  jpa.orElseThrow(() -> {return new IllegalStateException()});
+				  
+			- Optional filter(Predicate)
+				- Optional에 들어있는 값 걸러내기
+					Optional<OnlineClassOp> jpa = springClasses.stream()
+						.filter(oc -> oc.getTitme().startsWith("spring"))
+				        .findfirst();	  
+				  
+			- Optional map(Function)
+				- Optional에 들어있는 값 변환하기
+				- 만약 map으로 만드려고 하는 객체가 Optional인 경우 복잡해질 수 있다.
+			      map 자체도 Optional이고, 이를 담고 있는 정보도 Optional	   	
+				- 이 때 조금 더 수월하게 사용할 수 있는 것이 "flatMap"				
+			 		- Optional flatMap(Function) => Optional안에 들어있는 인스턴스가 Optional인 경우 사용하면 편리.
+			 		- map으로 반환하는 결과가 Optinal인 경우, Optional를 제거한 이후 정보로 반환
+			 		- <> Stream에서의 flatMap과는 다름에 주의할 것.
+			 						
+			 				
+			 				
+				
