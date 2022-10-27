@@ -14,7 +14,7 @@
 	- queryString vs pathVariable 
 		(https://yusang.tistory.com/70)
 		
-	- TDD 란
+	- TDD
 	
 	- @Transactional 
 		(https://devlog-wjdrbs96.tistory.com/424)
@@ -34,4 +34,4 @@
 
 
 
-*** @NoArgsConstructor AccessLevel.PROTECTED: 기본 생성자 막고 싶은데, JPA 스팩상 PROTECTED 로 열어두어야 함
+** @NoArgsConstructor AccessLevel.PROTECTED: 기본 생성자 막고 싶은데, JPA 스팩상 PROTECTED 로 열어두어야 함
