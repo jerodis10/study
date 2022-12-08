@@ -164,13 +164,13 @@
 *stream vs for  https://www.youtube.com/watch?v=by8hb75i9X4
 stream  https://www.youtube.com/watch?v=rbm87IFpwvQ
         https://www.youtube.com/watch?v=wsvhgrCGW78
-RESTful  https://www.youtube.com/watch?v=xWA1eTPSzDE
+*RESTful  https://www.youtube.com/watch?v=xWA1eTPSzDE
          https://www.youtube.com/watch?v=NODVCBmyaXs
 git 브랜치 전략  https://www.youtube.com/watch?v=wtsr5keXUyE
                https://www.youtube.com/watch?v=jeaf8OXYO1g
 DI/IOC  https://www.youtube.com/watch?v=8lp_nHicYd4
         https://www.youtube.com/watch?v=_OI9mKuFb7c
-rest api  https://www.youtube.com/watch?v=Nxi8Ur89Akw
+*rest api  https://www.youtube.com/watch?v=Nxi8Ur89Akw
 rest docs  https://www.youtube.com/watch?v=BoVpTSsTuVQ
 GC  https://www.youtube.com/watch?v=FMUpVA0Vvjw
     https://www.youtube.com/watch?v=Fe3TVCEJhzo
