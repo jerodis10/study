@@ -161,7 +161,7 @@
        https://www.youtube.com/watch?v=FXzBRD3CPl
        https://dncjf64.tistory.com/400
 *추상클래스/인터페이스  https://www.youtube.com/watch?v=T1BJzC9xb0g
-stream vs for  https://www.youtube.com/watch?v=by8hb75i9X4
+*stream vs for  https://www.youtube.com/watch?v=by8hb75i9X4
 stream  https://www.youtube.com/watch?v=rbm87IFpwvQ
         https://www.youtube.com/watch?v=wsvhgrCGW78
 RESTful  https://www.youtube.com/watch?v=xWA1eTPSzDE
