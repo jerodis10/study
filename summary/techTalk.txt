@@ -175,8 +175,8 @@ rest docs  https://www.youtube.com/watch?v=BoVpTSsTuVQ
 *GC  https://www.youtube.com/watch?v=FMUpVA0Vvjw
     https://www.youtube.com/watch?v=Fe3TVCEJhzo
 redis  https://www.youtube.com/watch?v=Gimv7hroM8A&t=205s
-DFS/BFS  https://www.youtube.com/watch?v=By77aC9Oe3Q
-람다  https://www.youtube.com/watch?v=sS-_Xr5Q4V4
+*DFS/BFS  https://www.youtube.com/watch?v=By77aC9Oe3Q
+*람다  https://www.youtube.com/watch?v=sS-_Xr5Q4V4
 제네릭  https://www.youtube.com/watch?v=w5AKXDBW1gQ
        https://www.youtube.com/watch?v=Vv0PGUxOzq0
 정렬 알고리즘  https://www.youtube.com/watch?v=8c-Q8anmJcM
