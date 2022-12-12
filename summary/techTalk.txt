@@ -172,7 +172,7 @@ stream  https://www.youtube.com/watch?v=rbm87IFpwvQ
 *        https://www.youtube.com/watch?v=_OI9mKuFb7c
 *rest api  https://www.youtube.com/watch?v=Nxi8Ur89Akw
 rest docs  https://www.youtube.com/watch?v=BoVpTSsTuVQ
-GC  https://www.youtube.com/watch?v=FMUpVA0Vvjw
+*GC  https://www.youtube.com/watch?v=FMUpVA0Vvjw
     https://www.youtube.com/watch?v=Fe3TVCEJhzo
 redis  https://www.youtube.com/watch?v=Gimv7hroM8A&t=205s
 DFS/BFS  https://www.youtube.com/watch?v=By77aC9Oe3Q
@@ -224,6 +224,7 @@ Java final과 불변 객체  https://www.youtube.com/watch?v=ej-bnXlHk-E
 전략 패턴  https://www.youtube.com/watch?v=zGJzEBOELoU
           https://www.youtube.com/watch?v=vNsZXC3VgUA
 
+string vs string builder
 
 flux  https://www.youtube.com/watch?v=wQFBgKl1PYw
 Sharding, Clustering, Replication   https://www.youtube.com/watch?v=y42TXZKFfqQ
