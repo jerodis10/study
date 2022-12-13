@@ -2,3 +2,11 @@
 - 트랜잭션 격리 수준
 - 데이터베스 종류별 lock
 - JPA 의 lock
+
+- b+ tree
+- 다중 칼럼 인덱스
+- analyze table
+
+- 실행계획
+- sql 최적화
+- 옵티마이저

@@ -61,7 +61,7 @@ redis  https://www.youtube.com/watch?v=Gimv7hroM8A&t=205s
 *데이터베이스 락   https://www.youtube.com/watch?v=ZXV6ZqMyJLg
                 https://www.youtube.com/watch?v=onBpJRDSZGA
                 https://www.youtube.com/watch?v=w6sFR3ZM64c
-인덱스  https://www.youtube.com/watch?v=edpYzFgHbqs
+*인덱스  https://www.youtube.com/watch?v=edpYzFgHbqs
        https://www.youtube.com/watch?v=P5SZaTQnVCA
 캐싱  https://www.youtube.com/watch?v=H4J-8pPMvEU
      https://www.youtube.com/watch?v=JBFT4KyEvoY
@@ -102,6 +102,7 @@ Java final과 불변 객체  https://www.youtube.com/watch?v=ej-bnXlHk-E
           https://www.youtube.com/watch?v=vNsZXC3VgUA
 
 string vs string builder
+
 
 flux  https://www.youtube.com/watch?v=wQFBgKl1PYw
 Sharding, Clustering, Replication   https://www.youtube.com/watch?v=y42TXZKFfqQ
