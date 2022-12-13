@@ -58,7 +58,7 @@ redis  https://www.youtube.com/watch?v=Gimv7hroM8A&t=205s
        https://www.youtube.com/watch?v=Vv0PGUxOzq0
 정렬 알고리즘  https://www.youtube.com/watch?v=8c-Q8anmJcM
 *멀티쓰레드와 동기화  https://www.youtube.com/watch?v=ktWcieiNzKs
-데이터베이스 락   https://www.youtube.com/watch?v=ZXV6ZqMyJLg
+*데이터베이스 락   https://www.youtube.com/watch?v=ZXV6ZqMyJLg
                 https://www.youtube.com/watch?v=onBpJRDSZGA
                 https://www.youtube.com/watch?v=w6sFR3ZM64c
 인덱스  https://www.youtube.com/watch?v=edpYzFgHbqs
