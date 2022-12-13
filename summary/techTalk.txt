@@ -68,7 +68,7 @@ redis  https://www.youtube.com/watch?v=Gimv7hroM8A&t=205s
 필터/인터셉터  https://www.youtube.com/watch?v=v86B35pwk6s
 리플렉션  https://www.youtube.com/watch?v=67YdHbPZJn4
 쿠키/세션/토큰/캐시  https://www.youtube.com/watch?v=gA1KsJ2ak10
-함수형 프로그래밍  https://www.youtube.com/watch?v=24tL6-YKz3I
+*함수형 프로그래밍  https://www.youtube.com/watch?v=24tL6-YKz3I
 @Transactional  https://www.youtube.com/watch?v=taAp_u83MwA
                 https://www.youtube.com/watch?v=aX9c7z9l_u8
 프로세스/스레드  https://www.youtube.com/watch?v=C_P0wHFp1o4
