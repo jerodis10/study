@@ -63,7 +63,7 @@ redis  https://www.youtube.com/watch?v=Gimv7hroM8A&t=205s
                 https://www.youtube.com/watch?v=w6sFR3ZM64c
 *인덱스  https://www.youtube.com/watch?v=edpYzFgHbqs
        https://www.youtube.com/watch?v=P5SZaTQnVCA
-캐싱  https://www.youtube.com/watch?v=H4J-8pPMvEU
+*캐싱  https://www.youtube.com/watch?v=H4J-8pPMvEU
      https://www.youtube.com/watch?v=JBFT4KyEvoY
 필터/인터셉터  https://www.youtube.com/watch?v=v86B35pwk6s
 리플렉션  https://www.youtube.com/watch?v=67YdHbPZJn4
