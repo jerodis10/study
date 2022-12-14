@@ -101,6 +101,9 @@ Java final과 불변 객체  https://www.youtube.com/watch?v=ej-bnXlHk-E
 전략 패턴  https://www.youtube.com/watch?v=zGJzEBOELoU
           https://www.youtube.com/watch?v=vNsZXC3VgUA
 
+가비지 컬렉터 https://www.youtube.com/watch?v=v1gb397uFC4
+
+
 string vs string builder
 
 
