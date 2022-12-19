@@ -83,7 +83,7 @@ Servlet & Spring Web MVC   https://www.youtube.com/watch?v=h0rX720VWCg
 this  https://www.youtube.com/watch?v=DTX52Pv7PZM
 싱글턴패턴/정적클래스  https://www.youtube.com/watch?v=5oUdqn7WeP0
                     https://www.youtube.com/watch?v=C6CczyrkYXU&t=5s
-웹소켓/스프링  https://www.youtube.com/watch?v=rvss-_t6gzg
+*웹소켓/스프링  https://www.youtube.com/watch?v=rvss-_t6gzg
              https://www.youtube.com/watch?v=MPQHvwPxDUw&t=287s
 CSR/SSR  https://www.youtube.com/watch?v=YuqB8D6eCKE
 선형 자료구조  https://www.youtube.com/watch?v=xnURecIJk4g
