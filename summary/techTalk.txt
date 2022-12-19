@@ -89,7 +89,7 @@ CSR/SSR  https://www.youtube.com/watch?v=YuqB8D6eCKE
 선형 자료구조  https://www.youtube.com/watch?v=xnURecIJk4g
 Web Server vs WAS  https://www.youtube.com/watch?v=mcnJcjbfjrs&t=1s
                    https://www.youtube.com/watch?v=F_vBAbjj4Pk
-spring/spring boot  https://www.youtube.com/watch?v=Y11h-NUmNXI
+*spring/spring boot  https://www.youtube.com/watch?v=Y11h-NUmNXI
 상태 패턴  https://www.youtube.com/watch?v=wYMN3sPIeHY
 OOP  https://www.youtube.com/watch?v=3etKkkna-f0
 빌드/배포  https://www.youtube.com/watch?v=zeDh2mMd_fc&t=1s

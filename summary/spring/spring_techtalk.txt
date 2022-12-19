@@ -302,7 +302,124 @@
         - 객체 지향의 특징을 잘 활용할 수 있게 해주며, 개발자들은 핵심 비즈니스 로직 구현에만 집중할 수 있게 해주는 프레임워크
         - 스프링의 기본 전략은 비즈니스 로직을 담은 코드와 엔터프라이즈 기술을 처리하는 코드를 분리하는 것
           이렇게 분리함으로써 개발자들은 객체지향 설계에 초점을 맞출 수 있게 되고 이를 돕기 위해 스프링은 DI 같은 기능을 제공
-          https://www.youtube.com/watch?v=Y11h-NUmNXI 4:04
+        - 초기 spring 기본 설정만 잘 해놓는다면, 스프링 관련 코드를 신경 쓸 일이 거의 없다.
+
     - spring boot 란?
+        - 독립적이며, 운영할 수 있는 수준의 spring 기반 어플리케이션을 쉽게 만들 수 있게 해준다.
+          최소한의 설정으로 spring 플랫폼과 서드파티 라이브러리 사용 가능. 대부분 spring boot 어플리케이션은 최소한의 spring 설정 필요
+
     - spring boot 를 사용하면 달라지는 점
+        1. 의존성 관리 - spring-boot-starter, spring-boot-starter-parent
+            - spring
+                - 기존 spring 은 개발에 필요한 모듈의 의존성을 각각 다운받아 줘야했으며, 각 모듈의 버전을 개발자가 하나하나 명시해줘야함
+                  모듈 간의 의존성이 존재하는 경우 버전 충돌이 일어날 수 있다.
+            - spring boot
+                - spring boot 는 spring-boot-starter 모듈을 통해 자주 사용하게 되는 모듈간의 의존성과 버전 조합을 제공해준다.
+                - spring boot 는 spring-boot-starter-parent 를 통해 버전 관리(각 모듈의 현재 spring boot 버전에 가장 적합한 버전 제공)
+
+        2. 자동 설정 - @EnableAutoConfiguration
+            - spring
+                - 기존 spring 은 많은 환경 설정이 필요하다.
+            - spring boot
+                - spring boot 는 라이브러리만 추가해주면 추가된 jar 파일을 인지해서 관련된 스프링 설정을 자동으로 처리해준다.
+                - @SpringBootApplication
+                    - @ComponentScan: @Component 가 붙은 클래스를 Bean 으로 등록시켜준다.
+                    - @SpringBootConfiguration: spring boot 전용 애노테이션으로 spring boot 의 설정을 나타냄
+                                                spring 의 @Configuration 이라고 볼 수 있다.
+                                                스프링 제공 테스트(@SpringBootTest, @WebMvcTest 등) 시
+                                                @SpringBootConfiguration 이 붙은 클래스가 없다면 실패한다.
+                    - @EnableAutoConfiguration: 자동 설정 담당
+                        1. Classpath 에 라이브러리 jar 파이이 등록되면 spring.factories 에 있는 관련 설정이 실행된다.
+                        2. 자동 설정 후보 클래스의 @Conditional~ 조건에 따라 빈으로 등록된다.
+                        3. spring-configuration-metadata 는 자동 설정에 사용할 프로퍼티 정의 파일로, application.yml 에 작성한
+                           값으로 프로퍼티를 세팅한 후, 구현되어 있는 자동 설정에 값을 주입시켜준다.
+
+        3. 내장 WAS - Embedded WAS (tomcat, jetty, undertow)
+            - spring
+                1. 어플리케이션 WAR 패키징
+                2. WAS 설치
+                3. WAS 에 빌드한 WAR 파일 올리기
+            - spring boot
+                - 배포할 때 spring boot 는 독립적으로 실행 가능한 어플리케이션을 빠르게 개발하는 것을 목표로 하기 때문에
+                  웹 어플리케이션을 war 파일이 아닌 jar 파일로 패키징하여 바로 사용 가능. 외장 WAS 를 쓰고자하면 war 파일로
+                  패키징 할 수도 있다. spring boot 를 사용하면 war 나 jar 둘 다 가능
+                - 내장 서버가 작동하는 원리도 자동 설정으로 인해 작동
+                  (tomcat 이 기본이지만 의존선을 통해서 jetty 나 undertow 로 변경 가능)
+
+        4. 모니터링 - Actuator
+            - spring boot 의 모듈 중 하나인 Actuator 는 어플리케이션의 관리 및 모니터링을 지원해준다.
+            - Actuator 는 상용 서비스 수준에서 필요로 할 모니터링 기능을 엔드포인트로 미리 만들어서 제공
+            - Actuator 를 사용하면 실행 중인 부트 어플리케이션 내에서 어떤 일이 일어나는 지 볼 수 있는데
+              어떤 빈이 등록되어 있는지, 자동 설정이 어떻게 되어 있는지 환경 변수나 시스템 속성 같은 것을 알 수 있다.
+
+            - 주의할 점
+                - actuator 는 민감한 정보도 많이 제공해주기 때문에 운영 시에는 spring security 등을 이용하여 보안에 신경써야 한다.
+                - actuator 의 데이터를 영구 저장소에 저장해주지 않으면 없어질 수 있다.
+                  actuator 의 데이터는 메모리에 저장하기 때문에 tomcat 을 재시작하거나 하면 데이터가 모두 날아간다.
+
     - 정리
+        - spring 은 spring framework 를 기반으로 서브 프로젝트들의 모음으로 이루어져있으며, 서브 프로젝트들은 여러 모듈을 가지고 있다.
+          개발할 어플리케이션에 맞게 모듈들을 조합해서 사용한다.
+        - spring boot 도 spring 프로젝트 중 하나로, spring framework 와 별개로 사용x, spring 을 편하게 사용하게 해주는 역할
+        - spring boot 는 1) 의존성 관리, 2) 자동 설정, 3) 내장 WAS, 4) 모니터링 등의 장점이 있다.
+
+- 웹소켓/spring
+    - 웹소켓? 언제쓰지?
+        - 웹소켓은 전이중 통신 채널을 제공해서 실시간성을 보장
+          ex) 게임, 채팅, 실시간 주식 거래 사이트 등등
+
+    - 웹소켓 vs HTTP
+        - HTTP 에서도 실시간성을 보장하는 기법이 존재
+          ex) Polling, Long Polling, Streaming
+              서버쪽으로 클라이언트가 지속적으로 요청을 보내든지
+              한 번 요청을 보내놓고 커넥션을 끊지 않은 상태에서 서버에서 메시지를 계속 받는 방식
+
+        - HTTP
+            - 비 연결성 (클라이언트가 요청을 보낼 때마다 연결을 맺고 응답을 받은 후에 연결을 끊는다.)
+            - 매번 연결 맺고 끊는 과정의 비용
+            - (요청 - 응답) 구조
+            - 매 요청-응답 마다 HTTP 메시지를 주고 받음
+        - 웹소켓
+            - 연결 지향 (한번 연결을 맺고 나면 어는 한쪽에서 연결을 끊으라는 요청을 보내기 전까지 연결을 유지)
+            - 한번 연결 맺은 뒤 유지
+            - 양방향 통신
+            - 처음 핸드쉐이크를 할 때는 HTTP 프로토콜을 사용하기 때문에 유사한 양의 정보를 주고 받지만,
+              한 번 연결이 수립되고 나서는 간단한 메시지들만 주고 받음. -> 통신에 오가는 비용을 많이 줄일 수 있다.
+            - 텍스트와 바이너리 타입의 메시지를 양방향으로 주고 받을 수 있는 프로토콜
+        -> 수립된 커넷션을 어떻게 하느냐
+
+        - 웹소켓을 지원하지 않는 환경에서는?
+          ex) internet explorer, firefox, safari...
+          -> 이 때 사용할 수 있는 것이 SockJS, socket.io
+             브라우저별로 웹소켓 기술을 제공하고 있다면 웹소켓을 사용하고 없으면 streaming, 그것도 없으면 polling 방식을 사용해서 제공
+          -> 웹소켓을 지원하지 않는 브라우저 환경에서도 비슷한 경험을 제공하기 위해서 사용하는 것이 SockJS 라이브러리
+
+    - 웹소켓 in spring
+        - @EnableWebSocket, WebSocketConfigurer 인터페이스
+
+    - STOMP and spring-messaging
+        - STOMP
+            - Simple Text Oriented Messaging Protocol
+            - 메시지 브로커를 활용하여 쉽게 메시지를 주고 받을 수 있는 프로토콜
+                - pub - sub (발생-구독): 발신자가 메시지를 발행하면 수신자가 그것을 수신하는 메시징 패러다임
+                - 메시지 브로커: 발신자의 메시지를 받아와서 수신자들에게 메시지를 전달하는 어떤 것
+            - 웹소켓 위에 얹어 함께 사용할 수 있는 하위(서브) 프로토콜
+              STOMP 는 웹소켓만을 위해서 만들어진 것은 아니다. 몇몇 양방향 통신 프로토콜에서 함께 사용할 수 있다.
+
+            - STOMP 가 왜 필요한지, 어떤 이점이 있는지
+                - 클라이언트와 서버가 어떤 형식으로 머시지를 주고 받을지, 메시지의 타입은 어떻게 명시할지, 메시지의 본문과 설정 정보와
+                  같은 데이터들은 어떻게 구분할 것인지 등등 따로 정의해야 하고 그것을 파싱하는 로직도 필요
+                - 하지만 STOMP 를 사용하면 형식을 따로 고민할 필요도, 그것을 파싱하기 위한 코드를 따로 구현할 필요가 없다.
+                - STOMP 는 프레임(커맨드, 헤더, 바디) 이라는 형식을 정의해둠
+
+        - STOMP 통신 흐름
+            ex) 서버 내에서의 어떤 처리 혹은 가공이 필요하다면 /app 으로 메시지 송신
+                가공된 메시지를 /topic 이라는 경로를 담아 다시 전송하면 메시지 브로커에게 전달
+                메시지 브로커는 전달 받은 메시지들을 /topic 을 구독하고 있는 구독자들에게 최종적으로 전달
+                서버의 어떤 처리나 메시지를 가공할 필요가 없다면 발신자가 바로 메시지 브로커를 통해 구독자들에게 보내는 것도 가능
+
+        - STOMP 를 사용하는 장접
+            - 하위 프로토콜 혹은 컨벤션을 따로 정의할 필요가 없다.
+            - 연결 주소마다 새로 핸들러를 구현하고 설정해줄 필요가 없다.
+            - 외부 Messaging Queue 를 사용할 수 있다. (RabbitMQ, 카프가 ...)
+            - Spring Security 를 사용할 수 있다.
