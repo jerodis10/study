@@ -3,6 +3,8 @@
 *쓰레드 풀    https://www.youtube.com/watch?v=um4rYmQIeRE
 *Blocking vs Non-Blocking, Sync vs Async   https://www.youtube.com/watch?v=oEIoqGd-Sns
 *Process vs Thread   https://www.youtube.com/watch?v=1grtWKqTn50&t=507s
+                     https://www.youtube.com/watch?v=C_P0wHFp1o4
+                     https://www.youtube.com/watch?v=DmZnOg5Ced8
 *데드락  https://www.youtube.com/watch?v=Ry_gB34cvwc
        https://www.youtube.com/watch?v=FXzBRD3CPl
        https://dncjf64.tistory.com/400
@@ -21,7 +23,7 @@ rest docs  https://www.youtube.com/watch?v=BoVpTSsTuVQ
 *GC  https://www.youtube.com/watch?v=FMUpVA0Vvjw
     https://www.youtube.com/watch?v=Fe3TVCEJhzo
     https://www.youtube.com/watch?v=v1gb397uFC4
-redis  https://www.youtube.com/watch?v=Gimv7hroM8A&t=205s
+*redis  https://www.youtube.com/watch?v=Gimv7hroM8A&t=205s
 *DFS/BFS  https://www.youtube.com/watch?v=By77aC9Oe3Q
 *람다  https://www.youtube.com/watch?v=sS-_Xr5Q4V4
 *제네릭  https://www.youtube.com/watch?v=w5AKXDBW1gQ
@@ -41,8 +43,6 @@ redis  https://www.youtube.com/watch?v=Gimv7hroM8A&t=205s
 *함수형 프로그래밍  https://www.youtube.com/watch?v=24tL6-YKz3I
 @Transactional  https://www.youtube.com/watch?v=taAp_u83MwA
                 https://www.youtube.com/watch?v=aX9c7z9l_u8
-프로세스/스레드  https://www.youtube.com/watch?v=C_P0wHFp1o4
-               https://www.youtube.com/watch?v=DmZnOg5Ced8
 api/라이브러리/프레임워크  https://www.youtube.com/watch?v=G9Dl5FiaOQ4
                         https://www.youtube.com/watch?v=_j4u4ftWwhQ&t=1s
 스프링 빈  https://www.youtube.com/watch?v=3gURJvJw_T4
@@ -65,7 +65,7 @@ Web Server vs WAS  https://www.youtube.com/watch?v=mcnJcjbfjrs&t=1s
 빌드/배포  https://www.youtube.com/watch?v=zeDh2mMd_fc&t=1s
 *DTO/VO  https://www.youtube.com/watch?v=z5fUkck_RZM
 *도메인 주도 설계  https://www.youtube.com/watch?v=VIfNipL5KkU
-Spring Webflux  https://www.youtube.com/watch?v=4x1QRyMIjGU
+*Spring Webflux  https://www.youtube.com/watch?v=4x1QRyMIjGU
 Java final과 불변 객체  https://www.youtube.com/watch?v=ej-bnXlHk-E
 자바 직렬화  https://www.youtube.com/watch?v=3iypR-1Glm0
 전략 패턴  https://www.youtube.com/watch?v=zGJzEBOELoU
