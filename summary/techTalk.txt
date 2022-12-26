@@ -44,7 +44,7 @@ rest docs  https://www.youtube.com/watch?v=BoVpTSsTuVQ
 @Transactional  https://www.youtube.com/watch?v=taAp_u83MwA
 *                https://www.youtube.com/watch?v=aX9c7z9l_u8
 *트랜잭션 https://www.youtube.com/watch?v=e9PC0sroCzc
-트랜잭션 메커니즘  https://www.youtube.com/watch?v=ImvYNlF_saE
+*트랜잭션 메커니즘  https://www.youtube.com/watch?v=ImvYNlF_saE
 api/라이브러리/프레임워크  https://www.youtube.com/watch?v=G9Dl5FiaOQ4
                         https://www.youtube.com/watch?v=_j4u4ftWwhQ&t=1s
 스프링 빈  https://www.youtube.com/watch?v=3gURJvJw_T4
@@ -73,7 +73,8 @@ Java final과 불변 객체  https://www.youtube.com/watch?v=ej-bnXlHk-E
 전략 패턴  https://www.youtube.com/watch?v=zGJzEBOELoU
 *          https://www.youtube.com/watch?v=vNsZXC3VgUA
           https://www.youtube.com/watch?v=90ZDvHl8ROE
-java11 https://www.youtube.com/watch?v=LcIyHlE2NlA
+java11  https://www.youtube.com/watch?v=LcIyHlE2NlA
+Sharding, Clustering, Replication  https://www.youtube.com/watch?v=y42TXZKFfqQ
 
 객체지향 디자인 패턴
 https://www.youtube.com/watch?v=lJES5TQTTWE
