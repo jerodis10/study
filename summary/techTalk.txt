@@ -65,6 +65,7 @@ Web Server vs WAS  https://www.youtube.com/watch?v=mcnJcjbfjrs&t=1s
 *상태 패턴  https://www.youtube.com/watch?v=wYMN3sPIeHY
 *OOP  https://www.youtube.com/watch?v=3etKkkna-f0
 *빌드/배포  https://www.youtube.com/watch?v=zeDh2mMd_fc&t=1s
+          https://www.youtube.com/watch?v=6SvUZqbU37E
 *DTO/VO  https://www.youtube.com/watch?v=z5fUkck_RZM
 *도메인 주도 설계  https://www.youtube.com/watch?v=VIfNipL5KkU
 *Spring Webflux  https://www.youtube.com/watch?v=4x1QRyMIjGU
