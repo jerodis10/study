@@ -190,3 +190,60 @@
         3. 자주 사용되더라도 insert, update, delete 가 자주 일어나는지 고려해야 한다.
             - 일반적인 웹 서비스와 같은 온라인 트랜잭션 환경에서 쓰기와 읽기 비율은 2:8 또는 1:9 이다.
             - 조금 느린 쓰기를 감수하고 빠른 읽기를 선택하는 것도 하나의 방법이다.
+
+- redis
+    - redis 개요
+        - Remote dictionary server
+           외부    hashMap    서버
+        - Database, Cache, Message broker
+        - in-memory Data Structure Store
+        - Supports rich data structure
+
+    - Cache 개념
+        - 나중의 요청에 대한 결과를 미리 저장했다가 빠르게 사용하는 것
+        - Memory Hierarchy
+            - CPU Register
+            - CPU Cache
+                ex) 12MB Cache memory(SRAM) - 빠르고 비싸고 용량이 작다
+            - Main Memory (DRAM)
+                ex) 16GB DRAM - 적당히 빠르고 적당히 비싸고 적당이 용량이 크다, 휘발성
+            - Storage (SSD, HDD)
+                ex) 512GB SSD - 비교적 느리고 저렴하고 용량이 엄청 크다, 비휘발성
+        -> in-memory Database (Cache) - Database 보다 더 빠른 Memory 에 더 자주 접근하고 덜 자주 바뀌는 데이터를 저장하자
+
+    - redis 자료구조
+        - 서버가 여러대인 경우 Consistency 의 문제 발생
+        - 멀티 스레드 환경에서 Race condition
+            - Race condition 이란 여러 개의 스레드가 경합하는 것. 컨텍스트 스위칭에 따라 원하지 않는 결과가 발생할 수 있다.
+            - 레디스는 기본적으로 싱글 스레드
+            - 레디스 자료구조는 Atomic. Critical Section 에 대한 동기화를 제공
+                (Critical Section -> 동시에 여러 프로세스가 접근하면 안되는 영역)
+            - 서로 다른 Transaction Read/Write 를 동기화
+
+        - 어디에 쓰이나
+            - 여러 서버에서 같은 데이터를 공유할 때
+            - Single Server 라면? Atomic 자료구조 & Cache
+
+    - redis 주의사항
+        - Single Thread 서버이므로 시간 복잡도를 고려해야한다.
+            - 레디스는 네트워크로부터 요청을 받아서 명령어를 처리하는 데 이런 커맨드를 형성하고 처리하는 과정이 싱글 스레디 이기 때문에
+              커맨드가 오랜 시간이 걸리는 경우 나머지 요청들이 더이상 받아지지 않고 서버가 다운되는 문제가 발생할 수 있다.
+              그래서 싱글 스레드이기 때문에 처리가 빨라야 한다. 전체 데이터를 다루는 시간 복잡도를 가진
+              O(N) 의 명령어는 주의해서 사용. (KEYS, Flush, GetAll 연산 등)
+        - in-memory 특성상 메모리 파편화, 가상 메모리 등의 이해가 필요하다.
+        - 레디스가 왜 Single Thread 로 동작하느냐?
+            - Event Driven (비동기)
+            - IO-bound Process
+            - Context Switching 의 효율이 적다
+            - Single Threaded
+        - 메모리 관리
+            - 메모리 파편화
+            - 가상메모리 Swap
+            - Replication - Fork
+
+    - 그외..
+        - 레디스를 저장소처럼 -> Redis Persistent, RDB, AOF
+        - 레디스의 메모리는 제한되어 있기 때문에 주기적으로 Scale out, Back up 해야함 -> Redis Cluster
+        - 부하 분산 -> Constant Hashing
+        - Data Grid -> Spring Gemfire, Hazlecast
+          (데이터베이스를 사용하지 않고 인메모리 db 만 사용하는 방식)
