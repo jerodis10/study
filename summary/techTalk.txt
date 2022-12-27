@@ -47,6 +47,7 @@ rest docs  https://www.youtube.com/watch?v=BoVpTSsTuVQ
 *트랜잭션 메커니즘  https://www.youtube.com/watch?v=ImvYNlF_saE
 api/라이브러리/프레임워크  https://www.youtube.com/watch?v=G9Dl5FiaOQ4
                         https://www.youtube.com/watch?v=_j4u4ftWwhQ&t=1s
+*                        https://www.youtube.com/watch?v=We8JKbNQeLo
 스프링 빈  https://www.youtube.com/watch?v=3gURJvJw_T4
 Servlet & Spring Web MVC   https://www.youtube.com/watch?v=h0rX720VWCg
                            https://www.youtube.com/watch?v=calGCwG_B4Y&t=2s
