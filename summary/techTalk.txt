@@ -39,7 +39,7 @@ rest docs  https://www.youtube.com/watch?v=BoVpTSsTuVQ
      https://www.youtube.com/watch?v=JBFT4KyEvoY
 필터/인터셉터  https://www.youtube.com/watch?v=v86B35pwk6s
 리플렉션  https://www.youtube.com/watch?v=67YdHbPZJn4
-쿠키/세션/토큰/캐시  https://www.youtube.com/watch?v=gA1KsJ2ak10
+*쿠키/세션/토큰/캐시  https://www.youtube.com/watch?v=gA1KsJ2ak10
 *함수형 프로그래밍  https://www.youtube.com/watch?v=24tL6-YKz3I
 @Transactional  https://www.youtube.com/watch?v=taAp_u83MwA
 *                https://www.youtube.com/watch?v=aX9c7z9l_u8
@@ -48,7 +48,7 @@ rest docs  https://www.youtube.com/watch?v=BoVpTSsTuVQ
 api/라이브러리/프레임워크  https://www.youtube.com/watch?v=G9Dl5FiaOQ4
                         https://www.youtube.com/watch?v=_j4u4ftWwhQ&t=1s
 *                        https://www.youtube.com/watch?v=We8JKbNQeLo
-스프링 빈  https://www.youtube.com/watch?v=3gURJvJw_T4
+*스프링 빈  https://www.youtube.com/watch?v=3gURJvJw_T4
 Servlet & Spring Web MVC   https://www.youtube.com/watch?v=h0rX720VWCg
                            https://www.youtube.com/watch?v=calGCwG_B4Y&t=2s
 상속/조합  https://www.youtube.com/watch?v=U4OSS4jJ9ns
@@ -58,9 +58,9 @@ this  https://www.youtube.com/watch?v=DTX52Pv7PZM
                     https://www.youtube.com/watch?v=C6CczyrkYXU&t=5s
 *웹소켓/스프링  https://www.youtube.com/watch?v=rvss-_t6gzg
              https://www.youtube.com/watch?v=MPQHvwPxDUw&t=287s
-CSR/SSR  https://www.youtube.com/watch?v=YuqB8D6eCKE
+*CSR/SSR  https://www.youtube.com/watch?v=YuqB8D6eCKE
 선형 자료구조  https://www.youtube.com/watch?v=xnURecIJk4g
-Web Server vs WAS  https://www.youtube.com/watch?v=mcnJcjbfjrs&t=1s
+*Web Server vs WAS  https://www.youtube.com/watch?v=mcnJcjbfjrs&t=1s
                    https://www.youtube.com/watch?v=F_vBAbjj4Pk
 *spring/spring boot  https://www.youtube.com/watch?v=Y11h-NUmNXI
 *상태 패턴  https://www.youtube.com/watch?v=wYMN3sPIeHY
