@@ -49,8 +49,9 @@ api/라이브러리/프레임워크  https://www.youtube.com/watch?v=G9Dl5FiaOQ4
                         https://www.youtube.com/watch?v=_j4u4ftWwhQ&t=1s
 *                        https://www.youtube.com/watch?v=We8JKbNQeLo
 *스프링 빈  https://www.youtube.com/watch?v=3gURJvJw_T4
-Servlet & Spring Web MVC   https://www.youtube.com/watch?v=h0rX720VWCg
+*Servlet & Spring Web MVC   https://www.youtube.com/watch?v=h0rX720VWCg
                            https://www.youtube.com/watch?v=calGCwG_B4Y&t=2s
+                           https://www.youtube.com/watch?v=cmwmamOQmPc
 상속/조합  https://www.youtube.com/watch?v=U4OSS4jJ9ns
           https://www.youtube.com/watch?v=clbpnp2xYOQ&t=1s
 this  https://www.youtube.com/watch?v=DTX52Pv7PZM
@@ -72,7 +73,7 @@ this  https://www.youtube.com/watch?v=DTX52Pv7PZM
 *Spring Webflux  https://www.youtube.com/watch?v=4x1QRyMIjGU
 Java final과 불변 객체  https://www.youtube.com/watch?v=ej-bnXlHk-E
 자바 직렬화  https://www.youtube.com/watch?v=3iypR-1Glm0
-전략 패턴  https://www.youtube.com/watch?v=zGJzEBOELoU
+*전략 패턴  https://www.youtube.com/watch?v=zGJzEBOELoU
 *          https://www.youtube.com/watch?v=vNsZXC3VgUA
           https://www.youtube.com/watch?v=90ZDvHl8ROE
 java11  https://www.youtube.com/watch?v=LcIyHlE2NlA
