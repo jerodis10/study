@@ -904,3 +904,21 @@
         - CSR + SSR -> 유니버셜 렌더링
             만약 사용자에 따라 페이지 내용도 달라지고 빠른 인터랙션도 중요하고 검색엔진 최적화도 포기할 수 없다면
 
+- 정렬 알고리즘
+    - 정렬
+        - 정렬이란? -> 데이터를 기준에 맞게 순서대로 배열하는 작업
+        - 정렬을 하는 이유 -> 탐색에 용이하기 위해서
+
+    - insertion Sort
+    - Merge Sort
+    - Quick Sort
+    - java 에서의 Sort
+        - Dual Pivot Quick Sort
+            1. primitive 타입을 정렬할 때, Dual Pivot Quick Sort 를 사용
+            2. 피봇을 하나만 쓰는 것보다 일반적으로 빠름
+        - Tim Sort
+            1. Object 타입을 정렬할 때, Tim Sort 를 사용
+            2. 앞에서 봤던 Insertion Sort 와 Merge Sort 의 하이브리드한 형태
+            3. Binary Insertion Sort 를 사용
+            4. Merge Sort 와 같이 분할을 진행하다가 특정한 기준보다 작은 사이즈가 되면 분할을 멈춘 후, Binary Insertion Sort 를 이용
+            5. 특정 병합 조건에 맞게 병합
