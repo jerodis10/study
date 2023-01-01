@@ -54,9 +54,8 @@ api/라이브러리/프레임워크  https://www.youtube.com/watch?v=G9Dl5FiaOQ4
                            https://www.youtube.com/watch?v=cmwmamOQmPc
 상속/조합  https://www.youtube.com/watch?v=U4OSS4jJ9ns
           https://www.youtube.com/watch?v=clbpnp2xYOQ&t=1s
-this  https://www.youtube.com/watch?v=DTX52Pv7PZM
 싱글턴패턴/정적클래스  https://www.youtube.com/watch?v=5oUdqn7WeP0
-                    https://www.youtube.com/watch?v=C6CczyrkYXU&t=5s
+*                    https://www.youtube.com/watch?v=C6CczyrkYXU&t=5s
 *웹소켓/스프링  https://www.youtube.com/watch?v=rvss-_t6gzg
              https://www.youtube.com/watch?v=MPQHvwPxDUw&t=287s
 *CSR/SSR  https://www.youtube.com/watch?v=YuqB8D6eCKE

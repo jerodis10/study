@@ -941,3 +941,69 @@
     - 스택
     - 덱
 
+- 싱글턴과 정적 클래스
+    - 싱글턴
+        - 싱글턴의 개념
+            - 클래스의 인스턴스를 하나만 생성하고, 어디서든 그 인스턴스를 참조할 수 있도록 하는 패턴
+            - 생성자가 여러 번 호출되더라도 실제로 생성되는 객체는 하나
+        - 싱글턴을 쓰는 이유
+            - 고정된 메모리 영역을 가지고 하나의 인스턴스만 사용하기 때문에 메모리 낭비 방지
+            - 싱글턴 클래스의 인스턴스는 전역이기 때문에 다른 클래스의 인스턴스들이 데이터를 공유하기 쉬움
+            - DBCP 처럼 공통괸 객체를 여러 개 생성해야 하는 상황에 많이 사용
+        - 싱글턴 구현
+            1. Eager initialization
+                - static 을 로딩하면서 바로 메모리를 가진다. 래서 클라이언트에서 사용하지 않더라도 인스턴스가 항상 생성됨.
+                - 예외 처리를 할 수 있는 방법이 없음
+            2. Static block initialization
+                - Eager initialization 과 유사
+                - 인스턴스가 static block 내에서 생성됨
+                - 예외 처리 가능
+            3. Lazy initialization
+                - getInstance() 호출 이외에는 인스턴스를 생성하지 않음
+                - Eager initialization 의 단점 보완
+                - 스레드 세이프 하지 않음
+            4. Thread safe initialization
+                - Synchronized 를 이용해서 하나의 스레드만 접근 가능하도록 설정
+                - 성능 저하를 야기하는 비효율적인 방법
+            5. Double-Checked Locking
+                - null 체크를 Synchronized 블록 밖에서 한 번, 안에서 한 번 총 두 번 실행
+                - 밖에서 하는 체크는 인스턴스가 있는 경우 빠르게 리턴하기 위해서,
+                  안쪽에서 하는 체크는 인스턴스가 생성되지 않은 경우 하나의 인스턴스만 생성하기 위해서
+            6. Bill Pugh Solution
+                - Double-Checked 에 비해 구현이 간단
+                - Lazy Loading 이 가능
+                - Thread safe
+
+    - 정적 클래스
+        - 정적 클래스의 개념
+            - 모든 메서드가 static 인 클래스 지칭, 또는 inner static class 를 뜻하기도 함
+        - 정적 클래스 쓰는 이유
+            - 상태를 가지고 있지 않고 global access 를 제공할 때 유용
+            - static 은 컴파일 때 static binding 으로 싱글턴보다 좀 더 빠르다
+            - 클래스 자체에 static 을 붙여 사용할 수 없다. (inner class 일 때만 가능)
+        - 정적 클래스의 구현
+            - static variable
+                - 메모리에 고정적으로 할당되어, 프로그램이 종료될 때 해제되는 변수
+            - static method
+                - 객체 생성 없이 메소드 바로 호출 가능
+                - 객체 생성 없이 접근하는 메서드이므로, static 이 아는 변수는 사용 불가능
+            - static class
+                - static nested class 라고 한다.
+                - 외부클래스의 자원 중 static 이 붙은 것만 사용 가능
+                - inner 클래스에 static 을 붙이지 않으면 inner 클래스에서 outer 클래스에 있는 필드 등에 참조할 수 있고
+                  inner 클래스의 역할이 끝나도 gc 가 지우지 못해 메모리 낭비가 생긴다.
+
+    - 싱글턴 vs 정적 클래스
+        - 싱글턴
+            - 하나의 인스턴스를 생성하여 재사용
+            - 인터페이스 구현 가능
+            - override 가능 (상속)
+            - 필요에 따라 lazy 가능
+            - OOP
+        - 정적 클래스
+            - 인스턴스 생성 x
+            - 인터페이스 구현 불가능
+            - override 불가능
+            - static binding 으로 빠르게 로딩
+            - OOP x
+
