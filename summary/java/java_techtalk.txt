@@ -1016,3 +1016,87 @@
         - 한 번 생성되면 상태를 수정할 수 없는 객체 -> 생성이 된 불변 객체는 신뢰할 수 있다.
     - 불변 객체를 사용해야 하는 이유
         - 스레드 동기화 문제 방지
+
+- 자바 직렬화
+    - 자바 직렬화의 흐름
+        - 직렬화
+            - 객체의 상태를 영속화하는 메커니즘
+            - 객체를 다른 환경에 저장했다가 나중에 재구성 할 수 있게 만드는 과정
+            - 객체의 상태를 영속해야 할 필요가 있을 때 사용
+            - 다른 VM 에게 객체의 정보를 바이트 스트림으로 변환해서 전송해야 할 때 사용
+        - 직렬화/역직렬화 흐름
+            - 객체는 writeObject 를 거쳐 직렬화 되어 어딘가(DB, File, Memory)에 보관되었다가 readObject 에 의해 역직렬화 되면서
+              객체로 재생성
+    - 자바 직렬화의 위험성
+        - 보안
+            - 보이지 않는 생성자, readObject
+            -> 해결: 커스텀 직렬화
+                    직렬화 대상 클래스에 readObject 메서드를 새롭게 정의해주면 된다.
+        - 유지보수성
+        - 테스트
+        - 그 외 다수 (싱글톤 문제, 역직렬화 폭탄 등)
+            - 싱글톤 문제
+                - 싱글톤 객체를 직렬화 했다가 역직렬화하여 사용하면 싱글톤의 성격을 잃어버린다.
+                -> 해결: readResolve 를 정의해주면 된다.
+                        readObject 가 불린 이후에 readResolve 가 불리게 되면서 역직렬화하여 생성한 객체는 사용하지 않고
+                        readResolve 에서 반환하는 객체를 사용.
+                        만약 클래스의 인스턴스 변수가 존재하는 경우 전부 transient 예약어를 이용해서 직렬화-역직렬화 대상이 되지 않도록
+                        해주어야 한다. 그렇지 않으면 참조필드의 영역값을 훔쳐오는 행위가 가능해짐.
+
+- java version
+    - java version
+        - java 8
+            - 큰 변화가 생김. 빅데이터가 떠오르면서 병렬 처리에 대한 관심이 높아짐에 따라 병렬 환경을 쉽게 관리할 수 있는 방향으로 가고자
+              Stream API 가 추가됨.
+        - java 9
+            - 버전이 올라가면서 JDK 의 규모가 커지게 되고 일부 패키지만 필요로 하는 작은 환경에서 사용하지 않는 패키지들도 런타임에
+              실행되어야 했다. 개발자가 라이브러리와 대규모 응용 프로그램을 쉽게 구성하고 관리할 수 있도록 모듈화 지원
+    - java 9
+        - Modules
+            - 패키지가 클래스들의 묶음이라면 모듈은 패키지의 묶음
+            - 기존 패키지 방식은 여러 패키지에서 공용으로 사용되는 클래스를 외부에 숨길 수 없었다. 이렇게 되면 라이브러리 내부 뿐만 아니라
+              외부에서도 클래스 접근이 가능하게 된다. 그리고 런타임 시 사용하지 않는 클래스들도 모두 포함해야 했다.
+            - 모듈화를 통해 패키지를 캡슐화하고 위 문제들을 해결
+        - private methods in interfaces
+            - private 메서드를 사용해서 메서드를 분리할 수 있고 중복되는 코드 재사용 가능
+            - private static 도 사용 가능하게 됨
+        - 불변 컬렉션 생성
+            - List.of(), Set.of(), Map.of()
+        - Compact String
+            - 자바는 내부적으로 UTF-16 을 사용하기 때문에 모든 문자가 2byte 로 구성되고 1byte 로 표현될 수 있는 영어도 빈 공간을
+              사용해야 했다.
+            - java 6 버전에서 VM 옵션을 활성화해서 문자열을 char 배열 대신에 byte 배열로 저장할 수 있었다.
+              하지만 성능 문제로 7 버전에서 삭제되고 9 버전에 Compact String 으로 돌아옴.
+            - 자바 9 버전 이상의 String 클래스를 보면 인스턴스 변수가 byte 배열로 되어 있어 1byte 로도 저장이 가능해짐
+        - try-with-resource 향상
+            - 자원을 try 문 밖에서 할당하게 된다면 그 변수를 try 문 안에서 바로 사용할 수가 없었다.
+              자바 9 버전에서는 밖에서 할당한 변수도 try 문 안에서 바로 사용 가능
+        - Optional API 추가
+    - java 10
+        - Local variable type interface (로컬 변수 타입 추론)
+            - 하위호환성을 중요시 하는 java 는 기존의 변수명을 var 로 사용했을 것을 염두하여 키워드로 만들지 않음
+              따라서 var 를 변수나 메서드명으로 사용 가능
+            - var 는 인스턴스 변수로 사용이 불가능하고 반드시 초기화해야 함
+            - var 형식의 지역 변수에 익명 클래스를 할당하면 부모가 아닌 익명 클래스 형식을 유추
+        - Optional.orElseThrow()
+            - 인자 없이 사용 가능해짐.
+            - 인자 없이 사용해서 객체가 비어 있을 경우에는 NoSuchElementException 발생
+        - Unmodifiable Collections
+            - copyOf() -> List.copyOf(), Set.copyOf(), Map.copyOf()
+            - toUnmodifiable -> toUnmodifiableList(), toUnmodifiableMap, toUnmodifiableSet()
+    - java 11
+        - Local-Variable Syntax for Lambda
+            - var 를 람다 표현식의 매개변수로 사용할 수 있게 확장됨
+            - var 를 매개변수로 사용하게 된다면 @NotNull 같은 어노테이션을 사용할 수 있게 된다.
+        - String API Additions
+            - repeat(int): 문자열 반복
+            - lines(): 라인 단위로 분할하여 스트림으로 반환
+            - strip(): 문자열 앞 뒤 공백 제거
+            - stripLeading(): 문자열 앞 공백 제거
+            - stripTrailing(): 문자열 뒤 공백 제거
+            - isBlank(): 문자열이 비어 있거나 공백만 있는 경우 true 반환
+            * trim() 과 차이점은 유니코드의 공백 문자를 인식
+        - New File Methods
+            - writeString()
+            - readString()
+            - toArray
