@@ -77,6 +77,7 @@ api/라이브러리/프레임워크  https://www.youtube.com/watch?v=G9Dl5FiaOQ4
           https://www.youtube.com/watch?v=90ZDvHl8ROE
 *java11  https://www.youtube.com/watch?v=LcIyHlE2NlA
 Sharding, Clustering, Replication  https://www.youtube.com/watch?v=y42TXZKFfqQ
+scale up vs scale out, SPOF  https://www.youtube.com/watch?v=6wPr2jgdDxM
 
 TDD
 
