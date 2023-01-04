@@ -229,6 +229,17 @@
                   특정 부분만을 탐색하며 해제하면 더 효율적. 어차피 대다수의 객체가 금방 사라지니 Young Generation 안에서 최대한
                   처리되도록 함.
 
+                  1. Eden 영역에 새로운 객체가 할당
+                  2. Eden 영역이 가득 차면 Minor GC가 발생
+                  3. 참조가 있는 객체는 첫번째 Survivor로 이동
+                  ※ 이동되면서 age bit가 1씩 증가
+                  4. Eden 영역이 가득 차면 Minor GC가 발생
+                  5. 참조가 살아있는 객체들은 두번째 Survivor로 이동
+                  ※ 이동되면서 age bit가 1씩 증가
+                  6. Minor GC 후에 특정 Age 임계치에 도달한 객체들은 Old Generation 으로 Promotion(이동)
+                  (Java 8에서는 Parallel GC 방식 기준으로 age bit가 15가 되면 Promotion이 진행)
+                  7. 때문에 Minor GC 가 계속되면 Old Generation 에 객체들이 계속 Promotion 된다. Old Generation 이 가득차게 되면 객체를 삭제하고 압축하기 위해 Majro GC 가 수행
+
         - Stop The World
             - GC 를 실행하기 위해 JVM 이 어플리케이션 실행을 멈추는 것.
             - 어플리케이션의 사용성을 유지하면서 효율적으로 GC 를 실행하는 것이 어려운 최적화 작업.
