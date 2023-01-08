@@ -89,4 +89,3 @@ string vs string builder
 
 flux  https://www.youtube.com/watch?v=wQFBgKl1PYw
 Sharding, Clustering, Replication   https://www.youtube.com/watch?v=y42TXZKFfqQ
-scale up vs scale out, SPOF   https://www.youtube.com/watch?v=6wPr2jgdDxM
