@@ -74,9 +74,9 @@
 			2. Compiler
 			3. .class Bytecode
 		- At run time
-			4.Native code
-			5.JIT Compiler
-			
+			4.JIT Compiler
+			5.Native code
+
 		- JIT 컴파일러는 JRE의 구성요소로서 런타임에 자바 어플리케이션의 성능을 향상시킨다. 런타임에 JVM은 클래스 파일을 로드하고,
 		  각 개별 바이트코드의 의미를 결정하며 적적한 계산을 수행한다.
 		  JIT 컴파일러는 메서드 호출 내내 활성화 되며, 바이트코드를 기계어로 컴파일하여 실행한다. 
