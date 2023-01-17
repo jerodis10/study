@@ -42,7 +42,7 @@
 			  오류 처리가 귀찮아서 Exception 예외타입(상위)을 이용해 묶어서 catch 처리하는 경우도 있는데 
 			  이 부분은 차후 실무에서 보안에 대한 부분을 대응하다보면, 명시적이지 않기 때문에 이슈가 된다.
 			  또한, Exception에 대한 처리 가독성이 현저히 저하된다.(어떤 이슈가 발생될지 모른다)
-			  우가 작성하는 코드임으로 명확한 Exception 타입을 작성하여 해당 Exception에 적절한 처리가 
+			  우리가 작성하는 코드임으로 명확한 Exception 타입을 작성하여 해당 Exception에 적절한 처리가
 			  될 수 있도록 작성하자.  
 			  
 			- 단 하나의 catch 절을 사용해 모든 오류 정보를 전달받고 특정 오류만 instanceof를 이용해 선택적으로 
@@ -322,6 +322,7 @@
 				}
 		
 		- Custom Checked Exception
+		    - 발생한 예외를 생성자에 주입하기 위한 생성자 메소드를 제공해야 하며, 표준 예외보다 더 나은 이점들을 제공해야 한다.
 			- Checked Exception을 구현하기 위해서는 Exception 클래스를 상속받아야 하는데, 
 			  커스텀 예외를 구현하기 위해 필요한 필수사항이다.	
 			  
@@ -358,6 +359,10 @@
 		- Custom Unchecked Exception
 			- Custom Unchecked Exception 예외 구현은 checked exception 예외 구현가 동일하다.
 			- 한가지 차이가 있는데 "Exception"을 확장하는 것이 아닌 "RuntimeException"을 확장한다.
+			- 개발자 정의 Exception을 생성하면 주로 RuntimeException으로 많이 생성할 것이다.
+              왜냐하면 발생 즉시 시스템 실행 스택을 중단 할 수 있으며, 명시적인 throw 처리를 안해줘도 되는 편리함 때문에 사용하는 것 같다.
+            - Checked Exception으로 처리하는 이유는 API를 이용하여 개발하는 개발자가 반드시 이 단계에서 예외에 대한 처리를 하여
+              대행 할 수 있는 로직을 추가 하던, 아예 throw를 시켜 중지 하던 개발자에게 어느정도 선택의 기회를 주는 것이라고 생각한다.
 			
 		- Spring 예외 처리
 

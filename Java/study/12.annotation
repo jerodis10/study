@@ -1,9 +1,9 @@
-12.annotataion
-	12.1 Annotation 정의
-	12.2 Annotation의 용도
-	12.3 Annotation의 조상
+12.annotation
+	12.1 annotation 정의
+	12.2 annotation의 용도
+	12.3 annotation의 조상
 	12.4 자바 리플렉션
-	12.5 Annotation의 분류
+	12.5 annotation의 분류
 	12.6 Standard Annotations
 	12.7 커스텀 애노테이션을 위한 메타 애노테이션
 	12.8 애노테이션 프로세서	
