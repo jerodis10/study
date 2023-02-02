@@ -27,13 +27,13 @@
             - URI 는 Singleton 이나 Collection 으로 표현한다.
 
         - Collection and Sub-collection Resources
-            - URI 는서브 컬렉션을 포함할 수 있다.
+            - URI 는 서브 컬렉션을 포함할 수 있다.
 
         - URI 네이밍 규칙을 지키면 개발자들의 공용어처럼 사용 가능
             - 명사를 사용해서 자원을 표현
             - 예외적으로 동사 허용하는 경우 (controller)
                  ex) /game/play 에 접근 시 게임이 시작되는 경우
-            - 자원 간 계층 관게를 표현하기 위해 /(슬래시)를 사용
+            - 자원 간 계층 관계를 표현하기 위해 /(슬래시)를 사용
                 ex) /crews/frontend
                     /product/5
             - URI 경로 마지막에는 /(슬래시)를 붙이지 않는다.
