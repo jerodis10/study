@@ -362,50 +362,50 @@
             Temporary Table Space 를 이용하여 정렬을 수행하게 됩니다. 이때 Temporary Table Space 를 사용하면
             딜레이가 생기므로 SORT_AREA_SIZE 를 적당한 크기로 설정해두는 것이 속도 향상에 도움이 됩니다.
 
-    - HASH JOIN (해시 조인)
-        - HASH JOIN 이란?
-            HASH 조인은 조인될 두 테이블 중 하나를 해시 테이블로 선정하여 조인될 테이블의 조인 키 값을 해시 알고리즘으로
-            비교하여 매치되는 결과값을 얻는 방식
-            HASH JOIN 은 비용 기반 옵티마이저를 사용할 때만 사용될 수 있는 조인 방식이며 '=' 비교를 통한 조인에서만
-            사용될 수 있습니다. 주로 많은 양의 데이터를 조인해야 하는 경우에 주로 사용
+- HASH JOIN (해시 조인)
+    - HASH JOIN 이란?
+        HASH 조인은 조인될 두 테이블 중 하나를 해시 테이블로 선정하여 조인될 테이블의 조인 키 값을 해시 알고리즘으로
+        비교하여 매치되는 결과값을 얻는 방식
+        HASH JOIN 은 비용 기반 옵티마이저를 사용할 때만 사용될 수 있는 조인 방식이며 '=' 비교를 통한 조인에서만
+        사용될 수 있습니다. 주로 많은 양의 데이터를 조인해야 하는 경우에 주로 사용
 
-        - HASH JOIN 의 사용처
-            1. JOIN 컬럼에 적당한 인덱스가 없어 NL JOIN 이 비효율적일 때
-            2. JOIN Access 량이 많아 Random Access 부하가 심하여 NL JOIN 이 비효율적일 때
-            3. Sort Merge Join 을 하기에는 두 테이블이 너무 커 Sort 부하가 심할 때
-            4. 수행빈도가 낮고 쿼리 수행 시간이 오래 걸리는 대용량 테이블을 JOIN 할 때
+    - HASH JOIN 의 사용처
+        1. JOIN 컬럼에 적당한 인덱스가 없어 NL JOIN 이 비효율적일 때
+        2. JOIN Access 량이 많아 Random Access 부하가 심하여 NL JOIN 이 비효율적일 때
+        3. Sort Merge Join 을 하기에는 두 테이블이 너무 커 Sort 부하가 심할 때
+        4. 수행빈도가 낮고 쿼리 수행 시간이 오래 걸리는 대용량 테이블을 JOIN 할 때
 
-        - HASH JOIN 의 동작 방식
-            1. 둘 중 작은 집합(Build Input)을 읽어 Hash Area 에 해시 테이블을 생성한다.
-                (해시 함수에서 리턴 받은 버킷 주소로 찾아가 해시 체인에 엔트리를 연결)
-            2. 반대쪽 큰 집합(Probe Input)을 읽어 해시 테이블을 탐색하면서 JOIN 한다.
-            3. 해시 함수에서 리턴 받은 버킷 주소로 찾아가 해시 체인을 스캔하면서 데이터를 찾는다.
+    - HASH JOIN 의 동작 방식
+        1. 둘 중 작은 집합(Build Input)을 읽어 Hash Area 에 해시 테이블을 생성한다.
+            (해시 함수에서 리턴 받은 버킷 주소로 찾아가 해시 체인에 엔트리를 연결)
+        2. 반대쪽 큰 집합(Probe Input)을 읽어 해시 테이블을 탐색하면서 JOIN 한다.
+        3. 해시 함수에서 리턴 받은 버킷 주소로 찾아가 해시 체인을 스캔하면서 데이터를 찾는다.
 
-        - HASH JOIN 의 성능 개선 포인트
-            - HASH TABLE 을 만드는 과정을 효율화 한다.
-                HASH JOIN 은 해시 테이블을 생성하는 비용이 수반되므로 이 과정을 효율화하는 것이 성능 개선에 있어 가장 중요합니다.
-                그렇기에 HASH TABLE 로 만들 Build Input 이 Hash Area 에 담길 정도로 충분히 작아야 하며
-                Build Input 해시 키 칼럼에 중복 값이 거의 없어야 효율적인 동작을 기대할 수 있습니다.
+    - HASH JOIN 의 성능 개선 포인트
+        - HASH TABLE 을 만드는 과정을 효율화 한다.
+            HASH JOIN 은 해시 테이블을 생성하는 비용이 수반되므로 이 과정을 효율화하는 것이 성능 개선에 있어 가장 중요합니다.
+            그렇기에 HASH TABLE 로 만들 Build Input 이 Hash Area 에 담길 정도로 충분히 작아야 하며
+            Build Input 해시 키 칼럼에 중복 값이 거의 없어야 효율적인 동작을 기대할 수 있습니다.
 
-            - CPU 의 성능을 향상한다.
-                HASH BUCKET 이 조인 집합에 구성되어 해시 함수 결과를 저장해야 하는데 기본적으로 HASH_AREA_SIZE 에
-                지정된 크기만큼의 메모리가 할당되어 사용됩니다. 이러한 처리에는 많은 메모리와 CPU 자원을 소모하게 됩니다.
-                그렇기에 CPU 의 자원이 넉넉하다면 다른 조인에 비해 보다 좋은 효율을 내지만 부족한 상황에서는 다른 조인 방법보다
-                느려질 수도 있습니다. 그러므로 CPU 의 성능을 향상한다면 HASH JOIN 의 성능을 향상할 수 있습니다.
+        - CPU 의 성능을 향상한다.
+            HASH BUCKET 이 조인 집합에 구성되어 해시 함수 결과를 저장해야 하는데 기본적으로 HASH_AREA_SIZE 에
+            지정된 크기만큼의 메모리가 할당되어 사용됩니다. 이러한 처리에는 많은 메모리와 CPU 자원을 소모하게 됩니다.
+            그렇기에 CPU 의 자원이 넉넉하다면 다른 조인에 비해 보다 좋은 효율을 내지만 부족한 상황에서는 다른 조인 방법보다
+            느려질 수도 있습니다. 그러므로 CPU 의 성능을 향상한다면 HASH JOIN 의 성능을 향상할 수 있습니다.
 
-            - 충분한 PGA 메모리 확보
-                Hash Area 는 PGA 메모리에 할당되는데 Build Input 이 HASH_AREA_SIZE 를 초과하게 되면 가장 큰 순서대로
-                Hash Bucket 이 Temporary Table Space 로 내려가서 구성됩니다. 디스크로 내려간 Hash Bucket 에
-                변경이 일어날 때마다 디스크 I/O가 발생하게 되어 성능이 현저하게 저하됩니다.
+        - 충분한 PGA 메모리 확보
+            Hash Area 는 PGA 메모리에 할당되는데 Build Input 이 HASH_AREA_SIZE 를 초과하게 되면 가장 큰 순서대로
+            Hash Bucket 이 Temporary Table Space 로 내려가서 구성됩니다. 디스크로 내려간 Hash Bucket 에
+            변경이 일어날 때마다 디스크 I/O가 발생하게 되어 성능이 현저하게 저하됩니다.
 
-            * HASH_AREA_SIZE
-              HASH JOIN 에 사용되는 최대 메모리 SIZE 를 지정하는 설정값입니다. Hash Join 에서 사용되는
-              해쉬 메모리 크기(HASH_AREA_SIZE)의 기본 값은 SORT_AREA_SIZE 의 2배입니다. 9i 이상에서 값을 지정하는 것을
-              권장하지 않고, PGA_AGGREGATE_TARGET parameter 사용을 권장합니다.
+        * HASH_AREA_SIZE
+          HASH JOIN 에 사용되는 최대 메모리 SIZE 를 지정하는 설정값입니다. Hash Join 에서 사용되는
+          해쉬 메모리 크기(HASH_AREA_SIZE)의 기본 값은 SORT_AREA_SIZE 의 2배입니다. 9i 이상에서 값을 지정하는 것을
+          권장하지 않고, PGA_AGGREGATE_TARGET parameter 사용을 권장합니다.
 
-        - 사용법
-            /*+leading(a c) use_hash(c)*/
-            아마 힌트를 주지 않아도 옵티마이저가 알아서 hash 조인을 하는 경우도 있지만, 이러한 힌트를 명시해주는 것이 바람직
+    - 사용법
+        /*+leading(a c) use_hash(c)*/
+        아마 힌트를 주지 않아도 옵티마이저가 알아서 hash 조인을 하는 경우도 있지만, 이러한 힌트를 명시해주는 것이 바람직
 
     - 힌트에 관해서  https://devuna.tistory.com/35
         - 힌트란 SQL 튜닝의 핵심 부분으로 일종의 지시 구문이다.
