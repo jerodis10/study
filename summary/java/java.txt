@@ -782,3 +782,4 @@ newCachedThreadPool()은 동적 크기로 처리할 작업이 있을 때 새 스레드를 생성합니다
 newFixedThreadPool()은 최대 스레드 개수를 설정하며, 유후 스레드가 있더라도 스레드 개수가 줄지 않습니다.
 
 newSingleThreadPool()은 하나의 스레드를 생성하며, 작업이 차례대로 실행되며 스레드 안전하다.
+
