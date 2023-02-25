@@ -783,3 +783,4 @@ newFixedThreadPool()은 최대 스레드 개수를 설정하며, 유후 스레드가 있더라도 스레�
 
 newSingleThreadPool()은 하나의 스레드를 생성하며, 작업이 차례대로 실행되며 스레드 안전하다.
 
+
