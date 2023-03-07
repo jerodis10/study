@@ -501,6 +501,7 @@
 
 - 마이바티스
 - DML, DDL, DCL
+- union vs union all
 
 - JPA
     - 영속성 컨텍스트 관련 (이점 등)
