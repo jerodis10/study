@@ -41,7 +41,7 @@ https://mangkyu.tistory.com/242
     - 익셉션 (에러 처리)
     - 테스트 코드
     - 주석, 로그
-    - 유효성 검증 로직 (@Valid와 @Validated)
+    - 유효성 검증 로직 (@Valid 와 @Validated)
     - aop 적용 - ex) logTracer
     - 서버에 따른 log 설정 분기
     - interceptor 적용 - ex) 로그인
@@ -54,6 +54,7 @@ https://mangkyu.tistory.com/242
     - 데이터 삽입 방법 고려
     	ex) test Container
     	    테스트 데이터 삽입 버튼?
+    - 테스트 커버리지?
     - springSecurity 도입 고려
 
     -> 지원하려는 팀 기술스택 고려
