@@ -500,6 +500,7 @@
             Ex) Neo4j, BlazeGraph, OrientDB
 
 - 마이바티스
+    http://125.132.25.164/dokuwiki/doku.php?id=wiki:spring:mybatis
 - DML, DDL, DCL
 - union vs union all
 
@@ -515,6 +516,11 @@
     - select, from, join 등 키워드 기준으로 설명?
 
 
+- 와탭(WhaTap) 소개 및 설치
+    https://archmond.net/archives/3137
+
+- 와탭(WhaTap)의 모니터링 기능에 빠져보자
+    https://archmond.net/archives/3241
 
 - 동시성 제어 기법들
 - 트랜잭션 격리 수준  https://code-lab1.tistory.com/52
