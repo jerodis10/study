@@ -504,6 +504,10 @@
 - DML, DDL, DCL
 - union vs union all
 
+- SQL SELECT 쿼리 실행 순서 처리 과정
+    https://myjamong.tistory.com/172
+    http://www.yes24.com/Product/Goods/6960931
+
 - JPA
     - 영속성 컨텍스트 관련 (이점 등)
 - index
