@@ -11,8 +11,7 @@
   
 * 자바9부터 List.of를 이용해 add()를 쓰지않고 간편하게 디폴트 데이터 생성 가능
 	예) List<String> names = List.of("a", "b");
-<<<<<<< HEAD:Java/JAVA_TIP
-	
+
 * 알아두면 유용한 Lombok 어노테이션
 	(https://www.daleseo.com/lombok-useful-annotations/)
 	
@@ -31,9 +30,7 @@
 
 	객체를 통해 클래스의 정보를 분석해 내는 프로그램 기법을 말한다.
 	출처 	: https://gyrfalcon.tistory.com/entry/Java-Reflection [Minsub's Blog]
-=======
 
 * 웹소켓
     https://kr.coderbridge.com/questions/8b2611e50a484b0a94fcf476ff92d225
     https://developer.mozilla.org/ko/docs/Web/API/WebSockets_API
->>>>>>> 4b171a3 (Dosc: java-tip (웹소켓 관련)):Java/tip
