@@ -699,6 +699,9 @@
     * Mock Object 란
         https://medium.com/@SlackBeck/mock-object%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80-85159754b2ac
 
+    * 여러 값으로 단위 테스트 반복하기 ( @ParameterizedTest )
+        https://sas-study.tistory.com/320
+        https://velog.io/@ohzzi/junit5-parameterizedtest
 
     슬라이스 테스트 vs 단위 테스트 ??
 
