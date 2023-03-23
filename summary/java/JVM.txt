@@ -1,182 +1,182 @@
-- ÀÚ¹Ù °¡»ó ¸Ó½Å JVM (Java Virtual Machine)
-    - JVM ÀÌ¶õ ¹«¾ùÀÎ°¡
-        - ÀÚ¹Ù ÇÁ·Î±×·¥ ½ÇÇàÈ¯°æÀ» ¸¸µé¾î ÁÖ´Â ¼ÒÇÁÆ®¿þ¾î
-          ÀÚ¹Ù ÄÚµå¸¦ ÄÄÆÄÀÏÇÏ¿© .class ¹ÙÀÌÆ® ÄÚµå·Î ¸¸µé¸é ÀÌ ÄÚµå°¡ JVM ¿¡¼­ ½ÇÇàµÈ´Ù.
-          JVM Àº ÀÚ¹Ù ½ÇÇà È¯°æ JRE (Java Runtime Environment) ¿¡ Æ÷ÇÔµÇ¾î ÀÖ´Ù.
-          ÇöÀç »ç¿ëÇÏ´Â ÄÄÇ»ÅÍÀÇ ¿î¿µÃ¼Á¦¿¡ ¸Â´Â ÀÚ¹Ù ½ÇÇà È¯°æÀÌ ¼³Ä¡µÇ¾î ÀÖ´Ù¸é ÀÚ¹Ù °¡»ó ¸Ó½ÅÀÌ ¼³Ä¡µÇ¾î ÀÖ´Ù´Â ¶æ.
+- ìžë°” ê°€ìƒ ë¨¸ì‹  JVM (Java Virtual Machine)
+    - JVM ì´ëž€ ë¬´ì—‡ì¸ê°€
+        - ìžë°” í”„ë¡œê·¸ëž¨ ì‹¤í–‰í™˜ê²½ì„ ë§Œë“¤ì–´ ì£¼ëŠ” ì†Œí”„íŠ¸ì›¨ì–´
+          ìžë°” ì½”ë“œë¥¼ ì»´íŒŒì¼í•˜ì—¬ .class ë°”ì´íŠ¸ ì½”ë“œë¡œ ë§Œë“¤ë©´ ì´ ì½”ë“œê°€ JVM ì—ì„œ ì‹¤í–‰ëœë‹¤.
+          JVM ì€ ìžë°” ì‹¤í–‰ í™˜ê²½ JRE (Java Runtime Environment) ì— í¬í•¨ë˜ì–´ ìžˆë‹¤.
+          í˜„ìž¬ ì‚¬ìš©í•˜ëŠ” ì»´í“¨í„°ì˜ ìš´ì˜ì²´ì œì— ë§žëŠ” ìžë°” ì‹¤í–‰ í™˜ê²½ì´ ì„¤ì¹˜ë˜ì–´ ìžˆë‹¤ë©´ ìžë°” ê°€ìƒ ë¨¸ì‹ ì´ ì„¤ì¹˜ë˜ì–´ ìžˆë‹¤ëŠ” ëœ».
 
-    - ½ÇÇàÇÏ´Â ¹æ¹ý
-        - C¾ð¾î ¿Í ÀÚ¹Ù ÄÄÆÄÀÏ °úÁ¤ Â÷ÀÌ
-            - C¾ð¾î
-                - C/C++ ¼Ò½º¸¦ ÄÄÆÄÀÏÇÏ°í ³ª¸é OS »ó¿¡¼­ ¹Ù·Î ½ÇÇàµÉ ¼ö ÀÖ´Â ½ÇÇà ÆÄÀÏÀÌ »ý¼ºµÈ´Ù.
-                  ±×·¯³ª ÀÌ·¸°Ô »ý¼ºµÈ ½ÇÇà ÆÄÀÏ¿¡´Â OS¿¡ Á¾¼ÓÀûÀÎ ÄÚµå°¡ ÀÖÀ¸¸ç, OS°¡ ¹Ù²î¸é ´Ù½Ã ¼Ò½º¸¦ ÄÄÆÄÀÏÇÏ°í ¸µÅ©ÇØ¾ß ÇÑ´Ù.
+    - ì‹¤í–‰í•˜ëŠ” ë°©ë²•
+        - Cì–¸ì–´ ì™€ ìžë°” ì»´íŒŒì¼ ê³¼ì • ì°¨ì´
+            - Cì–¸ì–´
+                - C/C++ ì†ŒìŠ¤ë¥¼ ì»´íŒŒì¼í•˜ê³  ë‚˜ë©´ OS ìƒì—ì„œ ë°”ë¡œ ì‹¤í–‰ë  ìˆ˜ ìžˆëŠ” ì‹¤í–‰ íŒŒì¼ì´ ìƒì„±ëœë‹¤.
+                  ê·¸ëŸ¬ë‚˜ ì´ë ‡ê²Œ ìƒì„±ëœ ì‹¤í–‰ íŒŒì¼ì—ëŠ” OSì— ì¢…ì†ì ì¸ ì½”ë“œê°€ ìžˆìœ¼ë©°, OSê°€ ë°”ë€Œë©´ ë‹¤ì‹œ ì†ŒìŠ¤ë¥¼ ì»´íŒŒì¼í•˜ê³  ë§í¬í•´ì•¼ í•œë‹¤.
             - java
-                - ¸µÅ© °úÁ¤ ¾øÀÌ ÄÄÆÄÀÏ·¯°¡ ¹Ù·Î ¹ÙÀÌÆ®ÄÚµå¸¦ »ý¼º
-                  ÀÌ·¸°Ô »ý¼ºµÈ ¹ÙÀÌÆ® ÄÚµå´Â °¢ÀÚÀÇ ÇÃ·§Æû¿¡ ¼³Ä¡µÇ¾î ÀÖ´Â ÀÚ¹Ù °¡»ó ¸Ó½Å(JVM)ÀÌ ¿î¿µÃ¼Á¦¿¡ ¸Â´Â ½ÇÇà ÆÄÀÏ·Î ¹Ù²ãÁØ´Ù.
-                  ÄÄÆÄÀÏµÈ Å¬·¡½ºÆÄÀÏ(¹ÙÀÌÆ®ÄÚµå)ÀÌ JVM ¿¡¼­ ½ÇÇàµÇ¾î OS¿¡ Á¾¼ÓÀûÀÎ ÄÚµå¸¦ °®Áö ¾ÊÀ¸¹Ç·Î OS°¡ ´Þ¶óÁ®µµ ´Ù½Ã ÄÄÆÄÀÏÇÒ ÇÊ¿ä¾øÀÌ OS¿¡ ¸Â´Â JVM ¸¸ ¼³Ä¡ÇÏ¸é µÈ´Ù.
-                -> Java ´Â ÇÃ·§Æû¿¡ Á¾¼ÓÀûÀÌÁö ¾ÊÁö¸¸ JVM Àº ÇÃ·§Æû¿¡ Á¾¼ÓÀûÀÌ´Ù.
+                - ë§í¬ ê³¼ì • ì—†ì´ ì»´íŒŒì¼ëŸ¬ê°€ ë°”ë¡œ ë°”ì´íŠ¸ì½”ë“œë¥¼ ìƒì„±
+                  ì´ë ‡ê²Œ ìƒì„±ëœ ë°”ì´íŠ¸ ì½”ë“œëŠ” ê°ìžì˜ í”Œëž«í¼ì— ì„¤ì¹˜ë˜ì–´ ìžˆëŠ” ìžë°” ê°€ìƒ ë¨¸ì‹ (JVM)ì´ ìš´ì˜ì²´ì œì— ë§žëŠ” ì‹¤í–‰ íŒŒì¼ë¡œ ë°”ê¿”ì¤€ë‹¤.
+                  ì»´íŒŒì¼ëœ í´ëž˜ìŠ¤íŒŒì¼(ë°”ì´íŠ¸ì½”ë“œ)ì´ JVM ì—ì„œ ì‹¤í–‰ë˜ì–´ OSì— ì¢…ì†ì ì¸ ì½”ë“œë¥¼ ê°–ì§€ ì•Šìœ¼ë¯€ë¡œ OSê°€ ë‹¬ë¼ì ¸ë„ ë‹¤ì‹œ ì»´íŒŒì¼í•  í•„ìš”ì—†ì´ OSì— ë§žëŠ” JVM ë§Œ ì„¤ì¹˜í•˜ë©´ ëœë‹¤.
+                -> Java ëŠ” í”Œëž«í¼ì— ì¢…ì†ì ì´ì§€ ì•Šì§€ë§Œ JVM ì€ í”Œëž«í¼ì— ì¢…ì†ì ì´ë‹¤.
 
-    - ¹ÙÀÌÆ®ÄÚµå¶õ ¹«¾ùÀÎ°¡
-        - ¹ÙÀÌÆ®ÄÚµå¶õ Æ¯Á¤ ÇÏµå¿þ¾î°¡ ¾Æ´Ñ °¡»ó ÄÄÇ»ÅÍ¿¡¼­ µ¹¾Æ°¡´Â ½ÇÇà ÇÁ·Î±×·¥À» À§ÇÑ ÀÌÁø Ç¥Çö¹ý.
-          ÈçÈ÷ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ÆÄÀÏÀÎ .java ÆÄÀÏÀ» ÄÄÆÄÀÏ ÈÄ »ý±â´Â .class ÆÄÀÏ ¾ÈÀÇ ³»¿ë.
-        - JVM ¾È¿¡¼­
-          .class ÆÄÀÏ¿¡ ´ëÇÑ interpret ÀÌ ¼öÇàÀÌ µÇ´Âµ¥, ¼Ò½º ÄÚµå ÀüÃ¼¸¦ ÇÑ¹ø¿¡ ¹ø¿ªÇÏ´Â ÄÄÆÄÀÏ·¯¿Í´Â ´Þ¸® ¼Ò½º ÄÚµå¸¦ ÇÑ Çà¾¿
-          Áß°£ ÄÚµå¸¦ º¯¿ª ÈÄ ½ÇÇàÇÑ´Ù. OS¿¡ µ¶¸³ÀûÀÎ ÀåÁ¡À» ¾ò¾úÁö¸¸ Áß°£°úÁ¤ÀÌ Ãß°¡µÊÀ¸·Î½á ´À¸®´Ù´Â ºñÆÇÀ» ¹Þ¾Æ¿ÔÁö¸¸
-          JIT Compiler °¡ µîÀåÇÔÀ¸·Î½á ÇÑ°è¸¦ ±Øº¹.
+    - ë°”ì´íŠ¸ì½”ë“œëž€ ë¬´ì—‡ì¸ê°€
+        - ë°”ì´íŠ¸ì½”ë“œëž€ íŠ¹ì • í•˜ë“œì›¨ì–´ê°€ ì•„ë‹Œ ê°€ìƒ ì»´í“¨í„°ì—ì„œ ëŒì•„ê°€ëŠ” ì‹¤í–‰ í”„ë¡œê·¸ëž¨ì„ ìœ„í•œ ì´ì§„ í‘œí˜„ë²•.
+          í”ížˆ ì½”ë“œë¥¼ ìž‘ì„±í•˜ëŠ” íŒŒì¼ì¸ .java íŒŒì¼ì„ ì»´íŒŒì¼ í›„ ìƒê¸°ëŠ” .class íŒŒì¼ ì•ˆì˜ ë‚´ìš©.
+        - JVM ì•ˆì—ì„œ
+          .class íŒŒì¼ì— ëŒ€í•œ interpret ì´ ìˆ˜í–‰ì´ ë˜ëŠ”ë°, ì†ŒìŠ¤ ì½”ë“œ ì „ì²´ë¥¼ í•œë²ˆì— ë²ˆì—­í•˜ëŠ” ì»´íŒŒì¼ëŸ¬ì™€ëŠ” ë‹¬ë¦¬ ì†ŒìŠ¤ ì½”ë“œë¥¼ í•œ í–‰ì”©
+          ì¤‘ê°„ ì½”ë“œë¥¼ ë³€ì—­ í›„ ì‹¤í–‰í•œë‹¤. OSì— ë…ë¦½ì ì¸ ìž¥ì ì„ ì–»ì—ˆì§€ë§Œ ì¤‘ê°„ê³¼ì •ì´ ì¶”ê°€ë¨ìœ¼ë¡œì¨ ëŠë¦¬ë‹¤ëŠ” ë¹„íŒì„ ë°›ì•„ì™”ì§€ë§Œ
+          JIT Compiler ê°€ ë“±ìž¥í•¨ìœ¼ë¡œì¨ í•œê³„ë¥¼ ê·¹ë³µ.
 
     - JIT Compiler
-        - JVM Àº ¹ÙÀÌÆ®ÄÚµå¸¦ ¸í·É¾î ´ÜÀ§·Î ÀÐ¾î¼­ ÇØ¼®ÇÏ´Âµ¥, Interpreter ¹æ½Ä°ú JIT ÄÄÆÄÀÏ ¹æ½Ä µÎ °¡Áö ¹æ½ÄÀ» È¥ÇÕÇÏ¿© »ç¿ëÇÕ´Ï´Ù.
-          Interpreter ¹æ½ÄÀº ¹ÙÀÌÆ®ÄÚµå¸¦ ÇÑ ÁÙ¾¿ ÇØ¼®, ½ÇÇàÇÏ´Â ¹æ½ÄÀÔ´Ï´Ù. ÃÊ±â ¹æ½ÄÀ¸·Î, ¼Óµµ°¡ ´À¸®´Ù´Â ´ÜÁ¡ÀÌ ÀÖ½À´Ï´Ù.
-          ÀÌ·¸°Ô ´À¸° ¼Óµµ¸¦ º¸¿ÏÇÏ±â À§ÇØ ³ª¿Â °ÍÀÌ JIT(Just In Time) ÄÄÆÄÀÏ ¹æ½ÄÀÔ´Ï´Ù.
-        - ¹ÙÀÌÆ®ÄÚµå¸¦ JIT ÄÄÆÄÀÏ·¯¸¦ ÀÌ¿ëÇØ ÇÁ·Î±×·¥À» ½ÇÁ¦ ½ÇÇàÇÏ´Â ½ÃÁ¡(¹ÙÀÌÆ®ÄÚµå¸¦ ½ÇÇàÇÏ´Â ½ÃÁ¡)¿¡ °¢ OS¿¡ ¸Â´Â Native Code ·Î º¯È¯ÇÏ¿© ½ÇÇà ¼Óµµ¸¦ °³¼±ÇÏ¿´½À´Ï´Ù.
-          ÇÏÁö¸¸, ¹ÙÀÌÆ®ÄÚµå¸¦ Native Code ·Î º¯È¯ÇÏ´Â µ¥¿¡µµ ºñ¿ëÀÌ ¼Ò¿äµÇ¹Ç·Î, JVM Àº ¸ðµç ÄÚµå¸¦ JIT ÄÄÆÄÀÏ·¯ ¹æ½ÄÀ¸·Î ½ÇÇàÇÏÁö ¾Ê°í,
-          ÀÎÅÍÇÁ¸®ÅÍ ¹æ½ÄÀ» »ç¿ëÇÏ´Ù°¡ ÀÏÁ¤ ±âÁØÀÌ ³Ñ¾î°¡¸é JIT ÄÄÆÄÀÏ ¹æ½ÄÀ¸·Î ¸í·É¾î¸¦ ½ÇÇàÇÕ´Ï´Ù.
-        - ¶ÇÇÑ, JIT ÄÄÆÄÀÏ·¯´Â °°Àº ÄÚµå¸¦ ¸Å¹ø ÇØ¼®ÇÏÁö ¾Ê°í, ½ÇÇàÇÒ ¶§ ÄÄÆÄÀÏÀ» ÇÏ¸é¼­ ÇØ´ç ÄÚµå¸¦ Ä³½ÌÇØ¹ö¸³´Ï´Ù. ÀÌÈÄ¿¡´Â ¹Ù²ï ºÎºÐ¸¸ ÄÄÆÄÀÏÇÏ°í, ³ª¸ÓÁö´Â Ä³½ÌµÈ ÄÚµå¸¦ »ç¿ëÇÕ´Ï´Ù.
+        - JVM ì€ ë°”ì´íŠ¸ì½”ë“œë¥¼ ëª…ë ¹ì–´ ë‹¨ìœ„ë¡œ ì½ì–´ì„œ í•´ì„í•˜ëŠ”ë°, Interpreter ë°©ì‹ê³¼ JIT ì»´íŒŒì¼ ë°©ì‹ ë‘ ê°€ì§€ ë°©ì‹ì„ í˜¼í•©í•˜ì—¬ ì‚¬ìš©í•©ë‹ˆë‹¤.
+          Interpreter ë°©ì‹ì€ ë°”ì´íŠ¸ì½”ë“œë¥¼ í•œ ì¤„ì”© í•´ì„, ì‹¤í–‰í•˜ëŠ” ë°©ì‹ìž…ë‹ˆë‹¤. ì´ˆê¸° ë°©ì‹ìœ¼ë¡œ, ì†ë„ê°€ ëŠë¦¬ë‹¤ëŠ” ë‹¨ì ì´ ìžˆìŠµë‹ˆë‹¤.
+          ì´ë ‡ê²Œ ëŠë¦° ì†ë„ë¥¼ ë³´ì™„í•˜ê¸° ìœ„í•´ ë‚˜ì˜¨ ê²ƒì´ JIT(Just In Time) ì»´íŒŒì¼ ë°©ì‹ìž…ë‹ˆë‹¤.
+        - ë°”ì´íŠ¸ì½”ë“œë¥¼ JIT ì»´íŒŒì¼ëŸ¬ë¥¼ ì´ìš©í•´ í”„ë¡œê·¸ëž¨ì„ ì‹¤ì œ ì‹¤í–‰í•˜ëŠ” ì‹œì (ë°”ì´íŠ¸ì½”ë“œë¥¼ ì‹¤í–‰í•˜ëŠ” ì‹œì )ì— ê° OSì— ë§žëŠ” Native Code ë¡œ ë³€í™˜í•˜ì—¬ ì‹¤í–‰ ì†ë„ë¥¼ ê°œì„ í•˜ì˜€ìŠµë‹ˆë‹¤.
+          í•˜ì§€ë§Œ, ë°”ì´íŠ¸ì½”ë“œë¥¼ Native Code ë¡œ ë³€í™˜í•˜ëŠ” ë°ì—ë„ ë¹„ìš©ì´ ì†Œìš”ë˜ë¯€ë¡œ, JVM ì€ ëª¨ë“  ì½”ë“œë¥¼ JIT ì»´íŒŒì¼ëŸ¬ ë°©ì‹ìœ¼ë¡œ ì‹¤í–‰í•˜ì§€ ì•Šê³ ,
+          ì¸í„°í”„ë¦¬í„° ë°©ì‹ì„ ì‚¬ìš©í•˜ë‹¤ê°€ ì¼ì • ê¸°ì¤€ì´ ë„˜ì–´ê°€ë©´ JIT ì»´íŒŒì¼ ë°©ì‹ìœ¼ë¡œ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰í•©ë‹ˆë‹¤.
+        - ë˜í•œ, JIT ì»´íŒŒì¼ëŸ¬ëŠ” ê°™ì€ ì½”ë“œë¥¼ ë§¤ë²ˆ í•´ì„í•˜ì§€ ì•Šê³ , ì‹¤í–‰í•  ë•Œ ì»´íŒŒì¼ì„ í•˜ë©´ì„œ í•´ë‹¹ ì½”ë“œë¥¼ ìºì‹±í•´ë²„ë¦½ë‹ˆë‹¤. ì´í›„ì—ëŠ” ë°”ë€ ë¶€ë¶„ë§Œ ì»´íŒŒì¼í•˜ê³ , ë‚˜ë¨¸ì§€ëŠ” ìºì‹±ëœ ì½”ë“œë¥¼ ì‚¬ìš©í•©ë‹ˆë‹¤.
 
         - JDK > JRE > JVM > JIT
 
-    - JVM ±¸¼º ¿ä¼Ò
+    - JVM êµ¬ì„± ìš”ì†Œ
         - ClassLoader System
-            - ÀÚ¹Ù´Â µ¿ÀûÀ¸·Î Å¬·¡½º¸¦ ÀÐ¾î¿À¹Ç·Î, ÇÁ·Î±×·¥ÀÌ ½ÇÇà ÁßÀÎ ·±Å¸ÀÓ¿¡¼­¾ß ¸ðµç ÄÚµå°¡ ÀÚ¹Ù °¡»ó ¸Ó½Å°ú ¿¬°áµÈ´Ù.
-              ÀÌ·¸°Ô µ¿ÀûÀ¸·Î Å¬·¡½º¸¦ ·ÎµùÇØÁÖ´Â ¿ªÇÒÀ» ÇÏ´Â °ÍÀÌ Å¬·¡½º ·Î´õ.
-            - Å¬·¡½º ·Î´õ´Â .class ÆÄÀÏÀ» ¹­¾î¼­ JVM ÀÌ ¿î¿µÃ¼Á¦·ÎºÎÅÍ ÇÒ´ç¹ÞÀº ¸Þ¸ð¸® ¿µ¿ªÀÎ Runtime Data Area ·Î ÀûÀç.
+            - ìžë°”ëŠ” ë™ì ìœ¼ë¡œ í´ëž˜ìŠ¤ë¥¼ ì½ì–´ì˜¤ë¯€ë¡œ, í”„ë¡œê·¸ëž¨ì´ ì‹¤í–‰ ì¤‘ì¸ ëŸ°íƒ€ìž„ì—ì„œì•¼ ëª¨ë“  ì½”ë“œê°€ ìžë°” ê°€ìƒ ë¨¸ì‹ ê³¼ ì—°ê²°ëœë‹¤.
+              ì´ë ‡ê²Œ ë™ì ìœ¼ë¡œ í´ëž˜ìŠ¤ë¥¼ ë¡œë”©í•´ì£¼ëŠ” ì—­í• ì„ í•˜ëŠ” ê²ƒì´ í´ëž˜ìŠ¤ ë¡œë”.
+            - í´ëž˜ìŠ¤ ë¡œë”ëŠ” .class íŒŒì¼ì„ ë¬¶ì–´ì„œ JVM ì´ ìš´ì˜ì²´ì œë¡œë¶€í„° í• ë‹¹ë°›ì€ ë©”ëª¨ë¦¬ ì˜ì—­ì¸ Runtime Data Area ë¡œ ì ìž¬.
 
-            - Runtime ½ÃÁ¡¿¡ Runtime Data Area ÀÇ Method Area ¿¡ .class ÆÄÀÏµéÀ» °Ë»ç ÈÄ ·ÎµåÇÏ°í ¸µÅ©¸¦ ÅëÇØ ¹èÄ¡ÇÏ´Â ÀÛ¾÷À» ¼öÇà
+            - Runtime ì‹œì ì— Runtime Data Area ì˜ Method Area ì— .class íŒŒì¼ë“¤ì„ ê²€ì‚¬ í›„ ë¡œë“œí•˜ê³  ë§í¬ë¥¼ í†µí•´ ë°°ì¹˜í•˜ëŠ” ìž‘ì—…ì„ ìˆ˜í–‰
 
         - Runtime Data Area
-            - ·±Å¸ÀÓ µ¥ÀÌÅÍ ¿µ¿ªÀº JVM ÀÇ ¸Þ¸ð¸® ¿µ¿ªÀ¸·Î ÀÚ¹Ù ¾ÖÇÃ¸®ÄÉÀÌ¼ÇÀ» ½ÇÇàÇÒ ¶§ »ç¿ëµÇ´Â µ¥ÀÌÅÍµéÀ» ÀûÀçÇÏ´Â ¿µ¿ª.
-            - OS°¡ °ü¸®ÇÏ´Â ¸ÞÀÎ¸Þ¸ð¸®ÀÎ RAM ÀÇ ÀÏºÎ ¿µ¿ªÀ» JVM ÀÌ ÇÊ¿äÇÑ ¸¸Å­ OS ·ÎºÎÅÍ ÇÒ´ç¹Þ´Â´Ù. OS ·ÎºÎÅÍ ¹ÞÀº ¸Þ¸ð¸® °ø°£À»
-              Runtime Data Area ¶ó°í ºÎ¸£¸ç 5°³ÀÇ ¿µ¿ªÀ¸·Î ¿ëµµº°·Î ³ª´©¾î¼­ °ü¸®ÇÑ´Ù.
-                - ¸ðµç ½º·¹µå°¡ °øÀ¯ÇØ¼­ »ç¿ë (GCÀÇ ´ë»ó)
-                    - Èü ¿µ¿ª (Heap Area)
-                        - new Å°¿öµå·Î »ý¼ºµÈ °´Ã¼¿Í ¹è¿­ÀÌ »ý¼ºµÇ´Â ¿µ¿ª
-                        - ÁÖ±âÀûÀ¸·Î GC°¡ Á¦°ÅÇÏ´Â ¿µ¿ª
-                    - ¸Þ¼­µå ¿µ¿ª(Method Area)
-                        - Å¬·¡½º ¸â¹ö º¯¼öÀÇ ÀÌ¸§, µ¥ÀÌÅÍ Å¸ÀÔ, Á¢±Ù Á¦¾îÀÚ Á¤º¸¿Í °°Àº °¢Á¾ ÇÊµå Á¤º¸µé°ú ¸Þ¼­µå Á¤º¸ µîÀÌ »ý¼ºµÇ´Â ¿µ¿ª
-                - ½º·¹µå(Thread) ¸¶´Ù ÇÏ³ª¾¿ »ý¼º
-                    - ½ºÅÃ ¿µ¿ª(Stack Area)
-                        - Áö¿ªº¯¼ö, ÆÄ¶ó¹ÌÅÍ, ¸®ÅÏ °ª, ¿¬»ê¿¡ »ç¿ëµÇ´Â ÀÓ½Ã °ª µîÀÌ »ý¼ºµÇ´Â ¿µ¿ª
-                    - PC ·¹Áö½ºÅÍ (PC Register)
-                        - ÇÁ·Î±×·¥ Ä«¿îÅÍ, Áï ÇöÀç ½º·¹µå°¡ ½ÇÇàµÇ´Â ºÎºÐÀÇ ÁÖ¼Ò¿Í ¸í·ÉÀ» ÀúÀåÇÏ°í ÀÖ´Â ¿µ¿ª
-                    - ³×ÀÌÆ¼ºê ¸Þ¼­µå ½ºÅÃ(Native Method Stack)
-                        - ÀÚ¹Ù ÀÌ¿ÜÀÇ ¾ð¾î(C, C++, ¾î¼Àºí¸® µî)·Î ÀÛ¼ºµÈ ³×ÀÌÆ¼ºê ÄÚµå¸¦ ½ÇÇàÇÒ ¶§ »ç¿ëµÇ´Â ¸Þ¸ð¸® ¿µ¿ª
+            - ëŸ°íƒ€ìž„ ë°ì´í„° ì˜ì—­ì€ JVM ì˜ ë©”ëª¨ë¦¬ ì˜ì—­ìœ¼ë¡œ ìžë°” ì• í”Œë¦¬ì¼€ì´ì…˜ì„ ì‹¤í–‰í•  ë•Œ ì‚¬ìš©ë˜ëŠ” ë°ì´í„°ë“¤ì„ ì ìž¬í•˜ëŠ” ì˜ì—­.
+            - OSê°€ ê´€ë¦¬í•˜ëŠ” ë©”ì¸ë©”ëª¨ë¦¬ì¸ RAM ì˜ ì¼ë¶€ ì˜ì—­ì„ JVM ì´ í•„ìš”í•œ ë§Œí¼ OS ë¡œë¶€í„° í• ë‹¹ë°›ëŠ”ë‹¤. OS ë¡œë¶€í„° ë°›ì€ ë©”ëª¨ë¦¬ ê³µê°„ì„
+              Runtime Data Area ë¼ê³  ë¶€ë¥´ë©° 5ê°œì˜ ì˜ì—­ìœ¼ë¡œ ìš©ë„ë³„ë¡œ ë‚˜ëˆ„ì–´ì„œ ê´€ë¦¬í•œë‹¤.
+                - ëª¨ë“  ìŠ¤ë ˆë“œê°€ ê³µìœ í•´ì„œ ì‚¬ìš© (GCì˜ ëŒ€ìƒ)
+                    - íž™ ì˜ì—­ (Heap Area)
+                        - new í‚¤ì›Œë“œë¡œ ìƒì„±ëœ ê°ì²´ì™€ ë°°ì—´ì´ ìƒì„±ë˜ëŠ” ì˜ì—­
+                        - ì£¼ê¸°ì ìœ¼ë¡œ GCê°€ ì œê±°í•˜ëŠ” ì˜ì—­
+                    - ë©”ì„œë“œ ì˜ì—­(Method Area)
+                        - í´ëž˜ìŠ¤ ë©¤ë²„ ë³€ìˆ˜ì˜ ì´ë¦„, ë°ì´í„° íƒ€ìž…, ì ‘ê·¼ ì œì–´ìž ì •ë³´ì™€ ê°™ì€ ê°ì¢… í•„ë“œ ì •ë³´ë“¤ê³¼ ë©”ì„œë“œ ì •ë³´ ë“±ì´ ìƒì„±ë˜ëŠ” ì˜ì—­
+                - ìŠ¤ë ˆë“œ(Thread) ë§ˆë‹¤ í•˜ë‚˜ì”© ìƒì„±
+                    - ìŠ¤íƒ ì˜ì—­(Stack Area)
+                        - ì§€ì—­ë³€ìˆ˜, íŒŒë¼ë¯¸í„°, ë¦¬í„´ ê°’, ì—°ì‚°ì— ì‚¬ìš©ë˜ëŠ” ìž„ì‹œ ê°’ ë“±ì´ ìƒì„±ë˜ëŠ” ì˜ì—­
+                    - PC ë ˆì§€ìŠ¤í„° (PC Register)
+                        - í”„ë¡œê·¸ëž¨ ì¹´ìš´í„°, ì¦‰ í˜„ìž¬ ìŠ¤ë ˆë“œê°€ ì‹¤í–‰ë˜ëŠ” ë¶€ë¶„ì˜ ì£¼ì†Œì™€ ëª…ë ¹ì„ ì €ìž¥í•˜ê³  ìžˆëŠ” ì˜ì—­
+                    - ë„¤ì´í‹°ë¸Œ ë©”ì„œë“œ ìŠ¤íƒ(Native Method Stack)
+                        - ìžë°” ì´ì™¸ì˜ ì–¸ì–´(C, C++, ì–´ì…ˆë¸”ë¦¬ ë“±)ë¡œ ìž‘ì„±ëœ ë„¤ì´í‹°ë¸Œ ì½”ë“œë¥¼ ì‹¤í–‰í•  ë•Œ ì‚¬ìš©ë˜ëŠ” ë©”ëª¨ë¦¬ ì˜ì—­
 
         - Execution Engine
-            - ¹ÙÀÌÆ® ÄÚµå¸¦ ³×ÀÌÆ¼ºê ÄÚµå·Î º¯È¯½ÃÄÑÁÖ°í, GC ¸¦ ½ÇÇà
+            - ë°”ì´íŠ¸ ì½”ë“œë¥¼ ë„¤ì´í‹°ë¸Œ ì½”ë“œë¡œ ë³€í™˜ì‹œì¼œì£¼ê³ , GC ë¥¼ ì‹¤í–‰
 
-            - Interpreter : ¹ÙÀÌÆ®ÄÚµå ¸í·É¾î¸¦ ÇÏ³ª¾¿ ÀÐ¾î ÇØ¼®ÇÏ°í ½ÇÇà
-            - JIT Compiler : ·±Å¸ÀÓ½Ã¿¡ JVM °ú »óÈ£ÀÛ¿ëÇÏ¿© ÀûÀýÇÑ ¹ÙÀÌÆ®ÄÚµå ½ÃÄö½º¸¦ ±â°è¾î·Î ÄÄÆÄÀÏÀ» ½ÇÇà
-            - Garbage Collector : ÂüÁ¶µÇÁö ¾Ê´Â °´Ã¼¸¦ ¿ì¼±ÀûÀ¸·Î ¸Þ¸ð¸®¿¡¼­ Á¦°ÅÇÏ¿© ¸Þ¸ð¸® °ø°£À» È®º¸ÇÏ´Â
-                                  Garbage Collection À» ½ÇÇà½ÃÄÑÁÖ´Â ÁÖÃ¼
+            - Interpreter : ë°”ì´íŠ¸ì½”ë“œ ëª…ë ¹ì–´ë¥¼ í•˜ë‚˜ì”© ì½ì–´ í•´ì„í•˜ê³  ì‹¤í–‰
+            - JIT Compiler : ëŸ°íƒ€ìž„ì‹œì— JVM ê³¼ ìƒí˜¸ìž‘ìš©í•˜ì—¬ ì ì ˆí•œ ë°”ì´íŠ¸ì½”ë“œ ì‹œí€€ìŠ¤ë¥¼ ê¸°ê³„ì–´ë¡œ ì»´íŒŒì¼ì„ ì‹¤í–‰
+            - Garbage Collector : ì°¸ì¡°ë˜ì§€ ì•ŠëŠ” ê°ì²´ë¥¼ ìš°ì„ ì ìœ¼ë¡œ ë©”ëª¨ë¦¬ì—ì„œ ì œê±°í•˜ì—¬ ë©”ëª¨ë¦¬ ê³µê°„ì„ í™•ë³´í•˜ëŠ”
+                                  Garbage Collection ì„ ì‹¤í–‰ì‹œì¼œì£¼ëŠ” ì£¼ì²´
 
-    - ÀÚ¹Ù °¡»ó ¸Ó½Å(JVM)ÀÇ µ¿ÀÛ ¹æ½Ä
-        1. ÀÚ¹Ù·Î °³¹ßµÈ ÇÁ·Î±×·¥À» ½ÇÇàÇÏ¸é JVM Àº OS ·ÎºÎÅÍ ¸Þ¸ð¸®¸¦ ÇÒ´çÇÕ´Ï´Ù.
-        2. ÀÚ¹Ù ÄÄÆÄÀÏ·¯(javac)°¡ ÀÚ¹Ù ¼Ò½ºÄÚµå(.java)¸¦ ÀÚ¹Ù ¹ÙÀÌÆ®ÄÚµå(.class)·Î ÄÄÆÄÀÏÇÕ´Ï´Ù.
-        3. Class Loader ¸¦ ÅëÇØ JVM Runtime Data Area ·Î ·ÎµùÇÕ´Ï´Ù.
-        4. Runtime Data Area ¿¡ ·Îµù µÈ .class µéÀº Execution Engine À» ÅëÇØ ÇØ¼®ÇÕ´Ï´Ù.
-        5. ÇØ¼®µÈ ¹ÙÀÌÆ® ÄÚµå´Â Runtime Data Area ÀÇ °¢ ¿µ¿ª¿¡ ¹èÄ¡µÇ¾î ¼öÇàÇÏ¸ç ÀÌ °úÁ¤¿¡¼­ Execution Engine ¿¡ ÀÇÇØ GCÀÇ ÀÛµ¿°ú ½º·¹µå µ¿±âÈ­°¡ ÀÌ·ç¾îÁý´Ï´Ù.
+    - ìžë°” ê°€ìƒ ë¨¸ì‹ (JVM)ì˜ ë™ìž‘ ë°©ì‹
+        1. ìžë°”ë¡œ ê°œë°œëœ í”„ë¡œê·¸ëž¨ì„ ì‹¤í–‰í•˜ë©´ JVM ì€ OS ë¡œë¶€í„° ë©”ëª¨ë¦¬ë¥¼ í• ë‹¹í•©ë‹ˆë‹¤.
+        2. ìžë°” ì»´íŒŒì¼ëŸ¬(javac)ê°€ ìžë°” ì†ŒìŠ¤ì½”ë“œ(.java)ë¥¼ ìžë°” ë°”ì´íŠ¸ì½”ë“œ(.class)ë¡œ ì»´íŒŒì¼í•©ë‹ˆë‹¤.
+        3. Class Loader ë¥¼ í†µí•´ JVM Runtime Data Area ë¡œ ë¡œë”©í•©ë‹ˆë‹¤.
+        4. Runtime Data Area ì— ë¡œë”© ëœ .class ë“¤ì€ Execution Engine ì„ í†µí•´ í•´ì„í•©ë‹ˆë‹¤.
+        5. í•´ì„ëœ ë°”ì´íŠ¸ ì½”ë“œëŠ” Runtime Data Area ì˜ ê° ì˜ì—­ì— ë°°ì¹˜ë˜ì–´ ìˆ˜í–‰í•˜ë©° ì´ ê³¼ì •ì—ì„œ Execution Engine ì— ì˜í•´ GCì˜ ìž‘ë™ê³¼ ìŠ¤ë ˆë“œ ë™ê¸°í™”ê°€ ì´ë£¨ì–´ì§‘ë‹ˆë‹¤.
 
 
-    - JDK ¿Í JRE ÀÇ Â÷ÀÌ
+    - JDK ì™€ JRE ì˜ ì°¨ì´
         - JRE
-            - JVM + Java class Libraries + Java Class Loader °¡ Æ÷ÇÔµÈ´Ù.
-            - JRE ´Â ÀÚ¹Ù ¾îÇÃ¸®ÄÉÀÌ¼ÇÀ» ½ÇÇàÇÏ´Âµ¥ ÇÊ¿äÇÑ ¿ä¼Ò¸¸ µé¾îÀÖÁö ÀÚ¹Ù¸¦ °³¹ßÇÏ´Â µ¥ ÇÊ¿äÇÑ ÅøÀº Æ÷ÇÔµÇ¾î ÀÖÁö ¾Ê´Ù.
+            - JVM + Java class Libraries + Java Class Loader ê°€ í¬í•¨ëœë‹¤.
+            - JRE ëŠ” ìžë°” ì–´í”Œë¦¬ì¼€ì´ì…˜ì„ ì‹¤í–‰í•˜ëŠ”ë° í•„ìš”í•œ ìš”ì†Œë§Œ ë“¤ì–´ìžˆì§€ ìžë°”ë¥¼ ê°œë°œí•˜ëŠ” ë° í•„ìš”í•œ íˆ´ì€ í¬í•¨ë˜ì–´ ìžˆì§€ ì•Šë‹¤.
         - JDK
-            - JRE »Ó¸¸ ¾Æ´Ï¶ó ÄÄÆÄÀÏ·¯, µð¹ö°Å µî ÀÚ¹Ù ¾îÇÃ¸®ÄÉÀÌ¼ÇÀ» °³¹ßÇÏ´Âµ¥ ÇÊ¿äÇÑ µµ±¸°¡ Æ÷ÇÔµÇ¾î ÀÖ´Ù.
-            - JAVA9¹öÀü ºÎÅÍ´Â JRE ÀÚÃ¼°¡ »ç¶óÁ³´Ù. (JDK ¾È¿¡ ´Ù ÀÖÀ¸´Ï..)
+            - JRE ë¿ë§Œ ì•„ë‹ˆë¼ ì»´íŒŒì¼ëŸ¬, ë””ë²„ê±° ë“± ìžë°” ì–´í”Œë¦¬ì¼€ì´ì…˜ì„ ê°œë°œí•˜ëŠ”ë° í•„ìš”í•œ ë„êµ¬ê°€ í¬í•¨ë˜ì–´ ìžˆë‹¤.
+            - JAVA9ë²„ì „ ë¶€í„°ëŠ” JRE ìžì²´ê°€ ì‚¬ë¼ì¡Œë‹¤. (JDK ì•ˆì— ë‹¤ ìžˆìœ¼ë‹ˆ..)
 
 
-- °¡ºñÁö ÄÃ·º¼Ç (Garbage Collection)
-    - °¡ºñÁö ÄÃ·º¼ÇÀÌ¶õ?
-        - ÀÚ¹ÙÀÇ ¸Þ¸ð¸® °ü¸® ¹æ¹ý ÁßÀÇ ÇÏ³ª·Î JVM ÀÇ Heap ¿µ¿ª¿¡¼­ µ¿ÀûÀ¸·Î ÇÒ´çÇß´ø ¸Þ¸ð¸® ¿µ¿ª Áß ÇÊ¿ä ¾ø°Ô µÈ ¸Þ¸ð¸® ¿µ¿ªÀ» ÁÖ±âÀûÀ¸·Î »èÁ¦ÇÏ´Â ÇÁ·Î¼¼½º
+- ê°€ë¹„ì§€ ì»¬ë ‰ì…˜ (Garbage Collection)
+    - ê°€ë¹„ì§€ ì»¬ë ‰ì…˜ì´ëž€?
+        - ìžë°”ì˜ ë©”ëª¨ë¦¬ ê´€ë¦¬ ë°©ë²• ì¤‘ì˜ í•˜ë‚˜ë¡œ JVM ì˜ Heap ì˜ì—­ì—ì„œ ë™ì ìœ¼ë¡œ í• ë‹¹í–ˆë˜ ë©”ëª¨ë¦¬ ì˜ì—­ ì¤‘ í•„ìš” ì—†ê²Œ ëœ ë©”ëª¨ë¦¬ ì˜ì—­ì„ ì£¼ê¸°ì ìœ¼ë¡œ ì‚­ì œí•˜ëŠ” í”„ë¡œì„¸ìŠ¤
 
-        - ÀåÁ¡
-            - C³ª C++¿¡¼­´Â ÀÌ·¯ÇÑ °¡ºñÁö ÄÃ·º¼ÇÀÌ ¾ø¾î ÇÁ·Î±×·¡¸Ó°¡ ¼öµ¿À¸·Î ¸Þ¸ð¸® ÇÒ´ç°ú ÇØÁ¦¸¦ ÀÏÀÏÀÌ ÇØÁà¾ß ÇÏ´Â ¹Ý¸é
-              Java ´Â JVM ¿¡ Å¾ÀçµÇ¾î ÀÖ´Â °¡ºñÁö ÄÃ·ºÅÍ°¡ ¸Þ¸ð¸® °ü¸®¸¦ ´ëÇàÇØÁÖ±â ¶§¹®¿¡ °³¹ßÀÚ ÀÔÀå¿¡¼­ ¸Þ¸ð¸® °ü¸®, ¸Þ¸ð¸® ´©¼ö(Memory Leak) ¹®Á¦¿¡¼­ ´ëÇØ
-              ¿Ïº®ÇÏ°Ô °ü¸®ÇÏÁö ¾Ê¾Æµµ µÇ¾î ¿À·ÔÀÌ °³¹ß¿¡¸¸ ÁýÁßÇÒ ¼ö ÀÖ´Ù.
-            - ÇØÁ¦µÈ ¸Þ¸ð¸®¿¡ Á¢±Ù x
-            - ÇØÁ¦ÇÑ ¸Þ¸ð¸®¿¡ ÀçÁ¢±ÙÇÏ´Â ÀÌÁß ÇØÁ¦ x
-        - ´ÜÁ¡
-            - °³¹ßÀÚ°¡ ¸Þ¸ð¸®°¡ ¾ðÁ¦ ÇØÁ¦µÇ´ÂÁö Á¤È®ÇÏ°Ô ¾Ë ¼ö ¾ø´Ù.
-            - °¡ºñÁö ÄÃ·º¼Ç(GC)ÀÌ µ¿ÀÛÇÏ´Â µ¿¾È¿¡´Â ´Ù¸¥ µ¿ÀÛÀ» ¸ØÃß±â ¶§¹®¿¡ ¿À¹öÇìµå°¡ ¹ß»ýÇÑ´Ù.
-               (GC¸¦ ½ÇÇàÇÏ´Â ½º·¹µå¸¦ Á¦¿ÜÇÑ ¸ðµç ½º·¹µå´Â ÀÛ¾÷À» ¸ØÃß°Ô µÊ.)
+        - ìž¥ì 
+            - Cë‚˜ C++ì—ì„œëŠ” ì´ëŸ¬í•œ ê°€ë¹„ì§€ ì»¬ë ‰ì…˜ì´ ì—†ì–´ í”„ë¡œê·¸ëž˜ë¨¸ê°€ ìˆ˜ë™ìœ¼ë¡œ ë©”ëª¨ë¦¬ í• ë‹¹ê³¼ í•´ì œë¥¼ ì¼ì¼ì´ í•´ì¤˜ì•¼ í•˜ëŠ” ë°˜ë©´
+              Java ëŠ” JVM ì— íƒ‘ìž¬ë˜ì–´ ìžˆëŠ” ê°€ë¹„ì§€ ì»¬ë ‰í„°ê°€ ë©”ëª¨ë¦¬ ê´€ë¦¬ë¥¼ ëŒ€í–‰í•´ì£¼ê¸° ë•Œë¬¸ì— ê°œë°œìž ìž…ìž¥ì—ì„œ ë©”ëª¨ë¦¬ ê´€ë¦¬, ë©”ëª¨ë¦¬ ëˆ„ìˆ˜(Memory Leak) ë¬¸ì œì—ì„œ ëŒ€í•´
+              ì™„ë²½í•˜ê²Œ ê´€ë¦¬í•˜ì§€ ì•Šì•„ë„ ë˜ì–´ ì˜¤ë¡¯ì´ ê°œë°œì—ë§Œ ì§‘ì¤‘í•  ìˆ˜ ìžˆë‹¤.
+            - í•´ì œëœ ë©”ëª¨ë¦¬ì— ì ‘ê·¼ x
+            - í•´ì œí•œ ë©”ëª¨ë¦¬ì— ìž¬ì ‘ê·¼í•˜ëŠ” ì´ì¤‘ í•´ì œ x
+        - ë‹¨ì 
+            - ê°œë°œìžê°€ ë©”ëª¨ë¦¬ê°€ ì–¸ì œ í•´ì œë˜ëŠ”ì§€ ì •í™•í•˜ê²Œ ì•Œ ìˆ˜ ì—†ë‹¤.
+            - ê°€ë¹„ì§€ ì»¬ë ‰ì…˜(GC)ì´ ë™ìž‘í•˜ëŠ” ë™ì•ˆì—ëŠ” ë‹¤ë¥¸ ë™ìž‘ì„ ë©ˆì¶”ê¸° ë•Œë¬¸ì— ì˜¤ë²„í—¤ë“œê°€ ë°œìƒí•œë‹¤.
+               (GCë¥¼ ì‹¤í–‰í•˜ëŠ” ìŠ¤ë ˆë“œë¥¼ ì œì™¸í•œ ëª¨ë“  ìŠ¤ë ˆë“œëŠ” ìž‘ì—…ì„ ë©ˆì¶”ê²Œ ë¨.)
 
-    - °¡ºñÁö ÄÃ·º¼ÇÀÇ ´ë»óÀÌ µÇ´Â °´Ã¼µé
-        - °´Ã¼µéÀº ½ÇÁúÀûÀ¸·Î Heap ¿µ¿ª¿¡¼­ »ý¼ºµÇ°í Method Area ÀÌ³ª Stack Area µî Root Area ¿¡¼­´Â Heap Area ¿¡ »ý¼ºµÈ °´Ã¼ÀÇ ÁÖ¼Ò¸¸ ÂüÁ¶ÇÏ´Â Çü½ÄÀ¸·Î ±¸¼ºµË´Ï´Ù.
-          ÀÌ·¸°Ô »ý¼ºµÈ Heap Area ÀÇ °´Ã¼µéÀÌ ¸Þ¼­µå°¡ ³¡³ª´Â µîÀÇ Æ¯Á¤ ÀÌº¥Æ®µé·Î ÀÎÇÏ¿© Heap Area °´Ã¼ÀÇ ¸Þ¸ð¸® ÁÖ¼Ò¸¦ °¡Áö°í ÀÖ´Â ÂüÁ¶ º¯¼ö°¡
-          »èÁ¦µÇ´Â Çö»óÀÌ ¹ß»ýÇÏ¸é À§ÀÇ ±×¸²¿¡¼­ÀÇ »¡°£»ö °´Ã¼¿Í °°ÀÌ Heap ¿µ¿ª¿¡¼­ ¾îµð¼­µç ÂüÁ¶ÇÏ°í ÀÖÁö ¾ÊÀº °´Ã¼µéÀÌ ¹ß»ýÇÏ°Ô µË´Ï´Ù.
-          ÀÌ·¯ÇÑ °´Ã¼µéÀ» Unreachable ÇÏ´Ù°í ÇÏ¸ç ÁÖ±âÀûÀ¸·Î °¡ºñÁö ÄÃ·ºÅÍ°¡ Á¦°ÅÇØÁÝ´Ï´Ù.
-          Reachable : °´Ã¼°¡ ÂüÁ¶µÇ°í ÀÖ´Â »óÅÂ
-          Unreachable  : °´Ã¼°¡ ÂüÁ¶µÇ°í ÀÖÁö ¾ÊÀº »óÅÂ (GCÀÇ ´ë»óÀÌ µÊ)
+    - ê°€ë¹„ì§€ ì»¬ë ‰ì…˜ì˜ ëŒ€ìƒì´ ë˜ëŠ” ê°ì²´ë“¤
+        - ê°ì²´ë“¤ì€ ì‹¤ì§ˆì ìœ¼ë¡œ Heap ì˜ì—­ì—ì„œ ìƒì„±ë˜ê³  Method Area ì´ë‚˜ Stack Area ë“± Root Area ì—ì„œëŠ” Heap Area ì— ìƒì„±ëœ ê°ì²´ì˜ ì£¼ì†Œë§Œ ì°¸ì¡°í•˜ëŠ” í˜•ì‹ìœ¼ë¡œ êµ¬ì„±ë©ë‹ˆë‹¤.
+          ì´ë ‡ê²Œ ìƒì„±ëœ Heap Area ì˜ ê°ì²´ë“¤ì´ ë©”ì„œë“œê°€ ëë‚˜ëŠ” ë“±ì˜ íŠ¹ì • ì´ë²¤íŠ¸ë“¤ë¡œ ì¸í•˜ì—¬ Heap Area ê°ì²´ì˜ ë©”ëª¨ë¦¬ ì£¼ì†Œë¥¼ ê°€ì§€ê³  ìžˆëŠ” ì°¸ì¡° ë³€ìˆ˜ê°€
+          ì‚­ì œë˜ëŠ” í˜„ìƒì´ ë°œìƒí•˜ë©´ ìœ„ì˜ ê·¸ë¦¼ì—ì„œì˜ ë¹¨ê°„ìƒ‰ ê°ì²´ì™€ ê°™ì´ Heap ì˜ì—­ì—ì„œ ì–´ë””ì„œë“  ì°¸ì¡°í•˜ê³  ìžˆì§€ ì•Šì€ ê°ì²´ë“¤ì´ ë°œìƒí•˜ê²Œ ë©ë‹ˆë‹¤.
+          ì´ëŸ¬í•œ ê°ì²´ë“¤ì„ Unreachable í•˜ë‹¤ê³  í•˜ë©° ì£¼ê¸°ì ìœ¼ë¡œ ê°€ë¹„ì§€ ì»¬ë ‰í„°ê°€ ì œê±°í•´ì¤ë‹ˆë‹¤.
+          Reachable : ê°ì²´ê°€ ì°¸ì¡°ë˜ê³  ìžˆëŠ” ìƒíƒœ
+          Unreachable  : ê°ì²´ê°€ ì°¸ì¡°ë˜ê³  ìžˆì§€ ì•Šì€ ìƒíƒœ (GCì˜ ëŒ€ìƒì´ ë¨)
 
-    - GCÀÇ ´ë»óÀÌ µÇ´Â Heap ¿µ¿ª
-        - Heap Area ´Â È¿À²ÀûÀÎ GC¸¦ À§ÇØ À§¿Í °°ÀÌ Eden, Survival À¸·Î ±¸¼ºµÈ Young Generation, ±×¸®°í Old Generation À¸·Î ³ª´¹´Ï´Ù.
+    - GCì˜ ëŒ€ìƒì´ ë˜ëŠ” Heap ì˜ì—­
+        - Heap Area ëŠ” íš¨ìœ¨ì ì¸ GCë¥¼ ìœ„í•´ ìœ„ì™€ ê°™ì´ Eden, Survival ìœ¼ë¡œ êµ¬ì„±ëœ Young Generation, ê·¸ë¦¬ê³  Old Generation ìœ¼ë¡œ ë‚˜ë‰©ë‹ˆë‹¤.
 
-    - °¡ºñÁö ÄÃ·º¼Ç µ¿ÀÛ °úÁ¤
-        1. °´Ã¼°¡ Ã³À½ »ý¼ºµÇ°í Heap ¿µ¿ªÀÇ Eden ¿¡ age-bit 0À¸·Î ÇÒ´çµË´Ï´Ù. ÀÌ age-bit ´Â Minor GC ¿¡¼­ »ì¾Æ³²À» ¶§¸¶´Ù 1¾¿ Áõ°¡ÇÏ°Ô µË´Ï´Ù.
-        2. ½Ã°£ÀÌ Áö³ª Heap Area ÀÇ Eden ¿µ¿ª¿¡ °´Ã¼°¡ ´Ù ½×ÀÌ°Ô µÇ¸é Minor GC°¡ ÇÑ¹ø ÀÏ¾î³ª°Ô µÇ°í ÂüÁ¶ Á¤µµ¿¡ µû¶ó Survivor0 ¿µ¿ªÀ¸·Î ÀÌµ¿ÇÏ°Å³ª È¸¼öµË´Ï´Ù.
-        3. °è¼ÓÇØ¼­ Eden ¿µ¿ª¿¡´Â ½Å±Ô °´Ã¼µéÀÌ »ý¼ºµË´Ï´Ù. ÀÌ·¸°Ô ¶Ç Eden ¿µ¿ª¿¡ °´Ã¼°¡ ´Ù ½×ÀÌ°Ô µÇ¸é
-           Young Generation(Eden+Survivor) ¿µ¿ª¿¡ ÀÖ´Â °´Ã¼µéÀ» ºñ¾îÀÖ´Â Survival ÀÎ Survival1 ¿µ¿ª¿¡ ÀÌµ¿ÇÏ°í »ì¾Æ³²Àº ¸ðµç °´Ã¼µéÀº age °¡ 1¾¿ Áõ°¡ÇÕ´Ï´Ù.
-        4. ¶Ç´Ù½Ã Eden ¿µ¿ª¿¡ ½Å±Ô °´Ã¼µé·Î °¡µæ Â÷°Ô µÇ¸é ´Ù½ÃÇÑ¹ø minor GC°¡ ÀÏ¾î³ª°í Young Generation(Eden+Survivor) ¿µ¿ª¿¡ ÀÖ´Â °´Ã¼µéÀ»
-           ºñ¾îÀÖ´Â Survivor ÀÎ Survival0À¸·Î ÀÌµ¿½ÃÅ² µÚ age ¸¦ 1 Áõ°¡½ÃÅµ´Ï´Ù. ÀÌ °úÁ¤À» °è¼Ó ¹Ýº¹ÇÕ´Ï´Ù.
-        5. ÀÌ °úÁ¤À» ¹Ýº¹ÇÏ´Ù º¸¸é age bit °¡ Æ¯Á¤ ¼ýÀÚ ÀÌ»óÀ¸·Î µÇ´Â °æ¿ì°¡ ¹ß»ýÇÕ´Ï´Ù. ÀÌ¶§ JVM ¿¡¼­ ¼³Á¤ÇØ³õÀº age bit ¿¡ µµ´ÞÇÏ°Ô µÇ¸é
-           ¿À·§µ¿¾È ¾²ÀÏ °´Ã¼¶ó°í ÆÇ´ÜÇÏ°í Old generation ¿µ¿ªÀ¸·Î ÀÌµ¿½ÃÅµ´Ï´Ù. ÀÌ °úÁ¤À» ÇÁ·Î¸ð¼Ç(Promotion)ÀÌ¶ó°í ÇÕ´Ï´Ù.
-        6. ½Ã°£ÀÌ Áö³ª Old ¿µ¿ª¿¡ ÇÒ´çµÈ ¸Þ¸ð¸®°¡ Çã¿ëÄ¡¸¦ ³Ñ°Ô µÇ¸é, Old ¿µ¿ª¿¡ ÀÖ´Â ¸ðµç °´Ã¼µéÀ» °Ë»çÇÏ¿© ÂüÁ¶µÇÁö ¾Ê´Â °´Ã¼µéÀ» ÇÑ²¨¹ø¿¡ »èÁ¦ÇÏ´Â GC°¡ ½ÇÇàµË´Ï´Ù.
-           ÀÌ·¸°Ô Old generation ¿µ¿ªÀÇ ¸Þ¸ð¸®¸¦ È¸¼öÇÏ´Â GC¸¦ Major GC ¶ó°í ÇÕ´Ï´Ù. ÀÌ ¶§ major gc °¡ ¹ß»ýÇÏ¸é¼­ Mark And Sweep ¹æ½ÄÀ» ÅëÇØ ÇÊ¿ä ¾ø´Â ¸Þ¸ð¸®¸¦ ºñ¿öÁØ´Ù.
-           Major GC´Â ½Ã°£ÀÌ ¿À·¡ °É¸®´Â ÀÛ¾÷ÀÌ°í ÀÌ¶§ GC¸¦ ½ÇÇàÇÏ´Â ½º·¹µå¸¦ Á¦¿ÜÇÑ ¸ðµç ½º·¹µå´Â ÀÛ¾÷À» ¸ØÃß°Ô µË´Ï´Ù. ÀÌ¸¦ 'Stop-the-World' ¶ó ÇÕ´Ï´Ù.
-           ÀÌ ÀÛ¾÷ÀÌ ³Ê¹« ÀæÀ¸¸é ÇÁ·Î±×·¥ ¼º´É¿¡ ¹®Á¦°¡ µÉ ¼ö ÀÖ½À´Ï´Ù.
+    - ê°€ë¹„ì§€ ì»¬ë ‰ì…˜ ë™ìž‘ ê³¼ì •
+        1. ê°ì²´ê°€ ì²˜ìŒ ìƒì„±ë˜ê³  Heap ì˜ì—­ì˜ Eden ì— age-bit 0ìœ¼ë¡œ í• ë‹¹ë©ë‹ˆë‹¤. ì´ age-bit ëŠ” Minor GC ì—ì„œ ì‚´ì•„ë‚¨ì„ ë•Œë§ˆë‹¤ 1ì”© ì¦ê°€í•˜ê²Œ ë©ë‹ˆë‹¤.
+        2. ì‹œê°„ì´ ì§€ë‚˜ Heap Area ì˜ Eden ì˜ì—­ì— ê°ì²´ê°€ ë‹¤ ìŒ“ì´ê²Œ ë˜ë©´ Minor GCê°€ í•œë²ˆ ì¼ì–´ë‚˜ê²Œ ë˜ê³  ì°¸ì¡° ì •ë„ì— ë”°ë¼ Survivor0 ì˜ì—­ìœ¼ë¡œ ì´ë™í•˜ê±°ë‚˜ íšŒìˆ˜ë©ë‹ˆë‹¤.
+        3. ê³„ì†í•´ì„œ Eden ì˜ì—­ì—ëŠ” ì‹ ê·œ ê°ì²´ë“¤ì´ ìƒì„±ë©ë‹ˆë‹¤. ì´ë ‡ê²Œ ë˜ Eden ì˜ì—­ì— ê°ì²´ê°€ ë‹¤ ìŒ“ì´ê²Œ ë˜ë©´
+           Young Generation(Eden+Survivor) ì˜ì—­ì— ìžˆëŠ” ê°ì²´ë“¤ì„ ë¹„ì–´ìžˆëŠ” Survival ì¸ Survival1 ì˜ì—­ì— ì´ë™í•˜ê³  ì‚´ì•„ë‚¨ì€ ëª¨ë“  ê°ì²´ë“¤ì€ age ê°€ 1ì”© ì¦ê°€í•©ë‹ˆë‹¤.
+        4. ë˜ë‹¤ì‹œ Eden ì˜ì—­ì— ì‹ ê·œ ê°ì²´ë“¤ë¡œ ê°€ë“ ì°¨ê²Œ ë˜ë©´ ë‹¤ì‹œí•œë²ˆ minor GCê°€ ì¼ì–´ë‚˜ê³  Young Generation(Eden+Survivor) ì˜ì—­ì— ìžˆëŠ” ê°ì²´ë“¤ì„
+           ë¹„ì–´ìžˆëŠ” Survivor ì¸ Survival0ìœ¼ë¡œ ì´ë™ì‹œí‚¨ ë’¤ age ë¥¼ 1 ì¦ê°€ì‹œí‚µë‹ˆë‹¤. ì´ ê³¼ì •ì„ ê³„ì† ë°˜ë³µí•©ë‹ˆë‹¤.
+        5. ì´ ê³¼ì •ì„ ë°˜ë³µí•˜ë‹¤ ë³´ë©´ age bit ê°€ íŠ¹ì • ìˆ«ìž ì´ìƒìœ¼ë¡œ ë˜ëŠ” ê²½ìš°ê°€ ë°œìƒí•©ë‹ˆë‹¤. ì´ë•Œ JVM ì—ì„œ ì„¤ì •í•´ë†“ì€ age bit ì— ë„ë‹¬í•˜ê²Œ ë˜ë©´
+           ì˜¤ëž«ë™ì•ˆ ì“°ì¼ ê°ì²´ë¼ê³  íŒë‹¨í•˜ê³  Old generation ì˜ì—­ìœ¼ë¡œ ì´ë™ì‹œí‚µë‹ˆë‹¤. ì´ ê³¼ì •ì„ í”„ë¡œëª¨ì…˜(Promotion)ì´ë¼ê³  í•©ë‹ˆë‹¤.
+        6. ì‹œê°„ì´ ì§€ë‚˜ Old ì˜ì—­ì— í• ë‹¹ëœ ë©”ëª¨ë¦¬ê°€ í—ˆìš©ì¹˜ë¥¼ ë„˜ê²Œ ë˜ë©´, Old ì˜ì—­ì— ìžˆëŠ” ëª¨ë“  ê°ì²´ë“¤ì„ ê²€ì‚¬í•˜ì—¬ ì°¸ì¡°ë˜ì§€ ì•ŠëŠ” ê°ì²´ë“¤ì„ í•œêº¼ë²ˆì— ì‚­ì œí•˜ëŠ” GCê°€ ì‹¤í–‰ë©ë‹ˆë‹¤.
+           ì´ë ‡ê²Œ Old generation ì˜ì—­ì˜ ë©”ëª¨ë¦¬ë¥¼ íšŒìˆ˜í•˜ëŠ” GCë¥¼ Major GC ë¼ê³  í•©ë‹ˆë‹¤. ì´ ë•Œ major gc ê°€ ë°œìƒí•˜ë©´ì„œ Mark And Sweep ë°©ì‹ì„ í†µí•´ í•„ìš” ì—†ëŠ” ë©”ëª¨ë¦¬ë¥¼ ë¹„ì›Œì¤€ë‹¤.
+           Major GCëŠ” ì‹œê°„ì´ ì˜¤ëž˜ ê±¸ë¦¬ëŠ” ìž‘ì—…ì´ê³  ì´ë•Œ GCë¥¼ ì‹¤í–‰í•˜ëŠ” ìŠ¤ë ˆë“œë¥¼ ì œì™¸í•œ ëª¨ë“  ìŠ¤ë ˆë“œëŠ” ìž‘ì—…ì„ ë©ˆì¶”ê²Œ ë©ë‹ˆë‹¤. ì´ë¥¼ 'Stop-the-World' ë¼ í•©ë‹ˆë‹¤.
+           ì´ ìž‘ì—…ì´ ë„ˆë¬´ ìž¦ìœ¼ë©´ í”„ë¡œê·¸ëž¨ ì„±ëŠ¥ì— ë¬¸ì œê°€ ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-        -> GC ¼³°èÀÚµéÀÌ ¾îÇÃ¸®ÄÉÀÌ¼ÇÀ» ºÐ¼®ÇØº¸´Ï ´ëºÎºÐÀÇ °´Ã¼°¡ ¼ö¸íÀÌ ÂªÀº °ÍÀ» ¹ß°ß. GC µµ °á±¹ ºñ¿ëÀÎµ¥, ¸Þ¸ð¸®ÀÇ
-           Æ¯Á¤ ºÎºÐ¸¸À» Å½»öÇÏ¸ç ÇØÁ¦ÇÏ¸é ´õ È¿À²Àû. ¾îÂ÷ÇÇ ´ë´Ù¼öÀÇ °´Ã¼°¡ ±Ý¹æ »ç¶óÁö´Ï Young Generation ¾È¿¡¼­ ÃÖ´ëÇÑ Ã³¸®µÇµµ·Ï ÇÔ.
+        -> GC ì„¤ê³„ìžë“¤ì´ ì–´í”Œë¦¬ì¼€ì´ì…˜ì„ ë¶„ì„í•´ë³´ë‹ˆ ëŒ€ë¶€ë¶„ì˜ ê°ì²´ê°€ ìˆ˜ëª…ì´ ì§§ì€ ê²ƒì„ ë°œê²¬. GC ë„ ê²°êµ­ ë¹„ìš©ì¸ë°, ë©”ëª¨ë¦¬ì˜
+           íŠ¹ì • ë¶€ë¶„ë§Œì„ íƒìƒ‰í•˜ë©° í•´ì œí•˜ë©´ ë” íš¨ìœ¨ì . ì–´ì°¨í”¼ ëŒ€ë‹¤ìˆ˜ì˜ ê°ì²´ê°€ ê¸ˆë°© ì‚¬ë¼ì§€ë‹ˆ Young Generation ì•ˆì—ì„œ ìµœëŒ€í•œ ì²˜ë¦¬ë˜ë„ë¡ í•¨.
 
-    - GC ¾Ë°í¸®Áò
-        - GC ´Â ¾î¶»°Ô ÇØÁ¦ÇÒ µ¿Àû ¸Þ¸ð¸® ¿µ¿ªµéÀ» ¾Ë¾Æ¼­ ÆÇ´ÜÇÒ±î?
+    - GC ì•Œê³ ë¦¬ì¦˜
+        - GC ëŠ” ì–´ë–»ê²Œ í•´ì œí•  ë™ì  ë©”ëª¨ë¦¬ ì˜ì—­ë“¤ì„ ì•Œì•„ì„œ íŒë‹¨í• ê¹Œ?
             - Reference Counting
-                Heap ¿µ¿ª¿¡ ¼±¾ðµÈ °´Ã¼µéÀÌ °¢°¢ reference count ¶ó´Â º°µµ ¼ýÀÚ¸¦ °¡Áö°í ÀÖ´Ù.
-                reference count ´Â ¸î °¡Áö ¹æ¹ýÀ¸·Î ÇØ´ç °´Ã¼¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´ÂÁö¸¦ ¶æÇÔ.
-                ÇØ´ç °´Ã¼¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Â ¹æ¹ýÀÌ ÇÏ³ªµµ ¾ø´Ù¸é Áï, reference count °¡ 0¿¡ ´Ù´Ù¸£¸é °¡ºñÁö ÄÃ·º¼ÇÀÇ ´ë»óÀÌ µÊ
-                Heap Space ³»ºÎ¿¡¼­ ¼øÈ¯ ÂüÁ¶ ÇÏ°í ÀÖÀ» °æ¿ì Memory leak ÀÌ ¹ß»ý
+                Heap ì˜ì—­ì— ì„ ì–¸ëœ ê°ì²´ë“¤ì´ ê°ê° reference count ë¼ëŠ” ë³„ë„ ìˆ«ìžë¥¼ ê°€ì§€ê³  ìžˆë‹¤.
+                reference count ëŠ” ëª‡ ê°€ì§€ ë°©ë²•ìœ¼ë¡œ í•´ë‹¹ ê°ì²´ì— ì ‘ê·¼í•  ìˆ˜ ìžˆëŠ”ì§€ë¥¼ ëœ»í•¨.
+                í•´ë‹¹ ê°ì²´ì— ì ‘ê·¼í•  ìˆ˜ ìžˆëŠ” ë°©ë²•ì´ í•˜ë‚˜ë„ ì—†ë‹¤ë©´ ì¦‰, reference count ê°€ 0ì— ë‹¤ë‹¤ë¥´ë©´ ê°€ë¹„ì§€ ì»¬ë ‰ì…˜ì˜ ëŒ€ìƒì´ ë¨
+                Heap Space ë‚´ë¶€ì—ì„œ ìˆœí™˜ ì°¸ì¡° í•˜ê³  ìžˆì„ ê²½ìš° Memory leak ì´ ë°œìƒ
             - Mark And Sweep
-                Reference Counting ÀÇ ¼øÈ¯ ÂüÁ¶ ¹®Á¦¸¦ ÇØ°áÇÒ ¼ö ÀÖ´Ù.
-                ·çÆ®¿¡¼­ºÎÅÍ ÇØ´ç °´Ã¼¿¡ Á¢±Ù °¡´ÉÇÑÁö¸¦ ÇØÁ¦ÀÇ ±âÁØÀ¸·Î »ï´Â´Ù.
-                ·çÆ®ºÎÅÍ ±×·¡ÇÁ ¼øÈ¸¸¦ ÅëÇØ ¿¬°áµÈ °´Ã¼µéÀ» Ã£¾Æ³»°í ¿¬°áÀÌ ²÷¾îÁø °´Ã¼µéÀº Áö¿ì´Â ¹æ½Ä
-                ¸Þ¸ð¸® ÆÄÆíÈ­¸¦ ¸·´Â Compaction. Mark And Sweep ¿¡¼­ Compaction Àº ÇÊ¼ö´Â ¾Æ´Ô.
-                ÀÚ¹Ù¿Í ÀÚ¹Ù½ºÅ©¸³Æ®°¡ Mark And Sweep ¹æ½ÄÀ¸·Î ¸Þ¸ð¸® °ü¸®¸¦ ÇÑ´Ù.
-                ÀÇµµÀûÀ¸·Î GC ¸¦ ½ÇÇà½ÃÄÑ¾ß ÇÑ´Ù.
-                ¾îÇÃ¸®ÄÉÀÌ¼Ç ½ÇÇà°ú GC ½ÇÇàÀÌ º´ÇàµÈ´Ù.
+                Reference Counting ì˜ ìˆœí™˜ ì°¸ì¡° ë¬¸ì œë¥¼ í•´ê²°í•  ìˆ˜ ìžˆë‹¤.
+                ë£¨íŠ¸ì—ì„œë¶€í„° í•´ë‹¹ ê°ì²´ì— ì ‘ê·¼ ê°€ëŠ¥í•œì§€ë¥¼ í•´ì œì˜ ê¸°ì¤€ìœ¼ë¡œ ì‚¼ëŠ”ë‹¤.
+                ë£¨íŠ¸ë¶€í„° ê·¸ëž˜í”„ ìˆœíšŒë¥¼ í†µí•´ ì—°ê²°ëœ ê°ì²´ë“¤ì„ ì°¾ì•„ë‚´ê³  ì—°ê²°ì´ ëŠì–´ì§„ ê°ì²´ë“¤ì€ ì§€ìš°ëŠ” ë°©ì‹
+                ë©”ëª¨ë¦¬ íŒŒíŽ¸í™”ë¥¼ ë§‰ëŠ” Compaction. Mark And Sweep ì—ì„œ Compaction ì€ í•„ìˆ˜ëŠ” ì•„ë‹˜.
+                ìžë°”ì™€ ìžë°”ìŠ¤í¬ë¦½íŠ¸ê°€ Mark And Sweep ë°©ì‹ìœ¼ë¡œ ë©”ëª¨ë¦¬ ê´€ë¦¬ë¥¼ í•œë‹¤.
+                ì˜ë„ì ìœ¼ë¡œ GC ë¥¼ ì‹¤í–‰ì‹œì¼œì•¼ í•œë‹¤.
+                ì–´í”Œë¦¬ì¼€ì´ì…˜ ì‹¤í–‰ê³¼ GC ì‹¤í–‰ì´ ë³‘í–‰ëœë‹¤.
 
-    - GC ¹æ½Ä
+    - GC ë°©ì‹
         - Parallel GC
-            - ¿©·¯ °³ÀÇ ¾²·¹µå·Î GC ¸¦ ½ÇÇà. ÀÌ¿¡ µû¶ó Serial GC º¸´Ù Stop The World ½Ã°£ÀÌ ´õ ÂªÀ½
-            - ¸ÖÆ¼ÄÚ¾î È¯°æ¿¡¼­ ¾îÇÃ¸®ÄÉÀÌ¼Ç Ã³¸® ¼Óµµ¸¦ Çâ»óÇÏ±â À§ÇØ »ç¿ë
-            - Java 8 ÀÇ default GC ¹æ½Ä
+            - ì—¬ëŸ¬ ê°œì˜ ì“°ë ˆë“œë¡œ GC ë¥¼ ì‹¤í–‰. ì´ì— ë”°ë¼ Serial GC ë³´ë‹¤ Stop The World ì‹œê°„ì´ ë” ì§§ìŒ
+            - ë©€í‹°ì½”ì–´ í™˜ê²½ì—ì„œ ì–´í”Œë¦¬ì¼€ì´ì…˜ ì²˜ë¦¬ ì†ë„ë¥¼ í–¥ìƒí•˜ê¸° ìœ„í•´ ì‚¬ìš©
+            - Java 8 ì˜ default GC ë°©ì‹
 
         - G1 GC
-            - G1 (°¡ºñÁö ÆÛ½ºÆ®)
-            - Heap À» ÀÏÁ¤ Å©±âÀÇ Region À¸·Î Àß°Ô ³ª´©¾î ¾î¶² ¿µ¿ªÀº Young Generation, ¾î¶² ¿µ¿ªÀº Old Generation À¸·Î È°¿ë
-            - ·±Å¸ÀÓ¿¡ G1 GC °¡ ÇÊ¿ä¿¡ µû¶ó ¿µ¿ªº° Region °³¼ö¸¦ Æ©´×ÇÔ. ±×¿¡ µû¶ó Stop the world ¸¦ ÃÖ¼ÒÈ­ÇÒ ¼ö ÀÖÀ½
-            - Java 9 ºÎÅÍ default GC ¹æ½Ä
+            - G1 (ê°€ë¹„ì§€ í¼ìŠ¤íŠ¸)
+            - Heap ì„ ì¼ì • í¬ê¸°ì˜ Region ìœ¼ë¡œ ìž˜ê²Œ ë‚˜ëˆ„ì–´ ì–´ë–¤ ì˜ì—­ì€ Young Generation, ì–´ë–¤ ì˜ì—­ì€ Old Generation ìœ¼ë¡œ í™œìš©
+            - ëŸ°íƒ€ìž„ì— G1 GC ê°€ í•„ìš”ì— ë”°ë¼ ì˜ì—­ë³„ Region ê°œìˆ˜ë¥¼ íŠœë‹í•¨. ê·¸ì— ë”°ë¼ Stop the world ë¥¼ ìµœì†Œí™”í•  ìˆ˜ ìžˆìŒ
+            - Java 9 ë¶€í„° default GC ë°©ì‹
 
-            - ÀüÃ¼ Old Generation È¤Àº Young Generation ÅëÂ°·Î Compaction À» ÇÒ ÇÊ¿ä ¾ø°í, ÇØ´ç Generation ÀÇ ÀÏºÎºÐ Region ¿¡ ´ëÇØ¼­¸¸ Compaction À» ÇÏ¸é µÈ´Ù.
-            - Garbage ·Î °¡µæÂù ¿µ¿ªÀ» ºü¸£°Ô È¸¼öÇÏ¿© ºó °ø°£À» È®º¸ÇÏ¹Ç·Î GC ºóµµ°¡ ÁÙ¾îµç´Ù.
+            - ì „ì²´ Old Generation í˜¹ì€ Young Generation í†µì§¸ë¡œ Compaction ì„ í•  í•„ìš” ì—†ê³ , í•´ë‹¹ Generation ì˜ ì¼ë¶€ë¶„ Region ì— ëŒ€í•´ì„œë§Œ Compaction ì„ í•˜ë©´ ëœë‹¤.
+            - Garbage ë¡œ ê°€ë“ì°¬ ì˜ì—­ì„ ë¹ ë¥´ê²Œ íšŒìˆ˜í•˜ì—¬ ë¹ˆ ê³µê°„ì„ í™•ë³´í•˜ë¯€ë¡œ GC ë¹ˆë„ê°€ ì¤„ì–´ë“ ë‹¤.
 
-    - JVM GC Æ©´× ¸Àº¸±â
-        - GC Æ©´×Àº ¼º´É °³¼±ÀÇ ÃÖÁ¾ ´Ü°è. °´Ã¼ »ý¼º ÀÚÃ¼¸¦ ÁÙÀÌ·Á´Â ÄÚµå ·¹º§¿¡¼­ÀÇ °³¼±ÀÌ ¼±ÇàµÇ¾î¾ß ÇÑ´Ù.
-        - JVM GC Æ©´×ÀÇ ¸ñÇ¥
-            - Old Generation À¸·Î ³Ñ¾î°¡´Â °´Ã¼ ÃÖ¼ÒÈ­ÇÏ±â
-            - Major GC ½Ã°£À» Âª°Ô À¯ÁöÇÏ±â
-            -> Major GC ¸¦ Àû°Ô ¹ß»ý½ÃÅ°°Å³ª ºü¸¥ ½Ã°£ ³»¿¡ ³¡³»´Â °ÍÀÌ ¸ñÇ¥
-        - ÇÑÁ¤µÈ Heap ¿µ¿ª¿¡ Young Generation °ú Old Generation À» °¢°¢ ¾ó¸¶¸¸Å­ ÇÒ´çÇÏ´Â °ÍÀÌ Àû´çÇÑÁö¸¦ ÆÇ´ÜÇØ¾ß ÇÑ´Ù.
-          ¸Þ¸ð¸®°¡ ³Ê¹« Å©´Ù¸é GC °¡ °¡²û ÀÏ¾î³ª°ÚÁö¸¸ ¿À·¡ °É¸± °ÍÀÌ°í, ¸Þ¸ð¸®°¡ ³Ê¹« ÀÛ´Ù¸é GC ´Â ÀÚÁÖ ÀÏ¾î³ª°ÚÁö¸¸ ±Ý¹æ ³¡³¯ °Í.
-          ¾îÇÃ¸®ÄÉÀÌ¼ÇÀÇ ±¸Á¶ ¹× Æ¯¼º¿¡ µû¶ó ÆÇ´ÜÇØ¾ß ÇÔ.
-        - GC Æ©´× °úÁ¤
-            - ÇöÀç GC »óÅÂ ¸ð´ÏÅÍ¸µÇÏ±â
-            - ¾îÇÃ¸®ÄÉÀÌ¼Ç ¼º°Ý¿¡ ¾Ë¸ÂÀº GC ¹æ½Ä°ú ¸Þ¸ð¸® Å©±â ¼³Á¤
-            - Àû¿ëÇÏ±â
+    - JVM GC íŠœë‹ ë§›ë³´ê¸°
+        - GC íŠœë‹ì€ ì„±ëŠ¥ ê°œì„ ì˜ ìµœì¢… ë‹¨ê³„. ê°ì²´ ìƒì„± ìžì²´ë¥¼ ì¤„ì´ë ¤ëŠ” ì½”ë“œ ë ˆë²¨ì—ì„œì˜ ê°œì„ ì´ ì„ í–‰ë˜ì–´ì•¼ í•œë‹¤.
+        - JVM GC íŠœë‹ì˜ ëª©í‘œ
+            - Old Generation ìœ¼ë¡œ ë„˜ì–´ê°€ëŠ” ê°ì²´ ìµœì†Œí™”í•˜ê¸°
+            - Major GC ì‹œê°„ì„ ì§§ê²Œ ìœ ì§€í•˜ê¸°
+            -> Major GC ë¥¼ ì ê²Œ ë°œìƒì‹œí‚¤ê±°ë‚˜ ë¹ ë¥¸ ì‹œê°„ ë‚´ì— ëë‚´ëŠ” ê²ƒì´ ëª©í‘œ
+        - í•œì •ëœ Heap ì˜ì—­ì— Young Generation ê³¼ Old Generation ì„ ê°ê° ì–¼ë§ˆë§Œí¼ í• ë‹¹í•˜ëŠ” ê²ƒì´ ì ë‹¹í•œì§€ë¥¼ íŒë‹¨í•´ì•¼ í•œë‹¤.
+          ë©”ëª¨ë¦¬ê°€ ë„ˆë¬´ í¬ë‹¤ë©´ GC ê°€ ê°€ë” ì¼ì–´ë‚˜ê² ì§€ë§Œ ì˜¤ëž˜ ê±¸ë¦´ ê²ƒì´ê³ , ë©”ëª¨ë¦¬ê°€ ë„ˆë¬´ ìž‘ë‹¤ë©´ GC ëŠ” ìžì£¼ ì¼ì–´ë‚˜ê² ì§€ë§Œ ê¸ˆë°© ëë‚  ê²ƒ.
+          ì–´í”Œë¦¬ì¼€ì´ì…˜ì˜ êµ¬ì¡° ë° íŠ¹ì„±ì— ë”°ë¼ íŒë‹¨í•´ì•¼ í•¨.
+        - GC íŠœë‹ ê³¼ì •
+            - í˜„ìž¬ GC ìƒíƒœ ëª¨ë‹ˆí„°ë§í•˜ê¸°
+            - ì–´í”Œë¦¬ì¼€ì´ì…˜ ì„±ê²©ì— ì•Œë§žì€ GC ë°©ì‹ê³¼ ë©”ëª¨ë¦¬ í¬ê¸° ì„¤ì •
+            - ì ìš©í•˜ê¸°
 
-        - JVM ¸Þ¸ð¸® ¸ð´ÏÅÍ¸µ
-            - JDK ¼³Ä¡ ½Ã ±âº»À¸·Î Á¦°øµÇ´Â jstat ÀÌ¶ó´Â Åø È°¿ë °¡´É
-            - jstat gcutil ¸í·É¾î·Î ÇöÀç ½ÇÇàÁßÀÎ ÇÁ·Î¼¼½º¿¡ ´ëÇØ gc ¿Í °ü·ÃµÈ Á¤º¸ È®ÀÎ °¡´É
+        - JVM ë©”ëª¨ë¦¬ ëª¨ë‹ˆí„°ë§
+            - JDK ì„¤ì¹˜ ì‹œ ê¸°ë³¸ìœ¼ë¡œ ì œê³µë˜ëŠ” jstat ì´ë¼ëŠ” íˆ´ í™œìš© ê°€ëŠ¥
+            - jstat gcutil ëª…ë ¹ì–´ë¡œ í˜„ìž¬ ì‹¤í–‰ì¤‘ì¸ í”„ë¡œì„¸ìŠ¤ì— ëŒ€í•´ gc ì™€ ê´€ë ¨ëœ ì •ë³´ í™•ì¸ ê°€ëŠ¥
                 ex) jstat -gcutil -t 8844 1000 10
-            - jstat gccapacity ¸í·ÉÀ» ÅëÇØ ÇÁ·Î¼¼½º°¡ heap ¿µ¿ªÀ» ¾ó¸¶³ª »ç¿ë ÁßÀÎÁö Á¤È®ÇÑ ¼öÄ¡ È®ÀÎ °¡´É
+            - jstat gccapacity ëª…ë ¹ì„ í†µí•´ í”„ë¡œì„¸ìŠ¤ê°€ heap ì˜ì—­ì„ ì–¼ë§ˆë‚˜ ì‚¬ìš© ì¤‘ì¸ì§€ ì •í™•í•œ ìˆ˜ì¹˜ í™•ì¸ ê°€ëŠ¥
                 ex) jstat -gccapacity -t 8844 1000 10

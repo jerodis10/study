@@ -1,251 +1,251 @@
 - analyze table
-    - ANALYZE ´Â ÀÎµ¦½º, Å×ÀÌºí, Å¬·¯½ºÅÍÀÇ Åë°èÁ¤º¸¸¦ »ý¼º ÇÑ´Ù.
-    - ANALYZE °¡ »ý¼ºÇÑ Åë°èÁ¤º¸µéÀº ºñ¿ë±âÁØ(Cost-based)ÀÇ ¿ÉÆ¼¸¶ÀÌÀú°¡ °¡Àå È¿À²ÀûÀÎ ½ÇÇà°èÈ¹À» ¼ö¸³ÇÏ±â À§ÇØ ÃÖ¼Òºñ¿ëÀ» °è»êÇÒ ¶§ »ç¿ëµÈ´Ù.
-    - °¢ ¿ÀºêÁ§Æ®ÀÇ ±¸Á¶¸¦ È®ÀÎÇÏ´Â °Í°ú Ã¼ÀÎ(Chain) »ý¼º ¿©ºÎ¸¦ È®ÀÎÇÒ ¼ö ÀÖÀ¸¹Ç·Î ½Ã½ºÅÛÀÇ ÀúÀå°ø°£ °ü¸®¸¦ µµ¿ÍÁØ´Ù.
-    - ANALYZE ´Â ´ÙÀ½°ú °°Àº Åë°èÁ¤º¸¸¦ »ý¼ºÇÏ¿© µ¥ÀÌÅÍ »çÀü¿¡ ÀúÀå ÇÑ´Ù.
-        - Å×ÀÌºí : ÃÑ ·Î¿ìÀÇ¼ö, ÃÑ ºí·°ÀÇ ¼ö, ºñ¾îÀÖ´Â ºí·°¿¡ ¾²¿©Áú ¼ö ÀÖ´Â ºó °ø°£ÀÇ Æò±º, Ã¼ÀÎÀÌ ¹ß»ýµÈ ·Î¿ìÀÇ ¼ö, ·Î¿ìÀÇ Æò±Õ ±æÀÌ
-        - ÀÎµ¦½º : ÀÎµ¦½ºÀÇ ±íÀÌ(Depth), Leaf block ÀÇ °³¼ö, Distinct Key ÀÇ ¼ö, Leaf Blocks/Key ÀÇ Æò±Õ,
-                  Data blocks/key ÀÇ Æò±Õ, Clustering Factor, °¡Àå Å« key °ª, °¡Àå ÀÛÀº key °ª
-        - ÄÃ·³ : Distinct ÇÑ °ªÀÇ ¼ö, È÷½ºÅä±×·¥ Á¤º¸
-        - Å¬·¯½ºÅÍ : Cluster Key ´ç ±æÀÌÀÇ Æò±Õ
+    - ANALYZE ëŠ” ì¸ë±ìŠ¤, í…Œì´ë¸”, í´ëŸ¬ìŠ¤í„°ì˜ í†µê³„ì •ë³´ë¥¼ ìƒì„± í•œë‹¤.
+    - ANALYZE ê°€ ìƒì„±í•œ í†µê³„ì •ë³´ë“¤ì€ ë¹„ìš©ê¸°ì¤€(Cost-based)ì˜ ì˜µí‹°ë§ˆì´ì €ê°€ ê°€ìž¥ íš¨ìœ¨ì ì¸ ì‹¤í–‰ê³„íšì„ ìˆ˜ë¦½í•˜ê¸° ìœ„í•´ ìµœì†Œë¹„ìš©ì„ ê³„ì‚°í•  ë•Œ ì‚¬ìš©ëœë‹¤.
+    - ê° ì˜¤ë¸Œì íŠ¸ì˜ êµ¬ì¡°ë¥¼ í™•ì¸í•˜ëŠ” ê²ƒê³¼ ì²´ì¸(Chain) ìƒì„± ì—¬ë¶€ë¥¼ í™•ì¸í•  ìˆ˜ ìžˆìœ¼ë¯€ë¡œ ì‹œìŠ¤í…œì˜ ì €ìž¥ê³µê°„ ê´€ë¦¬ë¥¼ ë„ì™€ì¤€ë‹¤.
+    - ANALYZE ëŠ” ë‹¤ìŒê³¼ ê°™ì€ í†µê³„ì •ë³´ë¥¼ ìƒì„±í•˜ì—¬ ë°ì´í„° ì‚¬ì „ì— ì €ìž¥ í•œë‹¤.
+        - í…Œì´ë¸” : ì´ ë¡œìš°ì˜ìˆ˜, ì´ ë¸”ëŸ­ì˜ ìˆ˜, ë¹„ì–´ìžˆëŠ” ë¸”ëŸ­ì— ì“°ì—¬ì§ˆ ìˆ˜ ìžˆëŠ” ë¹ˆ ê³µê°„ì˜ í‰êµ°, ì²´ì¸ì´ ë°œìƒëœ ë¡œìš°ì˜ ìˆ˜, ë¡œìš°ì˜ í‰ê·  ê¸¸ì´
+        - ì¸ë±ìŠ¤ : ì¸ë±ìŠ¤ì˜ ê¹Šì´(Depth), Leaf block ì˜ ê°œìˆ˜, Distinct Key ì˜ ìˆ˜, Leaf Blocks/Key ì˜ í‰ê· ,
+                  Data blocks/key ì˜ í‰ê· , Clustering Factor, ê°€ìž¥ í° key ê°’, ê°€ìž¥ ìž‘ì€ key ê°’
+        - ì»¬ëŸ¼ : Distinct í•œ ê°’ì˜ ìˆ˜, ížˆìŠ¤í† ê·¸ëž¨ ì •ë³´
+        - í´ëŸ¬ìŠ¤í„° : Cluster Key ë‹¹ ê¸¸ì´ì˜ í‰ê· 
 
-    - ÁÖ±âÀûÀÎ ANALYZE ÀÛ¾÷À» ¼öÇà ½ÃÄÑ ÁÖ¾î¾ß ÇÑ´Ù.
-      Å×ÀÌºíÀ» Àç»ý¼º ÇÏ°Å³ª, »õ·Î Å¬·¯½ºÅÍ¸µÀ» ÇÑ °æ¿ì, ÀÎµ¦½º¸¦ Ãß°¡ÇÏ°Å³ª Àç»ý¼ºÇÑ °æ¿ì, ´Ù·®ÀÇ µ¥ÀÌÅÍ¸¦ SQL ÀÌ³ª
-      ¹èÄ¡ ¾ÖÇÃ¸®ÄÉÀÌ¼ÇÀ» ÅëÇØ ÀÛ¾÷ÇÑ °æ¿ì ANALYZE ¸¦ ¼öÇà ½ÃÄÑ ÁÖ´Â °ÍÀÌ ÁÁ´Ù.
-      »ç¿ëÀÚ´Â USER_TABLES, USER_COLUMNS, USER_INDEXS, USER_CLUSTER µîÀÇ ÀÚ·á»çÀü ºä¸¦ ÅëÇØ Á¤º¸¸¦ È®ÀÎÇÒ ¼ö ÀÖ´Ù
-      Å×ÀÌºíÀ» ANALYZE ½ÃÅ²´Ù¸é °Å±â¿¡ µû¸£´Â ÀÎµ¦½ºµéµµ °°ÀÌ ½Ç½ÃÇÏ´Â °ÍÀÌ ÁÁ´Ù.
+    - ì£¼ê¸°ì ì¸ ANALYZE ìž‘ì—…ì„ ìˆ˜í–‰ ì‹œì¼œ ì£¼ì–´ì•¼ í•œë‹¤.
+      í…Œì´ë¸”ì„ ìž¬ìƒì„± í•˜ê±°ë‚˜, ìƒˆë¡œ í´ëŸ¬ìŠ¤í„°ë§ì„ í•œ ê²½ìš°, ì¸ë±ìŠ¤ë¥¼ ì¶”ê°€í•˜ê±°ë‚˜ ìž¬ìƒì„±í•œ ê²½ìš°, ë‹¤ëŸ‰ì˜ ë°ì´í„°ë¥¼ SQL ì´ë‚˜
+      ë°°ì¹˜ ì• í”Œë¦¬ì¼€ì´ì…˜ì„ í†µí•´ ìž‘ì—…í•œ ê²½ìš° ANALYZE ë¥¼ ìˆ˜í–‰ ì‹œì¼œ ì£¼ëŠ” ê²ƒì´ ì¢‹ë‹¤.
+      ì‚¬ìš©ìžëŠ” USER_TABLES, USER_COLUMNS, USER_INDEXS, USER_CLUSTER ë“±ì˜ ìžë£Œì‚¬ì „ ë·°ë¥¼ í†µí•´ ì •ë³´ë¥¼ í™•ì¸í•  ìˆ˜ ìžˆë‹¤
+      í…Œì´ë¸”ì„ ANALYZE ì‹œí‚¨ë‹¤ë©´ ê±°ê¸°ì— ë”°ë¥´ëŠ” ì¸ë±ìŠ¤ë“¤ë„ ê°™ì´ ì‹¤ì‹œí•˜ëŠ” ê²ƒì´ ì¢‹ë‹¤.
 
-- ½ÇÇà°èÈ¹
-- sql ÃÖÀûÈ­
+- ì‹¤í–‰ê³„íš
+- sql ìµœì í™”
     https://developer-talk.tistory.com/420
 
-- ¿ÉÆ¼¸¶ÀÌÀú
-    - °¡Àå È¿À²ÀûÀÎ ¹æ¹ýÀ¸·Î SQL À» ¼öÇàÇÒ ÃÖÀûÀÇ Ã³¸® °æ·Î¸¦ »ý¼ºÇØÁÖ´Â DBMS ÀÇ ÇÙ½É ¿£Áø
-    - ÄÄÇ»ÅÍÀÇ µÎ³ú°¡ CPU ÀÎ °ÍÃ³·³ DBMS ÀÇ µÎ³ú´Â ¿ÉÆ¼¸¶ÀÌÀú
-    - SQL À» ÀÛ¼ºÇÏ°í ½ÇÇàÇÏ¸é ¼ÒÇÁÆ®¿þ¾î ½ÇÇàÆÄÀÏÃ³·³ Áï½Ã ½ÇÇàµÇ´Â °ÍÀÌ ¾Æ´Ï¶ó ¿ÉÆ¼¸¶ÀÌÀú(Optimizer)¶ó´Â °÷¿¡¼­ "ÀÌ Äõ¸®¹®À»
-      ¾î¶»°Ô ½ÇÇà½ÃÅ°°Ú´Ù!"¶ó´Â ¿©·¯ °¡Áö ½ÇÇà°èÈ¹À» ¼¼¿ì°Ô µË´Ï´Ù. ÀÌ·¸°Ô ½ÇÇà°èÈ¹À» ¼¼¿î µÚ ½Ã½ºÅÛ Åë°èÁ¤º¸¸¦ È°¿ëÇÏ¿©
-      °¢ ½ÇÇà°èÈ¹ÀÇ ¿¹»ó ºñ¿ëÀ» »êÁ¤ÇÑ ÈÄ °¢ ½ÇÇà°èÈ¹À» ºñ±³ÇØ¼­ ÃÖ°íÀÇ È¿À²À» °¡Áö°í ÀÖ´Â ½ÇÇà°èÈ¹À» ÆÇº°ÇÑ ÈÄ ±× ½ÇÇà°èÈ¹¿¡
-      µû¶ó Äõ¸®¸¦ ¼öÇàÇÏ°Ô µÇ´Â °ÍÀÔ´Ï´Ù.
+- ì˜µí‹°ë§ˆì´ì €
+    - ê°€ìž¥ íš¨ìœ¨ì ì¸ ë°©ë²•ìœ¼ë¡œ SQL ì„ ìˆ˜í–‰í•  ìµœì ì˜ ì²˜ë¦¬ ê²½ë¡œë¥¼ ìƒì„±í•´ì£¼ëŠ” DBMS ì˜ í•µì‹¬ ì—”ì§„
+    - ì»´í“¨í„°ì˜ ë‘ë‡Œê°€ CPU ì¸ ê²ƒì²˜ëŸ¼ DBMS ì˜ ë‘ë‡ŒëŠ” ì˜µí‹°ë§ˆì´ì €
+    - SQL ì„ ìž‘ì„±í•˜ê³  ì‹¤í–‰í•˜ë©´ ì†Œí”„íŠ¸ì›¨ì–´ ì‹¤í–‰íŒŒì¼ì²˜ëŸ¼ ì¦‰ì‹œ ì‹¤í–‰ë˜ëŠ” ê²ƒì´ ì•„ë‹ˆë¼ ì˜µí‹°ë§ˆì´ì €(Optimizer)ë¼ëŠ” ê³³ì—ì„œ "ì´ ì¿¼ë¦¬ë¬¸ì„
+      ì–´ë–»ê²Œ ì‹¤í–‰ì‹œí‚¤ê² ë‹¤!"ë¼ëŠ” ì—¬ëŸ¬ ê°€ì§€ ì‹¤í–‰ê³„íšì„ ì„¸ìš°ê²Œ ë©ë‹ˆë‹¤. ì´ë ‡ê²Œ ì‹¤í–‰ê³„íšì„ ì„¸ìš´ ë’¤ ì‹œìŠ¤í…œ í†µê³„ì •ë³´ë¥¼ í™œìš©í•˜ì—¬
+      ê° ì‹¤í–‰ê³„íšì˜ ì˜ˆìƒ ë¹„ìš©ì„ ì‚°ì •í•œ í›„ ê° ì‹¤í–‰ê³„íšì„ ë¹„êµí•´ì„œ ìµœê³ ì˜ íš¨ìœ¨ì„ ê°€ì§€ê³  ìžˆëŠ” ì‹¤í–‰ê³„íšì„ íŒë³„í•œ í›„ ê·¸ ì‹¤í–‰ê³„íšì—
+      ë”°ë¼ ì¿¼ë¦¬ë¥¼ ìˆ˜í–‰í•˜ê²Œ ë˜ëŠ” ê²ƒìž…ë‹ˆë‹¤.
 
-    - ¿ÉÆ¼¸¶ÀÌÁ®ÀÇ Á¾·ù
-        - ¿ÉÆ¼¸¶ÀÌÀú´Â ½ÇÇà °èÈ¹À» ¼¼¿ì´Â ¹æ½Ä¿¡ µû¶ó ±ÔÄ¢ ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú¿Í ºñ¿ë ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú·Î ³ª´¹´Ï´Ù.
+    - ì˜µí‹°ë§ˆì´ì ¸ì˜ ì¢…ë¥˜
+        - ì˜µí‹°ë§ˆì´ì €ëŠ” ì‹¤í–‰ ê³„íšì„ ì„¸ìš°ëŠ” ë°©ì‹ì— ë”°ë¼ ê·œì¹™ ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €ì™€ ë¹„ìš© ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €ë¡œ ë‚˜ë‰©ë‹ˆë‹¤.
 
-        Ç×¸ñ	        ±ÔÄ¢ ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú	                    ºñ¿ë ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú
-        °³³ä	        »çÀü¿¡ Á¤ÀÇµÈ ±ÔÄ¢ ±â¹Ý	                    ÃÖ¼Òºñ¿ë °è»ê ½ÇÇà°èÈ¹ ¼ö¸³
-        ±âÁØ	        ½ÇÇà¿ì¼± ¼øÀ§(Ranking)	                ¾×¼¼½º ºñ¿ë(Cost)
-        ÀÎµ¦½º	    ÀÎµ¦½º Á¸Àç ½Ã °¡Àå ¿ì¼±½Ã »ç¿ë	            Cost ¿¡ ÀÇÇÑ °áÁ¤
-        ¼º´É	        »ç¿ëÀÚ SQL ÀÛ¼º ¼÷·Ãµµ	                    ¿ÉÆ¼¸¶ÀÌÀú ¿¹Ãø ¼º´É
-        ÀåÁ¡	        ÆÇ´ÜÀÌ ¸Å¿ì ±ÔÄ¢Àû ½ÇÇà ¿¹»ó °¡´É	        Åë°è Á¤º¸¸¦ ÅëÇÑ Çö½Ç ¿ä¼Ò Àû¿ë
-        ´ÜÁ¡	        ¿¹Ãø Åë°èÁ¤º¸ ¿ä¼Ò ¹«½Ã	                    ÃÖ¼Ò ¼º´É º¸Àå °èÈ¹ÀÇ ¿¹Ãø Á¦¾î ¾î·Á¿ò
-        »ç·Ê	        AND Áß½É ¾çÂÊ ¡®=¡¯ ½Ã Index Merge »ç¿ë	    AND Áß½É ¾çÂÊ ¡®=¡¯ ½Ã ºÐÆ÷µµº° Index ¼±ÅÃ
+        í•­ëª©	        ê·œì¹™ ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €	                    ë¹„ìš© ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €
+        ê°œë…	        ì‚¬ì „ì— ì •ì˜ëœ ê·œì¹™ ê¸°ë°˜	                    ìµœì†Œë¹„ìš© ê³„ì‚° ì‹¤í–‰ê³„íš ìˆ˜ë¦½
+        ê¸°ì¤€	        ì‹¤í–‰ìš°ì„  ìˆœìœ„(Ranking)	                ì•¡ì„¸ìŠ¤ ë¹„ìš©(Cost)
+        ì¸ë±ìŠ¤	    ì¸ë±ìŠ¤ ì¡´ìž¬ ì‹œ ê°€ìž¥ ìš°ì„ ì‹œ ì‚¬ìš©	            Cost ì— ì˜í•œ ê²°ì •
+        ì„±ëŠ¥	        ì‚¬ìš©ìž SQL ìž‘ì„± ìˆ™ë ¨ë„	                    ì˜µí‹°ë§ˆì´ì € ì˜ˆì¸¡ ì„±ëŠ¥
+        ìž¥ì 	        íŒë‹¨ì´ ë§¤ìš° ê·œì¹™ì  ì‹¤í–‰ ì˜ˆìƒ ê°€ëŠ¥	        í†µê³„ ì •ë³´ë¥¼ í†µí•œ í˜„ì‹¤ ìš”ì†Œ ì ìš©
+        ë‹¨ì 	        ì˜ˆì¸¡ í†µê³„ì •ë³´ ìš”ì†Œ ë¬´ì‹œ	                    ìµœì†Œ ì„±ëŠ¥ ë³´ìž¥ ê³„íšì˜ ì˜ˆì¸¡ ì œì–´ ì–´ë ¤ì›€
+        ì‚¬ë¡€	        AND ì¤‘ì‹¬ ì–‘ìª½ â€˜=â€™ ì‹œ Index Merge ì‚¬ìš©	    AND ì¤‘ì‹¬ ì–‘ìª½ â€˜=â€™ ì‹œ ë¶„í¬ë„ë³„ Index ì„ íƒ
 
-        ±ÔÄ¢ ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú (RBO)
-        ¿À¶óÅ¬8 ÀÌÇÏÀÇ ¹öÀü¿¡¼­ ±âº»À¸·Î ¼³Á¤µÈ ¿ÉÆ¼¸¶ÀÌÀú°¡ ¹Ù·Î ±ÔÄ¢ ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀúÀÔ´Ï´Ù. ±ÔÄ¢ ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú´Â
-        ¸» ±×´ë·Î ½ÇÇà ¼Óµµ°¡ ºü¸¥ ¼øÀ¸·Î ±ÔÄ¢À» ¸ÕÀú ¼¼¿öµÎ°í ¿ì¼±¼øÀ§°¡ ¾Õ¼­´Â ¹æ¹ýÀ» Ã¤ÅÃÇÏ´Â °Í.
-        °ú°Å¿¡´Â ¿ÉÆ¼¸¶ÀÌÀúÀÇ ºñ¿ëÀ» ¿¹ÃøÇÏ´Â ´É·ÂÀÌ ±×´ÙÁö ÁÁÁö ¾Ê¾Æ ÀÌ·¯ÇÑ ¹æ½ÄÀ» »ç¿ë.
-        ¿ÉÆ¼¸¶ÀÌÀúÀÇ ½ÇÇà°èÈ¹À» À¯µµÇÒ ¼ö ÀÖ´Â ÈùÆ®¿Í HASH JOIN ÀÇ °æ¿ì¿¡´Â ±ÔÄ¢ ±â¹Ý ÀÌÈÄ¿¡ ³ª¿Â °³³äµéÀÌ¹Ç·Î
-        ¿©±â¼­´Â »ç¿ëÇÏ½Ç ¼ö ¾ø´Ù´Â ´ÜÁ¡ÀÌ ÀÖ½À´Ï´Ù.
+        ê·œì¹™ ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì € (RBO)
+        ì˜¤ë¼í´8 ì´í•˜ì˜ ë²„ì „ì—ì„œ ê¸°ë³¸ìœ¼ë¡œ ì„¤ì •ëœ ì˜µí‹°ë§ˆì´ì €ê°€ ë°”ë¡œ ê·œì¹™ ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €ìž…ë‹ˆë‹¤. ê·œì¹™ ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €ëŠ”
+        ë§ ê·¸ëŒ€ë¡œ ì‹¤í–‰ ì†ë„ê°€ ë¹ ë¥¸ ìˆœìœ¼ë¡œ ê·œì¹™ì„ ë¨¼ì € ì„¸ì›Œë‘ê³  ìš°ì„ ìˆœìœ„ê°€ ì•žì„œëŠ” ë°©ë²•ì„ ì±„íƒí•˜ëŠ” ê²ƒ.
+        ê³¼ê±°ì—ëŠ” ì˜µí‹°ë§ˆì´ì €ì˜ ë¹„ìš©ì„ ì˜ˆì¸¡í•˜ëŠ” ëŠ¥ë ¥ì´ ê·¸ë‹¤ì§€ ì¢‹ì§€ ì•Šì•„ ì´ëŸ¬í•œ ë°©ì‹ì„ ì‚¬ìš©.
+        ì˜µí‹°ë§ˆì´ì €ì˜ ì‹¤í–‰ê³„íšì„ ìœ ë„í•  ìˆ˜ ìžˆëŠ” ížŒíŠ¸ì™€ HASH JOIN ì˜ ê²½ìš°ì—ëŠ” ê·œì¹™ ê¸°ë°˜ ì´í›„ì— ë‚˜ì˜¨ ê°œë…ë“¤ì´ë¯€ë¡œ
+        ì—¬ê¸°ì„œëŠ” ì‚¬ìš©í•˜ì‹¤ ìˆ˜ ì—†ë‹¤ëŠ” ë‹¨ì ì´ ìžˆìŠµë‹ˆë‹¤.
 
-        ºñ¿ë ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú
-        ÃÖ±Ù¿¡ ¸¹ÀÌ »ç¿ëÇÏ°í ÀÖ´Â ¿ÉÆ¼¸¶ÀÌÀú ¹æ½ÄÀÌ¸ç ¿À¶óÅ¬ 10 ÀÌÈÄ ¹öÀüºÎÅÍ´Â °ø½ÄÀûÀ¸·Î ºñ¿ë ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú¸¸ »ç¿ë.
-        ºñ¿ë ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú´Â ¿ÉÆ¼¸¶ÀÌÀú¿¡¼­ ½ÇÇà °èÈ¹À» ¼¼¿î µÚ(ÃÖ´ë 2Ãµ°³±îÁö) ºñ¿ëÀÌ ÃÖ¼ÒÇÑÀ¸·Î ³ª¿Â ½ÇÇà °èÈ¹À» ¼öÇà.
-        ºñ¿ëÀ» ¿¹ÃøÇÏ±â À§ÇØ¼­ ±ÔÄ¢ ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú°¡ »ç¿ëÇÏÁö ¾Ê´Â Å×ÀÌºí, ÀÎµ¦½º, Ä®·³ µîÀÇ
-        ´Ù¾çÇÑ °´Ã¼ Åë°èÁ¤º¸¿Í ½Ã½ºÅÛ Åë°èÁ¤º¸¸¦ ÀÌ¿ë.
+        ë¹„ìš© ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €
+        ìµœê·¼ì— ë§Žì´ ì‚¬ìš©í•˜ê³  ìžˆëŠ” ì˜µí‹°ë§ˆì´ì € ë°©ì‹ì´ë©° ì˜¤ë¼í´ 10 ì´í›„ ë²„ì „ë¶€í„°ëŠ” ê³µì‹ì ìœ¼ë¡œ ë¹„ìš© ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €ë§Œ ì‚¬ìš©.
+        ë¹„ìš© ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €ëŠ” ì˜µí‹°ë§ˆì´ì €ì—ì„œ ì‹¤í–‰ ê³„íšì„ ì„¸ìš´ ë’¤(ìµœëŒ€ 2ì²œê°œê¹Œì§€) ë¹„ìš©ì´ ìµœì†Œí•œìœ¼ë¡œ ë‚˜ì˜¨ ì‹¤í–‰ ê³„íšì„ ìˆ˜í–‰.
+        ë¹„ìš©ì„ ì˜ˆì¸¡í•˜ê¸° ìœ„í•´ì„œ ê·œì¹™ ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €ê°€ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ” í…Œì´ë¸”, ì¸ë±ìŠ¤, ì¹¼ëŸ¼ ë“±ì˜
+        ë‹¤ì–‘í•œ ê°ì²´ í†µê³„ì •ë³´ì™€ ì‹œìŠ¤í…œ í†µê³„ì •ë³´ë¥¼ ì´ìš©.
 
-    - ¿ÉÆ¼¸¶ÀÌÀú µ¿ÀÛ ¹æ½Ä
-        Parser : SQL ¹®ÀåÀ» ºÐ¼®ÇÏ¿© ¹®¹ý °Ë»ç¿Í ±¸¼º¿ä¼Ò¸¦ ÆÄ¾ÇÇÏ°í ÀÌ¸¦ ÆÄ½Ì ÇØ¼­ ÆÄ½Ì Æ®¸®¸¦ ¸¸µì´Ï´Ù.
-        Query Transformer : ÆÄ½ÌµÈ SQL À» º¸°í °°Àº °á°ú¸¦ µµÃâÇÏµÇ, Á» ´õ ³ªÀº ½ÇÇà °èÈ¹À» °®´Â SQL ·Î º¯È¯ÀÌ
-            °¡´ÉÇÑÁö¸¦ ÆÇ´ÜÇÏ¿© º¯È¯ ÀÛ¾÷À» ¼öÇàÇÕ´Ï´Ù.
-        Estimator : ½Ã½ºÅÛ Åë°èÁ¤º¸¸¦ µñ¼Å³Ê¸®·ÎºÎÅÍ ¼öÁýÇÏ¿© SQL À» ½ÇÇàÇÒ ¶§ ¼Ò¿äµÇ´Â ÃÑºñ¿ëÀ» °è»êÇÕ´Ï´Ù.
-        Plan Generator : Estimator ¸¦ ÅëÇØ °è»êµÈ °ªµéÀ» Åä´ë·Î ÈÄº¸±ºÀÌ µÇ´Â ½ÇÇà°èÈ¹À» µµÃâÇÕ´Ï´Ù.
-        Row-Source Generator : ¿ÉÆ¼¸¶ÀÌÀú°¡ »ý¼ºÇÑ ½ÇÇà°èÈ¹À» SQL ¿£ÁøÀÌ ½ÇÁ¦ ½ÇÇàÇÒ ¼ö ÀÖ´Â
-            ÄÚµå³ª ÇÁ·Î½ÃÀú ÇüÅÂ·Î Æ÷¸ËÆÃ ÇÕ´Ï´Ù.
-        SQL Engine : SQL À» ½ÇÇàÇÕ´Ï´Ù.
+    - ì˜µí‹°ë§ˆì´ì € ë™ìž‘ ë°©ì‹
+        Parser : SQL ë¬¸ìž¥ì„ ë¶„ì„í•˜ì—¬ ë¬¸ë²• ê²€ì‚¬ì™€ êµ¬ì„±ìš”ì†Œë¥¼ íŒŒì•…í•˜ê³  ì´ë¥¼ íŒŒì‹± í•´ì„œ íŒŒì‹± íŠ¸ë¦¬ë¥¼ ë§Œë“­ë‹ˆë‹¤.
+        Query Transformer : íŒŒì‹±ëœ SQL ì„ ë³´ê³  ê°™ì€ ê²°ê³¼ë¥¼ ë„ì¶œí•˜ë˜, ì¢€ ë” ë‚˜ì€ ì‹¤í–‰ ê³„íšì„ ê°–ëŠ” SQL ë¡œ ë³€í™˜ì´
+            ê°€ëŠ¥í•œì§€ë¥¼ íŒë‹¨í•˜ì—¬ ë³€í™˜ ìž‘ì—…ì„ ìˆ˜í–‰í•©ë‹ˆë‹¤.
+        Estimator : ì‹œìŠ¤í…œ í†µê³„ì •ë³´ë¥¼ ë”•ì…”ë„ˆë¦¬ë¡œë¶€í„° ìˆ˜ì§‘í•˜ì—¬ SQL ì„ ì‹¤í–‰í•  ë•Œ ì†Œìš”ë˜ëŠ” ì´ë¹„ìš©ì„ ê³„ì‚°í•©ë‹ˆë‹¤.
+        Plan Generator : Estimator ë¥¼ í†µí•´ ê³„ì‚°ëœ ê°’ë“¤ì„ í† ëŒ€ë¡œ í›„ë³´êµ°ì´ ë˜ëŠ” ì‹¤í–‰ê³„íšì„ ë„ì¶œí•©ë‹ˆë‹¤.
+        Row-Source Generator : ì˜µí‹°ë§ˆì´ì €ê°€ ìƒì„±í•œ ì‹¤í–‰ê³„íšì„ SQL ì—”ì§„ì´ ì‹¤ì œ ì‹¤í–‰í•  ìˆ˜ ìžˆëŠ”
+            ì½”ë“œë‚˜ í”„ë¡œì‹œì € í˜•íƒœë¡œ í¬ë§·íŒ… í•©ë‹ˆë‹¤.
+        SQL Engine : SQL ì„ ì‹¤í–‰í•©ë‹ˆë‹¤.
 
-    - ¿ÉÆ¼¸¶ÀÌÀú´Â °áÄÚ ¸¸´ÉÀÌ ¾Æ´Ï´Ù.
-        Ä®·³ÀÇ Åë°è Á¤º¸¸¸ °¡Áö°í´Â Á¶°ÇÀý¿¡¼­ »ç¿ëµÈ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â µ¥ÀÌÅÍÀÇ ¾çÀÌ ¾î´À Á¤µµÀÎÁö ¾Ë ¼ö°¡ ¾ø±â¿¡ ºñ¿ë °è»ê °á°ú°¡
-        Á¤È®ÇÏÁö°¡ ¾Ê½À´Ï´Ù. ±×¸®°í ºñ¿ë»êÁ¤½Ã Äõ¸®¹® ´Üµ¶À¸·Î ½ÇÇàµÈ´Ù°í °¡Á¤ÇÏ±â¿¡ ¿î¿µ ¼­¹ö¿Í °°ÀÌ Äõ¸®°¡ µ¿½Ã ½ÇÇàµÈ´Ù¸é
-        ½ÇÁ¦ ºñ¿ëÀº ´Þ¶óÁú ¼ö ÀÖ±âµµ ÇÏ°í È÷½ºÅä±×·¥ ¹öÅ¶ÀÌ ÃÖ´ë 254±îÁö¸¸ »ç¿ëÇÒ ¼ö ÀÖ¾î 254°³ ÀÌ»óÀÇ °ªÀ» °®´Â ÄÃ·³ÀÇ °æ¿ì
-        ºñ¿ë ¿¹Ãø °á°ú°¡ Á¤È®ÇÏÁö ¾Ê´Â µîÀÇ ¿ÉÆ¼¸¶ÀÌÀú¿¡ ¿©·¯ °¡Áö ºóÆ´µéÀÌ ¸¹½À´Ï´Ù.
-        Äõ¸® Æ©´×À» ÇÒ ¶§¿¡´Â Äõ¸® ¹®ÀÇ ½ÇÇà°èÈ¹À» ²À º¸½Ã°í ¿ÉÆ¼¸¶ÀÌÀú°¡ ºñÈ¿À²ÀûÀ¸·Î ÀÛµ¿ÇÏ°í ÀÖ´Ù¸é ¿À¶óÅ¬ÀÇ ÈùÆ® °°Àº
-        ºÎ°¡ÀûÀÎ ÀåÄ¡¸¦ ÅëÇØ ¿Ã¹Ù¸£°Ô ÀÛµ¿µÉ ¼ö ÀÖµµ·Ï À¯µµÇÏ´Â ¹æ¹ýµµ ÇÊ¿äÇÕ´Ï´Ù.
+    - ì˜µí‹°ë§ˆì´ì €ëŠ” ê²°ì½” ë§ŒëŠ¥ì´ ì•„ë‹ˆë‹¤.
+        ì¹¼ëŸ¼ì˜ í†µê³„ ì •ë³´ë§Œ ê°€ì§€ê³ ëŠ” ì¡°ê±´ì ˆì—ì„œ ì‚¬ìš©ëœ ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” ë°ì´í„°ì˜ ì–‘ì´ ì–´ëŠ ì •ë„ì¸ì§€ ì•Œ ìˆ˜ê°€ ì—†ê¸°ì— ë¹„ìš© ê³„ì‚° ê²°ê³¼ê°€
+        ì •í™•í•˜ì§€ê°€ ì•ŠìŠµë‹ˆë‹¤. ê·¸ë¦¬ê³  ë¹„ìš©ì‚°ì •ì‹œ ì¿¼ë¦¬ë¬¸ ë‹¨ë…ìœ¼ë¡œ ì‹¤í–‰ëœë‹¤ê³  ê°€ì •í•˜ê¸°ì— ìš´ì˜ ì„œë²„ì™€ ê°™ì´ ì¿¼ë¦¬ê°€ ë™ì‹œ ì‹¤í–‰ëœë‹¤ë©´
+        ì‹¤ì œ ë¹„ìš©ì€ ë‹¬ë¼ì§ˆ ìˆ˜ ìžˆê¸°ë„ í•˜ê³  ížˆìŠ¤í† ê·¸ëž¨ ë²„í‚·ì´ ìµœëŒ€ 254ê¹Œì§€ë§Œ ì‚¬ìš©í•  ìˆ˜ ìžˆì–´ 254ê°œ ì´ìƒì˜ ê°’ì„ ê°–ëŠ” ì»¬ëŸ¼ì˜ ê²½ìš°
+        ë¹„ìš© ì˜ˆì¸¡ ê²°ê³¼ê°€ ì •í™•í•˜ì§€ ì•ŠëŠ” ë“±ì˜ ì˜µí‹°ë§ˆì´ì €ì— ì—¬ëŸ¬ ê°€ì§€ ë¹ˆí‹ˆë“¤ì´ ë§ŽìŠµë‹ˆë‹¤.
+        ì¿¼ë¦¬ íŠœë‹ì„ í•  ë•Œì—ëŠ” ì¿¼ë¦¬ ë¬¸ì˜ ì‹¤í–‰ê³„íšì„ ê¼­ ë³´ì‹œê³  ì˜µí‹°ë§ˆì´ì €ê°€ ë¹„íš¨ìœ¨ì ìœ¼ë¡œ ìž‘ë™í•˜ê³  ìžˆë‹¤ë©´ ì˜¤ë¼í´ì˜ ížŒíŠ¸ ê°™ì€
+        ë¶€ê°€ì ì¸ ìž¥ì¹˜ë¥¼ í†µí•´ ì˜¬ë°”ë¥´ê²Œ ìž‘ë™ë  ìˆ˜ ìžˆë„ë¡ ìœ ë„í•˜ëŠ” ë°©ë²•ë„ í•„ìš”í•©ë‹ˆë‹¤.
 
-- ½ÇÇà °èÈ¹
-    - ½ÇÇà °èÈ¹ÀÌ¶õ?
-        ½ÇÇà°èÈ¹ÀÌ¶õ »ç¿ëÀÚ°¡ SQL À» ½ÇÇàÇÏ¿© µ¥ÀÌÅÍ¸¦ ÃßÃâÇÏ·Á°í ÇÒ ¶§ ¿ÉÆ¼¸¶ÀÌÀú°¡ ¼ö¸³ÇÏ´Â ÀÛ¾÷ ÀýÂ÷
+- ì‹¤í–‰ ê³„íš
+    - ì‹¤í–‰ ê³„íšì´ëž€?
+        ì‹¤í–‰ê³„íšì´ëž€ ì‚¬ìš©ìžê°€ SQL ì„ ì‹¤í–‰í•˜ì—¬ ë°ì´í„°ë¥¼ ì¶”ì¶œí•˜ë ¤ê³  í•  ë•Œ ì˜µí‹°ë§ˆì´ì €ê°€ ìˆ˜ë¦½í•˜ëŠ” ìž‘ì—… ì ˆì°¨
 
-    - Äõ¸®¹®ÀÇ ½ÇÇà °èÈ¹À» È®ÀÎÇÏ´Â ¹æ¹ý
-        Äõ¸®¹®ÀÇ ½ÇÇà °èÈ¹À» È®ÀÎÇÏ´Â ¹æ¹ýÀº EXPLAIN PLAN, AUTOTRACE, SQL TRACE ÀÌ·¸°Ô 3°¡Áö°¡ ÀÖ½À´Ï´Ù.
+    - ì¿¼ë¦¬ë¬¸ì˜ ì‹¤í–‰ ê³„íšì„ í™•ì¸í•˜ëŠ” ë°©ë²•
+        ì¿¼ë¦¬ë¬¸ì˜ ì‹¤í–‰ ê³„íšì„ í™•ì¸í•˜ëŠ” ë°©ë²•ì€ EXPLAIN PLAN, AUTOTRACE, SQL TRACE ì´ë ‡ê²Œ 3ê°€ì§€ê°€ ìžˆìŠµë‹ˆë‹¤.
 
-    - SCAN ÀÇ Á¾·ù¿Í ¼Óµµ
-        FULL TABLE SCAN : Å×ÀÌºíÀÇ ÀüÃ¼ µ¥ÀÌÅÍ¸¦ ÀÐ¾î Á¶°Ç¿¡ ¸Â´Â µ¥ÀÌÅÍ¸¦ ÃßÃâÇÏ´Â ¹æ½Ä ÀÔ´Ï´Ù.
-        ROWID SCAN : ROWID ¸¦ ±âÁØÀ¸·Î µ¥ÀÌÅÍ¸¦ ÃßÃâÇÏ¸ç ´ÜÀÏ Çà¿¡ Á¢±ÙÇÏ´Â ¹æ½Ä Áß¿¡¼­ °¡Àå ºü¸¨´Ï´Ù.
-        INDEX SCAN : ¸» ±×´ë·Î ÀÎµ¦½º¸¦ È°¿ëÇÏ¿© ¿øÇÏ´Â µ¥ÀÌÅÍ¸¦ ÃßÃâÇÏ´Â ¹æ½ÄÀÔ´Ï´Ù.
+    - SCAN ì˜ ì¢…ë¥˜ì™€ ì†ë„
+        FULL TABLE SCAN : í…Œì´ë¸”ì˜ ì „ì²´ ë°ì´í„°ë¥¼ ì½ì–´ ì¡°ê±´ì— ë§žëŠ” ë°ì´í„°ë¥¼ ì¶”ì¶œí•˜ëŠ” ë°©ì‹ ìž…ë‹ˆë‹¤.
+        ROWID SCAN : ROWID ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ë°ì´í„°ë¥¼ ì¶”ì¶œí•˜ë©° ë‹¨ì¼ í–‰ì— ì ‘ê·¼í•˜ëŠ” ë°©ì‹ ì¤‘ì—ì„œ ê°€ìž¥ ë¹ ë¦…ë‹ˆë‹¤.
+        INDEX SCAN : ë§ ê·¸ëŒ€ë¡œ ì¸ë±ìŠ¤ë¥¼ í™œìš©í•˜ì—¬ ì›í•˜ëŠ” ë°ì´í„°ë¥¼ ì¶”ì¶œí•˜ëŠ” ë°©ì‹ìž…ë‹ˆë‹¤.
 
-        ÀÌ µÎ °¡Áö SCAN ¹æ¹ý Áß °³¹ßÀÚ°¡ ¼Õ½±°Ô À¯µµÇÒ ¼ö ÀÖ´Â SCAN ÀÇ ¹æ¹ýÀº FULL TABLE SCAN °ú INDEX SCAN ÀÔ´Ï´Ù.
-        ÀÌ Áß¿¡¼­ Å×ÀÌºí¿¡ µ¥ÀÌÅÍ°¡ ¸¹Áö ¾Ê¾Æ INDEX ¸¦ Å¸¾ß ÇÏ´Â ½Ã°£ ¼Ò¿ä°¡ ºÒÇÊ¿äÇÏ´Ù°í ´À²¸Áö°Å³ª Å×ÀÌºí¿¡¼­ ÃßÃâÇØ¾ß ÇÏ´Â
-        µ¥ÀÌÅÍ ¾çÀÌ ¾öÃ» ¸¹´Ù¸é FULL TABLE SCAN À» ÇÏ´Â °ÍÀÌ À¯¸®ÇÒ ¼ö ÀÖ°í ¹Ý´ë·Î ¸¹Àº µ¥ÀÌÅÍ°¡ ÀÖ´Â Å×ÀÌºí¿¡¼­ ³»°¡ ¿øÇÏ´Â
-        µ¥ÀÌÅÍ¸¦ ÃßÃâÇØ¾ß ÇÏ´Â »óÈ²ÀÌ¶ó¸é INDEX SCAN À» ÇÏ´Â°ÍÀÌ ÁÁ½À´Ï´Ù.
+        ì´ ë‘ ê°€ì§€ SCAN ë°©ë²• ì¤‘ ê°œë°œìžê°€ ì†ì‰½ê²Œ ìœ ë„í•  ìˆ˜ ìžˆëŠ” SCAN ì˜ ë°©ë²•ì€ FULL TABLE SCAN ê³¼ INDEX SCAN ìž…ë‹ˆë‹¤.
+        ì´ ì¤‘ì—ì„œ í…Œì´ë¸”ì— ë°ì´í„°ê°€ ë§Žì§€ ì•Šì•„ INDEX ë¥¼ íƒ€ì•¼ í•˜ëŠ” ì‹œê°„ ì†Œìš”ê°€ ë¶ˆí•„ìš”í•˜ë‹¤ê³  ëŠê»´ì§€ê±°ë‚˜ í…Œì´ë¸”ì—ì„œ ì¶”ì¶œí•´ì•¼ í•˜ëŠ”
+        ë°ì´í„° ì–‘ì´ ì—„ì²­ ë§Žë‹¤ë©´ FULL TABLE SCAN ì„ í•˜ëŠ” ê²ƒì´ ìœ ë¦¬í•  ìˆ˜ ìžˆê³  ë°˜ëŒ€ë¡œ ë§Žì€ ë°ì´í„°ê°€ ìžˆëŠ” í…Œì´ë¸”ì—ì„œ ë‚´ê°€ ì›í•˜ëŠ”
+        ë°ì´í„°ë¥¼ ì¶”ì¶œí•´ì•¼ í•˜ëŠ” ìƒí™©ì´ë¼ë©´ INDEX SCAN ì„ í•˜ëŠ”ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤.
 
-        FULL TABLE SCAN À» Å¸´Â »óÈ²
-            1. Á¶°ÇÀý¿¡¼­ ºñ±³ÇÑ Ä®·³¿¡ ÀÎµ¦½º°¡ ¾ø´Â °æ¿ì
-            2. Á¶°ÇÀý¿¡¼­ ºñ±³ÇÑ ÄÃ·³¿¡ ÃÖÀûÈ­µÈ ÀÎµ¦½º´Â ÀÖÁö¸¸ Á¶°Ç¿¡ ¸¸Á·ÇÏ´Â µ¥ÀÌÅÍ°¡ Å×ÀÌºíÀÇ ¸¹Àº ¾çÀ» Â÷ÁöÇÏ¿©
-               FULL TABLE SCAN ÀÌ ³´´Ù°í ¿ÉÆ¼¸¶ÀÌÀú°¡ ÆÇ´ÜÇÏ´Â °æ¿ì
-            3. ÀÎµ¦½º´Â ÀÖÀ¸³ª, Å×ÀÌºíÀÇ µ¥ÀÌÅÍ ÀÚÃ¼°¡ Àû¾î FULL TABLE SCAN ÀÌ ³´´Ù°í ¿ÉÆ¼¸¶ÀÌÀú°¡ ÆÇ´ÜÇÏ´Â »óÈ²
-            4. Å×ÀÌºí »ý¼º ½Ã DEGREE ¼Ó¼º °ªÀÌ Å©°Ô ¼³Á¤µÇ¾î ÀÖ´Â °æ¿ì
+        FULL TABLE SCAN ì„ íƒ€ëŠ” ìƒí™©
+            1. ì¡°ê±´ì ˆì—ì„œ ë¹„êµí•œ ì¹¼ëŸ¼ì— ì¸ë±ìŠ¤ê°€ ì—†ëŠ” ê²½ìš°
+            2. ì¡°ê±´ì ˆì—ì„œ ë¹„êµí•œ ì»¬ëŸ¼ì— ìµœì í™”ëœ ì¸ë±ìŠ¤ëŠ” ìžˆì§€ë§Œ ì¡°ê±´ì— ë§Œì¡±í•˜ëŠ” ë°ì´í„°ê°€ í…Œì´ë¸”ì˜ ë§Žì€ ì–‘ì„ ì°¨ì§€í•˜ì—¬
+               FULL TABLE SCAN ì´ ë‚«ë‹¤ê³  ì˜µí‹°ë§ˆì´ì €ê°€ íŒë‹¨í•˜ëŠ” ê²½ìš°
+            3. ì¸ë±ìŠ¤ëŠ” ìžˆìœ¼ë‚˜, í…Œì´ë¸”ì˜ ë°ì´í„° ìžì²´ê°€ ì ì–´ FULL TABLE SCAN ì´ ë‚«ë‹¤ê³  ì˜µí‹°ë§ˆì´ì €ê°€ íŒë‹¨í•˜ëŠ” ìƒí™©
+            4. í…Œì´ë¸” ìƒì„± ì‹œ DEGREE ì†ì„± ê°’ì´ í¬ê²Œ ì„¤ì •ë˜ì–´ ìžˆëŠ” ê²½ìš°
 
-            ¿ÉÆ¼¸¶ÀÌÀú°¡ ÆÇ´Ü ÈÄ TABLE FULL SCAN À» Åº´Ù¸é ±×³É µÎ´Â °ÍÀÌ ÁÁ°í INDEX SCAN ÀÌ ´õ À¯¸®ÇÑµ¥µµ ºÒ±¸ÇÏ°í
-            INDEX °¡ ¾ø¾î ºÎµæÀÌÇÏ°Ô FULL TABLE SCAN À» ÇÑ´Ù¸é INDEX ¸¦ ÇÏ³ª ¸¸µå´Â °ÍÀÌ ÁÁ½À´Ï´Ù. ¹°·Ð INDEX ¸¦
-            ÇÊ¿äÇÒ ¶§¸¶´Ù ¸¸µå´Â °Íµµ UPDATE ¿Í, DELETE µîÀÇ ¼Óµµ¸¦ ÀúÇØÇÏ±â¿¡ ¸¶³É ÁÁÀº °ÍÀº ¾Æ´Õ´Ï´Ù.
+            ì˜µí‹°ë§ˆì´ì €ê°€ íŒë‹¨ í›„ TABLE FULL SCAN ì„ íƒ„ë‹¤ë©´ ê·¸ëƒ¥ ë‘ëŠ” ê²ƒì´ ì¢‹ê³  INDEX SCAN ì´ ë” ìœ ë¦¬í•œë°ë„ ë¶ˆêµ¬í•˜ê³ 
+            INDEX ê°€ ì—†ì–´ ë¶€ë“ì´í•˜ê²Œ FULL TABLE SCAN ì„ í•œë‹¤ë©´ INDEX ë¥¼ í•˜ë‚˜ ë§Œë“œëŠ” ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤. ë¬¼ë¡  INDEX ë¥¼
+            í•„ìš”í•  ë•Œë§ˆë‹¤ ë§Œë“œëŠ” ê²ƒë„ UPDATE ì™€, DELETE ë“±ì˜ ì†ë„ë¥¼ ì €í•´í•˜ê¸°ì— ë§ˆëƒ¥ ì¢‹ì€ ê²ƒì€ ì•„ë‹™ë‹ˆë‹¤.
 
-        ROWID SCAN À» Å¸´Â »óÈ²
-            1. Á¶°ÇÀý¿¡ ROWID ¸¦ Á÷Á¢ ¸í½ÃÇÒ °æ¿ì
-            2. INDEX SCAN À» ÅëÇØ ROWID ¸¦ ÃßÃâÇÑ ÈÄ Å×ÀÌºí¿¡ Á¢±ÙÇÒ °æ¿ì
+        ROWID SCAN ì„ íƒ€ëŠ” ìƒí™©
+            1. ì¡°ê±´ì ˆì— ROWID ë¥¼ ì§ì ‘ ëª…ì‹œí•  ê²½ìš°
+            2. INDEX SCAN ì„ í†µí•´ ROWID ë¥¼ ì¶”ì¶œí•œ í›„ í…Œì´ë¸”ì— ì ‘ê·¼í•  ê²½ìš°
 
-            ROWID SCAN Àº ´ÜÀÏ Çà Á¢±ÙÀÌ ¸Å¿ì ºü¸£±â ¶§¹®¿¡ ROWID SCAN °¡ À¯¸®ÇÏ´Ù°í ÆÇ´ÜµÇ¸é¼­
-            ROWID SCAN À» Å» ¼ö ÀÖ´Â »óÈ²ÀÌ¶ó¸é À¯µµÇØÁÖ´Â °ÍÀÌ ÁÁ½À´Ï´Ù.
+            ROWID SCAN ì€ ë‹¨ì¼ í–‰ ì ‘ê·¼ì´ ë§¤ìš° ë¹ ë¥´ê¸° ë•Œë¬¸ì— ROWID SCAN ê°€ ìœ ë¦¬í•˜ë‹¤ê³  íŒë‹¨ë˜ë©´ì„œ
+            ROWID SCAN ì„ íƒˆ ìˆ˜ ìžˆëŠ” ìƒí™©ì´ë¼ë©´ ìœ ë„í•´ì£¼ëŠ” ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤.
 
-        INDEX SCAN À» Å¸´Â »óÈ²
-            ÀÎµ¦½º Á¾·ù	                    »óÈ²
-            INDEX UNIQUE SCAN	            UNIQUE INDEX ¸¦ ±¸¼ºÇÏ´Â ¸ðµç ÄÃ·³ÀÌ Á¶°Ç¿¡ "="·Î ¸í½ÃµÈ °æ¿ì
-            INDEX RANGE SCAN	            1. UNIQUE ¼º°ÝÀÇ °áÇÕ ÀÎµ¦½ºÀÇ ¼±µÎ ÄÃ·³ÀÌ WHERE Àý¿¡ »ç¿ëµÇ´Â °æ¿ì
-                                            2. ÀÏ¹Ý ÀÎµ¦½ºÀÇ ÄÃ·³ÀÌ WHERE Àý¿¡ Á¸ÀçÇÏ´Â °æ¿ì
-            INDEX RANGE SCAN DESCENDING	    INDEX RANGE SCAN À» ¼öÇàÇÔ°ú µ¿½Ã¿¡ ORDER BY DESC ÀýÀ» ¸¸Á·ÇÏ´Â °æ¿ì
-            INDEX SKIP SCAN	                1. °áÇÕ ÀÎµ¦½ºÀÇ ¼±Çà ÄÃ·³ÀÌ WHERE Àý´Â °æ¿ì
-                                            2. ¿ÉÆ¼¸¶ÀÌÀú°¡ INDEX SKIP SCAN ÀÌ FULL TABLE SCAN
-                                               º¸´Ù ³´´Ù°í ÆÇ´ÜÇÏ´Â °æ¿ì
-            INDEX FULL SCAN	                1. ORDER BY / GROUP BYÀÇ ¸ðµç ÄÃ·³ÀÌ ÀÎµ¦½ºÀÇ ÀüÃ¼ ¶Ç´Â ÀÏºÎ·Î Á¤ÀÇµÈ °æ¿ì
-                                            2. Á¤·ÄÀÌ ÇÊ¿äÇÑ ¸í·É¿¡¼­ INDEX ENTRY ¸¦ ¼øÂ÷ÀûÀ¸·Î ÀÐ´Â ¹æ½ÄÀ¸·Î Ã³¸®µÈ °æ¿ì
-            INDEX FULL SCAN DESCENDING	    INDEX FULL SCAN À» ¼öÇàÇÔ°ú µ¿½Ã¿¡ ORDER BY DESC ÀýÀ» ¸¸Á·ÇÏ´Â °æ¿ì
-            INDEX FAST FULL SCAN	        FULL TABLE SCAN À» ÇÏÁö ¾Ê°íµµ INDEX FAST FULL SCAN À¸·Î ¿øÇÏ´Â µ¥ÀÌÅÍ¸¦
-                                            ÃßÃâÇÒ ¼ö ÀÖ°í ÃßÃâµÈ µ¥ÀÌÅÍÀÇ Á¤·ÄÀÌ ÇÊ¿ä ¾øÀ¸¸ç °áÇÕ ÀÎµ¦½º¸¦ ±¸¼ºÇÏ´Â
-                                            ÄÃ·³ Áß¿¡ ÃÖ¼Ò ÇÑ°³ ÀÌ»óÀº NOT NULL ÀÎ °æ¿ì
-            INDEX JOIN	                    ÃßÃâÇÏ°íÀÚ ÇÏ´Â µ¥ÀÌÅÍ°¡ Á¶ÀÎÇÏ´Â ÀÎµ¦½º¿¡ ¸ðµÎ Æ÷ÇÔµÇ¾î ÀÖ°í
-                                            ÃßÃâÇÏ´Â µ¥ÀÌÅÍÀÇ Á¤·ÄÀÌ ÇÊ¿ä¾ø´Â °æ¿ì
+        INDEX SCAN ì„ íƒ€ëŠ” ìƒí™©
+            ì¸ë±ìŠ¤ ì¢…ë¥˜	                    ìƒí™©
+            INDEX UNIQUE SCAN	            UNIQUE INDEX ë¥¼ êµ¬ì„±í•˜ëŠ” ëª¨ë“  ì»¬ëŸ¼ì´ ì¡°ê±´ì— "="ë¡œ ëª…ì‹œëœ ê²½ìš°
+            INDEX RANGE SCAN	            1. UNIQUE ì„±ê²©ì˜ ê²°í•© ì¸ë±ìŠ¤ì˜ ì„ ë‘ ì»¬ëŸ¼ì´ WHERE ì ˆì— ì‚¬ìš©ë˜ëŠ” ê²½ìš°
+                                            2. ì¼ë°˜ ì¸ë±ìŠ¤ì˜ ì»¬ëŸ¼ì´ WHERE ì ˆì— ì¡´ìž¬í•˜ëŠ” ê²½ìš°
+            INDEX RANGE SCAN DESCENDING	    INDEX RANGE SCAN ì„ ìˆ˜í–‰í•¨ê³¼ ë™ì‹œì— ORDER BY DESC ì ˆì„ ë§Œì¡±í•˜ëŠ” ê²½ìš°
+            INDEX SKIP SCAN	                1. ê²°í•© ì¸ë±ìŠ¤ì˜ ì„ í–‰ ì»¬ëŸ¼ì´ WHERE ì ˆëŠ” ê²½ìš°
+                                            2. ì˜µí‹°ë§ˆì´ì €ê°€ INDEX SKIP SCAN ì´ FULL TABLE SCAN
+                                               ë³´ë‹¤ ë‚«ë‹¤ê³  íŒë‹¨í•˜ëŠ” ê²½ìš°
+            INDEX FULL SCAN	                1. ORDER BY / GROUP BYì˜ ëª¨ë“  ì»¬ëŸ¼ì´ ì¸ë±ìŠ¤ì˜ ì „ì²´ ë˜ëŠ” ì¼ë¶€ë¡œ ì •ì˜ëœ ê²½ìš°
+                                            2. ì •ë ¬ì´ í•„ìš”í•œ ëª…ë ¹ì—ì„œ INDEX ENTRY ë¥¼ ìˆœì°¨ì ìœ¼ë¡œ ì½ëŠ” ë°©ì‹ìœ¼ë¡œ ì²˜ë¦¬ëœ ê²½ìš°
+            INDEX FULL SCAN DESCENDING	    INDEX FULL SCAN ì„ ìˆ˜í–‰í•¨ê³¼ ë™ì‹œì— ORDER BY DESC ì ˆì„ ë§Œì¡±í•˜ëŠ” ê²½ìš°
+            INDEX FAST FULL SCAN	        FULL TABLE SCAN ì„ í•˜ì§€ ì•Šê³ ë„ INDEX FAST FULL SCAN ìœ¼ë¡œ ì›í•˜ëŠ” ë°ì´í„°ë¥¼
+                                            ì¶”ì¶œí•  ìˆ˜ ìžˆê³  ì¶”ì¶œëœ ë°ì´í„°ì˜ ì •ë ¬ì´ í•„ìš” ì—†ìœ¼ë©° ê²°í•© ì¸ë±ìŠ¤ë¥¼ êµ¬ì„±í•˜ëŠ”
+                                            ì»¬ëŸ¼ ì¤‘ì— ìµœì†Œ í•œê°œ ì´ìƒì€ NOT NULL ì¸ ê²½ìš°
+            INDEX JOIN	                    ì¶”ì¶œí•˜ê³ ìž í•˜ëŠ” ë°ì´í„°ê°€ ì¡°ì¸í•˜ëŠ” ì¸ë±ìŠ¤ì— ëª¨ë‘ í¬í•¨ë˜ì–´ ìžˆê³ 
+                                            ì¶”ì¶œí•˜ëŠ” ë°ì´í„°ì˜ ì •ë ¬ì´ í•„ìš”ì—†ëŠ” ê²½ìš°
 
-- ÀÎµ¦½º
-    - ÀÎµ¦½º(Index)¶õ?
-        ÀÎµ¦½º´Â µ¥ÀÌÅÍº£ÀÌ½º Å×ÀÌºí¿¡ ´ëÇÑ °Ë»ö ¼º´ÉÀÇ ¼Óµµ¸¦ ³ô¿©ÁÖ´Â ÀÚ·á ±¸Á¶
-        Æ¯Á¤ ÄÃ·³¿¡ ÀÎµ¦½º¸¦ »ý¼ºÇÏ¸é, ÇØ´ç ÄÃ·³ÀÇ µ¥ÀÌÅÍµéÀ» Á¤·ÄÇÏ¿© º°µµÀÇ ¸Þ¸ð¸® °ø°£¿¡ µ¥ÀÌÅÍÀÇ ¹°¸®Àû ÁÖ¼Ò¿Í ÇÔ²² ÀúÀå
-        ÀÌ·¸°Ô ÀÎµ¦½º°¡ »ý¼ºÇÏ¿´´Ù¸é ¾ÕÀ¸·Î Äõ¸®¹®¿¡ "ÀÎµ¦½º »ý¼º ÄÃ·³À» Where Á¶°ÇÀ¸·Î °Å´Â µî"ÀÇ ÀÛ¾÷À» ÇÏ¸é
-        ¿ÉÆ¼¸¶ÀÌÀú¿¡¼­ ÆÇ´ÜÇÏ¿© »ý¼ºµÈ ÀÎµ¦½º¸¦ Å» ¼ö°¡ ÀÖ½À´Ï´Ù.
-        ÀÎµ¦½º¿¡¼­ ³»°¡ ¿øÇÏ´Â µ¥ÀÌÅÍ¸¦ ¸ÕÀú Ã£°í ÀúÀåµÇ¾î ÀÖ´Â ¹°¸®Àû ÁÖ¼Ò·Î Ã£¾Æ°©´Ï´Ù.
+- ì¸ë±ìŠ¤
+    - ì¸ë±ìŠ¤(Index)ëž€?
+        ì¸ë±ìŠ¤ëŠ” ë°ì´í„°ë² ì´ìŠ¤ í…Œì´ë¸”ì— ëŒ€í•œ ê²€ìƒ‰ ì„±ëŠ¥ì˜ ì†ë„ë¥¼ ë†’ì—¬ì£¼ëŠ” ìžë£Œ êµ¬ì¡°
+        íŠ¹ì • ì»¬ëŸ¼ì— ì¸ë±ìŠ¤ë¥¼ ìƒì„±í•˜ë©´, í•´ë‹¹ ì»¬ëŸ¼ì˜ ë°ì´í„°ë“¤ì„ ì •ë ¬í•˜ì—¬ ë³„ë„ì˜ ë©”ëª¨ë¦¬ ê³µê°„ì— ë°ì´í„°ì˜ ë¬¼ë¦¬ì  ì£¼ì†Œì™€ í•¨ê»˜ ì €ìž¥
+        ì´ë ‡ê²Œ ì¸ë±ìŠ¤ê°€ ìƒì„±í•˜ì˜€ë‹¤ë©´ ì•žìœ¼ë¡œ ì¿¼ë¦¬ë¬¸ì— "ì¸ë±ìŠ¤ ìƒì„± ì»¬ëŸ¼ì„ Where ì¡°ê±´ìœ¼ë¡œ ê±°ëŠ” ë“±"ì˜ ìž‘ì—…ì„ í•˜ë©´
+        ì˜µí‹°ë§ˆì´ì €ì—ì„œ íŒë‹¨í•˜ì—¬ ìƒì„±ëœ ì¸ë±ìŠ¤ë¥¼ íƒˆ ìˆ˜ê°€ ìžˆìŠµë‹ˆë‹¤.
+        ì¸ë±ìŠ¤ì—ì„œ ë‚´ê°€ ì›í•˜ëŠ” ë°ì´í„°ë¥¼ ë¨¼ì € ì°¾ê³  ì €ìž¥ë˜ì–´ ìžˆëŠ” ë¬¼ë¦¬ì  ì£¼ì†Œë¡œ ì°¾ì•„ê°‘ë‹ˆë‹¤.
 
-        ÀÎµ¦½º´Â µ¥ÀÌÅÍº£ÀÌ½º Å×ÀÌºí¿¡ ÀÖ´Â µ¥ÀÌÅÍ¸¦ »¡¸® Ã£±â À§ÇÑ ¿ëµµÀÇ µ¥ÀÌÅÍº£ÀÌ½º °´Ã¼ÀÌ¸ç ÀÏÁ¾ÀÇ »öÀÎ±â¼úÀÔ´Ï´Ù.
-        Å×ÀÌºí¿¡ index ¸¦ »ý¼ºÇÏ°Ô µÇ¸é index Table À» »ý¼ºÇØ °ü¸®ÇÕ´Ï´Ù.
-        °¡Àå ÀÏ¹ÝÀûÀÎ B-tree ÀÎµ¦½º´Â ÀÎµ¦½º Å°(ÀÎµ¦½º·Î ¸¸µé Å×ÀÌºíÀÇ ÄÃ·³ °ª)¿Í ÀÌ Å°¿¡ ÇØ´çÇÏ´Â ÄÃ·³ °ªÀ» °¡Áø
-        Å×ÀÌºíÀÇ ·Î¿ì°¡ ÀúÀåµÈ ÁÖ¼Ò °ªÀ¸·Î ±¸¼ºµË´Ï´Ù.
+        ì¸ë±ìŠ¤ëŠ” ë°ì´í„°ë² ì´ìŠ¤ í…Œì´ë¸”ì— ìžˆëŠ” ë°ì´í„°ë¥¼ ë¹¨ë¦¬ ì°¾ê¸° ìœ„í•œ ìš©ë„ì˜ ë°ì´í„°ë² ì´ìŠ¤ ê°ì²´ì´ë©° ì¼ì¢…ì˜ ìƒ‰ì¸ê¸°ìˆ ìž…ë‹ˆë‹¤.
+        í…Œì´ë¸”ì— index ë¥¼ ìƒì„±í•˜ê²Œ ë˜ë©´ index Table ì„ ìƒì„±í•´ ê´€ë¦¬í•©ë‹ˆë‹¤.
+        ê°€ìž¥ ì¼ë°˜ì ì¸ B-tree ì¸ë±ìŠ¤ëŠ” ì¸ë±ìŠ¤ í‚¤(ì¸ë±ìŠ¤ë¡œ ë§Œë“¤ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ ê°’)ì™€ ì´ í‚¤ì— í•´ë‹¹í•˜ëŠ” ì»¬ëŸ¼ ê°’ì„ ê°€ì§„
+        í…Œì´ë¸”ì˜ ë¡œìš°ê°€ ì €ìž¥ëœ ì£¼ì†Œ ê°’ìœ¼ë¡œ êµ¬ì„±ë©ë‹ˆë‹¤.
 
-    - ÀÎµ¦½º(Index)¸¦ »ç¿ëÇÏ´Â ÀÌÀ¯
-        Å×ÀÌºí¿¡ µ¥ÀÌÅÍµéÀÌ ÀÎµ¦½ºÀÇ °¡Àå Å« Æ¯Â¡Àº µ¥ÀÌÅÍµéÀÌ Á¤·ÄÀÌ µÇ¾îÀÖ´Ù´Â Á¡ÀÔ´Ï´Ù. ÀÌ Æ¯Â¡À¸·Î ÀÎÇØ Á¶°Ç °Ë»öÀÌ¶ó´Â
-        ¿µ¿ª¿¡¼­ ±²ÀåÇÑ ÀåÁ¡ÀÌ µË´Ï´Ù.
+    - ì¸ë±ìŠ¤(Index)ë¥¼ ì‚¬ìš©í•˜ëŠ” ì´ìœ 
+        í…Œì´ë¸”ì— ë°ì´í„°ë“¤ì´ ì¸ë±ìŠ¤ì˜ ê°€ìž¥ í° íŠ¹ì§•ì€ ë°ì´í„°ë“¤ì´ ì •ë ¬ì´ ë˜ì–´ìžˆë‹¤ëŠ” ì ìž…ë‹ˆë‹¤. ì´ íŠ¹ì§•ìœ¼ë¡œ ì¸í•´ ì¡°ê±´ ê²€ìƒ‰ì´ë¼ëŠ”
+        ì˜ì—­ì—ì„œ êµ‰ìž¥í•œ ìž¥ì ì´ ë©ë‹ˆë‹¤.
 
-        - Á¶°Ç °Ë»ö Where ÀýÀÇ È¿À²¼º
-            Å×ÀÌºíÀ» ¸¸µé°í ¾È¿¡ µ¥ÀÌÅÍ°¡ ½×ÀÌ°Ô µÇ¸é Å×ÀÌºíÀÇ ·¹ÄÚµå´Â ³»ºÎÀûÀ¸·Î ¼ø¼­°¡ ¾øÀÌ µÚÁ×¹ÚÁ×À¸·Î ÀúÀåµË´Ï´Ù.
-            ÀÌ·¸°Ô µÇ¸é Where Àý¿¡ Æ¯Á¤ Á¶°Ç¿¡ ¸Â´Â µ¥ÀÌÅÍµéÀ» Ã£¾Æ³¾¶§µµ ·¹ÄÚµåÀÇ Ã³À½ºÎÅÍ ³¡±îÁö ´Ù ÀÐ¾î¼­ °Ë»ö Á¶°Ç°ú
-            ¸Â´ÂÁö ºñ±³ÇØ¾ß ÇÕ´Ï´Ù. ÀÌ°ÍÀ» Ç® Å×ÀÌºí ½ºÄµ (Full Table Scan)ÀÌ¶ó°í ÇÕ´Ï´Ù. ÇÏÁö¸¸ ÀÎµ¦½º Å×ÀÌºíÀº µ¥ÀÌÅÍµéÀÌ
-            Á¤·ÄµÇ¾î ÀúÀåµÇ¾î ÀÖ±â ¶§¹®¿¡ ÇØ´ç Á¶°Ç (Where)¿¡ ¸Â´Â µ¥ÀÌÅÍµéÀ» ºü¸£°Ô Ã£¾Æ³¾ ¼ö ÀÖ°ÚÁÒ.
-            ÀÌ°ÍÀÌ ÀÎµ¦½º(Index)¸¦ »ç¿ëÇÏ´Â °¡Àå Å« ÀÌÀ¯ÀÔ´Ï´Ù.
+        - ì¡°ê±´ ê²€ìƒ‰ Where ì ˆì˜ íš¨ìœ¨ì„±
+            í…Œì´ë¸”ì„ ë§Œë“¤ê³  ì•ˆì— ë°ì´í„°ê°€ ìŒ“ì´ê²Œ ë˜ë©´ í…Œì´ë¸”ì˜ ë ˆì½”ë“œëŠ” ë‚´ë¶€ì ìœ¼ë¡œ ìˆœì„œê°€ ì—†ì´ ë’¤ì£½ë°•ì£½ìœ¼ë¡œ ì €ìž¥ë©ë‹ˆë‹¤.
+            ì´ë ‡ê²Œ ë˜ë©´ Where ì ˆì— íŠ¹ì • ì¡°ê±´ì— ë§žëŠ” ë°ì´í„°ë“¤ì„ ì°¾ì•„ë‚¼ë•Œë„ ë ˆì½”ë“œì˜ ì²˜ìŒë¶€í„° ëê¹Œì§€ ë‹¤ ì½ì–´ì„œ ê²€ìƒ‰ ì¡°ê±´ê³¼
+            ë§žëŠ”ì§€ ë¹„êµí•´ì•¼ í•©ë‹ˆë‹¤. ì´ê²ƒì„ í’€ í…Œì´ë¸” ìŠ¤ìº” (Full Table Scan)ì´ë¼ê³  í•©ë‹ˆë‹¤. í•˜ì§€ë§Œ ì¸ë±ìŠ¤ í…Œì´ë¸”ì€ ë°ì´í„°ë“¤ì´
+            ì •ë ¬ë˜ì–´ ì €ìž¥ë˜ì–´ ìžˆê¸° ë•Œë¬¸ì— í•´ë‹¹ ì¡°ê±´ (Where)ì— ë§žëŠ” ë°ì´í„°ë“¤ì„ ë¹ ë¥´ê²Œ ì°¾ì•„ë‚¼ ìˆ˜ ìžˆê² ì£ .
+            ì´ê²ƒì´ ì¸ë±ìŠ¤(Index)ë¥¼ ì‚¬ìš©í•˜ëŠ” ê°€ìž¥ í° ì´ìœ ìž…ë‹ˆë‹¤.
 
-        - Á¤·Ä Order by ÀýÀÇ È¿À²¼º
-            ÀÎµ¦½º(Index)¸¦ »ç¿ëÇÏ¸é Order by¿¡ ÀÇÇÑ Sort °úÁ¤À» ÇÇÇÒ¼ö°¡ ÀÖ½À´Ï´Ù. Order by´Â ±²ÀåÈ÷ ºÎÇÏ°¡ ¸¹ÀÌ
-            °É¸®´Â ÀÛ¾÷ÀÔ´Ï´Ù. Á¤·Ä°ú µ¿½Ã¿¡ 1Â÷ÀûÀ¸·Î ¸Þ¸ð¸®¿¡¼­ Á¤·ÄÀÌ ÀÌ·ç¾îÁö°í ¸Þ¸ð¸®º¸´Ù Å« ÀÛ¾÷ÀÌ ÇÊ¿äÇÏ´Ù¸é
-            µð½ºÅ© I/Oµµ Ãß°¡ÀûÀ¸·Î ¹ß»ýµË´Ï´Ù. ÇÏÁö¸¸ ÀÎµ¦½º¸¦ »ç¿ëÇÏ¸é ÀÌ·¯ÇÑ Àü¹ÝÀûÀÎ ÀÚ¿øÀÇ ¼Ò¸ð¸¦ ÇÏÁö ¾Ê¾Æµµ µË´Ï´Ù.
-            ÀÌ¹Ì Á¤·ÄÀÌ µÇ¾î ÀÖ±â ¶§¹®¿¡ °¡Á®¿À±â¸¸ ÇÏ¸é µÇ´Ï±î¿ä.
+        - ì •ë ¬ Order by ì ˆì˜ íš¨ìœ¨ì„±
+            ì¸ë±ìŠ¤(Index)ë¥¼ ì‚¬ìš©í•˜ë©´ Order byì— ì˜í•œ Sort ê³¼ì •ì„ í”¼í• ìˆ˜ê°€ ìžˆìŠµë‹ˆë‹¤. Order byëŠ” êµ‰ìž¥ížˆ ë¶€í•˜ê°€ ë§Žì´
+            ê±¸ë¦¬ëŠ” ìž‘ì—…ìž…ë‹ˆë‹¤. ì •ë ¬ê³¼ ë™ì‹œì— 1ì°¨ì ìœ¼ë¡œ ë©”ëª¨ë¦¬ì—ì„œ ì •ë ¬ì´ ì´ë£¨ì–´ì§€ê³  ë©”ëª¨ë¦¬ë³´ë‹¤ í° ìž‘ì—…ì´ í•„ìš”í•˜ë‹¤ë©´
+            ë””ìŠ¤í¬ I/Oë„ ì¶”ê°€ì ìœ¼ë¡œ ë°œìƒë©ë‹ˆë‹¤. í•˜ì§€ë§Œ ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•˜ë©´ ì´ëŸ¬í•œ ì „ë°˜ì ì¸ ìžì›ì˜ ì†Œëª¨ë¥¼ í•˜ì§€ ì•Šì•„ë„ ë©ë‹ˆë‹¤.
+            ì´ë¯¸ ì •ë ¬ì´ ë˜ì–´ ìžˆê¸° ë•Œë¬¸ì— ê°€ì ¸ì˜¤ê¸°ë§Œ í•˜ë©´ ë˜ë‹ˆê¹Œìš”.
 
-        - MIN, MAX ÀÇ È¿À²ÀûÀÎ Ã³¸®°¡ °¡´ÉÇÏ´Ù.
-            ÀÌ°Í ¶ÇÇÑ µ¥ÀÌÅÍ°¡ Á¤·ÄµÇ¾î ÀÖ±â¿¡ ¾òÀ» ¼ö ÀÖ´Â ÀåÁ¡ÀÔ´Ï´Ù. MIN °ª°ú MAX °ªÀ» ·¹ÄÚµåÀÇ ½ÃÀÛ°ª°ú ³¡ °ª ÇÑ°Ç¾¿¸¸
-            °¡Á®¿À¸é µÇ±â¿¡ FULL TABLE SCAN À¸·Î Å×ÀÌºíÀ» ´Ù µÚÁ®¼­ ÀÛ¾÷ÇÏ´Â °Íº¸´Ù ÈÎ¾À È¿À²ÀûÀ¸·Î Ã£À» ¼ö ÀÖ½À´Ï´Ù.
+        - MIN, MAX ì˜ íš¨ìœ¨ì ì¸ ì²˜ë¦¬ê°€ ê°€ëŠ¥í•˜ë‹¤.
+            ì´ê²ƒ ë˜í•œ ë°ì´í„°ê°€ ì •ë ¬ë˜ì–´ ìžˆê¸°ì— ì–»ì„ ìˆ˜ ìžˆëŠ” ìž¥ì ìž…ë‹ˆë‹¤. MIN ê°’ê³¼ MAX ê°’ì„ ë ˆì½”ë“œì˜ ì‹œìž‘ê°’ê³¼ ë ê°’ í•œê±´ì”©ë§Œ
+            ê°€ì ¸ì˜¤ë©´ ë˜ê¸°ì— FULL TABLE SCAN ìœ¼ë¡œ í…Œì´ë¸”ì„ ë‹¤ ë’¤ì ¸ì„œ ìž‘ì—…í•˜ëŠ” ê²ƒë³´ë‹¤ í›¨ì”¬ íš¨ìœ¨ì ìœ¼ë¡œ ì°¾ì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-    - ÀÎµ¦½º(Index)ÀÇ ´ÜÁ¡
-        ÀÎµ¦½ºÀÇ °¡Àå Å« ¹®Á¦Á¡Àº Á¤·ÄµÈ »óÅÂ¸¦ °è¼Ó À¯Áö ½ÃÄÑÁà¾ß ÇÑ´Ù´Â Á¡ÀÔ´Ï´Ù.
-        INSERT, UPDATE, DELETE ¸¦ ÅëÇØ µ¥ÀÌÅÍ°¡ Ãß°¡µÇ°Å³ª °ªÀÌ ¹Ù²ï´Ù¸é INDEX Å×ÀÌºí ³»¿¡ ÀÖ´Â °ªµéÀ» ´Ù½Ã
-        Á¤·ÄÀ» ÇØ¾ß°ÚÁÒ. ±×¸®°í INDEX Å×ÀÌºí, ¿øº» Å×ÀÌºí ÀÌ·¸°Ô µÎ ±ºµ¥¿¡ µ¥ÀÌÅÍ ¼öÁ¤ ÀÛ¾÷ÇØÁà¾ß ÇÑ´Ù´Â ´ÜÁ¡µµ ÀÖ½À´Ï´Ù.
-        ±×¸®°í °Ë»ö½Ã¿¡µµ ÀÎµ¦½º°¡ ¹«Á¶°Ç ÁÁÀº °ÍÀÌ ¾Æ´Õ´Ï´Ù. ÀÎµ¦½º´Â Å×ÀÌºíÀÇ ÀüÃ¼ µ¥ÀÌÅÍ Áß¿¡¼­ 10~15% ÀÌÇÏÀÇ µ¥ÀÌÅÍ¸¦
-        Ã³¸®ÇÏ´Â °æ¿ì¿¡¸¸ È¿À²ÀûÀÌ°í ±× ÀÌ»óÀÇ µ¥ÀÌÅÍ¸¦ Ã³¸®ÇÒ ¶© ÀÎµ¦½º¸¦ »ç¿ëÇÏÁö ¾Ê´Â °ÍÀÌ ´õ ³´½À´Ï´Ù. ±×¸®°í ÀÎµ¦½º¸¦
-        °ü¸®ÇÏ±â À§ÇØ¼­´Â µ¥ÀÌÅÍº£ÀÌ½ºÀÇ ¾à 10%¿¡ ÇØ´çÇÏ´Â ÀúÀå°ø°£ÀÌ Ãß°¡·Î ÇÊ¿äÇÕ´Ï´Ù. ¹«ÅÎ´ë°í INDEX ¸¦
-        ¸¸µé¾î¼­´Â °áÄÚ ¾È µÉ ¸»ÀÔ´Ï´Ù.
+    - ì¸ë±ìŠ¤(Index)ì˜ ë‹¨ì 
+        ì¸ë±ìŠ¤ì˜ ê°€ìž¥ í° ë¬¸ì œì ì€ ì •ë ¬ëœ ìƒíƒœë¥¼ ê³„ì† ìœ ì§€ ì‹œì¼œì¤˜ì•¼ í•œë‹¤ëŠ” ì ìž…ë‹ˆë‹¤.
+        INSERT, UPDATE, DELETE ë¥¼ í†µí•´ ë°ì´í„°ê°€ ì¶”ê°€ë˜ê±°ë‚˜ ê°’ì´ ë°”ë€ë‹¤ë©´ INDEX í…Œì´ë¸” ë‚´ì— ìžˆëŠ” ê°’ë“¤ì„ ë‹¤ì‹œ
+        ì •ë ¬ì„ í•´ì•¼ê² ì£ . ê·¸ë¦¬ê³  INDEX í…Œì´ë¸”, ì›ë³¸ í…Œì´ë¸” ì´ë ‡ê²Œ ë‘ êµ°ë°ì— ë°ì´í„° ìˆ˜ì • ìž‘ì—…í•´ì¤˜ì•¼ í•œë‹¤ëŠ” ë‹¨ì ë„ ìžˆìŠµë‹ˆë‹¤.
+        ê·¸ë¦¬ê³  ê²€ìƒ‰ì‹œì—ë„ ì¸ë±ìŠ¤ê°€ ë¬´ì¡°ê±´ ì¢‹ì€ ê²ƒì´ ì•„ë‹™ë‹ˆë‹¤. ì¸ë±ìŠ¤ëŠ” í…Œì´ë¸”ì˜ ì „ì²´ ë°ì´í„° ì¤‘ì—ì„œ 10~15% ì´í•˜ì˜ ë°ì´í„°ë¥¼
+        ì²˜ë¦¬í•˜ëŠ” ê²½ìš°ì—ë§Œ íš¨ìœ¨ì ì´ê³  ê·¸ ì´ìƒì˜ ë°ì´í„°ë¥¼ ì²˜ë¦¬í•  ë• ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ” ê²ƒì´ ë” ë‚«ìŠµë‹ˆë‹¤. ê·¸ë¦¬ê³  ì¸ë±ìŠ¤ë¥¼
+        ê´€ë¦¬í•˜ê¸° ìœ„í•´ì„œëŠ” ë°ì´í„°ë² ì´ìŠ¤ì˜ ì•½ 10%ì— í•´ë‹¹í•˜ëŠ” ì €ìž¥ê³µê°„ì´ ì¶”ê°€ë¡œ í•„ìš”í•©ë‹ˆë‹¤. ë¬´í„±ëŒ€ê³  INDEX ë¥¼
+        ë§Œë“¤ì–´ì„œëŠ” ê²°ì½” ì•ˆ ë  ë§ìž…ë‹ˆë‹¤.
 
-    - ÀÎµ¦½º(Index)ÀÇ °ü¸®
-        ¾Õ¼­ ¼³¸íÇßµíÀÌ ÀÎµ¦½º´Â Ç×»ó ÃÖ½ÅÀÇ µ¥ÀÌÅÍ¸¦ Á¤·ÄµÈ »óÅÂ·Î À¯ÁöÇØ¾ß ¿øÇÏ´Â °ªÀ» ºü¸£°Ô Å½»öÇÒ ¼ö ÀÖ½À´Ï´Ù.
-        ±×·¸±â ¶§¹®¿¡ ÀÎµ¦½º°¡ Àû¿ëµÈ ÄÃ·³¿¡ INSERT, UPDATE, DELETE °¡ ¼öÇàµÈ´Ù¸é °è¼Ó Á¤·ÄÀ» ÇØÁÖ¾î¾ß ÇÏ°í ±×¿¡
-        µû¸¥ ºÎÇÏ°¡ ¹ß»ýÇÕ´Ï´Ù. ÀÌ·± ºÎÇÏ¸¦ ÃÖ¼ÒÈ­ÇÏ±â À§ÇØ ÀÎµ¦½º´Â µ¥ÀÌÅÍ »èÁ¦¶ó´Â °³³ä¿¡¼­ ÀÎµ¦½º¸¦ »ç¿ëÇÏÁö ¾Ê´Â´Ù
-        ¶ó´Â ÀÛ¾÷À¸·Î ÀÌ¸¦ ´ë½ÅÇÕ´Ï´Ù.
-        INSERT: »õ·Î¿î µ¥ÀÌÅÍ¿¡ ´ëÇÑ ÀÎµ¦½º¸¦ Ãß°¡ÇÕ´Ï´Ù.
-        DELETE: »èÁ¦ÇÏ´Â µ¥ÀÌÅÍÀÇ ÀÎµ¦½º¸¦ »ç¿ëÇÏÁö ¾Ê´Â´Ù´Â ÀÛ¾÷À» ÁøÇàÇÕ´Ï´Ù.
-        UPDATE: ±âÁ¸ÀÇ ÀÎµ¦½º¸¦ »ç¿ëÇÏÁö ¾ÊÀ½ Ã³¸®ÇÏ°í, °»½ÅµÈ µ¥ÀÌÅÍ¿¡ ´ëÇØ ÀÎµ¦½º¸¦ Ãß°¡ÇÕ´Ï´Ù.
+    - ì¸ë±ìŠ¤(Index)ì˜ ê´€ë¦¬
+        ì•žì„œ ì„¤ëª…í–ˆë“¯ì´ ì¸ë±ìŠ¤ëŠ” í•­ìƒ ìµœì‹ ì˜ ë°ì´í„°ë¥¼ ì •ë ¬ëœ ìƒíƒœë¡œ ìœ ì§€í•´ì•¼ ì›í•˜ëŠ” ê°’ì„ ë¹ ë¥´ê²Œ íƒìƒ‰í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+        ê·¸ë ‡ê¸° ë•Œë¬¸ì— ì¸ë±ìŠ¤ê°€ ì ìš©ëœ ì»¬ëŸ¼ì— INSERT, UPDATE, DELETE ê°€ ìˆ˜í–‰ëœë‹¤ë©´ ê³„ì† ì •ë ¬ì„ í•´ì£¼ì–´ì•¼ í•˜ê³  ê·¸ì—
+        ë”°ë¥¸ ë¶€í•˜ê°€ ë°œìƒí•©ë‹ˆë‹¤. ì´ëŸ° ë¶€í•˜ë¥¼ ìµœì†Œí™”í•˜ê¸° ìœ„í•´ ì¸ë±ìŠ¤ëŠ” ë°ì´í„° ì‚­ì œë¼ëŠ” ê°œë…ì—ì„œ ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤
+        ë¼ëŠ” ìž‘ì—…ìœ¼ë¡œ ì´ë¥¼ ëŒ€ì‹ í•©ë‹ˆë‹¤.
+        INSERT: ìƒˆë¡œìš´ ë°ì´í„°ì— ëŒ€í•œ ì¸ë±ìŠ¤ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
+        DELETE: ì‚­ì œí•˜ëŠ” ë°ì´í„°ì˜ ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ”ë‹¤ëŠ” ìž‘ì—…ì„ ì§„í–‰í•©ë‹ˆë‹¤.
+        UPDATE: ê¸°ì¡´ì˜ ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠìŒ ì²˜ë¦¬í•˜ê³ , ê°±ì‹ ëœ ë°ì´í„°ì— ëŒ€í•´ ì¸ë±ìŠ¤ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
 
-    - ÀÎµ¦½º »ý¼º Àü·«
-        »ý¼ºµÈ ÀÎµ¦½º¸¦ °¡Àå È¿À²ÀûÀ¸·Î »ç¿ëÇÏ·Á¸é µ¥ÀÌÅÍÀÇ ºÐÆ÷µµ´Â ÃÖ´ëÇÑÀ¸·Î ±×¸®°í Á¶°ÇÀý¿¡ È£Ãâ ºóµµ´Â ÀÚÁÖ »ç¿ëµÇ´Â
-        ÄÃ·³À» ÀÎµ¦½º·Î »ý¼ºÇÏ´Â °ÍÀÌ ÁÁ½À´Ï´Ù. ÀÎµ¦½º´Â Æ¯Á¤ ÄÃ·³À» ±âÁØÀ¸·Î »ý¼ºÇÏ°í ±âÁØÀÌ µÈ ÄÃ·³À¸·Î Á¤·ÄµÈ
-        Index Å×ÀÌºíÀÌ »ý¼ºµË´Ï´Ù. ÀÌ ±âÁØ ÄÃ·³Àº ÃÖ´ëÇÑ Áßº¹ÀÌ µÇÁö ¾Ê´Â °ªÀÌ ÁÁ½À´Ï´Ù. °¡Àå ÃÖ¼±Àº PK·Î ÀÎµ¦½º¸¦
-        °Å´Â°ÍÀÌ°ÚÁÒ. Áßº¹µÈ °ªÀÌ ¾ø´Â ÀÎµ¦½º Å×ÀÌºíÀÌ ÃÖÀûÀÇ È¿À²À» ¹ß»ý½ÃÅ°°Ú°í. ¹Ý´ë·Î ¸ðµç °ªÀÌ °°Àº ÄÃ·³ÀÌ
-        ÀÎµ¦½º ÄÃ·³ÀÌ µÈ´Ù¸é ÀÎµ¦½º·Î½áÀÇ °¡Ä¡°¡ ¾ø´Ù°í ºÁ¾ß ÇÒ °ÍÀÔ´Ï´Ù.
-        1. Á¶°ÇÀý¿¡ ÀÚÁÖ µîÀåÇÏ´Â ÄÃ·³
-        2. Ç×»ó = À¸·Î ºñ±³µÇ´Â ÄÃ·³
-        3. Áßº¹µÇ´Â µ¥ÀÌÅÍ°¡ ÃÖ¼ÒÇÑÀÎ ÄÃ·³ (ºÐÆ÷µµ°¡ ÁÁÀº) ÄÃ·³
-        4. ORDER BY Àý¿¡¼­ ÀÚÁÖ »ç¿ëµÇ´Â ÄÃ·³
-        5. Á¶ÀÎ Á¶°ÇÀ¸·Î ÀÚÁÖ »ç¿ëµÇ´Â ÄÃ·³
+    - ì¸ë±ìŠ¤ ìƒì„± ì „ëžµ
+        ìƒì„±ëœ ì¸ë±ìŠ¤ë¥¼ ê°€ìž¥ íš¨ìœ¨ì ìœ¼ë¡œ ì‚¬ìš©í•˜ë ¤ë©´ ë°ì´í„°ì˜ ë¶„í¬ë„ëŠ” ìµœëŒ€í•œìœ¼ë¡œ ê·¸ë¦¬ê³  ì¡°ê±´ì ˆì— í˜¸ì¶œ ë¹ˆë„ëŠ” ìžì£¼ ì‚¬ìš©ë˜ëŠ”
+        ì»¬ëŸ¼ì„ ì¸ë±ìŠ¤ë¡œ ìƒì„±í•˜ëŠ” ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤. ì¸ë±ìŠ¤ëŠ” íŠ¹ì • ì»¬ëŸ¼ì„ ê¸°ì¤€ìœ¼ë¡œ ìƒì„±í•˜ê³  ê¸°ì¤€ì´ ëœ ì»¬ëŸ¼ìœ¼ë¡œ ì •ë ¬ëœ
+        Index í…Œì´ë¸”ì´ ìƒì„±ë©ë‹ˆë‹¤. ì´ ê¸°ì¤€ ì»¬ëŸ¼ì€ ìµœëŒ€í•œ ì¤‘ë³µì´ ë˜ì§€ ì•ŠëŠ” ê°’ì´ ì¢‹ìŠµë‹ˆë‹¤. ê°€ìž¥ ìµœì„ ì€ PKë¡œ ì¸ë±ìŠ¤ë¥¼
+        ê±°ëŠ”ê²ƒì´ê² ì£ . ì¤‘ë³µëœ ê°’ì´ ì—†ëŠ” ì¸ë±ìŠ¤ í…Œì´ë¸”ì´ ìµœì ì˜ íš¨ìœ¨ì„ ë°œìƒì‹œí‚¤ê² ê³ . ë°˜ëŒ€ë¡œ ëª¨ë“  ê°’ì´ ê°™ì€ ì»¬ëŸ¼ì´
+        ì¸ë±ìŠ¤ ì»¬ëŸ¼ì´ ëœë‹¤ë©´ ì¸ë±ìŠ¤ë¡œì¨ì˜ ê°€ì¹˜ê°€ ì—†ë‹¤ê³  ë´ì•¼ í•  ê²ƒìž…ë‹ˆë‹¤.
+        1. ì¡°ê±´ì ˆì— ìžì£¼ ë“±ìž¥í•˜ëŠ” ì»¬ëŸ¼
+        2. í•­ìƒ = ìœ¼ë¡œ ë¹„êµë˜ëŠ” ì»¬ëŸ¼
+        3. ì¤‘ë³µë˜ëŠ” ë°ì´í„°ê°€ ìµœì†Œí•œì¸ ì»¬ëŸ¼ (ë¶„í¬ë„ê°€ ì¢‹ì€) ì»¬ëŸ¼
+        4. ORDER BY ì ˆì—ì„œ ìžì£¼ ì‚¬ìš©ë˜ëŠ” ì»¬ëŸ¼
+        5. ì¡°ì¸ ì¡°ê±´ìœ¼ë¡œ ìžì£¼ ì‚¬ìš©ë˜ëŠ” ì»¬ëŸ¼
 
-    - ÀÎµ¦½º ÀÚ·á±¸Á¶ (B * Tree ÀÎµ¦½º)
-        ÀÎµ¦½º¿¡´Â ¿©·¯°¡Áö À¯ÇüÀÌ ÀÖÁö¸¸ ±× Áß¿¡¼­µµ °¡Àå ¸¹ÀÌ »ç¿ëÇÏ´Â ÀÎµ¦½ºÀÇ ±¸Á¶´Â ¹ë·±½ºµå Æ®¸® ÀÎµ¦½º ±¸Á¶ÀÔ´Ï´Ù.
-        ±×¸®°í B TREE ÀÎµ¦½º Áß¿¡¼­µµ °¡Àå ¸¹ÀÌ »ç¿ëÇÏ´Â°ÍÀº B*TREE ¿Í B+TREE ±¸Á¶¸¦ °¡Àå ¸¹ÀÌ »ç¿ëµÇ´Â ÀÎµ¦½ºÀÇ ±¸Á¶ÀÔ´Ï´Ù.
-        B * Tree ÀÎµ¦½º´Â ´ëºÎºÐÀÇ DBMS ±×¸®°í ¿À¶óÅ¬¿¡¼­ Æ¯È÷ ÁßÁ¡ÀûÀ¸·Î »ç¿ëÇÏ°í ÀÖ´Â °¡Àå º¸ÆíÀûÀÎ ÀÎµ¦½ºÀÔ´Ï´Ù.
-        ±¸Á¶´Â À§¿Í °°ÀÌ Root(±âÁØ) / Branch(Áß°£) / Leaf(¸»´Ü) Node ·Î ±¸¼ºµË´Ï´Ù. Æ¯Á¤ ÄÃ·³¿¡ ÀÎµ¦½º¸¦ »ý¼ºÇÏ´Â
-        ¼ø°£ ÄÃ·³ÀÇ °ªµéÀ» Á¤·ÄÇÏ´Âµ¥, Á¤·ÄÇÑ ¼ø¼­°¡ Áß°£ Âë µÇ´Â µ¥ÀÌÅÍ¸¦ »Ñ¸®¿¡ ÇØ´çÇÏ´Â ROOT ºí·ÏÀ¸·Î ÁöÁ¤ÇÏ°í ROOT ºí·ÏÀ»
-        ±âÁØÀ¸·Î °¡Áö°¡ µÇ´Â BRANCH ºí·ÏÀ» Á¤ÀÇÇÏ¸ç ¸¶Áö¸·À¸·Î ÀÙ¿¡ ÇØ´çÇÏ´Â LEAF ºí·Ï¿¡ ÀÎµ¦½ºÀÇ Å°°¡ µÇ´Â
-        µ¥ÀÌÅÍ¿Í µ¥ÀÌÅÍÀÇ ¹°¸®Àû ÁÖ¼Ò Á¤º¸ÀÎ ROWID ¸¦ ÀúÀåÇÕ´Ï´Ù.
+    - ì¸ë±ìŠ¤ ìžë£Œêµ¬ì¡° (B * Tree ì¸ë±ìŠ¤)
+        ì¸ë±ìŠ¤ì—ëŠ” ì—¬ëŸ¬ê°€ì§€ ìœ í˜•ì´ ìžˆì§€ë§Œ ê·¸ ì¤‘ì—ì„œë„ ê°€ìž¥ ë§Žì´ ì‚¬ìš©í•˜ëŠ” ì¸ë±ìŠ¤ì˜ êµ¬ì¡°ëŠ” ë°¸ëŸ°ìŠ¤ë“œ íŠ¸ë¦¬ ì¸ë±ìŠ¤ êµ¬ì¡°ìž…ë‹ˆë‹¤.
+        ê·¸ë¦¬ê³  B TREE ì¸ë±ìŠ¤ ì¤‘ì—ì„œë„ ê°€ìž¥ ë§Žì´ ì‚¬ìš©í•˜ëŠ”ê²ƒì€ B*TREE ì™€ B+TREE êµ¬ì¡°ë¥¼ ê°€ìž¥ ë§Žì´ ì‚¬ìš©ë˜ëŠ” ì¸ë±ìŠ¤ì˜ êµ¬ì¡°ìž…ë‹ˆë‹¤.
+        B * Tree ì¸ë±ìŠ¤ëŠ” ëŒ€ë¶€ë¶„ì˜ DBMS ê·¸ë¦¬ê³  ì˜¤ë¼í´ì—ì„œ íŠ¹ížˆ ì¤‘ì ì ìœ¼ë¡œ ì‚¬ìš©í•˜ê³  ìžˆëŠ” ê°€ìž¥ ë³´íŽ¸ì ì¸ ì¸ë±ìŠ¤ìž…ë‹ˆë‹¤.
+        êµ¬ì¡°ëŠ” ìœ„ì™€ ê°™ì´ Root(ê¸°ì¤€) / Branch(ì¤‘ê°„) / Leaf(ë§ë‹¨) Node ë¡œ êµ¬ì„±ë©ë‹ˆë‹¤. íŠ¹ì • ì»¬ëŸ¼ì— ì¸ë±ìŠ¤ë¥¼ ìƒì„±í•˜ëŠ”
+        ìˆœê°„ ì»¬ëŸ¼ì˜ ê°’ë“¤ì„ ì •ë ¬í•˜ëŠ”ë°, ì •ë ¬í•œ ìˆœì„œê°€ ì¤‘ê°„ ì¯¤ ë˜ëŠ” ë°ì´í„°ë¥¼ ë¿Œë¦¬ì— í•´ë‹¹í•˜ëŠ” ROOT ë¸”ë¡ìœ¼ë¡œ ì§€ì •í•˜ê³  ROOT ë¸”ë¡ì„
+        ê¸°ì¤€ìœ¼ë¡œ ê°€ì§€ê°€ ë˜ëŠ” BRANCH ë¸”ë¡ì„ ì •ì˜í•˜ë©° ë§ˆì§€ë§‰ìœ¼ë¡œ ìžŽì— í•´ë‹¹í•˜ëŠ” LEAF ë¸”ë¡ì— ì¸ë±ìŠ¤ì˜ í‚¤ê°€ ë˜ëŠ”
+        ë°ì´í„°ì™€ ë°ì´í„°ì˜ ë¬¼ë¦¬ì  ì£¼ì†Œ ì •ë³´ì¸ ROWID ë¥¼ ì €ìž¥í•©ë‹ˆë‹¤.
 
-    - °áÇÕ ÀÎµ¦½º¶õ
-        - °áÇÕ ÀÎµ¦½º¶õ?
-            °áÇÕ ÀÎµ¦½º¶õ µÎ °³ ÀÌ»óÀÇ ÄÃ·³À» ÇÕÃÄ¼­ ÀÎµ¦½º¸¦ ¸¸µå´Â °ÍÀ» ¸»ÇÕ´Ï´Ù. ÁÖ·Î ´ÜÀÏ ÄÃ·³À¸·Î´Â ³ª»Û ºÐÆ÷µµ¸¦ °¡ÁöÁö¸¸
-            ¿©·¯ °³ÀÇ ÄÃ·³À» ÇÕÄ£´Ù¸é ÁÁÀº ºÐÆ÷µµ¸¦ °¡Áö°í,
-            Where Àý¿¡¼­ AND Á¶°Ç¿¡ ¸¹ÀÌ »ç¿ëµÇ´Â ÄÃ·³µéÀ» °áÇÕ ÀÎµ¦½º·Î ±¸¼ºÇÕ´Ï´Ù.
-            1. where Àý¿¡¼­ and Á¶°ÇÀ¸·Î ÀÚÁÖ °áÇÕµÇ¾î »ç¿ëµÇ¸é¼­ °¢°¢ÀÇ ºÐÆ÷µµ º¸´Ù
-               µÎ °³ ÀÌ»óÀÇ ÄÃ·³ÀÌ °áÇÕµÉ ¶§ ºÐÆ÷µµ°¡ ÁÁ¾ÆÁö´Â ÄÃ·³µé
-            2. ´Ù¸¥ Å×ÀÌºí°ú Á¶ÀÎÀÇ ¿¬°á°í¸®·Î ÀÚÁÖ »ç¿ëµÇ´Â ÄÃ·³µé
-            3. order by ¿¡¼­ ÀÚÁÖ »ç¿ëµÇ´Â ÄÃ·³µé
-            4. ÇÏ³ª ÀÌ»óÀÇ Å° ÄÃ·³ Á¶°ÇÀ¸·Î °°Àº Å×ÀÌºíÀÇ ÄÃ·³µéÀÌ ÀÚÁÖ Á¶È¸µÉ ¶§
+    - ê²°í•© ì¸ë±ìŠ¤ëž€
+        - ê²°í•© ì¸ë±ìŠ¤ëž€?
+            ê²°í•© ì¸ë±ìŠ¤ëž€ ë‘ ê°œ ì´ìƒì˜ ì»¬ëŸ¼ì„ í•©ì³ì„œ ì¸ë±ìŠ¤ë¥¼ ë§Œë“œëŠ” ê²ƒì„ ë§í•©ë‹ˆë‹¤. ì£¼ë¡œ ë‹¨ì¼ ì»¬ëŸ¼ìœ¼ë¡œëŠ” ë‚˜ìœ ë¶„í¬ë„ë¥¼ ê°€ì§€ì§€ë§Œ
+            ì—¬ëŸ¬ ê°œì˜ ì»¬ëŸ¼ì„ í•©ì¹œë‹¤ë©´ ì¢‹ì€ ë¶„í¬ë„ë¥¼ ê°€ì§€ê³ ,
+            Where ì ˆì—ì„œ AND ì¡°ê±´ì— ë§Žì´ ì‚¬ìš©ë˜ëŠ” ì»¬ëŸ¼ë“¤ì„ ê²°í•© ì¸ë±ìŠ¤ë¡œ êµ¬ì„±í•©ë‹ˆë‹¤.
+            1. where ì ˆì—ì„œ and ì¡°ê±´ìœ¼ë¡œ ìžì£¼ ê²°í•©ë˜ì–´ ì‚¬ìš©ë˜ë©´ì„œ ê°ê°ì˜ ë¶„í¬ë„ ë³´ë‹¤
+               ë‘ ê°œ ì´ìƒì˜ ì»¬ëŸ¼ì´ ê²°í•©ë  ë•Œ ë¶„í¬ë„ê°€ ì¢‹ì•„ì§€ëŠ” ì»¬ëŸ¼ë“¤
+            2. ë‹¤ë¥¸ í…Œì´ë¸”ê³¼ ì¡°ì¸ì˜ ì—°ê²°ê³ ë¦¬ë¡œ ìžì£¼ ì‚¬ìš©ë˜ëŠ” ì»¬ëŸ¼ë“¤
+            3. order by ì—ì„œ ìžì£¼ ì‚¬ìš©ë˜ëŠ” ì»¬ëŸ¼ë“¤
+            4. í•˜ë‚˜ ì´ìƒì˜ í‚¤ ì»¬ëŸ¼ ì¡°ê±´ìœ¼ë¡œ ê°™ì€ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ë“¤ì´ ìžì£¼ ì¡°íšŒë  ë•Œ
 
-        - °áÇÕ ÀÎµ¦½ºÀÇ ÄÃ·³ ¼ø¼­ °áÁ¤
-            °áÇÕ ÀÎµ¦½º¸¦ ¸¸µé ¶§ °áÇÕ ÀÎµ¦½º¸¦ ±¸¼ºÇÏ´Â ÄÃ·³µéÀÇ ¹è¿­ ¼ø¼­´Â ¾ÆÁÖ Áß¿äÇÏ±â¿¡ ½ÅÁßÇÏ°Ô °áÁ¤ÇÏ¿©¾ß ÇÕ´Ï´Ù.
-            ÄÃ·³ÀÇ ¼ø¼­¸¦ Àß¸ø ¹è¿­ÇÏ¸é °áÇÕ ÀÎµ¦½ºÀÇ ¹ßµ¿ È®·üÀÌ ¸Å¿ì ³·¾ÆÁú ¼ö ÀÖ±â ¶§¹®ÀÔ´Ï´Ù. ¸¸¾à select ¹®ÀÇ
-            where Àý¿¡ °áÇÕ ÀÎµ¦½ºÀÇ Ã¹ ¹øÂ° ÄÃ·³À» Á¶°Ç¿¡ »ç¿ëÇÏ¿´´Ù¸é ±× ÁúÀÇ¹®Àº °áÇÕ ÀÎµ¦½º¸¦ »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
-            ÇÏÁö¸¸ °³¹ßÀÚ°¡ °áÇÕ ÀÎµ¦½ºÀÇ µÎ¹øÂ° ÄÃ·³¸¸À» where Àý¿¡ Á¶°ÇÀ¸·Î »ç¿ëÇÏ°í °áÇÕ ÀÎµ¦½º¸¦ »ç¿ëÇÏ°íÀÚ Çß´Ù¸é
-            ½ÇÇà°èÈ¹Àº ÀÎµ¦½º¸¦ »ç¿ëÇÏÁö ¸øÇÕ´Ï´Ù. µû¶ó¼­ Äõ¸®¹® ÀÛ¼º ½Ã °áÇÕ ÀÎµ¦½º¸¦ »ç¿ëÇÏ°íÀÚ ÇÑ´Ù¸é ¹Ýµå½Ã °áÇÕ ÀÎµ¦½ºÀÇ
-            ÄÃ·³ Áß ¼±ÇàÇÏ´Â ÄÃ·³ºÎÅÍ Á¶°Ç¿¡ ÁöÁ¤ÇÏ¿© »ç¿ëÇÏ¿©¾ß ÇÕ´Ï´Ù. Á¶°ÇÀº ÄÃ·³ ÀüÃ¼¸¦ ¼ø¼­´ë·Î »ç¿ëÇÒ ¼öµµ ÀÖ°í,
-            ¾Æ´Ï¸é ¼±ÇàÇÏ´Â ÀÏºÎ ÄÃ·³À» ¼ø¼­´ë·Î »ç¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+        - ê²°í•© ì¸ë±ìŠ¤ì˜ ì»¬ëŸ¼ ìˆœì„œ ê²°ì •
+            ê²°í•© ì¸ë±ìŠ¤ë¥¼ ë§Œë“¤ ë•Œ ê²°í•© ì¸ë±ìŠ¤ë¥¼ êµ¬ì„±í•˜ëŠ” ì»¬ëŸ¼ë“¤ì˜ ë°°ì—´ ìˆœì„œëŠ” ì•„ì£¼ ì¤‘ìš”í•˜ê¸°ì— ì‹ ì¤‘í•˜ê²Œ ê²°ì •í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤.
+            ì»¬ëŸ¼ì˜ ìˆœì„œë¥¼ ìž˜ëª» ë°°ì—´í•˜ë©´ ê²°í•© ì¸ë±ìŠ¤ì˜ ë°œë™ í™•ë¥ ì´ ë§¤ìš° ë‚®ì•„ì§ˆ ìˆ˜ ìžˆê¸° ë•Œë¬¸ìž…ë‹ˆë‹¤. ë§Œì•½ select ë¬¸ì˜
+            where ì ˆì— ê²°í•© ì¸ë±ìŠ¤ì˜ ì²« ë²ˆì§¸ ì»¬ëŸ¼ì„ ì¡°ê±´ì— ì‚¬ìš©í•˜ì˜€ë‹¤ë©´ ê·¸ ì§ˆì˜ë¬¸ì€ ê²°í•© ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+            í•˜ì§€ë§Œ ê°œë°œìžê°€ ê²°í•© ì¸ë±ìŠ¤ì˜ ë‘ë²ˆì§¸ ì»¬ëŸ¼ë§Œì„ where ì ˆì— ì¡°ê±´ìœ¼ë¡œ ì‚¬ìš©í•˜ê³  ê²°í•© ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•˜ê³ ìž í–ˆë‹¤ë©´
+            ì‹¤í–‰ê³„íšì€ ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•˜ì§€ ëª»í•©ë‹ˆë‹¤. ë”°ë¼ì„œ ì¿¼ë¦¬ë¬¸ ìž‘ì„± ì‹œ ê²°í•© ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•˜ê³ ìž í•œë‹¤ë©´ ë°˜ë“œì‹œ ê²°í•© ì¸ë±ìŠ¤ì˜
+            ì»¬ëŸ¼ ì¤‘ ì„ í–‰í•˜ëŠ” ì»¬ëŸ¼ë¶€í„° ì¡°ê±´ì— ì§€ì •í•˜ì—¬ ì‚¬ìš©í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤. ì¡°ê±´ì€ ì»¬ëŸ¼ ì „ì²´ë¥¼ ìˆœì„œëŒ€ë¡œ ì‚¬ìš©í•  ìˆ˜ë„ ìžˆê³ ,
+            ì•„ë‹ˆë©´ ì„ í–‰í•˜ëŠ” ì¼ë¶€ ì»¬ëŸ¼ì„ ìˆœì„œëŒ€ë¡œ ì‚¬ìš©í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-        - °áÇÕ ÀÎµ¦½º ÄÃ·³ÀÇ ¼³Á¤ ½Ã °í·ÁÇØ¾ß ÇÒ ¿ì¼±¼øÀ§
-            1. where Àý Á¶°Ç¿¡ ¸¹ÀÌ »ç¿ëµÇ´Â ÄÃ·³ÀÌ ¿ì¼±½Ã
-            2. Equal('=')·Î »ç¿ëµÇ´Â ÄÃ·³ ¿ì¼±
-            3. ºÐÆ÷µµ°¡ ÁÁÀº ÄÃ·³À» ¿ì¼±
-            4. ÀÚÁÖ ÀÌ¿ëµÇ´Â ¼ø¼­´ë·Î °áÇÕ ÀÎµ¦½º ÄÃ·³ÀÇ ¼ø¼­ °áÁ¤
+        - ê²°í•© ì¸ë±ìŠ¤ ì»¬ëŸ¼ì˜ ì„¤ì • ì‹œ ê³ ë ¤í•´ì•¼ í•  ìš°ì„ ìˆœìœ„
+            1. where ì ˆ ì¡°ê±´ì— ë§Žì´ ì‚¬ìš©ë˜ëŠ” ì»¬ëŸ¼ì´ ìš°ì„ ì‹œ
+            2. Equal('=')ë¡œ ì‚¬ìš©ë˜ëŠ” ì»¬ëŸ¼ ìš°ì„ 
+            3. ë¶„í¬ë„ê°€ ì¢‹ì€ ì»¬ëŸ¼ì„ ìš°ì„ 
+            4. ìžì£¼ ì´ìš©ë˜ëŠ” ìˆœì„œëŒ€ë¡œ ê²°í•© ì¸ë±ìŠ¤ ì»¬ëŸ¼ì˜ ìˆœì„œ ê²°ì •
 
-        - °áÇÕ ÀÎµ¦½ºÀÇ È¿À²¼ºÀÌ ¶³¾îÁö´Â °æ¿ì
-            °áÇÕ ÀÎµ¦½ºµµ ÀÏ¹ÝÀûÀÎ ÀÎµ¦½º¿Í ¸¶Âù°¡Áö·Î µ¥ÀÌÅÍµéÀÌ Á¤·ÄµÇ¾î º¸°üµÇ±â ¶§¹®¿¡ ¼Ò¼öÀÇ µ¥ÀÌÅÍ¸¦ ºü¸£°Ô Ã£´Â °Í¿¡´Â
-            À¯¸®ÇÏÁö¸¸ ¾Æ·¡¿Í °°ÀÌ ½ºÄµÀÌ ¸¹ÀÌ »ý±â°Ô µÈ´Ù¸é È¿À²¼ºÀÌ ¶³¾îÁö°Ô µË´Ï´Ù.
+        - ê²°í•© ì¸ë±ìŠ¤ì˜ íš¨ìœ¨ì„±ì´ ë–¨ì–´ì§€ëŠ” ê²½ìš°
+            ê²°í•© ì¸ë±ìŠ¤ë„ ì¼ë°˜ì ì¸ ì¸ë±ìŠ¤ì™€ ë§ˆì°¬ê°€ì§€ë¡œ ë°ì´í„°ë“¤ì´ ì •ë ¬ë˜ì–´ ë³´ê´€ë˜ê¸° ë•Œë¬¸ì— ì†Œìˆ˜ì˜ ë°ì´í„°ë¥¼ ë¹ ë¥´ê²Œ ì°¾ëŠ” ê²ƒì—ëŠ”
+            ìœ ë¦¬í•˜ì§€ë§Œ ì•„ëž˜ì™€ ê°™ì´ ìŠ¤ìº”ì´ ë§Žì´ ìƒê¸°ê²Œ ëœë‹¤ë©´ íš¨ìœ¨ì„±ì´ ë–¨ì–´ì§€ê²Œ ë©ë‹ˆë‹¤.
 
-            ¾Æ·¡ÀÇ ¿¹½ÃµéÀº emp_pay_idx ÀÎµ¦½º¸¦ »ç¿ëÇÏ±â´Â ÇÏÁö¸¸ ½ºÄµÀÌ ¸¹ÀÌ »ý±â´Â °æ¿ì·Î ÀÎµ¦½ºÀÇ È¿À²¼ºÀÌ
-            ¶³¾îÁö´Â °æ¿ìµéÀÇ ¿¹½ÃÀÔ´Ï´Ù.
+            ì•„ëž˜ì˜ ì˜ˆì‹œë“¤ì€ emp_pay_idx ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•˜ê¸°ëŠ” í•˜ì§€ë§Œ ìŠ¤ìº”ì´ ë§Žì´ ìƒê¸°ëŠ” ê²½ìš°ë¡œ ì¸ë±ìŠ¤ì˜ íš¨ìœ¨ì„±ì´
+            ë–¨ì–´ì§€ëŠ” ê²½ìš°ë“¤ì˜ ì˜ˆì‹œìž…ë‹ˆë‹¤.
 
-            select * from emp_pay where ±Þ¿©³â¿ù LIKE '2021%' and ±Þ¿©ÄÚµå = 'Á¤±â±Þ¿©';
-            À§ Á¶°ÇÀýÀÇ °æ¿ì °áÇÕ ÀÎµ¦½ºÀÇ Ã¹ ¹øÂ° ÄÃ·³ÀÎ ±Þ¿©³â¿ùÀÇ Á¶°ÇÀÌ ÀÖ´õ¶óµµ Equal(=)ÀÌ ¾Æ´Ñ ¹üÀ§ ¿¬»êÀÚÀÎ
-            LIKE '2021%' Á¶°ÇÀ» »ç¿ëÇßÀ¸¹Ç·Î, ¼¼°³ÀÇ Ä®·³ÀÌ ¸ðµÎ ÇÊ¿äÇÑ emp_pay_idx ÀÎµ¦½º¸¦ Ã£À» ¶§ µÎ¹øÂ° Ä®·³ÀÎ
-            ±Þ¿©ÄÚµå¿¡ ´ëÇÑ Á¶°ÇÀ» B*Tree ¿¡¼­ ½±°Ô Ã£À»¼ö°¡ ¾ø°Ô µË´Ï´Ù. ÀÌ´Â °áÇÕ ÀÎµ¦½º°¡ °¢ Ä®·³º°·Î Á¤·ÄÀÌ µÇ¾î ÀÖ´Â
-            °ÍÀÌ ¾Æ´Ï¶ó Ã¹¹øÂ°, µÎ¹øÂ°, ¼¼¹øÂ° Ä®·³ÀÌ °áÇÕÀÌ µÇ¾î Á¤·ÄÀÌ µÇ¾îÀÖ±â ¶§¹®ÀÔ´Ï´Ù. ÀÌ¶§ ±Þ¿©ÄÚµå¿¡ ´ëÇÑ Á¶°ÇÀº
-            ÀÎµ¦½º¸¦ Ã£¾Æ°¡´Â °Ë»öÁ¶°ÇÀÌ ¾Æ´Ï¶ó ÀÎµ¦½º °ªÀÌ Á¶°Ç¿¡ ¸Â´ÂÁö ¿©ºÎ¸¦ °ËÁõÇÏ´Â Ã¼Å© Á¶°ÇÀÌ µË´Ï´Ù.
+            select * from emp_pay where ê¸‰ì—¬ë…„ì›” LIKE '2021%' and ê¸‰ì—¬ì½”ë“œ = 'ì •ê¸°ê¸‰ì—¬';
+            ìœ„ ì¡°ê±´ì ˆì˜ ê²½ìš° ê²°í•© ì¸ë±ìŠ¤ì˜ ì²« ë²ˆì§¸ ì»¬ëŸ¼ì¸ ê¸‰ì—¬ë…„ì›”ì˜ ì¡°ê±´ì´ ìžˆë”ë¼ë„ Equal(=)ì´ ì•„ë‹Œ ë²”ìœ„ ì—°ì‚°ìžì¸
+            LIKE '2021%' ì¡°ê±´ì„ ì‚¬ìš©í–ˆìœ¼ë¯€ë¡œ, ì„¸ê°œì˜ ì¹¼ëŸ¼ì´ ëª¨ë‘ í•„ìš”í•œ emp_pay_idx ì¸ë±ìŠ¤ë¥¼ ì°¾ì„ ë•Œ ë‘ë²ˆì§¸ ì¹¼ëŸ¼ì¸
+            ê¸‰ì—¬ì½”ë“œì— ëŒ€í•œ ì¡°ê±´ì„ B*Tree ì—ì„œ ì‰½ê²Œ ì°¾ì„ìˆ˜ê°€ ì—†ê²Œ ë©ë‹ˆë‹¤. ì´ëŠ” ê²°í•© ì¸ë±ìŠ¤ê°€ ê° ì¹¼ëŸ¼ë³„ë¡œ ì •ë ¬ì´ ë˜ì–´ ìžˆëŠ”
+            ê²ƒì´ ì•„ë‹ˆë¼ ì²«ë²ˆì§¸, ë‘ë²ˆì§¸, ì„¸ë²ˆì§¸ ì¹¼ëŸ¼ì´ ê²°í•©ì´ ë˜ì–´ ì •ë ¬ì´ ë˜ì–´ìžˆê¸° ë•Œë¬¸ìž…ë‹ˆë‹¤. ì´ë•Œ ê¸‰ì—¬ì½”ë“œì— ëŒ€í•œ ì¡°ê±´ì€
+            ì¸ë±ìŠ¤ë¥¼ ì°¾ì•„ê°€ëŠ” ê²€ìƒ‰ì¡°ê±´ì´ ì•„ë‹ˆë¼ ì¸ë±ìŠ¤ ê°’ì´ ì¡°ê±´ì— ë§žëŠ”ì§€ ì—¬ë¶€ë¥¼ ê²€ì¦í•˜ëŠ” ì²´í¬ ì¡°ê±´ì´ ë©ë‹ˆë‹¤.
 
-            select * from emp_pay where ±Þ¿©³â¿ù = '202107' and »ç¿ø¹øÈ£ = '20210401';
-            À§ Á¶°ÇÀýÀÇ °æ¿ì´Â °áÇÕ ÀÎµ¦½ºÀÇ Ã¹¹øÂ° Ä®·³ÀÎ ±Þ¿©³â¿ùÀÇ Á¶°ÇÀÌ equal(=)ÀÌ´õ¶óµµ µÎ¹øÂ° ÄÃ·³ÀÎ ±Þ¿©ÄÚµå¿¡
-            ´ëÇÑ Á¶°ÇÀÌ ¾øÀ¸¹Ç·Î ¼¼¹øÂ° Ä®·³ÀÎ »ç¿ø¹øÈ£ Á¶°ÇÀ» °Ë»ö Á¶°ÇÀÌ ¾Æ´Ñ Ã¼Å© Á¶°ÇÀ¸·Î ¹Û¿¡ »ç¿ëÇÒ ¼ö ¾ø°Ô µË´Ï´Ù.
-            Áï °áÇÕ ÀÎµ¦½º¿¡¼­ ±Þ¿©³â¿ùÀÎ ¸ðµç µ¥ÀÌÅÍ¸¦ Ã£¾Æ¼­ »ç¿ø¹øÈ£ Á¶°Ç¿¡ ¸Â´ÂÁö ÀÏÀÏÀÌ È®ÀÎÇÏ´Â
-            Ç® Å×ÀÌºí ½ºÄµÀÌ ÀÏ¾î³ª°í ÀÖ´Â ¼ÀÀÔ´Ï´Ù.
+            select * from emp_pay where ê¸‰ì—¬ë…„ì›” = '202107' and ì‚¬ì›ë²ˆí˜¸ = '20210401';
+            ìœ„ ì¡°ê±´ì ˆì˜ ê²½ìš°ëŠ” ê²°í•© ì¸ë±ìŠ¤ì˜ ì²«ë²ˆì§¸ ì¹¼ëŸ¼ì¸ ê¸‰ì—¬ë…„ì›”ì˜ ì¡°ê±´ì´ equal(=)ì´ë”ë¼ë„ ë‘ë²ˆì§¸ ì»¬ëŸ¼ì¸ ê¸‰ì—¬ì½”ë“œì—
+            ëŒ€í•œ ì¡°ê±´ì´ ì—†ìœ¼ë¯€ë¡œ ì„¸ë²ˆì§¸ ì¹¼ëŸ¼ì¸ ì‚¬ì›ë²ˆí˜¸ ì¡°ê±´ì„ ê²€ìƒ‰ ì¡°ê±´ì´ ì•„ë‹Œ ì²´í¬ ì¡°ê±´ìœ¼ë¡œ ë°–ì— ì‚¬ìš©í•  ìˆ˜ ì—†ê²Œ ë©ë‹ˆë‹¤.
+            ì¦‰ ê²°í•© ì¸ë±ìŠ¤ì—ì„œ ê¸‰ì—¬ë…„ì›”ì¸ ëª¨ë“  ë°ì´í„°ë¥¼ ì°¾ì•„ì„œ ì‚¬ì›ë²ˆí˜¸ ì¡°ê±´ì— ë§žëŠ”ì§€ ì¼ì¼ì´ í™•ì¸í•˜ëŠ”
+            í’€ í…Œì´ë¸” ìŠ¤ìº”ì´ ì¼ì–´ë‚˜ê³  ìžˆëŠ” ì…ˆìž…ë‹ˆë‹¤.
 
-    - ÀÎµ¦½º¸¦ ¸®ºôµåÇÏ´Â ÀÌÀ¯
-        ÀÎµ¦½º ÆÄÀÏÀº »ý¼º ÈÄ insert, update, delete µîÀ» ¹Ýº¹ÇÏ´Ùº¸¸é ¼º´ÉÀÌ ÀúÇÏµË´Ï´Ù. »ý¼ºµÈ ÀÎµ¦½º´Â
-        Æ®¸®±¸Á¶¸¦ °¡Áý´Ï´Ù. »ðÀÔ,¼öÁ¤,»èÁ¦µîÀÌ ¿À·§µ¿¾È ÀÏ¾î³ª´Ùº¸¸é Æ®¸®ÀÇ ÇÑÂÊÀÌ ¹«°Å¿öÁ® ÀüÃ¼ÀûÀ¸·Î Æ®¸®ÀÇ ±íÀÌ°¡
-        ±í¾îÁý´Ï´Ù. ÀÌ·¯ÇÑ Çö»óÀ¸·Î ÀÎÇØ ÀÎµ¦½ºÀÇ °Ë»ö¼Óµµ°¡ ¶³¾îÁö¹Ç·Î ÁÖ±âÀûÀ¸·Î ¸®ºôµùÇÏ´Â ÀÛ¾÷À» °ÅÄ¡´Â°ÍÀÌ ÁÁ½À´Ï´Ù.
+    - ì¸ë±ìŠ¤ë¥¼ ë¦¬ë¹Œë“œí•˜ëŠ” ì´ìœ 
+        ì¸ë±ìŠ¤ íŒŒì¼ì€ ìƒì„± í›„ insert, update, delete ë“±ì„ ë°˜ë³µí•˜ë‹¤ë³´ë©´ ì„±ëŠ¥ì´ ì €í•˜ë©ë‹ˆë‹¤. ìƒì„±ëœ ì¸ë±ìŠ¤ëŠ”
+        íŠ¸ë¦¬êµ¬ì¡°ë¥¼ ê°€ì§‘ë‹ˆë‹¤. ì‚½ìž…,ìˆ˜ì •,ì‚­ì œë“±ì´ ì˜¤ëž«ë™ì•ˆ ì¼ì–´ë‚˜ë‹¤ë³´ë©´ íŠ¸ë¦¬ì˜ í•œìª½ì´ ë¬´ê±°ì›Œì ¸ ì „ì²´ì ìœ¼ë¡œ íŠ¸ë¦¬ì˜ ê¹Šì´ê°€
+        ê¹Šì–´ì§‘ë‹ˆë‹¤. ì´ëŸ¬í•œ í˜„ìƒìœ¼ë¡œ ì¸í•´ ì¸ë±ìŠ¤ì˜ ê²€ìƒ‰ì†ë„ê°€ ë–¨ì–´ì§€ë¯€ë¡œ ì£¼ê¸°ì ìœ¼ë¡œ ë¦¬ë¹Œë”©í•˜ëŠ” ìž‘ì—…ì„ ê±°ì¹˜ëŠ”ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤.
 
         SELECT I.TABLESPACE_NAME,I.TABLE_NAME,I.INDEX_NAME, I.BLEVEL,
                DECODE(SIGN(NVL(I.BLEVEL,99)-3),1,DECODE(NVL(I.BLEVEL,99),99,'?','Rebuild'),'Check') CNF
@@ -253,283 +253,283 @@
         WHERE   I.BLEVEL > 4
         ORDER BY I.BLEVEL DESC
 
-        ÇØ´çÄõ¸®´Â index Æ®¸®ÀÇ ±íÀÌ°¡ 4ÀÌ»óÀÎ index  ¸¦ Á¶È¸ÇÏ´Â Äõ¸®ÀÔ´Ï´Ù.
-        ÇØ´ç Äõ¸®¹®À» ½ÇÇàÇÏ¿© °Ë»öµÇ´Â index °¡ ÀÖ´Ù¸é ¸®ºôµùÀ» ÇÏ´Â°ÍÀÌ ÁÁ½À´Ï´Ù.
+        í•´ë‹¹ì¿¼ë¦¬ëŠ” index íŠ¸ë¦¬ì˜ ê¹Šì´ê°€ 4ì´ìƒì¸ index  ë¥¼ ì¡°íšŒí•˜ëŠ” ì¿¼ë¦¬ìž…ë‹ˆë‹¤.
+        í•´ë‹¹ ì¿¼ë¦¬ë¬¸ì„ ì‹¤í–‰í•˜ì—¬ ê²€ìƒ‰ë˜ëŠ” index ê°€ ìžˆë‹¤ë©´ ë¦¬ë¹Œë”©ì„ í•˜ëŠ”ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤.
 
-    - ÀÎµ¦½º(Index)¸¦ ³²¹ßÇÏÁö ¸»¾Æ¾ß ÇÏ´Â ÀÌÀ¯
-        °³¹ßÀ» ÁøÇàÇÒ ¶§¿¡ ´ë°³ °³¹ß¼­¹ö¿Í ¿î¿µ¼­¹ö¸¦ ³ª´©¾î¼­ °ü¸®ÇÕ´Ï´Ù. ´ëºÎºÐ °³¹ß¼­¹ö¿¡¼­ °³¹ßÀ» ÇÒ¶§¿¡´Â ÀûÀº·®ÀÇ
-        µ¥ÀÌÅÍ¸¦ °¡Áö°í ·ÎÁ÷°Ë»ç¸¦ ÇÏ¸ç ·ÎÁ÷°Ë»ç¿¡ Åë°úÇÑ ÄÚµåµéÀÌ ¿î¿µ¼­¹ö¿¡ ¾÷µ¥ÀÌÆ®°¡ µÇÁÒ. ÇÏÁö¸¸ °³¹ß¼­¹ö¿¡´Â Àß µ¿ÀÛÇÏ´ø
-        ·ÎÁ÷µéÀÌ ¿î¿µ¼­¹öÀÇ ¸¹Àº·®ÀÇ µ¥ÀÌÅÍµéÀ» Ã³¸®ÇÏ´Ùº¸¸é ¼º´ÉÀÌ½´°¡ ¸¹ÀÌ ¹ß»ýÇÕ´Ï´Ù. ±× ¼º´ÉÀÌ½´ÀÇ ÁÖ¿ä¿øÀÎÀº
-        ¹Ù·Î µ¥ÀÌÅÍº£ÀÌ½º¿¡ ÀÖ½À´Ï´Ù. µ¥ÀÌÅÍº£ÀÌ½º °ü¸®ÀÚ´Â ¼º´É¹®Á¦°¡ ¹ß»ýÇÏ¸é °¡Àå »¡¸® »ý°¢ÇÏ´Â
-        ÇØ°áÃ¥ÀÌ ÀÎµ¦½º Ãß°¡ »ý¼ºÀÔ´Ï´Ù.
+    - ì¸ë±ìŠ¤(Index)ë¥¼ ë‚¨ë°œí•˜ì§€ ë§ì•„ì•¼ í•˜ëŠ” ì´ìœ 
+        ê°œë°œì„ ì§„í–‰í•  ë•Œì— ëŒ€ê°œ ê°œë°œì„œë²„ì™€ ìš´ì˜ì„œë²„ë¥¼ ë‚˜ëˆ„ì–´ì„œ ê´€ë¦¬í•©ë‹ˆë‹¤. ëŒ€ë¶€ë¶„ ê°œë°œì„œë²„ì—ì„œ ê°œë°œì„ í• ë•Œì—ëŠ” ì ì€ëŸ‰ì˜
+        ë°ì´í„°ë¥¼ ê°€ì§€ê³  ë¡œì§ê²€ì‚¬ë¥¼ í•˜ë©° ë¡œì§ê²€ì‚¬ì— í†µê³¼í•œ ì½”ë“œë“¤ì´ ìš´ì˜ì„œë²„ì— ì—…ë°ì´íŠ¸ê°€ ë˜ì£ . í•˜ì§€ë§Œ ê°œë°œì„œë²„ì—ëŠ” ìž˜ ë™ìž‘í•˜ë˜
+        ë¡œì§ë“¤ì´ ìš´ì˜ì„œë²„ì˜ ë§Žì€ëŸ‰ì˜ ë°ì´í„°ë“¤ì„ ì²˜ë¦¬í•˜ë‹¤ë³´ë©´ ì„±ëŠ¥ì´ìŠˆê°€ ë§Žì´ ë°œìƒí•©ë‹ˆë‹¤. ê·¸ ì„±ëŠ¥ì´ìŠˆì˜ ì£¼ìš”ì›ì¸ì€
+        ë°”ë¡œ ë°ì´í„°ë² ì´ìŠ¤ì— ìžˆìŠµë‹ˆë‹¤. ë°ì´í„°ë² ì´ìŠ¤ ê´€ë¦¬ìžëŠ” ì„±ëŠ¥ë¬¸ì œê°€ ë°œìƒí•˜ë©´ ê°€ìž¥ ë¹¨ë¦¬ ìƒê°í•˜ëŠ”
+        í•´ê²°ì±…ì´ ì¸ë±ìŠ¤ ì¶”ê°€ ìƒì„±ìž…ë‹ˆë‹¤.
 
-        ÇÏÁö¸¸ ¹®Á¦¸¦ ±×Àú ½±°Ô ÇØ°áÇÏ±â À§ÇØ Äõ¸® ¼Óµµ ¹®Á¦°¡ ³¯¶§¸¶´Ù ÀÎµ¦½º¸¦ Ãß°¡ÇÏ´Â°ÍÀº ¹Ù¶÷Á÷ÇÏÁö ¸øÇÕ´Ï´Ù.
-        ¼º´É ÀÌ½´°¡ ³ª¼­ ÀÎµ¦½º¸¦ ¸¸µé°í ¶Ç ´Ù¸¥ SQL ¹®¿¡¼­ ¼º´ÉÀÌ½´°¡ ¹ß»ýÇÏ¿© ¶Ç ÀÎµ¦½º¸¦ ¸¸µé¾ú´Ù°í ÇÕ½Ã´Ù.
-        ÀÌ·¸°Ô ¹®Á¦°¡ ¹ß»ýÇÒ¶§¸¶´Ù ÀÎµ¦½º¸¦ »ý¼ºÇÏ¸é¼­ ÀÎµ¦½º°¡ °è¼Ó Ãß°¡µÇ¸é »ý¼ºµÈ ÀÎµ¦½º¸¦ ÂüÁ¶ÇÏ´Â ÇÏ³ªÀÇ Äõ¸®¹®À»
-        ºü¸£°Ô´Â ¸¸µé ¼ö ÀÖÁö¸¸ ÀüÃ¼ÀûÀÎ µ¥ÀÌÅÍº£ÀÌ½ºÀÇ ¼º´É ºÎÇÏ¸¦ ÃÊ·¡ÇÕ´Ï´Ù. ±×·¸±â¿¡ ÀÎµ¦½º¸¦ »ý¼ºÇÏ´Â°Í º¸´Ù´Â
-        SQL ¹®À» Á» ´õ È¿À²ÀûÀ¸·Î Â¥´Â ¹æÇâÀ¸·Î ³ª°¡¾ßÇÕ´Ï´Ù. ÀÎµ¦½º »ý¼ºÀº ²À ¸¶Áö¸· ¼ö´ÜÀ¸·Î °­±¸ÇØ¾ß ÇÒ ¹®Á¦ÀÔ´Ï´Ù.
+        í•˜ì§€ë§Œ ë¬¸ì œë¥¼ ê·¸ì € ì‰½ê²Œ í•´ê²°í•˜ê¸° ìœ„í•´ ì¿¼ë¦¬ ì†ë„ ë¬¸ì œê°€ ë‚ ë•Œë§ˆë‹¤ ì¸ë±ìŠ¤ë¥¼ ì¶”ê°€í•˜ëŠ”ê²ƒì€ ë°”ëžŒì§í•˜ì§€ ëª»í•©ë‹ˆë‹¤.
+        ì„±ëŠ¥ ì´ìŠˆê°€ ë‚˜ì„œ ì¸ë±ìŠ¤ë¥¼ ë§Œë“¤ê³  ë˜ ë‹¤ë¥¸ SQL ë¬¸ì—ì„œ ì„±ëŠ¥ì´ìŠˆê°€ ë°œìƒí•˜ì—¬ ë˜ ì¸ë±ìŠ¤ë¥¼ ë§Œë“¤ì—ˆë‹¤ê³  í•©ì‹œë‹¤.
+        ì´ë ‡ê²Œ ë¬¸ì œê°€ ë°œìƒí• ë•Œë§ˆë‹¤ ì¸ë±ìŠ¤ë¥¼ ìƒì„±í•˜ë©´ì„œ ì¸ë±ìŠ¤ê°€ ê³„ì† ì¶”ê°€ë˜ë©´ ìƒì„±ëœ ì¸ë±ìŠ¤ë¥¼ ì°¸ì¡°í•˜ëŠ” í•˜ë‚˜ì˜ ì¿¼ë¦¬ë¬¸ì„
+        ë¹ ë¥´ê²ŒëŠ” ë§Œë“¤ ìˆ˜ ìžˆì§€ë§Œ ì „ì²´ì ì¸ ë°ì´í„°ë² ì´ìŠ¤ì˜ ì„±ëŠ¥ ë¶€í•˜ë¥¼ ì´ˆëž˜í•©ë‹ˆë‹¤. ê·¸ë ‡ê¸°ì— ì¸ë±ìŠ¤ë¥¼ ìƒì„±í•˜ëŠ”ê²ƒ ë³´ë‹¤ëŠ”
+        SQL ë¬¸ì„ ì¢€ ë” íš¨ìœ¨ì ìœ¼ë¡œ ì§œëŠ” ë°©í–¥ìœ¼ë¡œ ë‚˜ê°€ì•¼í•©ë‹ˆë‹¤. ì¸ë±ìŠ¤ ìƒì„±ì€ ê¼­ ë§ˆì§€ë§‰ ìˆ˜ë‹¨ìœ¼ë¡œ ê°•êµ¬í•´ì•¼ í•  ë¬¸ì œìž…ë‹ˆë‹¤.
 
 
-- NESTED LOOP JOIN (ÁßÃ¸ ·çÇÁ Á¶ÀÎ)
-    - NESTED LOOP JOIN ÀÌ¶õ?
-        NL JOIN ÀÌ¶ó°íµµ ºÒ¸®´Â NESTED LOOP JOIN Àº 2°³ ÀÌ»óÀÇ Å×ÀÌºí¿¡¼­ ÇÏ³ªÀÇ ÁýÇÕÀ» ±âÁØÀ¸·Î ¼øÂ÷ÀûÀ¸·Î »ó´ë¹æ Row ¸¦
-        °áÇÕÇÏ¿© ¿øÇÏ´Â °á°ú¸¦ Á¶ÇÕÇÏ´Â Á¶ÀÎ ¹æ½Ä
-        Á¶ÀÎÇØ¾ß ÇÒ µ¥ÀÌÅÍ°¡ ¸¹Áö ¾ÊÀº °æ¿ì¿¡ À¯¿ëÇÏ°Ô »ç¿ë
-        µå¶óÀÌºù Å×ÀÌºí·Î ÇÑ Å×ÀÌºíÀ» ¼±Á¤ÇÏ°í ÀÌ Å×ÀÌºí·ÎºÎÅÍ where Àý¿¡ Á¤ÀÇµÈ °Ë»ö Á¶°ÇÀ» ¸¸Á·ÇÏ´Â µ¥ÀÌÅÍµéÀ» °É·¯³½ ÈÄ,
-        ÀÌ °ªÀ» °¡Áö°í Á¶ÀÎ ´ë»ó Å×ÀÌºíÀ» ¹Ýº¹ÀûÀ¸·Î °Ë»öÇÏ¸é¼­ Á¶ÀÎ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â ÃÖÁ¾ °á°ú°ªÀ» ¾ò¾î³À´Ï´Ù.
+- NESTED LOOP JOIN (ì¤‘ì²© ë£¨í”„ ì¡°ì¸)
+    - NESTED LOOP JOIN ì´ëž€?
+        NL JOIN ì´ë¼ê³ ë„ ë¶ˆë¦¬ëŠ” NESTED LOOP JOIN ì€ 2ê°œ ì´ìƒì˜ í…Œì´ë¸”ì—ì„œ í•˜ë‚˜ì˜ ì§‘í•©ì„ ê¸°ì¤€ìœ¼ë¡œ ìˆœì°¨ì ìœ¼ë¡œ ìƒëŒ€ë°© Row ë¥¼
+        ê²°í•©í•˜ì—¬ ì›í•˜ëŠ” ê²°ê³¼ë¥¼ ì¡°í•©í•˜ëŠ” ì¡°ì¸ ë°©ì‹
+        ì¡°ì¸í•´ì•¼ í•  ë°ì´í„°ê°€ ë§Žì§€ ì•Šì€ ê²½ìš°ì— ìœ ìš©í•˜ê²Œ ì‚¬ìš©
+        ë“œë¼ì´ë¹™ í…Œì´ë¸”ë¡œ í•œ í…Œì´ë¸”ì„ ì„ ì •í•˜ê³  ì´ í…Œì´ë¸”ë¡œë¶€í„° where ì ˆì— ì •ì˜ëœ ê²€ìƒ‰ ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” ë°ì´í„°ë“¤ì„ ê±¸ëŸ¬ë‚¸ í›„,
+        ì´ ê°’ì„ ê°€ì§€ê³  ì¡°ì¸ ëŒ€ìƒ í…Œì´ë¸”ì„ ë°˜ë³µì ìœ¼ë¡œ ê²€ìƒ‰í•˜ë©´ì„œ ì¡°ì¸ ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” ìµœì¢… ê²°ê³¼ê°’ì„ ì–»ì–´ëƒ…ë‹ˆë‹¤.
 
-    - Driving Table °ú Driven Table
-        Á¶ÀÎÀ» ÇÒ¶§ ¸ÕÀú ¾×¼¼½º µÇ´Â Å×ÀÌºíÀ» Driving Table ÀÌ¶ó°í ÇÏ¸ç ³ªÁß¿¡ ¾×¼¼½º µÇ´Â Å×ÀÌºíÀ» Driven Table
-        Driving Table Àº ¿ÉÆ¼¸¶ÀÌÀú°¡ °áÁ¤ÇÏ°í ÀÚ¿¬½º·¹ Driving Table ÀÌ ¾Æ´Ñ Å×ÀÌºíÀº Driven Table ·Î °áÁ¤
+    - Driving Table ê³¼ Driven Table
+        ì¡°ì¸ì„ í• ë•Œ ë¨¼ì € ì•¡ì„¸ìŠ¤ ë˜ëŠ” í…Œì´ë¸”ì„ Driving Table ì´ë¼ê³  í•˜ë©° ë‚˜ì¤‘ì— ì•¡ì„¸ìŠ¤ ë˜ëŠ” í…Œì´ë¸”ì„ Driven Table
+        Driving Table ì€ ì˜µí‹°ë§ˆì´ì €ê°€ ê²°ì •í•˜ê³  ìžì—°ìŠ¤ë ˆ Driving Table ì´ ì•„ë‹Œ í…Œì´ë¸”ì€ Driven Table ë¡œ ê²°ì •
 
-    - NESTED LOOPS JOIN ÀÇ Àå´ÜÁ¡
-        1. ÀÎµ¦½º¿¡ ÀÇÇÑ ·£´ý ¾×¼¼½º¿¡ ±â¹ÝÇÏ°í ÀÖ±â ¶§¹®¿¡ ´ë·®ÀÇ µ¥ÀÌÅÍ Ã³¸® ½Ã ÀûÇÕÇÏÁö ¾Ê½À´Ï´Ù.
-        2. Driving Table ·Î´Â µ¥ÀÌÅÍ°¡ Àû°Å³ª where Àý Á¶°ÇÀ¸·Î row ÀÇ ¼ýÀÚ¸¦ ÁÙÀÏ ¼ö ÀÖ´Â Å×ÀÌºíÀÌ¾î¾ß ÇÕ´Ï´Ù.
-        3. Driven Table ¿¡´Â Á¶ÀÎÀ» À§ÇÑ ÀûÀýÇÑ ÀÎµ¦½º°¡ »ý¼ºµÇ¾î ÀÖ¾î¾ß ÇÕ´Ï´Ù.
-        4. ¼±Çà Å×ÀÌºíÀÇ °á°ú¸¦ ÅëÇØ ÈÄÇà Å×ÀÌºíÀ» ¾×¼¼½º ÇÒ ¶§ ·£´ý I/O°¡ ¹ß»ýÇÕ´Ï´Ù.
+    - NESTED LOOPS JOIN ì˜ ìž¥ë‹¨ì 
+        1. ì¸ë±ìŠ¤ì— ì˜í•œ ëžœë¤ ì•¡ì„¸ìŠ¤ì— ê¸°ë°˜í•˜ê³  ìžˆê¸° ë•Œë¬¸ì— ëŒ€ëŸ‰ì˜ ë°ì´í„° ì²˜ë¦¬ ì‹œ ì í•©í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+        2. Driving Table ë¡œëŠ” ë°ì´í„°ê°€ ì ê±°ë‚˜ where ì ˆ ì¡°ê±´ìœ¼ë¡œ row ì˜ ìˆ«ìžë¥¼ ì¤„ì¼ ìˆ˜ ìžˆëŠ” í…Œì´ë¸”ì´ì–´ì•¼ í•©ë‹ˆë‹¤.
+        3. Driven Table ì—ëŠ” ì¡°ì¸ì„ ìœ„í•œ ì ì ˆí•œ ì¸ë±ìŠ¤ê°€ ìƒì„±ë˜ì–´ ìžˆì–´ì•¼ í•©ë‹ˆë‹¤.
+        4. ì„ í–‰ í…Œì´ë¸”ì˜ ê²°ê³¼ë¥¼ í†µí•´ í›„í–‰ í…Œì´ë¸”ì„ ì•¡ì„¸ìŠ¤ í•  ë•Œ ëžœë¤ I/Oê°€ ë°œìƒí•©ë‹ˆë‹¤.
 
          for(i=0; i<dept.length; i++) { -- driving table
             for(j=0; j<emp.length; j++) { -- driven table
                // Search
             }
         }
-        µ¿ÀÛ ¼ø¼­¸¦ º¸½Ã¸é ¾Æ½Ã°ÚÁö¸¸  À§¿Í °°Àº ÀÌÁß for ¹®°ú ÀÛµ¿¿ø¸®´Â ºñ½ÁÇÕ´Ï´Ù.
+        ë™ìž‘ ìˆœì„œë¥¼ ë³´ì‹œë©´ ì•„ì‹œê² ì§€ë§Œ  ìœ„ì™€ ê°™ì€ ì´ì¤‘ for ë¬¸ê³¼ ìž‘ë™ì›ë¦¬ëŠ” ë¹„ìŠ·í•©ë‹ˆë‹¤.
 
-        ÀÌ·¸µí NESTED LOOP JOIN ÀÇ µ¿ÀÛ ¹æ½ÄÀº Driving Table ÀÇ Ã³¸® ¹üÀ§¸¦ ÇÏ³ª¾¿ ¾×¼¼½º ÇÏ¸é¼­ ÃßÃâµÈ °ªÀ¸·Î
-        Driven Table À» Á¶ÀÎÇÏ´Â ¹æ½ÄÀ¸·Î µ¿ÀÛÇÏ°Ô µË´Ï´Ù.
+        ì´ë ‡ë“¯ NESTED LOOP JOIN ì˜ ë™ìž‘ ë°©ì‹ì€ Driving Table ì˜ ì²˜ë¦¬ ë²”ìœ„ë¥¼ í•˜ë‚˜ì”© ì•¡ì„¸ìŠ¤ í•˜ë©´ì„œ ì¶”ì¶œëœ ê°’ìœ¼ë¡œ
+        Driven Table ì„ ì¡°ì¸í•˜ëŠ” ë°©ì‹ìœ¼ë¡œ ë™ìž‘í•˜ê²Œ ë©ë‹ˆë‹¤.
 
-    - NESTED LOOP JOIN ÀÇ ¼º´É °³¼± Æ÷ÀÎÆ®
-        - ÀûÀýÇÑ µå¶óÀÌºù Å×ÀÌºíÀÇ ¼±Á¤
-            Driving Table Àº WHERE Àý·Î ÃÖ´ëÇÑÀÇ µ¥ÀÌÅÍ¸¦ °Å¸¦ ¼ö ÀÖ´Â Å×ÀÌºíÀÌ³ª
-            ¾ÖÃÊ¿¡ µ¥ÀÌÅÍÀÇ ¾çÀÌ ÀûÀº Å×ÀÌºí·Î ¼±Á¤ÇÏ´Â °ÍÀÌ ÁÁ½À´Ï´Ù.
+    - NESTED LOOP JOIN ì˜ ì„±ëŠ¥ ê°œì„  í¬ì¸íŠ¸
+        - ì ì ˆí•œ ë“œë¼ì´ë¹™ í…Œì´ë¸”ì˜ ì„ ì •
+            Driving Table ì€ WHERE ì ˆë¡œ ìµœëŒ€í•œì˜ ë°ì´í„°ë¥¼ ê±°ë¥¼ ìˆ˜ ìžˆëŠ” í…Œì´ë¸”ì´ë‚˜
+            ì• ì´ˆì— ë°ì´í„°ì˜ ì–‘ì´ ì ì€ í…Œì´ë¸”ë¡œ ì„ ì •í•˜ëŠ” ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤.
 
-            - µå¶óÀÌºù Å×ÀÌºí À¯µµ ¹æ¹ý
-                1. ÈùÆ®ÀÇ »ç¿ë
-                    /*+ORDERED*/ -- FROMÀý¿¡ ±â¼úÇÑ Å×ÀÌºí ¼ø¼­´ë·Î Á¦¾î
-                    /*+LEADING (table¸í)*/ -- ÈùÆ® ³»¿¡ Á¦½ÃµÈ Å×ÀÌºíÀÌ µå¶óÀÌºùÀ¸·Î Ã³¸®µÊ
+            - ë“œë¼ì´ë¹™ í…Œì´ë¸” ìœ ë„ ë°©ë²•
+                1. ížŒíŠ¸ì˜ ì‚¬ìš©
+                    /*+ORDERED*/ -- FROMì ˆì— ê¸°ìˆ í•œ í…Œì´ë¸” ìˆœì„œëŒ€ë¡œ ì œì–´
+                    /*+LEADING (tableëª…)*/ -- ížŒíŠ¸ ë‚´ì— ì œì‹œëœ í…Œì´ë¸”ì´ ë“œë¼ì´ë¹™ìœ¼ë¡œ ì²˜ë¦¬ë¨
 
-                    °¡Àå ½¬¿î ¹æ¹ýÀº À§¿Í °°ÀÌ ÈùÆ®¸¦ »ç¿ëÇÏ´Â ¹æ¹ýÀÔ´Ï´Ù. À§ÀÇ µÎ°¡Áö ÈùÆ® Áß ÇÏ³ª¸¦ »ç¿ëÇÏ½Ã¸é µË´Ï´Ù.
-                    ¸¸¾à À§ÀÇ µÎ°¡Áö ÈùÆ®¸¦ µ¿½Ã¿¡ »ç¿ëÇÏ°Ô µÇ¸é LEADING ÈùÆ®´Â Àû¿ëµÇÁö ¾Ê½À´Ï´Ù.
+                    ê°€ìž¥ ì‰¬ìš´ ë°©ë²•ì€ ìœ„ì™€ ê°™ì´ ížŒíŠ¸ë¥¼ ì‚¬ìš©í•˜ëŠ” ë°©ë²•ìž…ë‹ˆë‹¤. ìœ„ì˜ ë‘ê°€ì§€ ížŒíŠ¸ ì¤‘ í•˜ë‚˜ë¥¼ ì‚¬ìš©í•˜ì‹œë©´ ë©ë‹ˆë‹¤.
+                    ë§Œì•½ ìœ„ì˜ ë‘ê°€ì§€ ížŒíŠ¸ë¥¼ ë™ì‹œì— ì‚¬ìš©í•˜ê²Œ ë˜ë©´ LEADING ížŒíŠ¸ëŠ” ì ìš©ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
 
-                2. ºä¸¦ »ç¿ëÇÑ´Ù.
-                    ºä¸¦ ÅëÇØ¼­ µ¥ÀÌÅÍ¸¦ ¸ÕÀú ÀÐ¾î³¾ ¼ö ÀÖ°í ºä·Î µ¥ÀÌÅÍ¸¦ ÀÐÀº °á°ú·Î ´ÙÀ½ Å×ÀÌºí·Î ¿¬°áÀ» ½ÃµµÇÑ´Ù¸é
-                    Á¶ÀÎ ¼ø¼­¸¦ Á¦¾îÇÒ ¼ö ÀÖ½À´Ï´Ù.
+                2. ë·°ë¥¼ ì‚¬ìš©í•œë‹¤.
+                    ë·°ë¥¼ í†µí•´ì„œ ë°ì´í„°ë¥¼ ë¨¼ì € ì½ì–´ë‚¼ ìˆ˜ ìžˆê³  ë·°ë¡œ ë°ì´í„°ë¥¼ ì½ì€ ê²°ê³¼ë¡œ ë‹¤ìŒ í…Œì´ë¸”ë¡œ ì—°ê²°ì„ ì‹œë„í•œë‹¤ë©´
+                    ì¡°ì¸ ìˆœì„œë¥¼ ì œì–´í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-        - Driven Table ÀÇ Á¶ÀÎ ÄÃ·³¿¡ ÀÎµ¦½º Á¸Àç À¯¹«
-            Driven Table ¿¡ ÀÎµ¦½º°¡ Á¸ÀçÇÏÁö ¾Ê´Â´Ù¸é Driving Table ¿¡¼­ µµÃâµÈ °á°ú¿Í ¸Â´ÂÁö¸¦
-            FULL TABLE SCAN À¸·Î ÀÏÀÏÀÌ ºñ±³ÇØ¾ß ÇÏ±â ¶§¹®ÀÔ´Ï´Ù.
-            Driven Table ÀÇ Join ÄÃ·³¿¡ ÀÎµ¦½º°¡ »ý¼ºµÇÁö ¾Ê¾Ò´Ù¸é ÀÎµ¦½º »ý¼ºÀ» °í·ÁÇØ º¸´Â °ÍÀÌ ÁÁ°í ±×°ÍÀÌ ¾î·Æ´Ù¸é
-            Á¶ÀÎ ¹æ½ÄÀ» SORT / MERGE ¹æ½Äµî ´Ù¸¥ ¹æ½ÄÀ¸·Î ¹Ù²Ù´Â°ÍÀÌ ¼º´É Çâ»ó¿¡ µµ¿òÀÌ µË´Ï´Ù.
+        - Driven Table ì˜ ì¡°ì¸ ì»¬ëŸ¼ì— ì¸ë±ìŠ¤ ì¡´ìž¬ ìœ ë¬´
+            Driven Table ì— ì¸ë±ìŠ¤ê°€ ì¡´ìž¬í•˜ì§€ ì•ŠëŠ”ë‹¤ë©´ Driving Table ì—ì„œ ë„ì¶œëœ ê²°ê³¼ì™€ ë§žëŠ”ì§€ë¥¼
+            FULL TABLE SCAN ìœ¼ë¡œ ì¼ì¼ì´ ë¹„êµí•´ì•¼ í•˜ê¸° ë•Œë¬¸ìž…ë‹ˆë‹¤.
+            Driven Table ì˜ Join ì»¬ëŸ¼ì— ì¸ë±ìŠ¤ê°€ ìƒì„±ë˜ì§€ ì•Šì•˜ë‹¤ë©´ ì¸ë±ìŠ¤ ìƒì„±ì„ ê³ ë ¤í•´ ë³´ëŠ” ê²ƒì´ ì¢‹ê³  ê·¸ê²ƒì´ ì–´ë µë‹¤ë©´
+            ì¡°ì¸ ë°©ì‹ì„ SORT / MERGE ë°©ì‹ë“± ë‹¤ë¥¸ ë°©ì‹ìœ¼ë¡œ ë°”ê¾¸ëŠ”ê²ƒì´ ì„±ëŠ¥ í–¥ìƒì— ë„ì›€ì´ ë©ë‹ˆë‹¤.
 
-- SORT MERGE JOIN (Á¤·Ä º´ÇÕ Á¶ÀÎ)
-    - SORT MERGE JOIN ÀÌ¶õ?
-        Á¶È¸ÀÇ ¹üÀ§°¡ ¸¹À» ¶§ ÁÖ·Î »ç¿ëÇÏ´Â Á¶ÀÎ ¹æ¹ý·ÐÀÌ¸ç ¾çÂÊ Å×ÀÌºíÀ» °¢°¢ Access ÇÏ¿© ±× °á°ú¸¦ Á¤·ÄÇÏ°í
-        ±× Á¤·ÄÇÑ °á°ú¸¦ Â÷·Ê·Î Scan ÇØ ³ª°¡¸é¼­ ¿¬°á°í¸®ÀÇ Á¶°ÇÀ¸·Î Merge ¸¦ ÇÏ´Â ¹æ½Ä
-        ÁÖ·Î Á¶ÀÎ Á¶°Ç Ä®·³¿¡ ÀÎµ¦½º°¡ ¾ø°Å³ª, Ãâ·ÂÇØ¾ß ÇÒ °á°ú °ªÀÌ ¸¹À» ¶§ »ç¿ë
-        Á¶È¸ÀÇ ¹üÀ§°¡ Á¼À» ¶§ À¯¸®ÇÑ Nested Loop Join ÀÇ Á¶ÀÎ ¹æ½Ä°ú Àå´ÜÁ¡ÀÌ ¼­·Î ¹Ù²î¾îÀÖ´Ù°í »ý°¢ÇÏ½Ã¸é ÀÌÇØÇÏ±â ½±½À´Ï´Ù.
+- SORT MERGE JOIN (ì •ë ¬ ë³‘í•© ì¡°ì¸)
+    - SORT MERGE JOIN ì´ëž€?
+        ì¡°íšŒì˜ ë²”ìœ„ê°€ ë§Žì„ ë•Œ ì£¼ë¡œ ì‚¬ìš©í•˜ëŠ” ì¡°ì¸ ë°©ë²•ë¡ ì´ë©° ì–‘ìª½ í…Œì´ë¸”ì„ ê°ê° Access í•˜ì—¬ ê·¸ ê²°ê³¼ë¥¼ ì •ë ¬í•˜ê³ 
+        ê·¸ ì •ë ¬í•œ ê²°ê³¼ë¥¼ ì°¨ë¡€ë¡œ Scan í•´ ë‚˜ê°€ë©´ì„œ ì—°ê²°ê³ ë¦¬ì˜ ì¡°ê±´ìœ¼ë¡œ Merge ë¥¼ í•˜ëŠ” ë°©ì‹
+        ì£¼ë¡œ ì¡°ì¸ ì¡°ê±´ ì¹¼ëŸ¼ì— ì¸ë±ìŠ¤ê°€ ì—†ê±°ë‚˜, ì¶œë ¥í•´ì•¼ í•  ê²°ê³¼ ê°’ì´ ë§Žì„ ë•Œ ì‚¬ìš©
+        ì¡°íšŒì˜ ë²”ìœ„ê°€ ì¢ì„ ë•Œ ìœ ë¦¬í•œ Nested Loop Join ì˜ ì¡°ì¸ ë°©ì‹ê³¼ ìž¥ë‹¨ì ì´ ì„œë¡œ ë°”ë€Œì–´ìžˆë‹¤ê³  ìƒê°í•˜ì‹œë©´ ì´í•´í•˜ê¸° ì‰½ìŠµë‹ˆë‹¤.
 
-    - SORT MERGE JOIN ÀÇ »ç¿ëÃ³
-        1. ¿¬°á °í¸®¿¡ ÀÎµ¦½º°¡ ÀüÇô ¾ø´Â °æ¿ì
-        2. ´ë¿ë·®ÀÇ ÀÚ·á¸¦ Á¶ÀÎÇÒ¶§ À¯¸®ÇÑ °æ¿ì
-        3. Á¶ÀÎ Á¶°ÇÀ¸·Î <, >, <=, >=¿Í °°Àº ¹üÀ§ ºñ±³ ¿¬»êÀÚ°¡ »ç¿ëµÈ °æ¿ì
-        4. ÀÎµ¦½º »ç¿ë¿¡ µû¸¥ ·£´ý ¾×¼¼½ºÀÇ ¿À¹öÇìµå°¡ ¸¹Àº °æ¿ì
+    - SORT MERGE JOIN ì˜ ì‚¬ìš©ì²˜
+        1. ì—°ê²° ê³ ë¦¬ì— ì¸ë±ìŠ¤ê°€ ì „í˜€ ì—†ëŠ” ê²½ìš°
+        2. ëŒ€ìš©ëŸ‰ì˜ ìžë£Œë¥¼ ì¡°ì¸í• ë•Œ ìœ ë¦¬í•œ ê²½ìš°
+        3. ì¡°ì¸ ì¡°ê±´ìœ¼ë¡œ <, >, <=, >=ì™€ ê°™ì€ ë²”ìœ„ ë¹„êµ ì—°ì‚°ìžê°€ ì‚¬ìš©ëœ ê²½ìš°
+        4. ì¸ë±ìŠ¤ ì‚¬ìš©ì— ë”°ë¥¸ ëžœë¤ ì•¡ì„¸ìŠ¤ì˜ ì˜¤ë²„í—¤ë“œê°€ ë§Žì€ ê²½ìš°
 
-    - SORT MERGE JOIN ÀÇ µ¿ÀÛ ¹æ½Ä
-        1. °¢ Å×ÀÌºí¿¡ ´ëÇØ µ¿½Ã¿¡ µ¶¸³ÀûÀ¸·Î µ¥ÀÌÅÍ¸¦ ¸ÕÀú ÀÐ¾î µéÀÎ´Ù.
-        2. ÀÐÇôÁø °¢ Å×ÀÌºíÀÇ µ¥ÀÌÅÍ¸¦ Á¶ÀÎÀ» À§ÇÑ ¿¬°á°í¸®¿¡ ´ëÇÏ¿© Á¤·ÄÀ» ¼öÇàÇÑ´Ù.
-        3. Á¤·ÄÀÌ ¸ðµÎ ³¡³­ ÈÄ¿¡ Á¶ÀÎ ÀÛ¾÷ÀÌ ¼öÇàÇÑ´Ù.
+    - SORT MERGE JOIN ì˜ ë™ìž‘ ë°©ì‹
+        1. ê° í…Œì´ë¸”ì— ëŒ€í•´ ë™ì‹œì— ë…ë¦½ì ìœ¼ë¡œ ë°ì´í„°ë¥¼ ë¨¼ì € ì½ì–´ ë“¤ì¸ë‹¤.
+        2. ì½í˜€ì§„ ê° í…Œì´ë¸”ì˜ ë°ì´í„°ë¥¼ ì¡°ì¸ì„ ìœ„í•œ ì—°ê²°ê³ ë¦¬ì— ëŒ€í•˜ì—¬ ì •ë ¬ì„ ìˆ˜í–‰í•œë‹¤.
+        3. ì •ë ¬ì´ ëª¨ë‘ ëë‚œ í›„ì— ì¡°ì¸ ìž‘ì—…ì´ ìˆ˜í–‰í•œë‹¤.
 
-    - SORT MERGE JOIN ÀÇ ¼º´É °³¼± Æ÷ÀÎÆ®
-        - ACCESS ÇÏ´Â ¼Óµµ¸¦ Çâ»ó ½ÃÅ²´Ù.
-            SORT MERGE JOIN Àº °¡Àå ¸ÕÀú ¾çÂÊ Å×ÀÌºíÀ» Access ÇÏ´Â °úÁ¤À» °ÅÃÄ¾ß ÇÕ´Ï´Ù. ÀÌ ¼Óµµ¸¦ ºü¸£°Ô ÇØ ÁØ´Ù¸é
-            ¼Óµµ Çâ»ó¿¡ µµ¿òÀÌ µÇ°ÚÁÒ. Å×ÀÌºíÀ» Access ÇÒ ¶§ FULL TABLE SCAN ÀÌ³Ä INDEX RANGE SCAN ÀÌ³Ä ÇÏ´Â µî
-            Å×ÀÌºíÀ» Access ÇÏ´Â ¹æ¹ýÀ» ´Ù¾çÇÑ ¹æ¹ýÀ» ÅëÇØ ÃÖÀûÈ­½ÃÅ²´Ù¸é SORT MERGE JOIN ÀÇ ¼Óµµµµ
-            ÀÚ¿¬½º·´°Ô ÃÖÀûÈ­ÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    - SORT MERGE JOIN ì˜ ì„±ëŠ¥ ê°œì„  í¬ì¸íŠ¸
+        - ACCESS í•˜ëŠ” ì†ë„ë¥¼ í–¥ìƒ ì‹œí‚¨ë‹¤.
+            SORT MERGE JOIN ì€ ê°€ìž¥ ë¨¼ì € ì–‘ìª½ í…Œì´ë¸”ì„ Access í•˜ëŠ” ê³¼ì •ì„ ê±°ì³ì•¼ í•©ë‹ˆë‹¤. ì´ ì†ë„ë¥¼ ë¹ ë¥´ê²Œ í•´ ì¤€ë‹¤ë©´
+            ì†ë„ í–¥ìƒì— ë„ì›€ì´ ë˜ê² ì£ . í…Œì´ë¸”ì„ Access í•  ë•Œ FULL TABLE SCAN ì´ëƒ INDEX RANGE SCAN ì´ëƒ í•˜ëŠ” ë“±
+            í…Œì´ë¸”ì„ Access í•˜ëŠ” ë°©ë²•ì„ ë‹¤ì–‘í•œ ë°©ë²•ì„ í†µí•´ ìµœì í™”ì‹œí‚¨ë‹¤ë©´ SORT MERGE JOIN ì˜ ì†ë„ë„
+            ìžì—°ìŠ¤ëŸ½ê²Œ ìµœì í™”í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-        - Á¤·Ä ¼ÓµµÀÇ Çâ»ó
-            SORT MERGE JOIN Àº ¾çÂÊ Å×ÀÌºí¿¡¼­ Á¶È¸ÇÑ µ¥ÀÌÅÍµéÀ» Á¤·Ä½ÃÄÑ¾ß ÇÕ´Ï´Ù. ÀÌ¶§ Á¶ÀÎ Á¶°Ç ÄÃ·³ÀÌ
-            ÀÌ¹Ì Á¤·ÄµÇ¾î ÀÖ´Ù¸é Á¤·ÄÀ» ÇÏ´Â ÀÛ¾÷À» ´ÜÃà½ÃÄÑ °Ë»ö ¼Óµµ Çâ»ó¿¡ µµ¿òÀÌ µÉ °ÍÀÔ´Ï´Ù.
+        - ì •ë ¬ ì†ë„ì˜ í–¥ìƒ
+            SORT MERGE JOIN ì€ ì–‘ìª½ í…Œì´ë¸”ì—ì„œ ì¡°íšŒí•œ ë°ì´í„°ë“¤ì„ ì •ë ¬ì‹œì¼œì•¼ í•©ë‹ˆë‹¤. ì´ë•Œ ì¡°ì¸ ì¡°ê±´ ì»¬ëŸ¼ì´
+            ì´ë¯¸ ì •ë ¬ë˜ì–´ ìžˆë‹¤ë©´ ì •ë ¬ì„ í•˜ëŠ” ìž‘ì—…ì„ ë‹¨ì¶•ì‹œì¼œ ê²€ìƒ‰ ì†ë„ í–¥ìƒì— ë„ì›€ì´ ë  ê²ƒìž…ë‹ˆë‹¤.
 
-        - ¾çÂÊÀÇ Á¤·Ä±îÁö ¿Ï·áµÇ´Â ¼Óµµ¸¦ ¸ÂÃß¾îÁÜ
-            SORT MERGE JOIN Àº ¾çÂÊ Å×ÀÌºíÀ» ACCESS ÇÏ°í Á¶È¸ÇÑ µ¥ÀÌÅÍµéÀ» Á¤·ÄÇÒ¶§ ¾î´À ÇÑÂÊÀÌ¶óµµ Á¤·Ä ÀÛ¾÷ÀÌ
-            Á¾·áµÇÁö ¾ÊÀ¸¸é ÇÑÂÊÀÌ ´ë±â »óÅÂ°¡ µÇ°í ´Ù¸¥ ÇÑÂÊÀÇ Á¤·ÄÀÌ ¿ÏÀüÈ÷ ³¡³¯ ¶§±îÁö Á¶ÀÎÀÌ ½ÃÀÛµÉ ¼ö ¾ø½À´Ï´Ù.
-            ±×·¸±â¿¡ µÎ Å×ÀÌºí ACCESS ¼Óµµ¿Í Á¤·Ä ¼Óµµ¸¦ ÃÖ´ëÇÑ ºñ½ÁÇÏ°Ô ¸ÂÃß¾îÁÖ´Â °ÍÀÌ ÁÁ½À´Ï´Ù.
-            ºñ±³ÇØ¾ß ÇÒ µÎ Å×ÀÌºíÀÇ µ¥ÀÌÅÍ ¾çÀÌ³ª Á¤·Ä ¼Óµµ¸¦ °í·ÁÇÏ¿© ÃÖ´ëÇÑ ¸ÂÃçÁÖ´Â °ÍÀÌ È¿À²¼º Ãø¸é¿¡¼­ ÁÁ½À´Ï´Ù.
+        - ì–‘ìª½ì˜ ì •ë ¬ê¹Œì§€ ì™„ë£Œë˜ëŠ” ì†ë„ë¥¼ ë§žì¶”ì–´ì¤Œ
+            SORT MERGE JOIN ì€ ì–‘ìª½ í…Œì´ë¸”ì„ ACCESS í•˜ê³  ì¡°íšŒí•œ ë°ì´í„°ë“¤ì„ ì •ë ¬í• ë•Œ ì–´ëŠ í•œìª½ì´ë¼ë„ ì •ë ¬ ìž‘ì—…ì´
+            ì¢…ë£Œë˜ì§€ ì•Šìœ¼ë©´ í•œìª½ì´ ëŒ€ê¸° ìƒíƒœê°€ ë˜ê³  ë‹¤ë¥¸ í•œìª½ì˜ ì •ë ¬ì´ ì™„ì „ížˆ ëë‚  ë•Œê¹Œì§€ ì¡°ì¸ì´ ì‹œìž‘ë  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+            ê·¸ë ‡ê¸°ì— ë‘ í…Œì´ë¸” ACCESS ì†ë„ì™€ ì •ë ¬ ì†ë„ë¥¼ ìµœëŒ€í•œ ë¹„ìŠ·í•˜ê²Œ ë§žì¶”ì–´ì£¼ëŠ” ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤.
+            ë¹„êµí•´ì•¼ í•  ë‘ í…Œì´ë¸”ì˜ ë°ì´í„° ì–‘ì´ë‚˜ ì •ë ¬ ì†ë„ë¥¼ ê³ ë ¤í•˜ì—¬ ìµœëŒ€í•œ ë§žì¶°ì£¼ëŠ” ê²ƒì´ íš¨ìœ¨ì„± ì¸¡ë©´ì—ì„œ ì¢‹ìŠµë‹ˆë‹¤.
 
-        - SORT_AREA_SIZE ÃÖÀûÈ­
-            SORT MERGE JOIN Àº µÎ Å×ÀÌºí °£ÀÇ ºñ±³°¡ ÀÌ·ç¾îÁö±â Àü¿¡ ¼öÇàÇÏ´Â Á¤·Ä ÀÛ¾÷À» À§ÇØ º°µµÀÇ Á¤·Ä °ø°£ÀÌ ÇÊ¿äÇÏ¸ç
-            ÀÌ °ø°£Àº SORT_AREA_SIZE Å©±â¸¸Å­ ¸Þ¸ð¸®¸¦ ÇÒ´ç¹Þ¾Æ »ç¿ëÇÏ°Ô µÇ°í, ¸Þ¸ð¸®°¡ ºÎÁ·ÇÏ´Ù¸é
-            Temporary Table Space ¸¦ ÀÌ¿ëÇÏ¿© Á¤·ÄÀ» ¼öÇàÇÏ°Ô µË´Ï´Ù. ÀÌ¶§ Temporary Table Space ¸¦ »ç¿ëÇÏ¸é
-            µô·¹ÀÌ°¡ »ý±â¹Ç·Î SORT_AREA_SIZE ¸¦ Àû´çÇÑ Å©±â·Î ¼³Á¤ÇØµÎ´Â °ÍÀÌ ¼Óµµ Çâ»ó¿¡ µµ¿òÀÌ µË´Ï´Ù.
+        - SORT_AREA_SIZE ìµœì í™”
+            SORT MERGE JOIN ì€ ë‘ í…Œì´ë¸” ê°„ì˜ ë¹„êµê°€ ì´ë£¨ì–´ì§€ê¸° ì „ì— ìˆ˜í–‰í•˜ëŠ” ì •ë ¬ ìž‘ì—…ì„ ìœ„í•´ ë³„ë„ì˜ ì •ë ¬ ê³µê°„ì´ í•„ìš”í•˜ë©°
+            ì´ ê³µê°„ì€ SORT_AREA_SIZE í¬ê¸°ë§Œí¼ ë©”ëª¨ë¦¬ë¥¼ í• ë‹¹ë°›ì•„ ì‚¬ìš©í•˜ê²Œ ë˜ê³ , ë©”ëª¨ë¦¬ê°€ ë¶€ì¡±í•˜ë‹¤ë©´
+            Temporary Table Space ë¥¼ ì´ìš©í•˜ì—¬ ì •ë ¬ì„ ìˆ˜í–‰í•˜ê²Œ ë©ë‹ˆë‹¤. ì´ë•Œ Temporary Table Space ë¥¼ ì‚¬ìš©í•˜ë©´
+            ë”œë ˆì´ê°€ ìƒê¸°ë¯€ë¡œ SORT_AREA_SIZE ë¥¼ ì ë‹¹í•œ í¬ê¸°ë¡œ ì„¤ì •í•´ë‘ëŠ” ê²ƒì´ ì†ë„ í–¥ìƒì— ë„ì›€ì´ ë©ë‹ˆë‹¤.
 
-- HASH JOIN (ÇØ½Ã Á¶ÀÎ)
-    - HASH JOIN ÀÌ¶õ?
-        HASH Á¶ÀÎÀº Á¶ÀÎµÉ µÎ Å×ÀÌºí Áß ÇÏ³ª¸¦ ÇØ½Ã Å×ÀÌºí·Î ¼±Á¤ÇÏ¿© Á¶ÀÎµÉ Å×ÀÌºíÀÇ Á¶ÀÎ Å° °ªÀ» ÇØ½Ã ¾Ë°í¸®ÁòÀ¸·Î
-        ºñ±³ÇÏ¿© ¸ÅÄ¡µÇ´Â °á°ú°ªÀ» ¾ò´Â ¹æ½Ä
-        HASH JOIN Àº ºñ¿ë ±â¹Ý ¿ÉÆ¼¸¶ÀÌÀú¸¦ »ç¿ëÇÒ ¶§¸¸ »ç¿ëµÉ ¼ö ÀÖ´Â Á¶ÀÎ ¹æ½ÄÀÌ¸ç '=' ºñ±³¸¦ ÅëÇÑ Á¶ÀÎ¿¡¼­¸¸
-        »ç¿ëµÉ ¼ö ÀÖ½À´Ï´Ù. ÁÖ·Î ¸¹Àº ¾çÀÇ µ¥ÀÌÅÍ¸¦ Á¶ÀÎÇØ¾ß ÇÏ´Â °æ¿ì¿¡ ÁÖ·Î »ç¿ë
+- HASH JOIN (í•´ì‹œ ì¡°ì¸)
+    - HASH JOIN ì´ëž€?
+        HASH ì¡°ì¸ì€ ì¡°ì¸ë  ë‘ í…Œì´ë¸” ì¤‘ í•˜ë‚˜ë¥¼ í•´ì‹œ í…Œì´ë¸”ë¡œ ì„ ì •í•˜ì—¬ ì¡°ì¸ë  í…Œì´ë¸”ì˜ ì¡°ì¸ í‚¤ ê°’ì„ í•´ì‹œ ì•Œê³ ë¦¬ì¦˜ìœ¼ë¡œ
+        ë¹„êµí•˜ì—¬ ë§¤ì¹˜ë˜ëŠ” ê²°ê³¼ê°’ì„ ì–»ëŠ” ë°©ì‹
+        HASH JOIN ì€ ë¹„ìš© ê¸°ë°˜ ì˜µí‹°ë§ˆì´ì €ë¥¼ ì‚¬ìš©í•  ë•Œë§Œ ì‚¬ìš©ë  ìˆ˜ ìžˆëŠ” ì¡°ì¸ ë°©ì‹ì´ë©° '=' ë¹„êµë¥¼ í†µí•œ ì¡°ì¸ì—ì„œë§Œ
+        ì‚¬ìš©ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. ì£¼ë¡œ ë§Žì€ ì–‘ì˜ ë°ì´í„°ë¥¼ ì¡°ì¸í•´ì•¼ í•˜ëŠ” ê²½ìš°ì— ì£¼ë¡œ ì‚¬ìš©
 
-    - HASH JOIN ÀÇ »ç¿ëÃ³
-        1. JOIN ÄÃ·³¿¡ Àû´çÇÑ ÀÎµ¦½º°¡ ¾ø¾î NL JOIN ÀÌ ºñÈ¿À²ÀûÀÏ ¶§
-        2. JOIN Access ·®ÀÌ ¸¹¾Æ Random Access ºÎÇÏ°¡ ½ÉÇÏ¿© NL JOIN ÀÌ ºñÈ¿À²ÀûÀÏ ¶§
-        3. Sort Merge Join À» ÇÏ±â¿¡´Â µÎ Å×ÀÌºíÀÌ ³Ê¹« Ä¿ Sort ºÎÇÏ°¡ ½ÉÇÒ ¶§
-        4. ¼öÇàºóµµ°¡ ³·°í Äõ¸® ¼öÇà ½Ã°£ÀÌ ¿À·¡ °É¸®´Â ´ë¿ë·® Å×ÀÌºíÀ» JOIN ÇÒ ¶§
+    - HASH JOIN ì˜ ì‚¬ìš©ì²˜
+        1. JOIN ì»¬ëŸ¼ì— ì ë‹¹í•œ ì¸ë±ìŠ¤ê°€ ì—†ì–´ NL JOIN ì´ ë¹„íš¨ìœ¨ì ì¼ ë•Œ
+        2. JOIN Access ëŸ‰ì´ ë§Žì•„ Random Access ë¶€í•˜ê°€ ì‹¬í•˜ì—¬ NL JOIN ì´ ë¹„íš¨ìœ¨ì ì¼ ë•Œ
+        3. Sort Merge Join ì„ í•˜ê¸°ì—ëŠ” ë‘ í…Œì´ë¸”ì´ ë„ˆë¬´ ì»¤ Sort ë¶€í•˜ê°€ ì‹¬í•  ë•Œ
+        4. ìˆ˜í–‰ë¹ˆë„ê°€ ë‚®ê³  ì¿¼ë¦¬ ìˆ˜í–‰ ì‹œê°„ì´ ì˜¤ëž˜ ê±¸ë¦¬ëŠ” ëŒ€ìš©ëŸ‰ í…Œì´ë¸”ì„ JOIN í•  ë•Œ
 
-    - HASH JOIN ÀÇ µ¿ÀÛ ¹æ½Ä
-        1. µÑ Áß ÀÛÀº ÁýÇÕ(Build Input)À» ÀÐ¾î Hash Area ¿¡ ÇØ½Ã Å×ÀÌºíÀ» »ý¼ºÇÑ´Ù.
-            (ÇØ½Ã ÇÔ¼ö¿¡¼­ ¸®ÅÏ ¹ÞÀº ¹öÅ¶ ÁÖ¼Ò·Î Ã£¾Æ°¡ ÇØ½Ã Ã¼ÀÎ¿¡ ¿£Æ®¸®¸¦ ¿¬°á)
-        2. ¹Ý´ëÂÊ Å« ÁýÇÕ(Probe Input)À» ÀÐ¾î ÇØ½Ã Å×ÀÌºíÀ» Å½»öÇÏ¸é¼­ JOIN ÇÑ´Ù.
-        3. ÇØ½Ã ÇÔ¼ö¿¡¼­ ¸®ÅÏ ¹ÞÀº ¹öÅ¶ ÁÖ¼Ò·Î Ã£¾Æ°¡ ÇØ½Ã Ã¼ÀÎÀ» ½ºÄµÇÏ¸é¼­ µ¥ÀÌÅÍ¸¦ Ã£´Â´Ù.
+    - HASH JOIN ì˜ ë™ìž‘ ë°©ì‹
+        1. ë‘˜ ì¤‘ ìž‘ì€ ì§‘í•©(Build Input)ì„ ì½ì–´ Hash Area ì— í•´ì‹œ í…Œì´ë¸”ì„ ìƒì„±í•œë‹¤.
+            (í•´ì‹œ í•¨ìˆ˜ì—ì„œ ë¦¬í„´ ë°›ì€ ë²„í‚· ì£¼ì†Œë¡œ ì°¾ì•„ê°€ í•´ì‹œ ì²´ì¸ì— ì—”íŠ¸ë¦¬ë¥¼ ì—°ê²°)
+        2. ë°˜ëŒ€ìª½ í° ì§‘í•©(Probe Input)ì„ ì½ì–´ í•´ì‹œ í…Œì´ë¸”ì„ íƒìƒ‰í•˜ë©´ì„œ JOIN í•œë‹¤.
+        3. í•´ì‹œ í•¨ìˆ˜ì—ì„œ ë¦¬í„´ ë°›ì€ ë²„í‚· ì£¼ì†Œë¡œ ì°¾ì•„ê°€ í•´ì‹œ ì²´ì¸ì„ ìŠ¤ìº”í•˜ë©´ì„œ ë°ì´í„°ë¥¼ ì°¾ëŠ”ë‹¤.
 
-    - HASH JOIN ÀÇ ¼º´É °³¼± Æ÷ÀÎÆ®
-        - HASH TABLE À» ¸¸µå´Â °úÁ¤À» È¿À²È­ ÇÑ´Ù.
-            HASH JOIN Àº ÇØ½Ã Å×ÀÌºíÀ» »ý¼ºÇÏ´Â ºñ¿ëÀÌ ¼ö¹ÝµÇ¹Ç·Î ÀÌ °úÁ¤À» È¿À²È­ÇÏ´Â °ÍÀÌ ¼º´É °³¼±¿¡ ÀÖ¾î °¡Àå Áß¿äÇÕ´Ï´Ù.
-            ±×·¸±â¿¡ HASH TABLE ·Î ¸¸µé Build Input ÀÌ Hash Area ¿¡ ´ã±æ Á¤µµ·Î ÃæºÐÈ÷ ÀÛ¾Æ¾ß ÇÏ¸ç
-            Build Input ÇØ½Ã Å° Ä®·³¿¡ Áßº¹ °ªÀÌ °ÅÀÇ ¾ø¾î¾ß È¿À²ÀûÀÎ µ¿ÀÛÀ» ±â´ëÇÒ ¼ö ÀÖ½À´Ï´Ù.
+    - HASH JOIN ì˜ ì„±ëŠ¥ ê°œì„  í¬ì¸íŠ¸
+        - HASH TABLE ì„ ë§Œë“œëŠ” ê³¼ì •ì„ íš¨ìœ¨í™” í•œë‹¤.
+            HASH JOIN ì€ í•´ì‹œ í…Œì´ë¸”ì„ ìƒì„±í•˜ëŠ” ë¹„ìš©ì´ ìˆ˜ë°˜ë˜ë¯€ë¡œ ì´ ê³¼ì •ì„ íš¨ìœ¨í™”í•˜ëŠ” ê²ƒì´ ì„±ëŠ¥ ê°œì„ ì— ìžˆì–´ ê°€ìž¥ ì¤‘ìš”í•©ë‹ˆë‹¤.
+            ê·¸ë ‡ê¸°ì— HASH TABLE ë¡œ ë§Œë“¤ Build Input ì´ Hash Area ì— ë‹´ê¸¸ ì •ë„ë¡œ ì¶©ë¶„ížˆ ìž‘ì•„ì•¼ í•˜ë©°
+            Build Input í•´ì‹œ í‚¤ ì¹¼ëŸ¼ì— ì¤‘ë³µ ê°’ì´ ê±°ì˜ ì—†ì–´ì•¼ íš¨ìœ¨ì ì¸ ë™ìž‘ì„ ê¸°ëŒ€í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-        - CPU ÀÇ ¼º´ÉÀ» Çâ»óÇÑ´Ù.
-            HASH BUCKET ÀÌ Á¶ÀÎ ÁýÇÕ¿¡ ±¸¼ºµÇ¾î ÇØ½Ã ÇÔ¼ö °á°ú¸¦ ÀúÀåÇØ¾ß ÇÏ´Âµ¥ ±âº»ÀûÀ¸·Î HASH_AREA_SIZE ¿¡
-            ÁöÁ¤µÈ Å©±â¸¸Å­ÀÇ ¸Þ¸ð¸®°¡ ÇÒ´çµÇ¾î »ç¿ëµË´Ï´Ù. ÀÌ·¯ÇÑ Ã³¸®¿¡´Â ¸¹Àº ¸Þ¸ð¸®¿Í CPU ÀÚ¿øÀ» ¼Ò¸ðÇÏ°Ô µË´Ï´Ù.
-            ±×·¸±â¿¡ CPU ÀÇ ÀÚ¿øÀÌ ³Ë³ËÇÏ´Ù¸é ´Ù¸¥ Á¶ÀÎ¿¡ ºñÇØ º¸´Ù ÁÁÀº È¿À²À» ³»Áö¸¸ ºÎÁ·ÇÑ »óÈ²¿¡¼­´Â ´Ù¸¥ Á¶ÀÎ ¹æ¹ýº¸´Ù
-            ´À·ÁÁú ¼öµµ ÀÖ½À´Ï´Ù. ±×·¯¹Ç·Î CPU ÀÇ ¼º´ÉÀ» Çâ»óÇÑ´Ù¸é HASH JOIN ÀÇ ¼º´ÉÀ» Çâ»óÇÒ ¼ö ÀÖ½À´Ï´Ù.
+        - CPU ì˜ ì„±ëŠ¥ì„ í–¥ìƒí•œë‹¤.
+            HASH BUCKET ì´ ì¡°ì¸ ì§‘í•©ì— êµ¬ì„±ë˜ì–´ í•´ì‹œ í•¨ìˆ˜ ê²°ê³¼ë¥¼ ì €ìž¥í•´ì•¼ í•˜ëŠ”ë° ê¸°ë³¸ì ìœ¼ë¡œ HASH_AREA_SIZE ì—
+            ì§€ì •ëœ í¬ê¸°ë§Œí¼ì˜ ë©”ëª¨ë¦¬ê°€ í• ë‹¹ë˜ì–´ ì‚¬ìš©ë©ë‹ˆë‹¤. ì´ëŸ¬í•œ ì²˜ë¦¬ì—ëŠ” ë§Žì€ ë©”ëª¨ë¦¬ì™€ CPU ìžì›ì„ ì†Œëª¨í•˜ê²Œ ë©ë‹ˆë‹¤.
+            ê·¸ë ‡ê¸°ì— CPU ì˜ ìžì›ì´ ë„‰ë„‰í•˜ë‹¤ë©´ ë‹¤ë¥¸ ì¡°ì¸ì— ë¹„í•´ ë³´ë‹¤ ì¢‹ì€ íš¨ìœ¨ì„ ë‚´ì§€ë§Œ ë¶€ì¡±í•œ ìƒí™©ì—ì„œëŠ” ë‹¤ë¥¸ ì¡°ì¸ ë°©ë²•ë³´ë‹¤
+            ëŠë ¤ì§ˆ ìˆ˜ë„ ìžˆìŠµë‹ˆë‹¤. ê·¸ëŸ¬ë¯€ë¡œ CPU ì˜ ì„±ëŠ¥ì„ í–¥ìƒí•œë‹¤ë©´ HASH JOIN ì˜ ì„±ëŠ¥ì„ í–¥ìƒí•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-        - ÃæºÐÇÑ PGA ¸Þ¸ð¸® È®º¸
-            Hash Area ´Â PGA ¸Þ¸ð¸®¿¡ ÇÒ´çµÇ´Âµ¥ Build Input ÀÌ HASH_AREA_SIZE ¸¦ ÃÊ°úÇÏ°Ô µÇ¸é °¡Àå Å« ¼ø¼­´ë·Î
-            Hash Bucket ÀÌ Temporary Table Space ·Î ³»·Á°¡¼­ ±¸¼ºµË´Ï´Ù. µð½ºÅ©·Î ³»·Á°£ Hash Bucket ¿¡
-            º¯°æÀÌ ÀÏ¾î³¯ ¶§¸¶´Ù µð½ºÅ© I/O°¡ ¹ß»ýÇÏ°Ô µÇ¾î ¼º´ÉÀÌ ÇöÀúÇÏ°Ô ÀúÇÏµË´Ï´Ù.
+        - ì¶©ë¶„í•œ PGA ë©”ëª¨ë¦¬ í™•ë³´
+            Hash Area ëŠ” PGA ë©”ëª¨ë¦¬ì— í• ë‹¹ë˜ëŠ”ë° Build Input ì´ HASH_AREA_SIZE ë¥¼ ì´ˆê³¼í•˜ê²Œ ë˜ë©´ ê°€ìž¥ í° ìˆœì„œëŒ€ë¡œ
+            Hash Bucket ì´ Temporary Table Space ë¡œ ë‚´ë ¤ê°€ì„œ êµ¬ì„±ë©ë‹ˆë‹¤. ë””ìŠ¤í¬ë¡œ ë‚´ë ¤ê°„ Hash Bucket ì—
+            ë³€ê²½ì´ ì¼ì–´ë‚  ë•Œë§ˆë‹¤ ë””ìŠ¤í¬ I/Oê°€ ë°œìƒí•˜ê²Œ ë˜ì–´ ì„±ëŠ¥ì´ í˜„ì €í•˜ê²Œ ì €í•˜ë©ë‹ˆë‹¤.
 
         * HASH_AREA_SIZE
-          HASH JOIN ¿¡ »ç¿ëµÇ´Â ÃÖ´ë ¸Þ¸ð¸® SIZE ¸¦ ÁöÁ¤ÇÏ´Â ¼³Á¤°ªÀÔ´Ï´Ù. Hash Join ¿¡¼­ »ç¿ëµÇ´Â
-          ÇØ½¬ ¸Þ¸ð¸® Å©±â(HASH_AREA_SIZE)ÀÇ ±âº» °ªÀº SORT_AREA_SIZE ÀÇ 2¹èÀÔ´Ï´Ù. 9i ÀÌ»ó¿¡¼­ °ªÀ» ÁöÁ¤ÇÏ´Â °ÍÀ»
-          ±ÇÀåÇÏÁö ¾Ê°í, PGA_AGGREGATE_TARGET parameter »ç¿ëÀ» ±ÇÀåÇÕ´Ï´Ù.
+          HASH JOIN ì— ì‚¬ìš©ë˜ëŠ” ìµœëŒ€ ë©”ëª¨ë¦¬ SIZE ë¥¼ ì§€ì •í•˜ëŠ” ì„¤ì •ê°’ìž…ë‹ˆë‹¤. Hash Join ì—ì„œ ì‚¬ìš©ë˜ëŠ”
+          í•´ì‰¬ ë©”ëª¨ë¦¬ í¬ê¸°(HASH_AREA_SIZE)ì˜ ê¸°ë³¸ ê°’ì€ SORT_AREA_SIZE ì˜ 2ë°°ìž…ë‹ˆë‹¤. 9i ì´ìƒì—ì„œ ê°’ì„ ì§€ì •í•˜ëŠ” ê²ƒì„
+          ê¶Œìž¥í•˜ì§€ ì•Šê³ , PGA_AGGREGATE_TARGET parameter ì‚¬ìš©ì„ ê¶Œìž¥í•©ë‹ˆë‹¤.
 
-    - »ç¿ë¹ý
+    - ì‚¬ìš©ë²•
         /*+leading(a c) use_hash(c)*/
-        ¾Æ¸¶ ÈùÆ®¸¦ ÁÖÁö ¾Ê¾Æµµ ¿ÉÆ¼¸¶ÀÌÀú°¡ ¾Ë¾Æ¼­ hash Á¶ÀÎÀ» ÇÏ´Â °æ¿ìµµ ÀÖÁö¸¸, ÀÌ·¯ÇÑ ÈùÆ®¸¦ ¸í½ÃÇØÁÖ´Â °ÍÀÌ ¹Ù¶÷Á÷
+        ì•„ë§ˆ ížŒíŠ¸ë¥¼ ì£¼ì§€ ì•Šì•„ë„ ì˜µí‹°ë§ˆì´ì €ê°€ ì•Œì•„ì„œ hash ì¡°ì¸ì„ í•˜ëŠ” ê²½ìš°ë„ ìžˆì§€ë§Œ, ì´ëŸ¬í•œ ížŒíŠ¸ë¥¼ ëª…ì‹œí•´ì£¼ëŠ” ê²ƒì´ ë°”ëžŒì§
 
-    - ÈùÆ®¿¡ °üÇØ¼­  https://devuna.tistory.com/35
-        - ÈùÆ®¶õ SQL Æ©´×ÀÇ ÇÙ½É ºÎºÐÀ¸·Î ÀÏÁ¾ÀÇ Áö½Ã ±¸¹®ÀÌ´Ù.
-          Áï, ¿À¶óÅ¬ ¿ÉÆ¼¸¶ÀÌÀú(Optimizer)¿¡°Ô SQL ¹® ½ÇÇàÀ» À§ÇÑ µ¥ÀÌÅÍ¸¦ ½ºÄ³´×ÇÏ´Â °æ·Î, Á¶ÀÎÇÏ´Â ¹æ¹ý µîÀ» ¾Ë·ÁÁÖ±â À§ÇØ
-          SQL »ç¿ëÀÚ°¡ SQL ±¸¹®¿¡ ÀÛ¼ºÇÏ´Â °ÍÀ» ¶æÇÑ´Ù. ¿À¶óÅ¬ÀÌ Ç×»ó ÃÖÀûÀÇ ½ÇÇà °æ·Î¸¦ ¸¸µé¾î ³»±â´Â ºÒ°¡´ÉÇÏ±â ¶§¹®¿¡
-          Á÷Á¢ ÃÖÀûÀÇ ½ÇÇà °æ·Î¸¦ ÀÛ¼ºÇØ ÁÖ´Â °ÍÀÌ´Ù. »ç¿ëÀÚ°¡ Æ¯Á¤ SQL ¹®Àå¿¡¼­ ¾î¶² ÀÎµ¦½º°¡ ¼±ÅÃµµ°¡ ³ôÀºÁö ¾Ë°í ÀÖ´Â °æ¿ì
-          Optimizer ¿¡ ÀÇÁ¸ÇÑ ½ÇÇà °èÈ¹º¸´Ù ÈÎ¾À È¿À²ÀûÀÎ ½ÇÇà °èÈ¹À» ±¸»çÇÒ ¼ö ÀÖ´Ù.
+    - ížŒíŠ¸ì— ê´€í•´ì„œ  https://devuna.tistory.com/35
+        - ížŒíŠ¸ëž€ SQL íŠœë‹ì˜ í•µì‹¬ ë¶€ë¶„ìœ¼ë¡œ ì¼ì¢…ì˜ ì§€ì‹œ êµ¬ë¬¸ì´ë‹¤.
+          ì¦‰, ì˜¤ë¼í´ ì˜µí‹°ë§ˆì´ì €(Optimizer)ì—ê²Œ SQL ë¬¸ ì‹¤í–‰ì„ ìœ„í•œ ë°ì´í„°ë¥¼ ìŠ¤ìºë‹í•˜ëŠ” ê²½ë¡œ, ì¡°ì¸í•˜ëŠ” ë°©ë²• ë“±ì„ ì•Œë ¤ì£¼ê¸° ìœ„í•´
+          SQL ì‚¬ìš©ìžê°€ SQL êµ¬ë¬¸ì— ìž‘ì„±í•˜ëŠ” ê²ƒì„ ëœ»í•œë‹¤. ì˜¤ë¼í´ì´ í•­ìƒ ìµœì ì˜ ì‹¤í–‰ ê²½ë¡œë¥¼ ë§Œë“¤ì–´ ë‚´ê¸°ëŠ” ë¶ˆê°€ëŠ¥í•˜ê¸° ë•Œë¬¸ì—
+          ì§ì ‘ ìµœì ì˜ ì‹¤í–‰ ê²½ë¡œë¥¼ ìž‘ì„±í•´ ì£¼ëŠ” ê²ƒì´ë‹¤. ì‚¬ìš©ìžê°€ íŠ¹ì • SQL ë¬¸ìž¥ì—ì„œ ì–´ë–¤ ì¸ë±ìŠ¤ê°€ ì„ íƒë„ê°€ ë†’ì€ì§€ ì•Œê³  ìžˆëŠ” ê²½ìš°
+          Optimizer ì— ì˜ì¡´í•œ ì‹¤í–‰ ê³„íšë³´ë‹¤ í›¨ì”¬ íš¨ìœ¨ì ì¸ ì‹¤í–‰ ê³„íšì„ êµ¬ì‚¬í•  ìˆ˜ ìžˆë‹¤.
 
-        - ´Ü, ÈùÆ®, ÀÎµ¦½º, Á¶ÀÎÀÇ °³³äÀ» Á¤È®È÷ ¾Ë°í »ç¿ëÇÏÁö ¾ÊÀº ¹«ºÐº°ÇÑ ÈùÆ®ÀÇ »ç¿ëÀº ¼º´ÉÀÇ ÀúÇÏ¸¦ ÃÊ·¡ÇÏ±â ¶§¹®¿¡
-          Àß ¾Ë°í ÃÖÀûÀÇ ½ÇÇà °æ·Î¸¦ ¾Ë°í ÀÖÀ» °æ¿ì ÀûÀýÇÏ°Ô »ç¿ëÇÏ¿©¾ß ÇÑ´Ù.
+        - ë‹¨, ížŒíŠ¸, ì¸ë±ìŠ¤, ì¡°ì¸ì˜ ê°œë…ì„ ì •í™•ížˆ ì•Œê³  ì‚¬ìš©í•˜ì§€ ì•Šì€ ë¬´ë¶„ë³„í•œ ížŒíŠ¸ì˜ ì‚¬ìš©ì€ ì„±ëŠ¥ì˜ ì €í•˜ë¥¼ ì´ˆëž˜í•˜ê¸° ë•Œë¬¸ì—
+          ìž˜ ì•Œê³  ìµœì ì˜ ì‹¤í–‰ ê²½ë¡œë¥¼ ì•Œê³  ìžˆì„ ê²½ìš° ì ì ˆí•˜ê²Œ ì‚¬ìš©í•˜ì—¬ì•¼ í•œë‹¤.
 
-        - (ÈùÆ®¿¡ ¿ÀÅ¸°¡ ÀÖ´Â °æ¿ì´Â Å« °ü°è°¡ ¾ø´Ù. ¿Ö³ÄÇÏ¸é, Àß¸ø »ç¿ëµÈ ÈùÆ®´Â ¹«½ÃµÇ¾î ÈùÆ®°¡ ¾ø´Â °ÍÃ³·³ µ¿ÀÛÇÏ±â ¶§¹®)
+        - (ížŒíŠ¸ì— ì˜¤íƒ€ê°€ ìžˆëŠ” ê²½ìš°ëŠ” í° ê´€ê³„ê°€ ì—†ë‹¤. ì™œëƒí•˜ë©´, ìž˜ëª» ì‚¬ìš©ëœ ížŒíŠ¸ëŠ” ë¬´ì‹œë˜ì–´ ížŒíŠ¸ê°€ ì—†ëŠ” ê²ƒì²˜ëŸ¼ ë™ìž‘í•˜ê¸° ë•Œë¬¸)
 
-        - ÈùÆ®¸¦ »ç¿ëÇÏ¿© ¾Æ·¡¿Í °°Àº °ÍµéÀ» ÇÒ ¼ö ÀÖ´Ù.
-          ¾×¼¼½º °æ·Î, Á¶ÀÎ ¼ø¼­, º´·Ä ¹× Á÷·Ä Ã³¸®, Optimizer ÀÇ ¸ñÇ¥(Goal)¸¦ º¯°æ °¡´ÉÇÏ´Ù.
-          µ¥ÀÌÅÍ °ªÀ» Á¤·ÄÇØ¾ß ÇÏ´Â °æ¿ì, ÈùÆ®ÀÇ »ç¿ëÀÌ ÇÊ¿ä
-          µå¶óÀÌºù Å×ÀÌºíÀ» ¿øÇÏ´Â ´ë·Î ¼±Á¤ÇÏ°íÀÚ ÇÒ ¶§µµ »ç¿ë
+        - ížŒíŠ¸ë¥¼ ì‚¬ìš©í•˜ì—¬ ì•„ëž˜ì™€ ê°™ì€ ê²ƒë“¤ì„ í•  ìˆ˜ ìžˆë‹¤.
+          ì•¡ì„¸ìŠ¤ ê²½ë¡œ, ì¡°ì¸ ìˆœì„œ, ë³‘ë ¬ ë° ì§ë ¬ ì²˜ë¦¬, Optimizer ì˜ ëª©í‘œ(Goal)ë¥¼ ë³€ê²½ ê°€ëŠ¥í•˜ë‹¤.
+          ë°ì´í„° ê°’ì„ ì •ë ¬í•´ì•¼ í•˜ëŠ” ê²½ìš°, ížŒíŠ¸ì˜ ì‚¬ìš©ì´ í•„ìš”
+          ë“œë¼ì´ë¹™ í…Œì´ë¸”ì„ ì›í•˜ëŠ” ëŒ€ë¡œ ì„ ì •í•˜ê³ ìž í•  ë•Œë„ ì‚¬ìš©
 
-- connection timeout °ú read timeout Â÷ÀÌ
+- connection timeout ê³¼ read timeout ì°¨ì´
     - connection time out
-        - Å¬¶óÀÌ¾ðÆ®°¡ ¼­¹öÃøÀ¸·Î connection ¸Î±æ ¿øÇÏÁö¸¸ ¼­¹ö¿Í connection ÀÌ ¸Î¾îÁöÁö ¸øÇÒ ¶§ ¹ß»ýÇÑ´Ù.
-          ÀÌ °æ¿ì, Å¬¶óÀÌ¾ðÆ®ÀÇ OUTBOUND, ¼­¹ö ÃøÀÇ INBOUND ¹æÈ­º®À» È®ÀÎÇØ º¼ ÇÊ¿ä°¡ ÀÖ´Ù.
+        - í´ë¼ì´ì–¸íŠ¸ê°€ ì„œë²„ì¸¡ìœ¼ë¡œ connection ë§ºê¸¸ ì›í•˜ì§€ë§Œ ì„œë²„ì™€ connection ì´ ë§ºì–´ì§€ì§€ ëª»í•  ë•Œ ë°œìƒí•œë‹¤.
+          ì´ ê²½ìš°, í´ë¼ì´ì–¸íŠ¸ì˜ OUTBOUND, ì„œë²„ ì¸¡ì˜ INBOUND ë°©í™”ë²½ì„ í™•ì¸í•´ ë³¼ í•„ìš”ê°€ ìžˆë‹¤.
 
-        - À¥ ºê¶ó¿ìÀú°¡ ³×ÀÌ¹ö ¼­¹ö¿¡ Á¢¼ÓÇÏ±â À§ÇØ¼­ ¼­¹ö¿Í ¿¬°áµÈ »óÅÂ°¡ µÇ¾î¾ßÇÑ´Ù. º¸Åë ¿¬°áÀ» ±¸¼ºÇÏ±âÀ§ÇØ
-          TCP Connection °ú µ¿ÀÏÇÏ°Ô 3-way-HandShake ¹æ½ÄÀ¸·Î ¼öÇàÇÏ°Ô µÈ´Ù. 3-way HandShake °¡ Á¤»óÀûÀ¸·Î
-          ¼öÇàÇÏ°Ô µÇ¸é À¥ ºê¶ó¿ìÀú¿Í ³×ÀÌ¹ö ¼­¹ö´Â ¿¬°áµÈ »óÅÂ°¡ µÇ´Âµ¥, ÀÌ¶§±îÁö ¼Ò¿äµÈ ½Ã°£À» Connection ¿¡
-          ¼Ò¿äµÈ ½Ã°£ÀÌ¶ó°í ÇÒ ¼ö ÀÖ´Ù.
-          "Áï, ConnectionTimeout ÀÌ¶õ 3-way HandShake °¡ Á¤»óÀûÀ¸·Î ¼öÇàµÇ¾î ¼­¹ö¿¡ ¿¬°áµÇ±â±îÁö ¼Ò¿äµÈ ½Ã°£ÀÌ´Ù."
+        - ì›¹ ë¸Œë¼ìš°ì €ê°€ ë„¤ì´ë²„ ì„œë²„ì— ì ‘ì†í•˜ê¸° ìœ„í•´ì„œ ì„œë²„ì™€ ì—°ê²°ëœ ìƒíƒœê°€ ë˜ì–´ì•¼í•œë‹¤. ë³´í†µ ì—°ê²°ì„ êµ¬ì„±í•˜ê¸°ìœ„í•´
+          TCP Connection ê³¼ ë™ì¼í•˜ê²Œ 3-way-HandShake ë°©ì‹ìœ¼ë¡œ ìˆ˜í–‰í•˜ê²Œ ëœë‹¤. 3-way HandShake ê°€ ì •ìƒì ìœ¼ë¡œ
+          ìˆ˜í–‰í•˜ê²Œ ë˜ë©´ ì›¹ ë¸Œë¼ìš°ì €ì™€ ë„¤ì´ë²„ ì„œë²„ëŠ” ì—°ê²°ëœ ìƒíƒœê°€ ë˜ëŠ”ë°, ì´ë•Œê¹Œì§€ ì†Œìš”ëœ ì‹œê°„ì„ Connection ì—
+          ì†Œìš”ëœ ì‹œê°„ì´ë¼ê³  í•  ìˆ˜ ìžˆë‹¤.
+          "ì¦‰, ConnectionTimeout ì´ëž€ 3-way HandShake ê°€ ì •ìƒì ìœ¼ë¡œ ìˆ˜í–‰ë˜ì–´ ì„œë²„ì— ì—°ê²°ë˜ê¸°ê¹Œì§€ ì†Œìš”ëœ ì‹œê°„ì´ë‹¤."
 
     - Read time out
-        - Connection time out °ú´Â ´Ù¸£°Ô Å¬¶óÀÌ¾ðÆ®¿Í ¼­¹ö°¡ connection Àº ¸Î¾îÁ³Áö¸¸, I/O ÀÛ¾÷ÀÌ ±æ¾îÁö°Å³ª µ¥ÀÌÅÍ¸¦ ÀÐ¾î°¡Áö ¸øÇÏ´Â
-          »óÈ²ÀÌ µÇ¾î, ¼³Á¤µÈ ½Ã°£À» ÃÊ°úÇÏ¿© »ý±â´Â ¹®Á¦ÀÌ´Ù. º¸Åë Tcp connection Àº 3way-HandShake ¹æ½ÄÀ¸·Î ¼öÇàÇÑ´Ù.
-          ÇØ´ç ¹æ½ÄÀ» ÅëÇØ Á¤»óÀûÀ¸·Î ¼öÇàÇÏ°Ô µÇ¸é connection ÀÌ ¸Î¾îÁö°í, ¼­¹ö Ãø¿¡¼­ µ¥ÀÌÅÍ¸¦ Àü´Þ, Å¬¶óÀÌ¾ðÆ®¿¡¼­ ÀÐ¾î°¡´Â Çü½ÄÀÌ´Ù.
-        - "Connection ¸ÎÀº ÈÄ Response(ÀÀ´ä)À» ¹Þ±â±îÁö ¼Ò¿äµÉ ½Ã°£ÀÇ ÀÓ°èÄ¡ÀÌ´Ù."
-        - client °¡ server ¿¡ Á¢¼ÓÀ» ¼º°ø ÇßÀ¸³ª ¼­¹ö°¡ ·ÎÁ÷À» ¼öÇàÇÏ´Â ½Ã°£ÀÌ ³Ê¹« ±æ¾î Á¦´ë·Î ÀÀ´äÀ» ¸øÁØ »óÅÂ¿¡¼­
-          client °¡ ¿¬°áÀ» ÇØÁ¦ÇÏ´Â°ÍÀÌ Read timeout ÀÔ´Ï´Ù.
+        - Connection time out ê³¼ëŠ” ë‹¤ë¥´ê²Œ í´ë¼ì´ì–¸íŠ¸ì™€ ì„œë²„ê°€ connection ì€ ë§ºì–´ì¡Œì§€ë§Œ, I/O ìž‘ì—…ì´ ê¸¸ì–´ì§€ê±°ë‚˜ ë°ì´í„°ë¥¼ ì½ì–´ê°€ì§€ ëª»í•˜ëŠ”
+          ìƒí™©ì´ ë˜ì–´, ì„¤ì •ëœ ì‹œê°„ì„ ì´ˆê³¼í•˜ì—¬ ìƒê¸°ëŠ” ë¬¸ì œì´ë‹¤. ë³´í†µ Tcp connection ì€ 3way-HandShake ë°©ì‹ìœ¼ë¡œ ìˆ˜í–‰í•œë‹¤.
+          í•´ë‹¹ ë°©ì‹ì„ í†µí•´ ì •ìƒì ìœ¼ë¡œ ìˆ˜í–‰í•˜ê²Œ ë˜ë©´ connection ì´ ë§ºì–´ì§€ê³ , ì„œë²„ ì¸¡ì—ì„œ ë°ì´í„°ë¥¼ ì „ë‹¬, í´ë¼ì´ì–¸íŠ¸ì—ì„œ ì½ì–´ê°€ëŠ” í˜•ì‹ì´ë‹¤.
+        - "Connection ë§ºì€ í›„ Response(ì‘ë‹µ)ì„ ë°›ê¸°ê¹Œì§€ ì†Œìš”ë  ì‹œê°„ì˜ ìž„ê³„ì¹˜ì´ë‹¤."
+        - client ê°€ server ì— ì ‘ì†ì„ ì„±ê³µ í–ˆìœ¼ë‚˜ ì„œë²„ê°€ ë¡œì§ì„ ìˆ˜í–‰í•˜ëŠ” ì‹œê°„ì´ ë„ˆë¬´ ê¸¸ì–´ ì œëŒ€ë¡œ ì‘ë‹µì„ ëª»ì¤€ ìƒíƒœì—ì„œ
+          client ê°€ ì—°ê²°ì„ í•´ì œí•˜ëŠ”ê²ƒì´ Read timeout ìž…ë‹ˆë‹¤.
 
 - noSQL
-    - NoSQL Á¤ÀÇ
+    - NoSQL ì •ì˜
         - Not Only SQL
-        - NoSQL Àº ºñ°ü°èÇü µ¥ÀÌÅÍº£ÀÌ½º¸¦ ÁöÄªÇÑ´Ù. Áï, °ü°èÇü µ¥ÀÌÅÍ ¸ðµ¨À» Áö¾ç ÇÏ¸ç ´ë·®ÀÇ ºÐ»êµÈ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ°í Á¶È¸ÇÏ´Â µ¥ Æ¯È­µÇ¾úÀ¸¸ç
-          ½ºÅ°¸¶ ¾øÀÌ »ç¿ë °¡´ÉÇÏ°Å³ª ´À½¼ÇÑ ½ºÅ°¸¶¸¦ Á¦°øÇÏ´Â ÀúÀå¼Ò¸¦ ¸»ÇÑ´Ù.
-        - NoSQL Àº ±âÁ¸ RDBMS ÇüÅÂÀÇ °ü°èÇü µ¥ÀÌÅÍº£ÀÌ½º°¡ ¾Æ´Ñ ´Ù¸¥ ÇüÅÂÀÇ µ¥ÀÌÅÍ ÀúÀå ±â¼úÀ» ÀÇ¹ÌÇÏ¸ç,
-          °ü°èÇü µ¥ÀÌÅÍº£ÀÌ½ºÀÇ ÇÑ°è¸¦ ±Øº¹ÇÏ±â À§ÇÑ µ¥ÀÌÅÍ ÀúÀå¼ÒÀÇ »õ·Î¿î ÇüÅÂÀÌ´Ù.
+        - NoSQL ì€ ë¹„ê´€ê³„í˜• ë°ì´í„°ë² ì´ìŠ¤ë¥¼ ì§€ì¹­í•œë‹¤. ì¦‰, ê´€ê³„í˜• ë°ì´í„° ëª¨ë¸ì„ ì§€ì–‘ í•˜ë©° ëŒ€ëŸ‰ì˜ ë¶„ì‚°ëœ ë°ì´í„°ë¥¼ ì €ìž¥í•˜ê³  ì¡°íšŒí•˜ëŠ” ë° íŠ¹í™”ë˜ì—ˆìœ¼ë©°
+          ìŠ¤í‚¤ë§ˆ ì—†ì´ ì‚¬ìš© ê°€ëŠ¥í•˜ê±°ë‚˜ ëŠìŠ¨í•œ ìŠ¤í‚¤ë§ˆë¥¼ ì œê³µí•˜ëŠ” ì €ìž¥ì†Œë¥¼ ë§í•œë‹¤.
+        - NoSQL ì€ ê¸°ì¡´ RDBMS í˜•íƒœì˜ ê´€ê³„í˜• ë°ì´í„°ë² ì´ìŠ¤ê°€ ì•„ë‹Œ ë‹¤ë¥¸ í˜•íƒœì˜ ë°ì´í„° ì €ìž¥ ê¸°ìˆ ì„ ì˜ë¯¸í•˜ë©°,
+          ê´€ê³„í˜• ë°ì´í„°ë² ì´ìŠ¤ì˜ í•œê³„ë¥¼ ê·¹ë³µí•˜ê¸° ìœ„í•œ ë°ì´í„° ì €ìž¥ì†Œì˜ ìƒˆë¡œìš´ í˜•íƒœì´ë‹¤.
 
-    - NoSQL ÀÇ Æ¯Â¡
-        - RDBMS ¿Í ´Þ¸® µ¥ÀÌÅÍ °£ÀÇ °ü°è¸¦ Á¤ÀÇÇÏÁö ¾Ê´Â´Ù.
-            - RDBMS ´Â µ¥ÀÌÅÍ °ü°è¸¦ ¿Ü·¡Å° µîÀ¸·Î Á¤ÀÇÇÏ°í JOIN ¿¬»êÀ» ¼öÇàÇÒ ¼ö ÀÖÁö¸¸, NoSQL Àº JOIN ¿¬»êÀÌ ºÒ°¡´ÉÇÏ´Ù.
-        - RDBMS ¿¡ ºñÇØ ´ë¿ë·®ÀÇ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¼ö ÀÖ´Ù.
-            - ÆäÅ¸¹ÙÀÌÆ® ±ÞÀÇ ´ë¿ë·® µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¼ö ÀÖ´Ù.
-        - ºÐ»êÇü ±¸Á¶ÀÌ´Ù.
-            - ¿©·¯ °÷ÀÇ ¼­¹ö¿¡ µ¥ÀÌÅÍ¸¦ ºÐ»ê ÀúÀåÇØ Æ¯Á¤ ¼­¹ö¿¡ Àå¾Ö°¡ ¹ß»ýÇßÀ» ¶§µµ µ¥ÀÌÅÍ À¯½Ç È¤Àº ¼­ºñ½º ÁßÁö°¡ ¹ß»ýÇÏÁö ¾Êµµ·Ï ÇÑ´Ù.
-        - °íÁ¤µÇÁö ¾ÊÀº Å×ÀÌºí ½ºÅ°¸¶¸¦ °®´Â´Ù.
-            - RDBMS ¿Í ´Þ¸® Å×ÀÌºíÀÇ ½ºÅ°¸¶°¡ À¯µ¿ÀûÀÌ´Ù. µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â Ä®·³ÀÌ °¢±â ´Ù¸¥ ÀÌ¸§°ú ´Ù¸¥ µ¥ÀÌÅÍ Å¸ÀÔÀ» °®´Â °ÍÀÌ Çã¿ëµÈ´Ù.
+    - NoSQL ì˜ íŠ¹ì§•
+        - RDBMS ì™€ ë‹¬ë¦¬ ë°ì´í„° ê°„ì˜ ê´€ê³„ë¥¼ ì •ì˜í•˜ì§€ ì•ŠëŠ”ë‹¤.
+            - RDBMS ëŠ” ë°ì´í„° ê´€ê³„ë¥¼ ì™¸ëž˜í‚¤ ë“±ìœ¼ë¡œ ì •ì˜í•˜ê³  JOIN ì—°ì‚°ì„ ìˆ˜í–‰í•  ìˆ˜ ìžˆì§€ë§Œ, NoSQL ì€ JOIN ì—°ì‚°ì´ ë¶ˆê°€ëŠ¥í•˜ë‹¤.
+        - RDBMS ì— ë¹„í•´ ëŒ€ìš©ëŸ‰ì˜ ë°ì´í„°ë¥¼ ì €ìž¥í•  ìˆ˜ ìžˆë‹¤.
+            - íŽ˜íƒ€ë°”ì´íŠ¸ ê¸‰ì˜ ëŒ€ìš©ëŸ‰ ë°ì´í„°ë¥¼ ì €ìž¥í•  ìˆ˜ ìžˆë‹¤.
+        - ë¶„ì‚°í˜• êµ¬ì¡°ì´ë‹¤.
+            - ì—¬ëŸ¬ ê³³ì˜ ì„œë²„ì— ë°ì´í„°ë¥¼ ë¶„ì‚° ì €ìž¥í•´ íŠ¹ì • ì„œë²„ì— ìž¥ì• ê°€ ë°œìƒí–ˆì„ ë•Œë„ ë°ì´í„° ìœ ì‹¤ í˜¹ì€ ì„œë¹„ìŠ¤ ì¤‘ì§€ê°€ ë°œìƒí•˜ì§€ ì•Šë„ë¡ í•œë‹¤.
+        - ê³ ì •ë˜ì§€ ì•Šì€ í…Œì´ë¸” ìŠ¤í‚¤ë§ˆë¥¼ ê°–ëŠ”ë‹¤.
+            - RDBMS ì™€ ë‹¬ë¦¬ í…Œì´ë¸”ì˜ ìŠ¤í‚¤ë§ˆê°€ ìœ ë™ì ì´ë‹¤. ë°ì´í„°ë¥¼ ì €ìž¥í•˜ëŠ” ì¹¼ëŸ¼ì´ ê°ê¸° ë‹¤ë¥¸ ì´ë¦„ê³¼ ë‹¤ë¥¸ ë°ì´í„° íƒ€ìž…ì„ ê°–ëŠ” ê²ƒì´ í—ˆìš©ëœë‹¤.
 
-    - NoSQL ÀÇ ÀåÁ¡
-        - RDBMS ¿¡ ºñÇØ Àú·ÅÇÑ ºñ¿ëÀ¸·Î ºÐ»êÃ³¸®¿Í º´·Ä Ã³¸® °¡´É
-        - ºñÁ¤Çü µ¥ÀÌÅÍ ±¸Á¶ ¼³°è·Î ¼³°è ºñ¿ë °¨¼Ò
-        - Big Data Ã³¸®¿¡ È¿°úÀû
-        - °¡º¯ÀûÀÎ ±¸Á¶·Î µ¥ÀÌÅÍ ÀúÀåÀÌ °¡´É
-        - µ¥ÀÌÅÍ ¸ðµ¨ÀÇ À¯¿¬ÇÑ º¯È­°¡ °¡´É
+    - NoSQL ì˜ ìž¥ì 
+        - RDBMS ì— ë¹„í•´ ì €ë ´í•œ ë¹„ìš©ìœ¼ë¡œ ë¶„ì‚°ì²˜ë¦¬ì™€ ë³‘ë ¬ ì²˜ë¦¬ ê°€ëŠ¥
+        - ë¹„ì •í˜• ë°ì´í„° êµ¬ì¡° ì„¤ê³„ë¡œ ì„¤ê³„ ë¹„ìš© ê°ì†Œ
+        - Big Data ì²˜ë¦¬ì— íš¨ê³¼ì 
+        - ê°€ë³€ì ì¸ êµ¬ì¡°ë¡œ ë°ì´í„° ì €ìž¥ì´ ê°€ëŠ¥
+        - ë°ì´í„° ëª¨ë¸ì˜ ìœ ì—°í•œ ë³€í™”ê°€ ê°€ëŠ¥
 
-    - NoSQL ÀÇ ´ÜÁ¡
-        - µ¥ÀÌÅÍ ¾÷µ¥ÀÌÆ® Áß Àå¾Ö°¡ ¹ß»ýÇÏ¸é µ¥ÀÌÅÍ ¼Õ½Ç ¹ß»ý °¡´É
-        - ¸¹Àº ÀÎµ¦½º¸¦ »ç¿ëÇÏ·Á¸é ÃæºÐÇÑ ¸Þ¸ð¸®°¡ ÇÊ¿ä. ÀÎµ¦½º ±¸Á¶°¡ ¸Þ¸ð¸®¿¡ ÀúÀå
-        - µ¥ÀÌÅÍ ÀÏ°ü¼ºÀÌ Ç×»ó º¸ÀåµÇÁö ¾ÊÀ½
+    - NoSQL ì˜ ë‹¨ì 
+        - ë°ì´í„° ì—…ë°ì´íŠ¸ ì¤‘ ìž¥ì• ê°€ ë°œìƒí•˜ë©´ ë°ì´í„° ì†ì‹¤ ë°œìƒ ê°€ëŠ¥
+        - ë§Žì€ ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•˜ë ¤ë©´ ì¶©ë¶„í•œ ë©”ëª¨ë¦¬ê°€ í•„ìš”. ì¸ë±ìŠ¤ êµ¬ì¡°ê°€ ë©”ëª¨ë¦¬ì— ì €ìž¥
+        - ë°ì´í„° ì¼ê´€ì„±ì´ í•­ìƒ ë³´ìž¥ë˜ì§€ ì•ŠìŒ
 
-    - NoSQL ÀÇ Á¾·ù
+    - NoSQL ì˜ ì¢…ë¥˜
         - Key-Value Database
-            - ±âº»ÀûÀÎ ÆÐÅÏÀ¸·Î KEY-VALUE ÇÏ³ªÀÇ ¹­À½(Unique)À¸·Î ÀúÀåµÇ´Â ±¸Á¶·Î ´Ü¼øÇÑ ±¸Á¶ÀÌ±â¿¡ ¼Óµµ°¡ ºü¸£¸ç ºÐ»ê ÀúÀå ½Ã ¿ëÀÌÇÏ´Ù.
-            - Key ¾È¿¡ (COLUMN, VALUE) ÇüÅÂ·Î µÈ ¿©·¯ °³ÀÇ ÇÊµå, Áï COLUMN FAMILIES °®´Â´Ù.
-              ÁÖ·Î SERVER CONFIG, SESSION CLUSTERING µî¿¡ »ç¿ëµÇ°í ¿¢¼¼½º ¼Óµµ´Â ºü¸£Áö¸¸, SCAN ¿¡´Â ¿ëÀÌÇÏÁö ¾Ê´Ù.
+            - ê¸°ë³¸ì ì¸ íŒ¨í„´ìœ¼ë¡œ KEY-VALUE í•˜ë‚˜ì˜ ë¬¶ìŒ(Unique)ìœ¼ë¡œ ì €ìž¥ë˜ëŠ” êµ¬ì¡°ë¡œ ë‹¨ìˆœí•œ êµ¬ì¡°ì´ê¸°ì— ì†ë„ê°€ ë¹ ë¥´ë©° ë¶„ì‚° ì €ìž¥ ì‹œ ìš©ì´í•˜ë‹¤.
+            - Key ì•ˆì— (COLUMN, VALUE) í˜•íƒœë¡œ ëœ ì—¬ëŸ¬ ê°œì˜ í•„ë“œ, ì¦‰ COLUMN FAMILIES ê°–ëŠ”ë‹¤.
+              ì£¼ë¡œ SERVER CONFIG, SESSION CLUSTERING ë“±ì— ì‚¬ìš©ë˜ê³  ì—‘ì„¸ìŠ¤ ì†ë„ëŠ” ë¹ ë¥´ì§€ë§Œ, SCAN ì—ëŠ” ìš©ì´í•˜ì§€ ì•Šë‹¤.
             Ex) Redis, Oracle NoSQL Database, VoldeMorte
 
         - Wide-Column Database
-            - Çà¸¶´Ù Å°¿Í ÇØ´ç °ªÀ» ÀúÀåÇÒ ¶§¸¶´Ù °¢°¢ ´Ù¸¥°ªÀÇ ´Ù¸¥ ¼öÀÇ ½ºÅ°¸¶¸¦ °¡Áú ¼ö ÀÖ´Ù.
-              À§ ±×¸²À» Âü°íÇÏ¸é »ç¿ëÀÚÀÇ ÀÌ¸§(key)¿¡ ÇØ´çÇÏ´Â °ª¿¡ ½ºÅ°¸¶µéÀÌ °¢°¢ ´Ù¸§À» º¼ ¼ö ÀÖ´Ù.
-              ÀÌ·¯ÇÑ ±¸Á¶¸¦ °®´Â WIDE COLUMN DATABASE ´Â ´ë·®ÀÇ µ¥ÀÌÅÍÀÇ ¾ÐÃà, ºÐ»êÃ³¸®, Áý°è Äõ¸® (SUM, COUNT, AVG µî)¹×
-              Äõ¸® µ¿ÀÛ ¼Óµµ ±×¸®°í È®Àå¼ºÀÌ ¶Ù¾î³­ °ÍÀÌ ±× ´ëÇ¥Àû Æ¯Â¡ÀÌ¶ó ÇÒ ¼ö ÀÖ´Ù.
+            - í–‰ë§ˆë‹¤ í‚¤ì™€ í•´ë‹¹ ê°’ì„ ì €ìž¥í•  ë•Œë§ˆë‹¤ ê°ê° ë‹¤ë¥¸ê°’ì˜ ë‹¤ë¥¸ ìˆ˜ì˜ ìŠ¤í‚¤ë§ˆë¥¼ ê°€ì§ˆ ìˆ˜ ìžˆë‹¤.
+              ìœ„ ê·¸ë¦¼ì„ ì°¸ê³ í•˜ë©´ ì‚¬ìš©ìžì˜ ì´ë¦„(key)ì— í•´ë‹¹í•˜ëŠ” ê°’ì— ìŠ¤í‚¤ë§ˆë“¤ì´ ê°ê° ë‹¤ë¦„ì„ ë³¼ ìˆ˜ ìžˆë‹¤.
+              ì´ëŸ¬í•œ êµ¬ì¡°ë¥¼ ê°–ëŠ” WIDE COLUMN DATABASE ëŠ” ëŒ€ëŸ‰ì˜ ë°ì´í„°ì˜ ì••ì¶•, ë¶„ì‚°ì²˜ë¦¬, ì§‘ê³„ ì¿¼ë¦¬ (SUM, COUNT, AVG ë“±)ë°
+              ì¿¼ë¦¬ ë™ìž‘ ì†ë„ ê·¸ë¦¬ê³  í™•ìž¥ì„±ì´ ë›°ì–´ë‚œ ê²ƒì´ ê·¸ ëŒ€í‘œì  íŠ¹ì§•ì´ë¼ í•  ìˆ˜ ìžˆë‹¤.
             EX) Hbase, GoogleBigTable, Vertica
 
         - Document Database
-            - Å×ÀÌºíÀÇ ½ºÅ°¸¶°¡ À¯µ¿Àû, Áï ·¹ÄÚµå¸¶´Ù °¢°¢ ´Ù¸¥ ½ºÅ°¸¶¸¦ °¡Áú ¼ö ÀÖ´Ù.
-              º¸Åë XML, JSON °ú °°Àº DOCUMENT ¸¦ ÀÌ¿ëÇØ ·¹ÄÚµå¸¦ ÀúÀåÇÑ´Ù.
-              Æ®¸®Çü ±¸Á¶·Î ·¹ÄÚµå¸¦ ÀúÀåÇÏ°Å³ª °Ë»öÇÏ´Â µ¥ È¿°úÀûÀÌ´Ù.
+            - í…Œì´ë¸”ì˜ ìŠ¤í‚¤ë§ˆê°€ ìœ ë™ì , ì¦‰ ë ˆì½”ë“œë§ˆë‹¤ ê°ê° ë‹¤ë¥¸ ìŠ¤í‚¤ë§ˆë¥¼ ê°€ì§ˆ ìˆ˜ ìžˆë‹¤.
+              ë³´í†µ XML, JSON ê³¼ ê°™ì€ DOCUMENT ë¥¼ ì´ìš©í•´ ë ˆì½”ë“œë¥¼ ì €ìž¥í•œë‹¤.
+              íŠ¸ë¦¬í˜• êµ¬ì¡°ë¡œ ë ˆì½”ë“œë¥¼ ì €ìž¥í•˜ê±°ë‚˜ ê²€ìƒ‰í•˜ëŠ” ë° íš¨ê³¼ì ì´ë‹¤.
             Ex) MongoDB, CouchDB, Azure Cosmos DB
 
         - Graph Database
-            - µ¥ÀÌÅÍ¸¦ ³ëµå·Î(±×¸²¿¡¼­ ÆÄ¶õ, ³ì»ö ¿ø) Ç¥ÇöÇÏ¸ç ³ëµå »çÀÌÀÇ °ü°è¸¦ ¿§Áö(±×¸²¿¡¼­ È­»ìÇ¥)·Î Ç¥Çö
-              ÀÏ¹ÝÀûÀ¸·Î RDBMS º¸´Ù ¼º´ÉÀÌ ÁÁ°í À¯¿¬ÇÏ¸ç À¯Áöº¸¼ö¿¡ ¿ëÀÌÇÑ °ÍÀÌ Æ¯Â¡.
-              Social networks, Network diagrams µî¿¡ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+            - ë°ì´í„°ë¥¼ ë…¸ë“œë¡œ(ê·¸ë¦¼ì—ì„œ íŒŒëž€, ë…¹ìƒ‰ ì›) í‘œí˜„í•˜ë©° ë…¸ë“œ ì‚¬ì´ì˜ ê´€ê³„ë¥¼ ì—£ì§€(ê·¸ë¦¼ì—ì„œ í™”ì‚´í‘œ)ë¡œ í‘œí˜„
+              ì¼ë°˜ì ìœ¼ë¡œ RDBMS ë³´ë‹¤ ì„±ëŠ¥ì´ ì¢‹ê³  ìœ ì—°í•˜ë©° ìœ ì§€ë³´ìˆ˜ì— ìš©ì´í•œ ê²ƒì´ íŠ¹ì§•.
+              Social networks, Network diagrams ë“±ì— ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤.
             Ex) Neo4j, BlazeGraph, OrientDB
 
-- ¸¶ÀÌ¹ÙÆ¼½º
+- ë§ˆì´ë°”í‹°ìŠ¤
     http://125.132.25.164/dokuwiki/doku.php?id=wiki:spring:mybatis
 - DML, DDL, DCL
 - union vs union all
 
-- SQL SELECT Äõ¸® ½ÇÇà ¼ø¼­ Ã³¸® °úÁ¤
+- SQL SELECT ì¿¼ë¦¬ ì‹¤í–‰ ìˆœì„œ ì²˜ë¦¬ ê³¼ì •
     https://myjamong.tistory.com/172
     http://www.yes24.com/Product/Goods/6960931
 
 - JPA
-    - ¿µ¼Ó¼º ÄÁÅØ½ºÆ® °ü·Ã (ÀÌÁ¡ µî)
+    - ì˜ì†ì„± ì»¨í…ìŠ¤íŠ¸ ê´€ë ¨ (ì´ì  ë“±)
 - index
-    - »ç¿ë ÀÌÀ¯
-    - ¾î¶² °æ¿ì¿¡ index °¡ ¾È°É¸®´ÂÁö
-- ºÐ»ê ¶ô ±¸Çö ¹æ½Ä(redis)
-- Äõ¸® Æ©´×
-    Æ©´×°ü·Ã https://dncjf0223.tistory.com/69
-    - ½ÇÇà °èÈ¹  https://velog.io/@haron/SQL-%EC%BF%BC%EB%A6%AC-%ED%8A%9C%EB%8B%9D%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%A4%80%EB%B9%84-%EC%8B%A4%ED%96%89-%EA%B3%84%ED%9A%8D
-    - select, from, join µî Å°¿öµå ±âÁØÀ¸·Î ¼³¸í?
+    - ì‚¬ìš© ì´ìœ 
+    - ì–´ë–¤ ê²½ìš°ì— index ê°€ ì•ˆê±¸ë¦¬ëŠ”ì§€
+- ë¶„ì‚° ë½ êµ¬í˜„ ë°©ì‹(redis)
+- ì¿¼ë¦¬ íŠœë‹
+    íŠœë‹ê´€ë ¨ https://dncjf0223.tistory.com/69
+    - ì‹¤í–‰ ê³„íš  https://velog.io/@haron/SQL-%EC%BF%BC%EB%A6%AC-%ED%8A%9C%EB%8B%9D%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%A4%80%EB%B9%84-%EC%8B%A4%ED%96%89-%EA%B3%84%ED%9A%8D
+    - select, from, join ë“± í‚¤ì›Œë“œ ê¸°ì¤€ìœ¼ë¡œ ì„¤ëª…?
 
 
-- ¿ÍÅÇ(WhaTap) ¼Ò°³ ¹× ¼³Ä¡
+- ì™€íƒ­(WhaTap) ì†Œê°œ ë° ì„¤ì¹˜
     https://archmond.net/archives/3137
 
-- ¿ÍÅÇ(WhaTap)ÀÇ ¸ð´ÏÅÍ¸µ ±â´É¿¡ ºüÁ®º¸ÀÚ
+- ì™€íƒ­(WhaTap)ì˜ ëª¨ë‹ˆí„°ë§ ê¸°ëŠ¥ì— ë¹ ì ¸ë³´ìž
     https://archmond.net/archives/3241
 
-- µ¿½Ã¼º Á¦¾î ±â¹ýµé
-- Æ®·£Àè¼Ç °Ý¸® ¼öÁØ  https://code-lab1.tistory.com/52
-- µ¥ÀÌÅÍº£½º Á¾·ùº° lock
-- JPA ÀÇ lock
+- ë™ì‹œì„± ì œì–´ ê¸°ë²•ë“¤
+- íŠ¸ëžœìž­ì…˜ ê²©ë¦¬ ìˆ˜ì¤€  https://code-lab1.tistory.com/52
+- ë°ì´í„°ë² ìŠ¤ ì¢…ë¥˜ë³„ lock
+- JPA ì˜ lock
 
 - b+ tree
-- ´ÙÁß Ä®·³ ÀÎµ¦½º
+- ë‹¤ì¤‘ ì¹¼ëŸ¼ ì¸ë±ìŠ¤

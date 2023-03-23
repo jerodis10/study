@@ -1,178 +1,178 @@
-***** ±â¼ú ¸éÁ¢ °ü·Ã ¿ä¾à *****
+***** ê¸°ìˆ  ë©´ì ‘ ê´€ë ¨ ìš”ì•½ *****
     https://gyoogle.dev/blog/computer-science/data-base/Transaction.html
 
-***** ±â¼ú ¸éÁ¢ °ü·Ã Á¤º¸ *****
-¸Á³ª´Ï°³¹ßÀÚ
+***** ê¸°ìˆ  ë©´ì ‘ ê´€ë ¨ ì •ë³´ *****
+ë§ë‚˜ë‹ˆê°œë°œìž
 https://mangkyu.tistory.com/242
-    - µµ¸ÞÀÎ ÁÖµµ ¼³°è ¹× °³¹ß°ú µµ¸ÞÀÎ °èÃþ(µµ¸ÞÀÎ °´Ã¼ Áß½É °³¹ß)
+    - ë„ë©”ì¸ ì£¼ë„ ì„¤ê³„ ë° ê°œë°œê³¼ ë„ë©”ì¸ ê³„ì¸µ(ë„ë©”ì¸ ê°ì²´ ì¤‘ì‹¬ ê°œë°œ)
         https://mangkyu.tistory.com/160
 
-***** cs °ü·Ã Áú¹® *****
+***** cs ê´€ë ¨ ì§ˆë¬¸ *****
     https://onejunu.tistory.com/category/CS
 
-***** ¸éÁ¢ Áú¹® *****
+***** ë©´ì ‘ ì§ˆë¬¸ *****
     https://youngkyonyou.github.io/categories.html#Interview-ref
 
-***** cs ½ºÅÍµð *****
+***** cs ìŠ¤í„°ë”” *****
     https://steady-coding.tistory.com/category/%EC%8A%A4%ED%84%B0%EB%94%94/CS%20%EC%8A%A4%ED%84%B0%EB%94%94
 
-***** java ½ºÅÍµð *****
+***** java ìŠ¤í„°ë”” *****
     https://steady-coding.tistory.com/category/%EC%8A%A4%ED%84%B0%EB%94%94/Java%20%EC%8A%A4%ED%84%B0%EB%94%94
 
-***** jpa ½ºÅÍµð *****
+***** jpa ìŠ¤í„°ë”” *****
     https://steady-coding.tistory.com/category/%EC%8A%A4%ED%84%B0%EB%94%94/JPA%20%EC%8A%A4%ED%84%B0%EB%94%94?page=2
 
-***** ¿ÀºêÁ§Æ® ½ºÅÍµð *****
+***** ì˜¤ë¸Œì íŠ¸ ìŠ¤í„°ë”” *****
     https://steady-coding.tistory.com/category/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%20%EC%8A%A4%ED%84%B0%EB%94%94
 
-***** ÀÌÆåÆ¼ºê ÀÚ¹Ù ½ºÅÍµð *****
+***** ì´íŽ™í‹°ë¸Œ ìžë°” ìŠ¤í„°ë”” *****
     https://steady-coding.tistory.com/category/%EC%8A%A4%ED%84%B0%EB%94%94/%EC%9D%B4%ED%8E%99%ED%8B%B0%EB%B8%8C%20%EC%9E%90%EB%B0%94%20%EC%8A%A4%ED%84%B0%EB%94%94
 
-***** µðÀÚÀÎ ÆÐÅÏ *****
+***** ë””ìžì¸ íŒ¨í„´ *****
     https://steady-coding.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4
     http://www.yes24.com/Product/Goods/9179120
 
-***** ÄÚµù ÆÑÅä¸® *****
+***** ì½”ë”© íŒ©í† ë¦¬ *****
     https://coding-factory.tistory.com/category/Language/Java?page=3
 
 ***** inpa dev *****
     https://inpa.tistory.com/
 
-** if-else ¸¦ »ç¿ëÇÏÁö ¾Ê´Â À¯¿¬ÇÑ ÆÑÅä¸® Å¬·¡½º ±¸ÇöÇÏ±â
+** if-else ë¥¼ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ” ìœ ì—°í•œ íŒ©í† ë¦¬ í´ëž˜ìŠ¤ êµ¬í˜„í•˜ê¸°
     https://mangkyu.tistory.com/252
 
-** ½ºÇÁ¸µÀÌ Á¦°øÇÏ´Â ´Ù¾çÇÑ À¯Æ¿¼º Å¬·¡½ºµé(StringUtils, PatternMatchUtils, ReflectionUtils µî)
+** ìŠ¤í”„ë§ì´ ì œê³µí•˜ëŠ” ë‹¤ì–‘í•œ ìœ í‹¸ì„± í´ëž˜ìŠ¤ë“¤(StringUtils, PatternMatchUtils, ReflectionUtils ë“±)
     https://mangkyu.tistory.com/238
 
-- °úÁ¦ ÀüÇü
+- ê³¼ì œ ì „í˜•
     - rest api
-    - µðÀÚÀÎ ÆÐÅÏ
+    - ë””ìžì¸ íŒ¨í„´
     - jpa
-    - ÀÍ¼Á¼Ç (¿¡·¯ Ã³¸®)
-    - Å×½ºÆ® ÄÚµå
-    - ÁÖ¼®, ·Î±×
-    - À¯È¿¼º °ËÁõ ·ÎÁ÷ (@Valid ¿Í @Validated)
-    - aop Àû¿ë - ex) logTracer
-    - ¼­¹ö¿¡ µû¸¥ log ¼³Á¤ ºÐ±â
-    - interceptor Àû¿ë - ex) ·Î±×ÀÎ
-    - µ¿½Ã¼º ÀÌ½´ °í·Á
+    - ìµì…‰ì…˜ (ì—ëŸ¬ ì²˜ë¦¬)
+    - í…ŒìŠ¤íŠ¸ ì½”ë“œ
+    - ì£¼ì„, ë¡œê·¸
+    - ìœ íš¨ì„± ê²€ì¦ ë¡œì§ (@Valid ì™€ @Validated)
+    - aop ì ìš© - ex) logTracer
+    - ì„œë²„ì— ë”°ë¥¸ log ì„¤ì • ë¶„ê¸°
+    - interceptor ì ìš© - ex) ë¡œê·¸ì¸
+    - ë™ì‹œì„± ì´ìŠˆ ê³ ë ¤
     	- application
     	- db
     	- redis
 
-    - µµ¸ÞÀÎ ÁÖµµ ¼³°è?
-    - µ¥ÀÌÅÍ »ðÀÔ ¹æ¹ý °í·Á
+    - ë„ë©”ì¸ ì£¼ë„ ì„¤ê³„?
+    - ë°ì´í„° ì‚½ìž… ë°©ë²• ê³ ë ¤
     	ex) test Container
-    	    Å×½ºÆ® µ¥ÀÌÅÍ »ðÀÔ ¹öÆ°?
-    - Å×½ºÆ® Ä¿¹ö¸®Áö?
-    - springSecurity µµÀÔ °í·Á
+    	    í…ŒìŠ¤íŠ¸ ë°ì´í„° ì‚½ìž… ë²„íŠ¼?
+    - í…ŒìŠ¤íŠ¸ ì»¤ë²„ë¦¬ì§€?
+    - springSecurity ë„ìž… ê³ ë ¤
 
-    -> Áö¿øÇÏ·Á´Â ÆÀ ±â¼ú½ºÅÃ °í·Á
+    -> ì§€ì›í•˜ë ¤ëŠ” íŒ€ ê¸°ìˆ ìŠ¤íƒ ê³ ë ¤
 
-    -> °Ô½ÃÆÇ, ÆÄÀÏ Ã·ºÎ ±â´É
+    -> ê²Œì‹œíŒ, íŒŒì¼ ì²¨ë¶€ ê¸°ëŠ¥
 
 
-***** CustomResponse È°¿ë???
+***** CustomResponse í™œìš©???
 
 
     https://www.wanted.co.kr/events/22_12_s01_b01
 
-    API °¡ Ã³¸®ÇØ¾ß ÇÏ´Â ·ÎÁ÷
-    API ¿äÃ» Æ÷¸Ë ¹× ÀÀ´ä Æ÷¸Ë
-    ¿À·ù Ã³¸® ¹æ½Ä
+    API ê°€ ì²˜ë¦¬í•´ì•¼ í•˜ëŠ” ë¡œì§
+    API ìš”ì²­ í¬ë§· ë° ì‘ë‹µ í¬ë§·
+    ì˜¤ë¥˜ ì²˜ë¦¬ ë°©ì‹
 
-    ÀÌÇØÇÏ±â ½¬¿î ÄÚµåÀÎ°¡?
-    ÀÏ°ü¼º ÀÖ°Ô ÀÛ¼ºµÈ ÄÚµåÀÎ°¡?
-    È¿À²¼ºÀÌ ÁÁÀº ÄÚµåÀÎ°¡?
-    ÀûÀýÇÑ ÀÚ·á±¸Á¶ ¹× µðÀÚÀÎ ÆÐÅÏÀ» »ç¿ëÇß´Â°¡?
-    Å×½ºÆ®¸¦ ÀÛ¼ºÇß´Â°¡? Å×½ºÆ®¿¡¼­ ¿¡Áö ÄÉÀÌ½º(edge case)±îÁö Ä¿¹öÇß´Â°¡?
+    ì´í•´í•˜ê¸° ì‰¬ìš´ ì½”ë“œì¸ê°€?
+    ì¼ê´€ì„± ìžˆê²Œ ìž‘ì„±ëœ ì½”ë“œì¸ê°€?
+    íš¨ìœ¨ì„±ì´ ì¢‹ì€ ì½”ë“œì¸ê°€?
+    ì ì ˆí•œ ìžë£Œêµ¬ì¡° ë° ë””ìžì¸ íŒ¨í„´ì„ ì‚¬ìš©í–ˆëŠ”ê°€?
+    í…ŒìŠ¤íŠ¸ë¥¼ ìž‘ì„±í–ˆëŠ”ê°€? í…ŒìŠ¤íŠ¸ì—ì„œ ì—ì§€ ì¼€ì´ìŠ¤(edge case)ê¹Œì§€ ì»¤ë²„í–ˆëŠ”ê°€?
 
-    ÄÚµù °úÁ¦¿¡¼­´Â ÇÊ¼ö ¿ä±¸»çÇ×À» Á¤È®È÷ ÀÌÇØÇÏ°í ±¸ÇöÇÏ´Â °ÍÀÌ °¡Àå ¿ì¼±ÀÔ´Ï´Ù.
-    ±â´ÉÀ» Á¤È®ÇÏ°Ô ±¸ÇöÇß´ÂÁö È®ÀÎÇÒ ¼ö ÀÖ´Â °¡Àå ÁÁÀº ¹æ¹ýÀº ¹Ù·Î Å×½ºÆ® ÄÚµå¸¦ ÅëÇÑ °ËÁõÀÔ´Ï´Ù.
-    ÄÚµå¿Í Å×½ºÆ®¸¦ ´Ù ÀÛ¼ºÇÑ µÚ¿¡´Â ´Ù½Ã ÇÑ¹ø ÄÚµå¸¦ ÀÐ¾îº¸¸ç ´õ °³¼±ÇÒ ºÎºÐÀº ¾ø´ÂÁö Á¡°ËÇÏ°í, ÄÚµåÀÇ °¡µ¶¼º°ú È¿À²¼º¿¡ ÁýÁßÇØ¼­ ¸®ÆÑÅä¸µ ÇØ º¸¼¼¿ä.
-    README ÀÛ¼ºÇÏ±â
-        ÇÁ·ÎÁ§Æ® ±¸¼º - ÀüÃ¼ ±¸Á¶¸¦ ¾î¶»°Ô ¼³°èÇß´ÂÁö ¼³¸íÇÏ±â (ÇÊ¿ä¿¡ µû¶ó ±×·¡ÇÁ³ª ´ÙÀÌ¾Æ±×·¥ È°¿ë)
-        ±â´É ¸ñ·Ï - ¿ä±¸»çÇ×À» ´Ù½Ã ÇÑ ¹ø ¿ä¾àÇÏ°í, °¢ ±â´ÉÀ» ¾î¶»°Ô ±¸ÇöÇß´ÂÁö ¼³¸íÇÏ±â
-        »ç¿ëÇÑ ±â¼ú ½ºÅÃ ¹× ¶óÀÌºê·¯¸® - ¾î¶² ¾ð¾î¿Í ¹öÀüÀ» »ç¿ëÇß´ÂÁö (¿¹Á¦: Java 11), ¿ÜºÎ ¶óÀÌºê·¯¸®¸¦ »ç¿ëÇß´Ù¸é ¾î¶² ±âÁØÀ¸·Î ¼±ÅÃÇØ »ç¿ëÇß´ÂÁö ¸í½ÃÇÏ±â
-        ÄÚµå ½ÇÇà ¹æ¹ý - ¸éÁ¢°üÀÌ Á÷Á¢ ÄÚµå¸¦ ½ÇÇàÇØ º¼ ¼ö ÀÖµµ·Ï ½ÇÇà ¹æ¹ý ¾È³»ÇÏ±â
+    ì½”ë”© ê³¼ì œì—ì„œëŠ” í•„ìˆ˜ ìš”êµ¬ì‚¬í•­ì„ ì •í™•ížˆ ì´í•´í•˜ê³  êµ¬í˜„í•˜ëŠ” ê²ƒì´ ê°€ìž¥ ìš°ì„ ìž…ë‹ˆë‹¤.
+    ê¸°ëŠ¥ì„ ì •í™•í•˜ê²Œ êµ¬í˜„í–ˆëŠ”ì§€ í™•ì¸í•  ìˆ˜ ìžˆëŠ” ê°€ìž¥ ì¢‹ì€ ë°©ë²•ì€ ë°”ë¡œ í…ŒìŠ¤íŠ¸ ì½”ë“œë¥¼ í†µí•œ ê²€ì¦ìž…ë‹ˆë‹¤.
+    ì½”ë“œì™€ í…ŒìŠ¤íŠ¸ë¥¼ ë‹¤ ìž‘ì„±í•œ ë’¤ì—ëŠ” ë‹¤ì‹œ í•œë²ˆ ì½”ë“œë¥¼ ì½ì–´ë³´ë©° ë” ê°œì„ í•  ë¶€ë¶„ì€ ì—†ëŠ”ì§€ ì ê²€í•˜ê³ , ì½”ë“œì˜ ê°€ë…ì„±ê³¼ íš¨ìœ¨ì„±ì— ì§‘ì¤‘í•´ì„œ ë¦¬íŒ©í† ë§ í•´ ë³´ì„¸ìš”.
+    README ìž‘ì„±í•˜ê¸°
+        í”„ë¡œì íŠ¸ êµ¬ì„± - ì „ì²´ êµ¬ì¡°ë¥¼ ì–´ë–»ê²Œ ì„¤ê³„í–ˆëŠ”ì§€ ì„¤ëª…í•˜ê¸° (í•„ìš”ì— ë”°ë¼ ê·¸ëž˜í”„ë‚˜ ë‹¤ì´ì•„ê·¸ëž¨ í™œìš©)
+        ê¸°ëŠ¥ ëª©ë¡ - ìš”êµ¬ì‚¬í•­ì„ ë‹¤ì‹œ í•œ ë²ˆ ìš”ì•½í•˜ê³ , ê° ê¸°ëŠ¥ì„ ì–´ë–»ê²Œ êµ¬í˜„í–ˆëŠ”ì§€ ì„¤ëª…í•˜ê¸°
+        ì‚¬ìš©í•œ ê¸°ìˆ  ìŠ¤íƒ ë° ë¼ì´ë¸ŒëŸ¬ë¦¬ - ì–´ë–¤ ì–¸ì–´ì™€ ë²„ì „ì„ ì‚¬ìš©í–ˆëŠ”ì§€ (ì˜ˆì œ: Java 11), ì™¸ë¶€ ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ì‚¬ìš©í–ˆë‹¤ë©´ ì–´ë–¤ ê¸°ì¤€ìœ¼ë¡œ ì„ íƒí•´ ì‚¬ìš©í–ˆëŠ”ì§€ ëª…ì‹œí•˜ê¸°
+        ì½”ë“œ ì‹¤í–‰ ë°©ë²• - ë©´ì ‘ê´€ì´ ì§ì ‘ ì½”ë“œë¥¼ ì‹¤í–‰í•´ ë³¼ ìˆ˜ ìžˆë„ë¡ ì‹¤í–‰ ë°©ë²• ì•ˆë‚´í•˜ê¸°
 
 
 
-** @Valid ¿Í @Validated ¸¦ ÀÌ¿ëÇÑ À¯È¿¼º °ËÁõÀÇ µ¿ÀÛ ¿ø¸® ¹× »ç¿ë¹ý ¿¹½Ã
+** @Valid ì™€ @Validated ë¥¼ ì´ìš©í•œ ìœ íš¨ì„± ê²€ì¦ì˜ ë™ìž‘ ì›ë¦¬ ë° ì‚¬ìš©ë²• ì˜ˆì‹œ
     https://mangkyu.tistory.com/174
 
-    @Validated ¸¦ »ç¿ëÇÏ¸é ÄÁÆ®·Ñ·¯, ¼­ºñ½º, ·¹Æ÷ÁöÅä¸® µî °èÃþ¿¡ ¹«°üÇÏ°Ô ½ºÇÁ¸µ ºóÀÌ¶ó¸é À¯È¿¼º °ËÁõÀ» ÁøÇàÇÒ ¼ö ÀÖ´Ù.
-    ´ë½Å Å¬·¡½º¿¡´Â À¯È¿¼º °ËÁõ AOP °¡ Àû¿ëµÇµµ·Ï @Validated ¸¦, °ËÁõÀ» ÁøÇàÇÒ ¸Þ¼Òµå¿¡´Â @Valid ¸¦ ¼±¾ðÇØÁÖ¾î¾ß ÇÑ´Ù.
+    @Validated ë¥¼ ì‚¬ìš©í•˜ë©´ ì»¨íŠ¸ë¡¤ëŸ¬, ì„œë¹„ìŠ¤, ë ˆí¬ì§€í† ë¦¬ ë“± ê³„ì¸µì— ë¬´ê´€í•˜ê²Œ ìŠ¤í”„ë§ ë¹ˆì´ë¼ë©´ ìœ íš¨ì„± ê²€ì¦ì„ ì§„í–‰í•  ìˆ˜ ìžˆë‹¤.
+    ëŒ€ì‹  í´ëž˜ìŠ¤ì—ëŠ” ìœ íš¨ì„± ê²€ì¦ AOP ê°€ ì ìš©ë˜ë„ë¡ @Validated ë¥¼, ê²€ì¦ì„ ì§„í–‰í•  ë©”ì†Œë“œì—ëŠ” @Valid ë¥¼ ì„ ì–¸í•´ì£¼ì–´ì•¼ í•œë‹¤.
 
 
 
-3. µî°¡ ºñ±³ °¡´É
-- °ª ³¢¸®´Â µ¿ÀÏ¼º, µ¿µî¼º ºñ±³°¡ °¡´ÉÇÏ´Ù
-µ¿ÀÏ¼º(Identity) ºñ±³: ÂüÁ¶°ª ºñ±³, == ºñ±³ (JAVA ±âº» primitive Å¸ÀÔ)
-µ¿µî¼º(Equivalance) ºñ±³: ³»ºÎ °ª ºñ±³, equals() (ÀÌ¿Ü ³ª¸ÓÁö)
-(µ¿µî½Ì ¹ö±³¸¦ ÇÏ±â À§ÇØ¼­´Â equals ¸Þ¼Òµå¸¦ º°µµ·Î ¿À¹ö¶óÀÌµù ÇØ¾ßÇÑ´Ù.)
+3. ë“±ê°€ ë¹„êµ ê°€ëŠ¥
+- ê°’ ë¼ë¦¬ëŠ” ë™ì¼ì„±, ë™ë“±ì„± ë¹„êµê°€ ê°€ëŠ¥í•˜ë‹¤
+ë™ì¼ì„±(Identity) ë¹„êµ: ì°¸ì¡°ê°’ ë¹„êµ, == ë¹„êµ (JAVA ê¸°ë³¸ primitive íƒ€ìž…)
+ë™ë“±ì„±(Equivalance) ë¹„êµ: ë‚´ë¶€ ê°’ ë¹„êµ, equals() (ì´ì™¸ ë‚˜ë¨¸ì§€)
+(ë™ë“±ì‹± ë²„êµë¥¼ í•˜ê¸° ìœ„í•´ì„œëŠ” equals ë©”ì†Œë“œë¥¼ ë³„ë„ë¡œ ì˜¤ë²„ë¼ì´ë”© í•´ì•¼í•œë‹¤.)
 
-++ Åä¸· »ó½Ä ++
-¿Ö IDE¿¡¼­´Â equals() ¸Þ¼Òµå¸¦ ¿À¹ö¸®ÀÌµù ÇÒ ¶§ hashCode() ¸Þ¼Òµåµµ °°ÀÌ ¸¸µé¾îÁÙ±î?
-- hash°ªÀ» »ç¿ëÇÏ´Â ÄÃ·º¼Ç(HashMap, HashSet µî)Àº °´Ã¼°¡ µ¿ÀÏÇÑÁö¸¦ ÆÇº°ÇÒ ¶§ hashCode() ¸Þ¼Òµå¸¦ ¸ÕÀú »ç¿ëÇÏ°í, °°Àº °æ¿ì¿¡¸¸ equals() ¸Þ¼Òµå·Ñ »ç¿ëÇÏ±â ¶§¹®ÀÌ´Ù.
-- µû¶ó¼­ hashCode() ¸Þ¼Òµå°¡ Á¤ÀÇ°¡ ¾ÈµÇ¾îÀÖÀ¸¸é equals() ¸Þ¼Òµå°¡ true¸¦ ¹ÝÈ¯ÇÑ´Ù ÇØµµ ±× ÀÌÀü¿¡ hashCode() ¸Þ¼Òµå¿¡¼­ false°¡ ³ª¹ö¸®±â ¶§¹®¿¡ µÎ °´Ã¼¸¦ ¼­·Î ´Ù¸¥ °´Ã¼·Î ÀÎ½ÄÇÏ°Ô µÈ´Ù
-(µû·Î hashCode ¸Þ¼Òµå¸¦ Á¤ÀÇÇÏÁö ¾ÊÀ¸¸é Object¿¡ Á¤ÀÇµÈ hashCode(), °´Ã¼ÀÇ °íÀ¯ÇÑ ÁÖ¼Ò °ªÀ» º¯È¯ ÈÄ ¸®ÅÏÇÔ)
-* equals()·Î ºñ±³ÇÑ µÎ °´Ã¼°¡ µ¿ÀÏÇÏ´Ù¸é hashCode() °ªµµ °°¾Æ¾ß ÇÑ´Ù
+++ í† ë§‰ ìƒì‹ ++
+ì™œ IDEì—ì„œëŠ” equals() ë©”ì†Œë“œë¥¼ ì˜¤ë²„ë¦¬ì´ë”© í•  ë•Œ hashCode() ë©”ì†Œë“œë„ ê°™ì´ ë§Œë“¤ì–´ì¤„ê¹Œ?
+- hashê°’ì„ ì‚¬ìš©í•˜ëŠ” ì»¬ë ‰ì…˜(HashMap, HashSet ë“±)ì€ ê°ì²´ê°€ ë™ì¼í•œì§€ë¥¼ íŒë³„í•  ë•Œ hashCode() ë©”ì†Œë“œë¥¼ ë¨¼ì € ì‚¬ìš©í•˜ê³ , ê°™ì€ ê²½ìš°ì—ë§Œ equals() ë©”ì†Œë“œë¡¤ ì‚¬ìš©í•˜ê¸° ë•Œë¬¸ì´ë‹¤.
+- ë”°ë¼ì„œ hashCode() ë©”ì†Œë“œê°€ ì •ì˜ê°€ ì•ˆë˜ì–´ìžˆìœ¼ë©´ equals() ë©”ì†Œë“œê°€ trueë¥¼ ë°˜í™˜í•œë‹¤ í•´ë„ ê·¸ ì´ì „ì— hashCode() ë©”ì†Œë“œì—ì„œ falseê°€ ë‚˜ë²„ë¦¬ê¸° ë•Œë¬¸ì— ë‘ ê°ì²´ë¥¼ ì„œë¡œ ë‹¤ë¥¸ ê°ì²´ë¡œ ì¸ì‹í•˜ê²Œ ëœë‹¤
+(ë”°ë¡œ hashCode ë©”ì†Œë“œë¥¼ ì •ì˜í•˜ì§€ ì•Šìœ¼ë©´ Objectì— ì •ì˜ëœ hashCode(), ê°ì²´ì˜ ê³ ìœ í•œ ì£¼ì†Œ ê°’ì„ ë³€í™˜ í›„ ë¦¬í„´í•¨)
+* equals()ë¡œ ë¹„êµí•œ ë‘ ê°ì²´ê°€ ë™ì¼í•˜ë‹¤ë©´ hashCode() ê°’ë„ ê°™ì•„ì•¼ í•œë‹¤
 
 
-** Intellij http ¸¦ ÅëÇØ api ¸¦ Å×½ºÆ®
+** Intellij http ë¥¼ í†µí•´ api ë¥¼ í…ŒìŠ¤íŠ¸
     https://sihyung92.oopy.io/etc/intellij/2
 
-***** @ControllerAdvice À» ÀÌ¿ëÇÑ Exception Ã³¸®
+***** @ControllerAdvice ì„ ì´ìš©í•œ Exception ì²˜ë¦¬
     https://bamdule.tistory.com/92
 
-***** Spring ÀÇ ´Ù¾çÇÑ ¿¹¿Ü Ã³¸® ¹æ¹ý(ExceptionHandler, ControllerAdvice µî) ¿Ïº®ÇÏ°Ô ÀÌÇØÇÏ±â
+***** Spring ì˜ ë‹¤ì–‘í•œ ì˜ˆì™¸ ì²˜ë¦¬ ë°©ë²•(ExceptionHandler, ControllerAdvice ë“±) ì™„ë²½í•˜ê²Œ ì´í•´í•˜ê¸°
     https://mangkyu.tistory.com/204
 
-***** @RestControllerAdvice ¸¦ ÀÌ¿ëÇÑ Spring ¿¹¿Ü Ã³¸® ¹æ¹ý
+***** @RestControllerAdvice ë¥¼ ì´ìš©í•œ Spring ì˜ˆì™¸ ì²˜ë¦¬ ë°©ë²•
     https://mangkyu.tistory.com/205
 
-** REST API ¸¦ ¼³°èÇÒ ¶§ ¸í½ÉÇØ¾ß ÇÒ ¸ð¹ü »ç·Ê
+** REST API ë¥¼ ì„¤ê³„í•  ë•Œ ëª…ì‹¬í•´ì•¼ í•  ëª¨ë²” ì‚¬ë¡€
     https://www.freecodecamp.org/korean/news/rest-api-mobeom-sarye-rest-endeupointeu-seolgye-yesi/
 
-** RESTful API ¼³°è °¡ÀÌµå
+** RESTful API ì„¤ê³„ ê°€ì´ë“œ
     https://sanghaklee.tistory.com/57
 
-** REST / REST API °³³ä°ú Àû¿ë + ÄÚµå ¿¹Á¦ (SpringBoot ±â¹Ý)
+** REST / REST API ê°œë…ê³¼ ì ìš© + ì½”ë“œ ì˜ˆì œ (SpringBoot ê¸°ë°˜)
     https://creamilk88.tistory.com/184
 
-** Ajax Åë½ÅÀ» È°¿ëÇÑ json µ¥ÀÌÅÍ ºÒ·¯¿À±â(get ¹æ½Ä)
+** Ajax í†µì‹ ì„ í™œìš©í•œ json ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°(get ë°©ì‹)
     https://programmings.tistory.com/12
 
 ** ajax html
     https://yejip.com/web/2020-12-14-ajax1/
 
-** @PathVariable »ç¿ëÇÏ´Â ÀÌÀ¯
+** @PathVariable ì‚¬ìš©í•˜ëŠ” ì´ìœ 
     https://okky.kr/questions/826596
 
-** È°¼º ÇÁ·ÎÆÄÀÏ(Profile)ÀÇ °ü¸®¸¦ À§ÇÑ @Profile °ú @ActiveProfiles
+** í™œì„± í”„ë¡œíŒŒì¼(Profile)ì˜ ê´€ë¦¬ë¥¼ ìœ„í•œ @Profile ê³¼ @ActiveProfiles
     https://mangkyu.tistory.com/178
 
 * DDD
     https://velog.io/@dnflekf2748/DDDDomain-Driven-Design
 
-* DDD ÇÐ½À ÀÚ·á ¸ðÀ½
+* DDD í•™ìŠµ ìžë£Œ ëª¨ìŒ
     https://java-boy.tistory.com/91
 
-* DDD - #2 ¾ÆÅ°ÅØÃ³
+* DDD - #2 ì•„í‚¤í…ì²˜
     https://stylishc.tistory.com/144
 
-* DTO ¿Í Domain Model À» ºÐ¸®ÇØ¾ß ÇÏ´Â ÀÌÀ¯
+* DTO ì™€ Domain Model ì„ ë¶„ë¦¬í•´ì•¼ í•˜ëŠ” ì´ìœ 
     https://umbum.dev/1206?category=1062058
 
-* DTO <-> Entity °£ º¯È¯, ¾î´À Layer¿¡¼­ ÇÏ´Â°Ô ÁÁÀ»±î?
+* DTO <-> Entity ê°„ ë³€í™˜, ì–´ëŠ Layerì—ì„œ í•˜ëŠ”ê²Œ ì¢‹ì„ê¹Œ?
     https://velog.io/@jsb100800/Spring-boot-DTO-Entity-%EA%B0%84-%EB%B3%80%ED%99%98-%EC%96%B4%EB%8A%90-Layer%EC%97%90%EC%84%9C-%ED%95%98%EB%8A%94%EA%B2%8C-%EC%A2%8B%EC%9D%84%EA%B9%8C
 
-* µð·ºÅÍ¸® ÆÐÅ°Áö ±¸Á¶ÀÇ ¼±ÅÃ
+* ë””ë ‰í„°ë¦¬ íŒ¨í‚¤ì§€ êµ¬ì¡°ì˜ ì„ íƒ
     https://velog.io/@jsb100800/Spring-boot-directory-package
 
-* ºô´õ ÆÐÅÏ
+* ë¹Œë” íŒ¨í„´
     https://johngrib.github.io/wiki/pattern/builder/
 
-    @Builder ¸¦ Å¬·¡½º¿¡ ´Þ¾ÆÁÖ¸é @AllArgsConstructor µµ °°ÀÌ ´Þ¾ÆÁÖ´Â °Í°ú °°±â ¶§¹®¿¡ ¹Ù¶÷Á÷ÇÏÁö ¾Ê´Ù.
-    °¡±ÞÀû Á÷Á¢ ¸¸µç »ý¼ºÀÚ¿¡ ´Þ¾ÆÁÖ´Â °ÍÀÌ ³´´Ù. ³ª´Â È¸»ç¿¡¼­ ÄÚµùÇÒ ¶§¿¡´Â Àý´ë·Î @Builder ¸¦ Å¬·¡½º¿¡ ´Þ¾ÆÁÖÁö ¾Ê´Â´Ù.
+    @Builder ë¥¼ í´ëž˜ìŠ¤ì— ë‹¬ì•„ì£¼ë©´ @AllArgsConstructor ë„ ê°™ì´ ë‹¬ì•„ì£¼ëŠ” ê²ƒê³¼ ê°™ê¸° ë•Œë¬¸ì— ë°”ëžŒì§í•˜ì§€ ì•Šë‹¤.
+    ê°€ê¸‰ì  ì§ì ‘ ë§Œë“  ìƒì„±ìžì— ë‹¬ì•„ì£¼ëŠ” ê²ƒì´ ë‚«ë‹¤. ë‚˜ëŠ” íšŒì‚¬ì—ì„œ ì½”ë”©í•  ë•Œì—ëŠ” ì ˆëŒ€ë¡œ @Builder ë¥¼ í´ëž˜ìŠ¤ì— ë‹¬ì•„ì£¼ì§€ ì•ŠëŠ”ë‹¤.
