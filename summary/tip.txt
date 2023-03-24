@@ -38,6 +38,9 @@ https://mangkyu.tistory.com/242
 ***** inpa dev *****
     https://inpa.tistory.com/
 
+***** 코딩 공부 일지 *****
+    https://cocoon1787.tistory.com/746
+
 ** if-else 를 사용하지 않는 유연한 팩토리 클래스 구현하기
     https://mangkyu.tistory.com/252
 
@@ -176,3 +179,6 @@ https://mangkyu.tistory.com/242
 
     @Builder 를 클래스에 달아주면 @AllArgsConstructor 도 같이 달아주는 것과 같기 때문에 바람직하지 않다.
     가급적 직접 만든 생성자에 달아주는 것이 낫다. 나는 회사에서 코딩할 때에는 절대로 @Builder 를 클래스에 달아주지 않는다.
+
+- Spring Boot + Thymeleaf + Bootstrap 5 + gradle
+    https://helloworld-japan.tistory.com/17

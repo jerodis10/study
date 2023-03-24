@@ -710,3 +710,6 @@
     @ParameterizedTest?
 
      @ColumnDefault("0")
+
+
+     https://happyer16.tistory.com/entry/Spring-Boot-Test-%EC%A2%85%ED%95%A9-%EC%A0%95%EB%A6%AC
