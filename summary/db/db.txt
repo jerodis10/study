@@ -499,6 +499,11 @@
               Social networks, Network diagrams 등에 사용할 수 있다.
             Ex) Neo4j, BlazeGraph, OrientDB
 
+***** querydsl 성능개선
+    https://www.youtube.com/watch?v=zMAX7g6rO_Y&t=295s
+
+
+
 - 마이바티스
     http://125.132.25.164/dokuwiki/doku.php?id=wiki:spring:mybatis
 - DML, DDL, DCL
