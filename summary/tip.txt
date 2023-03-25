@@ -47,6 +47,12 @@ https://mangkyu.tistory.com/242
 ** 스프링이 제공하는 다양한 유틸성 클래스들(StringUtils, PatternMatchUtils, ReflectionUtils 등)
     https://mangkyu.tistory.com/238
 
+* 디폴트 코드 스타일 변경
+    https://iamtaehoon.tistory.com/191
+
+* 유용한 플러그인
+    https://code-boki.tistory.com/4
+
 - 과제 전형
     - rest api
     - 디자인 패턴
