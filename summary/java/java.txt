@@ -11,7 +11,9 @@
     그외는 Runnable 구현
 
 - 자바의 모든 클래스는 Object 클래스를 상속받습니다. 그리고 Object 클래스에는 equals() 와 hashCode() 라는 메소드가 선언되어 있습니다.
-  이 메소드들은 각각 어떤 역할일까요? 이 둘의 차이점은 무엇일까요?   https://hyeran-story.tistory.com/123
+  이 메소드들은 각각 어떤 역할일까요? 이 둘의 차이점은 무엇일까요?
+    ***** https://hyeran-story.tistory.com/123
+          https://jojoldu.tistory.com/134
     - equals()란?
         - equals 메소드는 기본적으로 2개의 객체가 동일한지 검사하기 위해 사용
         - 2개의 객체가 참조하는 것이 동일한지를 확인하는 것이며, 이는 동일성(Identity)을 비교하는 것
@@ -56,6 +58,8 @@
 
     - 만약 ORM 을 사용하고 있는 경우라면, hashCode 와 equals 를 오버라이드 하는 메소드 내부에서 Getter 를 사용하기를 권장한다.
       그 이유는 ORM 에 의해 fields 가 Lazy Loaded 되어, getter 를 부르기 전에는 사용이 불가능할 수 있기 때문이다.
+    - 단, equals 와 hashCode 는 모두 VO(Value Object)에서만 사용하는 것을 권장합니다.
+      값을 나타내는 것 외에 기능을 갖고 있는 인스턴스에서는 문제가 발생할 여지가 많아 웬만해선 사용하지 않는 것을 권장합니다.
 
     - HashMap 내부 구현
         - 해싱함수를 통해 인덱스를 산출
@@ -753,7 +757,22 @@
 
 
 * Java HashMap 은 어떻게 동작하는가?
-https://d2.naver.com/helloworld/831311
+    https://d2.naver.com/helloworld/831311
+
+* java 8 디폴트 메서드
+    추상클래스의 한계 - 추상클래스는 단일 상속을 원칙으로 한다.
+                     상속의 가장 큰 문제점은 캡슐화를 위반한다는 것과 설계가 유연하지 않다는 것.
+                     코드의 재사용을 위해서는 상속이 아니라 합성을 사용하는 것이 바람직하고 상속은 타입 계층을 구조화하기 위해 사용해야 한다.
+    -> Java 8 부터는 인터페이스에도 메서드 선언뿐만 아니라 default method 와 static method 를 통해 구현이 가능해졌다.
+
+    https://velog.io/@neity16/Java-8-%EA%B8%B0%EB%B3%B8-%EB%A9%94%EC%86%8C%EB%93%9C-Stream
+    https://dev-youngjun.tistory.com/192
+
+- 자바 어노테이션
+    - 컴파일러에게 코드 작성 문법 에러를 체크하도록 정보 제공
+    - 빌드나 배치시 코드를 자동으로 생성할 수 있도록 정보 제공
+    - 런타임시 특정 기능을 실행하도록 정보 제공
+
 
 - RestTemplate
 
