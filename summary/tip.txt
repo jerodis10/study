@@ -41,6 +41,28 @@ https://mangkyu.tistory.com/242
 ***** 코딩 공부 일지 *****
     https://cocoon1787.tistory.com/746
 
+***** 후디 블로그 *****
+    https://hudi.blog/do-not-use-system-out-println-for-logging/
+
+***** 다람쥐 블로그 *****
+    https://itchipmunk.tistory.com/437
+
+** 멀티모듈 관련
+    https://techblog.woowahan.com/10600/
+
+** Spring Boot Data Jpa 프로젝트에 Querydsl 적용하기
+    https://jojoldu.tistory.com/372
+
+** JPA repository
+    https://techblog.woowahan.com/8357/
+
+** 우아한형제들 파일럿 프로젝트
+    https://techblog.woowahan.com/7828/
+
+** Spring REST Docs에 날개를..
+    https://techblog.woowahan.com/2678/
+
+
 ***** 이벤트 기반 아키텍처 구성
     https://techblog.woowahan.com/7835/
     https://www.youtube.com/watch?v=BnS6343GTkY
