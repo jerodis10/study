@@ -54,6 +54,8 @@ https://mangkyu.tistory.com/242
     https://gwonsungjun.github.io/articles/2019-04/gradle_multi_module
     https://kwonnam.pe.kr/wiki/gradle/multiproject
 
+***** 대용량 트래픽을 처리 할 수 있는 Server Architecture Designs
+
 ** Spring Boot Data Jpa 프로젝트에 Querydsl 적용하기
     https://jojoldu.tistory.com/372
 
