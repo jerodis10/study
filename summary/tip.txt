@@ -47,8 +47,12 @@ https://mangkyu.tistory.com/242
 ***** 다람쥐 블로그 *****
     https://itchipmunk.tistory.com/437
 
-** 멀티모듈 관련
+***** 멀티모듈 관련
     https://techblog.woowahan.com/10600/
+    https://explored.tistory.com/18
+    https://velog.io/@sangwoo0727/Gradle%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A9%80%ED%8B%B0-%EB%AA%A8%EB%93%88
+    https://gwonsungjun.github.io/articles/2019-04/gradle_multi_module
+    https://kwonnam.pe.kr/wiki/gradle/multiproject
 
 ** Spring Boot Data Jpa 프로젝트에 Querydsl 적용하기
     https://jojoldu.tistory.com/372
