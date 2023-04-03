@@ -53,13 +53,6 @@ https://mangkyu.tistory.com/242
     https://velog.io/@sangwoo0727/Gradle%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%A9%80%ED%8B%B0-%EB%AA%A8%EB%93%88
     https://gwonsungjun.github.io/articles/2019-04/gradle_multi_module
     https://kwonnam.pe.kr/wiki/gradle/multiproject
-    https://cjw-awdsd.tistory.com/55
-
-    의존성을 숨기는 방법은 gradle 에서 compile 에서 implementation 으로 변경하면 된다.
-    보호하거나 숨겨야 할 모듈을 위의 방법으로 제약을 주면, 코드 상에서 참조가 되지 않는다.
-
-***** DTO 분리 관련
-    https://techblog.woowahan.com/7828/
 
 ***** 대용량 트래픽을 처리 할 수 있는 Server Architecture Designs
 
@@ -75,18 +68,10 @@ https://mangkyu.tistory.com/242
 ** Spring REST Docs에 날개를..
     https://techblog.woowahan.com/2678/
 
-***** 일급컬렉션
-    https://jojoldu.tistory.com/412
-
-@Table(name = "review", indexes = {
-        @Index(name = "id", columnList = "id")
-
 
 ***** 이벤트 기반 아키텍처 구성
     https://techblog.woowahan.com/7835/
     https://www.youtube.com/watch?v=BnS6343GTkY
-
-* 테스트를 작성할 때는 최대한 예외케이스부터, 해피 케이스 순으로 다양한 경우를 커버하는 테스트가 중요
 
 ** modern java
     https://codingsquirrel.tistory.com/158
@@ -282,3 +267,25 @@ Microservices 패턴이 유행하고 있지만 단지 모듈 관계에 HTTP 요�
 
 - Spring Boot + Thymeleaf + Bootstrap 5 + gradle
     https://helloworld-japan.tistory.com/17
+
+
+1. VOC 등록 (귀책 설정)
+    1.1 고객사 귀책
+        - 배상 정보 등록 (POST)
+
+    1.2 기사 귀책
+        - 패널티 등록 (POST)
+        - 배송기사의 패널티 확인 여부 'Y'로 update (PATCH)
+            - 귀책 인정
+                - 배상 정보 등록 (POST)
+            - 귀책 불인정
+                - 해당 VOC 이의제기 여부 'Y'로 update (PATCH)
+
+2. VOC 목록 조회 (GET)
+
+3. 배상 목록 조회 (GET)
+
+* 테이블 구조
+    VOC
+     - 패널티
+     - 배상 정보

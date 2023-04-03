@@ -1,0 +1,2 @@
+- fetch join
+    https://jojoldu.tistory.com/457
