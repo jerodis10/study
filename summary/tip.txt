@@ -267,3 +267,21 @@ Microservices 패턴이 유행하고 있지만 단지 모듈 관계에 HTTP 요�
 
 - Spring Boot + Thymeleaf + Bootstrap 5 + gradle
     https://helloworld-japan.tistory.com/17
+
+* Querydsl-활용법
+    https://velog.io/@youngerjesus/%EC%9A%B0%EC%95%84%ED%95%9C-%ED%98%95%EC%A0%9C%EB%93%A4%EC%9D%98-Querydsl-%ED%99%9C%EC%9A%A9%EB%B2%95
+
+* sql 최적화
+    https://d2.naver.com/helloworld/1155
+
+* mysql 커버링 인덱스
+    https://gywn.net/2012/04/mysql-covering-index/https://gywn.net/2012/04/mysql-covering-index/
+
+* Querydsl Select 필드로 Entity 사용시 주의 사항
+    https://jojoldu.tistory.com/518
+
+* JPA 도입 — OneToOne 관계에서의 LazyLoading
+    https://yongkyu-jang.medium.com/jpa-%EB%8F%84%EC%9E%85-onetoone-%EA%B4%80%EA%B3%84%EC%97%90%EC%84%9C%EC%9D%98-lazyloading-%EC%9D%B4%EC%8A%88-1-6d19edf5f4d3
+
+* JPAQueryFactory
+    https://devfunny.tistory.com/845
