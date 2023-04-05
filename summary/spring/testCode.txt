@@ -732,4 +732,11 @@ Repository : (querydsl같은) custom한 repository에 대한 쿼리 테스트
 그 외 도메인, 유틸 클래스 등 단위 테스트
 
 
-     https://happyer16.tistory.com/entry/Spring-Boot-Test-%EC%A2%85%ED%95%A9-%EC%A0%95%EB%A6%AC
+  https://happyer16.tistory.com/entry/Spring-Boot-Test-%EC%A2%85%ED%95%A9-%EC%A0%95%EB%A6%AC
+
+
+***** Effective Unit Testing -> 위 테스트의 전반적인 이야기를 예제코드와 함께 잘 소개
+    http://www.yes24.com/Product/goods/11361087?scode=032&OzSrank=1
+
+
+

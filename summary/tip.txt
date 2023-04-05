@@ -285,3 +285,52 @@ Microservices 패턴이 유행하고 있지만 단지 모듈 관계에 HTTP 요�
 
 * JPAQueryFactory
     https://devfunny.tistory.com/845
+
+** [대규모 시스템 설계] 처리율 제한 장치
+    https://keepbang.tistory.com/40
+
+** 멀티모듈 의존성
+    core의 의존성을 compile로 선언한 이유
+    위에서 core 의존성을 추가할 때 compile을 사용했는데 그 이유는 implementation은 직접 의존하는 모듈(core)외에서는 사용할 수 없기 때문이다.
+    즉 core의 spring-boot-starter를 implementation으로 선언할 경우 api에서는 spring-boot-starter를 가져오지 않는다.
+
+    7.0버전 이상부터는 api 키워드를 사용할 수 있다. api는 compile이랑 비슷한 키워드라 생각하면 된다.
+    만약 gradle 버전을 올리고 싶다면 root 프로젝트 위치에서 해당 명령어를 통해 gradle 버전을 변경할 수 있다.
+
+    api를 사용하기 위해서는 root build.gradle의 subprojects의 다음을 수정해준다.
+    apply plugin:’java’ → apply plugin:’java-library’
+    그리고 다음처럼 의존성을 추가하면 된다.
+
+    bootJar, jar
+    core 모듈의 경우 main 메서드 없이 라이브러리 역할을 하는 모듈이므로 BootJar이 아닌 jar파일로 생성되고 다른 프로젝트에 첨부될 것입니다.
+    따라서 bootJar은 false, jar은 true로 설정합니다.
+    implementation vs api
+    api는 compile이 deprecated되고 대체된 방식입니다.
+    implementation은 하위 의존에 대한 접근을 제한하고 api는 공개합니다.
+
+    C Module에서 implementation을 사용해서 B를 사용했기 때문에 B에서 제공하는 기능만 사용 가능하고 B 모듈에서 가져온 다른 의존성에 대해서는 접근할 수 없습니다.
+    C -> B -> A 에서 B까지만 접근할 수 있다는 의미입니다.
+    그래서 보통 개발할 때 domain 모듈 계층을 최종으로 조합하여 사용하는 어플리케이션 모듈 계층에서는 implementation을 사용하고, 그 외 계층에서는 api 방식을 사용하여 개발합니다.
+
+
+    https://cjw-awdsd.tistory.com/55
+    https://livenow14.tistory.com/79
+    https://backtony.github.io/spring/2022-06-02-spring-module-1/
+
+** 도메인 주도 설계 구현과 핵심 개념 익히기
+    http://www.yes24.com/Product/Goods/27750871
+
+***** Event Driven Architecture란?
+    https://medium.com/dtevangelist/event-driven-microservice-%EB%9E%80-54b4eaf7cc4a
+
+** 스프링 이벤트 기능을 사용할 때의 고려할 점
+    https://findstar.pe.kr/2022/09/17/points-to-consider-when-using-the-Spring-Events-feature/
+
+** [Spring] 스프링 이벤트를 활용하여 서비스 간의 의존성 제거하기
+    https://wisdom-and-record.tistory.com/133
+
+** 도메인 지식 탐구를 위한 이벤트 스토밍 Event Storming
+    https://www.youtube.com/watch?v=hUcpv5fdCIk
+
+** Spring Event 정리
+    https://steady-coding.tistory.com/633
