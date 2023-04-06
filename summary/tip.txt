@@ -268,7 +268,7 @@ Microservices 패턴이 유행하고 있지만 단지 모듈 관계에 HTTP 요�
 - Spring Boot + Thymeleaf + Bootstrap 5 + gradle
     https://helloworld-japan.tistory.com/17
 
-* Querydsl-활용법
+* Querydsl-활용법 (2020 우아한테크콘서트 수십억건에서 Querydsl 사용하기)
     https://velog.io/@youngerjesus/%EC%9A%B0%EC%95%84%ED%95%9C-%ED%98%95%EC%A0%9C%EB%93%A4%EC%9D%98-Querydsl-%ED%99%9C%EC%9A%A9%EB%B2%95
 
 * sql 최적화
@@ -334,3 +334,76 @@ Microservices 패턴이 유행하고 있지만 단지 모듈 관계에 HTTP 요�
 
 ** Spring Event 정리
     https://steady-coding.tistory.com/633
+
+** 모던 자바8
+    https://www.moreagile.net/2015/12/modernjava4.html
+
+** 이벤트 드리븐 적재적소에 사용하기
+    https://tech.kakaopay.com/post/event-driven-architecture/
+
+** 우아한 형제들 기술 블로그 이벤트 드리븐 관련 (파일럿 프로젝트)
+    https://techblog.woowahan.com/7835/
+    https://techblog.woowahan.com/10600/
+
+** 우아한 세미나 멀티모듈
+    https://hyeon9mak.github.io/woowahan-multi-module/
+
+** 스프링 이벤트 3 - 이벤트 부가 기능 적용
+    https://ivvve.github.io/2019/06/04/java/Spring/event-listener-3/
+
+** Async 를 이용하여 eventListener 사용하기
+    https://leeheefull.tistory.com/25
+
+** Transaction 을 주의하여 async 사용하기
+    https://leeheefull.tistory.com/15
+
+** spring @Async 사용하기
+    https://king-veloper.tistory.com/15
+
+** Async-Annotation비동기-메소드-사용하기
+    https://velog.io/@gillog/Spring-Async-Annotation%EB%B9%84%EB%8F%99%EA%B8%B0-%EB%A9%94%EC%86%8C%EB%93%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+
+** 비동기, 이벤트를 곁들인
+    https://tecoble.techcourse.co.kr/post/2021-07-31-email-async-event/
+
+** Spring Event + Async + AOP 적용해보기
+    https://supawer0728.github.io/2018/03/24/spring-event/
+
+***** 비관적 락 테스트 코드
+    https://isntyet.github.io/jpa/JPA-%EB%B9%84%EA%B4%80%EC%A0%81-%EC%9E%A0%EA%B8%88(Pessimistic-Lock)/
+
+** JPA 락 종류에 따른 테스트 코드
+    https://ojt90902.tistory.com/723#rp
+
+** 'Spring 6의 새로운 HTTP Interface와 3 가지 REST Clients 라이브 코딩
+    https://sslblog.tistory.com/213
+    https://www.youtube.com/watch?v=Kb37Q5GCyZs
+
+** 스프링 이벤트
+    https://jobc.tistory.com/200
+
+** 스프링 이벤트 테스트
+    https://mandykr.tistory.com/80
+
+***** 스프링 비동기 처리
+    http://dveamer.github.io/java/SpringAsync.html
+
+
+
+- 회원 가입
+    - spring security
+    - jwt
+
+- 로그인
+
+- 내방
+    - 등록
+    - 수정
+    - 삭제
+    - 조회
+        - 내방 하나만 필터링 해서 조회
+        - 내방 목록 조회
+- 전체방
+
+* 조회 paging 기능 구현
+* api 문서 작성 (spring rest docs)
