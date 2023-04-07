@@ -19,3 +19,6 @@ DDD
 
 ***** MVC vs WebFlux 차이점
     https://pearlluck.tistory.com/726
+
+* @ModelAttribute
+    https://minchul-son.tistory.com/546

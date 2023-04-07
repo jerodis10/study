@@ -497,5 +497,6 @@ Microservices 패턴이 유행하고 있지만 단지 모듈 관계에 HTTP 요�
 * Spring Profile을 이용하여 H2와 MySQL를 선택해서 사용
   MySQL(운영), H2(테스트)
 
-
+****** spring security jwt 인증 예시
+    https://ws-pace.tistory.com/82
 

@@ -754,3 +754,14 @@ Repository : (querydsl같은) custom한 repository에 대한 쿼리 테스트
 ******* test code tip
     https://dev.gmarket.com/38
 
+****** 회원가입 test code
+    https://velog.io/@ililil9482/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85-api-%EB%A7%8C%EB%93%A4%EA%B8%B0
+
+******* spring security 적용 로그인
+    https://github.com/sosow0212/ApiStudy/blob/master/src/main/java/self/study/controller/BoardController.java
+
+****** 그저-그런-REST-API로-괜찮은가-진정한-REST-API-구현해보기
+    https://velog.io/@carrykim/%EC%82%AC%EC%9D%B4%EB%93%9C%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B7%B8%EC%A0%80-%EA%B7%B8%EB%9F%B0-REST-API%EB%A1%9C-%EA%B4%9C%EC%B0%AE%EC%9D%80%EA%B0%80-%EC%A7%84%EC%A0%95%ED%95%9C-REST-API-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0-Event-Controller-Event-Exception-Handler
+
+
+    
