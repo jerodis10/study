@@ -1,2 +1,8 @@
 - fetch join
     https://jojoldu.tistory.com/457
+
+- NoArgsConstructor 접근권한을 주지 않았었는데요. JPA에서는 프록시를 생성을 위해서 기본 생성자를 반드시 하나를 생성해야합니다.
+  이때 접근 권한을 AccessLevel.PROTECTED로 설정하여 JPA에서의 Entity 클래스 생성만 허용해줍니다.
+
+- [JPA] Querydsl 에서 Fetch Join 적용 안되는 이유
+    https://elsboo.tistory.com/34

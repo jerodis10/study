@@ -499,6 +499,12 @@
               Social networks, Network diagrams 등에 사용할 수 있다.
             Ex) Neo4j, BlazeGraph, OrientDB
 
+-  릴레이션 키 개념&종류 (슈퍼키,대체키,후보키,기본키,외래키)
+    https://jerryjerryjerry.tistory.com/49
+    https://jhnyang.tistory.com/71
+    https://velog.io/@00yubin00/DB-%ED%82%A4%EC%9D%98-%EC%A2%85%EB%A5%98-%EC%8A%88%ED%8D%BC%ED%82%A4-%ED%9B%84%EB%B3%B4%ED%82%A4-%EA%B8%B0%EB%B3%B8%ED%82%A4-%EB%8C%80%EC%B2%B4%ED%82%A4-%EC%99%B8%EB%9E%98%ED%82%A4
+
+
 ***** querydsl 성능개선
     https://www.youtube.com/watch?v=zMAX7g6rO_Y&t=295s
 
@@ -512,6 +518,10 @@
 - SQL SELECT 쿼리 실행 순서 처리 과정
     https://myjamong.tistory.com/172
     http://www.yes24.com/Product/Goods/6960931
+
+***** Real MySQL 8.0
+    http://www.yes24.com/Product/Goods/103415627
+
 
 - JPA
     - 영속성 컨텍스트 관련 (이점 등)
