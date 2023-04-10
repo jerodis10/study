@@ -500,4 +500,5 @@ Microservices 패턴이 유행하고 있지만 단지 모듈 관계에 HTTP 요�
 ****** spring security jwt 인증 예시
     https://ws-pace.tistory.com/82
 
-
+** jwt 통한 인증
+    https://velog.io/@chas369/JWT%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%9D%B8%EC%A6%9D
