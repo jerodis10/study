@@ -6,3 +6,6 @@
 
 - [JPA] Querydsl 에서 Fetch Join 적용 안되는 이유
     https://elsboo.tistory.com/34
+
+- 읽기 전용 쿼리 성능 최적화
+    https://willseungh0.tistory.com/75
