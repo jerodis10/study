@@ -497,8 +497,49 @@ Microservices 패턴이 유행하고 있지만 단지 모듈 관계에 HTTP 요�
 * Spring Profile을 이용하여 H2와 MySQL를 선택해서 사용
   MySQL(운영), H2(테스트)
 
+******* spring security 예외처리
+    https://bcp0109.tistory.com/303
+
 ****** spring security jwt 인증 예시
     https://ws-pace.tistory.com/82
 
-** jwt 통한 인증
-    https://velog.io/@chas369/JWT%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%9D%B8%EC%A6%9D
+***** Spring Boot OncePerRequestFilter shouldNotFilter Junit
+    https://stackoverflow.com/questions/52902524/spring-boot-onceperrequestfilter-shouldnotfilter-junit
+
+*** jwt filter 예외처리
+    https://sup2is.github.io/2020/03/05/spring-security-login-with-jwt.html
+
+    https://velog.io/@sussa3007/Spring-Spring-Security-JWT-%EC%9E%90%EA%B2%A9-%EC%A6%9D%EB%AA%85-%EB%B0%8F-%EA%B6%8C%ED%95%9C-%EA%B2%80%EC%A6%9D-%EA%B5%AC%ED%98%8403
+    try {
+                Map<String, Object> claims = verifyJws(request);
+                setAuthenticationToContext(claims);
+            } catch (SignatureException se) {
+              request.setAttribute("exception", se);
+            } catch (ExpiredJwtException ee) {
+              request.setAttribute("exception", ee);
+            } catch (Exception e) {
+              request.setAttribute("exception", e);
+            }
+
+
+// Jwt 토큰 유효성 검사
+    public static boolean validateToken(String token) {
+        try {
+            Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token);
+            return true;
+        } catch (SignatureException ex) {
+            log.error("Invalid JWT signature");
+        } catch (MalformedJwtException ex) {
+            log.error("Invalid JWT token");
+        } catch (ExpiredJwtException ex) {
+            log.error("Expired JWT token");
+        } catch (UnsupportedJwtException ex) {
+            log.error("Unsupported JWT token");
+        } catch (IllegalArgumentException ex) {
+            log.error("JWT claims string is empty.");
+        }
+        return false;
+    }
+
+****** 이력관리 테스트 코드
+https://github.com/young891221/blog/blob/master/Hibernate/Spring%20Boot%20%2B%20Envers%EB%A1%9C%20%EC%97%94%ED%8B%B0%ED%8B%B0%20%EC%9D%B4%EB%A0%A5%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0.md
