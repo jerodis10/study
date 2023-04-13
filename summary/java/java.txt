@@ -1086,6 +1086,10 @@
     - 빌드나 배치시 코드를 자동으로 생성할 수 있도록 정보 제공
     - 런타임시 특정 기능을 실행하도록 정보 제공
 
+***** Optional 사용법
+    https://www.daleseo.com/java9-optional/
+    https://mangkyu.tistory.com/203
+
 
 - RestTemplate
 

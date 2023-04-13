@@ -22,3 +22,6 @@ DDD
 
 * @ModelAttribute
     https://minchul-son.tistory.com/546
+
+* PUT vs PATCH
+    https://tecoble.techcourse.co.kr/post/2020-08-17-put-vs-patch/

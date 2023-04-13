@@ -7,6 +7,9 @@ https://mangkyu.tistory.com/242
     - 도메인 주도 설계 및 개발과 도메인 계층(도메인 객체 중심 개발)
         https://mangkyu.tistory.com/160
 
+******* 쉬운코드
+    https://www.youtube.com/@ez.
+
 ***** cs 관련 질문 *****
     https://onejunu.tistory.com/category/CS
 
@@ -546,3 +549,20 @@ https://github.com/young891221/blog/blob/master/Hibernate/Spring%20Boot%20%2B%20
 
 
 ******* 가상 면접 사례로 배우는 대규모 시스템 설계 기초 책
+
+* [HTTP] HTTP 메서드에 관해 아는대로 설명해주세요
+    https://velog.io/@haron/HTTP-%EB%A9%94%EC%84%9C%EB%93%9C%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%84%EB%8A%94%EB%8C%80%EB%A1%9C-%EB%A7%90%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94
+
+
+** station 과제 보완점
+    - Optional 처리
+    - spring rest docs 통한 api 명세서
+    - test code
+        - security
+    - CQRS
+    - 스프링 이벤트
+
+    - 동시성 이슈
+    - 대용량 처리
+    - fetch 조인 고민
+    - 에러 처리 고민

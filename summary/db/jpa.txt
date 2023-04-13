@@ -9,3 +9,6 @@
 
 - 읽기 전용 쿼리 성능 최적화
     https://willseungh0.tistory.com/75
+
+- querydsl pagination (커버링 인덱스)
+    https://jaehoney.tistory.com/333
