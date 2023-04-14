@@ -554,15 +554,5 @@ https://github.com/young891221/blog/blob/master/Hibernate/Spring%20Boot%20%2B%20
     https://velog.io/@haron/HTTP-%EB%A9%94%EC%84%9C%EB%93%9C%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%84%EB%8A%94%EB%8C%80%EB%A1%9C-%EB%A7%90%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94
 
 
-** station 과제 보완점
-    - Optional 처리
-    - spring rest docs 통한 api 명세서
-    - test code
-        - security
-    - CQRS
-    - 스프링 이벤트
-
-    - 동시성 이슈
-    - 대용량 처리
-    - fetch 조인 고민
-    - 에러 처리 고민
+** 인텔리제이 tip
+    https://blog.jetbrains.com/ko/idea/2021/09/10-places-you-don-t-need-to-use-the-mouse-in-intellij-idea/
