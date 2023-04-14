@@ -556,3 +556,35 @@ https://github.com/young891221/blog/blob/master/Hibernate/Spring%20Boot%20%2B%20
 
 ** 인텔리제이 tip
     https://blog.jetbrains.com/ko/idea/2021/09/10-places-you-don-t-need-to-use-the-mouse-in-intellij-idea/
+
+
+****** @RestControllerAdvice를 이용한 Spring 예외 처리 방법
+    https://mangkyu.tistory.com/205
+
+@Getter
+@Builder
+@RequiredArgsConstructor
+public class ErrorResponse {
+
+    private final String code;
+    private final String message;
+
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private final List<ValidationError> errors;
+
+    @Getter
+    @Builder
+    @RequiredArgsConstructor
+    public static class ValidationError {
+
+        private final String field;
+        private final String message;
+
+        public static ValidationError of(final FieldError fieldError) {
+            return ValidationError.builder()
+                    .field(fieldError.getField())
+                    .message(fieldError.getDefaultMessage())
+                    .build();
+        }
+    }
+}
