@@ -504,6 +504,13 @@
     https://jhnyang.tistory.com/71
     https://velog.io/@00yubin00/DB-%ED%82%A4%EC%9D%98-%EC%A2%85%EB%A5%98-%EC%8A%88%ED%8D%BC%ED%82%A4-%ED%9B%84%EB%B3%B4%ED%82%A4-%EA%B8%B0%EB%B3%B8%ED%82%A4-%EB%8C%80%EC%B2%B4%ED%82%A4-%EC%99%B8%EB%9E%98%ED%82%A4
 
+* DDL vs DML vs DCl
+    - DDL : 스키마, 도메인, 테이블, 뷰, 인덱스 등을 정의하거나 결정하는 언어.
+    - DML : 저장된 데이터를 실질적으로 처리하는데 쓰이는 언어.
+    - DCL : 데이터의 보안, 무결성, 수행 제어 등을 정의하는 데 사용
+
+* 조인 순서
+    https://loklee9.tistory.com/96
 
 ***** querydsl 성능개선
     https://www.youtube.com/watch?v=zMAX7g6rO_Y&t=295s
@@ -522,6 +529,8 @@
 ***** Real MySQL 8.0
     http://www.yes24.com/Product/Goods/103415627
 
+* SELECT 쿼리문에서의 문법 순서와 실행 순서
+    https://soo-vely-dev.tistory.com/220
 
 - JPA
     - 영속성 컨텍스트 관련 (이점 등)
