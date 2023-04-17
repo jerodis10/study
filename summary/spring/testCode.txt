@@ -747,6 +747,37 @@ Repository : (querydsl같은) custom한 repository에 대한 쿼리 테스트
         }
     }
 
+- TDD
+    - Junit4와 Junit5의 차이점
+        - Junit4는 junit 라이브러리만 정의하면 되지만 junit5는 3가지의 모듈을 정의해야 한다.
+            - junit platform : 테스트를 실행해주는 런처를 제공(일종의 컨텍스트), TestEngine API 제공(실제 구현체는 별도)
+            - junit jupiter : TestEngine API 구현체
+            - junit vintage : Junit4와 3을 지원하는 TestEngine 구현체
+        - Spring Boot 2.2.0 버전부터 JUnit5가 기본으로 채택
+        - Junit4는 자바5이상, Junit5는 자바 8이상 사용 가능
+        - 어노테이션
+            @Before	@BeforeEach
+            @After 	@AfterEach
+            @BeforeClass	@BeforeAll
+            @AfterClass	@AfterAll
+            @Ignore	@Disabled
+            @RunWith	@ExtendWith
+        - junit5에서는 public 을 사용하지 않아도 된다
+
+    - 좋은 테스트
+        - 좋은 테스트와 커버리즈는 완전별개, 테스트코드를 이상하게 짜놓고 초록불을 보는건 의미가 없음
+          코드가 수정되었을때 만약에 발생하는 오류를 빨리 캐치할 수 있는 코드가 좋은 테스트 코드
+        - 단위, 통합, 인수 테스트 존재
+        - TDD 는 좋은 테스트를 판단하는 척도는 아닌듯(개발자 취향인듯) > 순서와 상관없이 테스트코드를 짜기만 하면 된다고 생각함
+        - 테스트코드만을 봐도 로직을 이해할 수 있도록 좋은 네이밍, 깔끔한 코드작성 등을 지켜야 함
+
+    - 테스트 코드를 어떻게 작성하는지
+        Spring Rest Docs 작성을 위해 Mock 객체와 Fixture 데이터를 이용하여 컨트롤러 테스트를 작성합니다.
+        유효성 검증같은 경우 단순 @NotNull 처리가 아닌 특정 필드값의 조건에 따라 유효성 검증 유무를 조사하는 등 복잡한 유효성 검증에 대해서만 테스트 코드를 작성합니다.
+        비즈니스 로직을 위한 단위테스트를 작성합니다.
+        public 메소드만을 테스트하며 private 는 따로 테스트하지 않습니다.
+        마지막으로 H2 DB를 사용하거나 필요시 TestContainers 라이브러리를 사용하여 실제 운영 DB 환경과 동일하게 맞춘 후에 인수테스트를 작성합니다.
+
 
 ***** Effective Unit Testing -> 위 테스트의 전반적인 이야기를 예제코드와 함께 잘 소개
     http://www.yes24.com/Product/goods/11361087?scode=032&OzSrank=1
