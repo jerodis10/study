@@ -779,6 +779,21 @@ Repository : (querydsl같은) custom한 repository에 대한 쿼리 테스트
         마지막으로 H2 DB를 사용하거나 필요시 TestContainers 라이브러리를 사용하여 실제 운영 DB 환경과 동일하게 맞춘 후에 인수테스트를 작성합니다.
 
 
+@DisplayName("예외 테스트 : 비어있거나 null인 이름이 들어오면 예외가 발생한다.")
+    @NullAndEmptySource
+    @ParameterizedTest
+    void invalidNameTest(String invalidName) {
+        Book book = Book.builder()
+                .isbn("978-3-16-148410-0")
+                .name(invalidName)
+                .content("내용")
+                .build();
+
+        assertThatThrownBy(() -> bookRepository.save(book))
+                .isInstanceOf(ConstraintViolationException.class);
+    }
+
+
 ***** Effective Unit Testing -> 위 테스트의 전반적인 이야기를 예제코드와 함께 잘 소개
     http://www.yes24.com/Product/goods/11361087?scode=032&OzSrank=1
 
