@@ -1088,6 +1088,14 @@
         - 스택 오버 플로우
             - 스택이 힙을 침범하는 경우
 
+* [ 불변 객체(Immutable Object) 및 final을 사용해야 하는 이유 ]      https://mangkyu.tistory.com/131?category=872426
+  Thread-Safe하여 병렬 프로그래밍에 유용하며, 동기화를 고려하지 않아도 된다.
+  실패 원자적인(Failure Atomic) 메소드를 만들 수 있다.
+  Cache나 Map 또는 Set 등의 요소로 활용하기에 더욱 적합하다.
+  부수 효과(Side Effect)를 피해 오류가능성을 최소화할 수 있다.
+  다른 사람이 작성한 함수를 예측가능하며 안전하게 사용할 수 있다.
+  가비지 컬렉션의 성능을 높일 수 있다.
+
 
 * Java HashMap 은 어떻게 동작하는가?
     https://d2.naver.com/helloworld/831311

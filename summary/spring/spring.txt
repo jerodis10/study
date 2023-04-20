@@ -23,5 +23,8 @@ DDD
 * @ModelAttribute
     https://minchul-son.tistory.com/546
 
+* @ModelAttribute, @RequestParam
+    https://zzang9ha.tistory.com/298
+
 * PUT vs PATCH
     https://tecoble.techcourse.co.kr/post/2020-08-17-put-vs-patch/
