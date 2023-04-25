@@ -199,6 +199,9 @@
 
 ** 참고 **
 
+Redis 자료구조
+https://sabarada.tistory.com/134
+
 Redis로 분산 락을 구현해 동시성 이슈를 해결해보자!
 https://hudi.blog/distributed-lock-with-redis/
 
