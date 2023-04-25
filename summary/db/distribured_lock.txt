@@ -298,3 +298,6 @@ https://inpa.tistory.com/category/%EA%B0%9C%EB%B0%9C%20%EC%A7%80%EC%8B%9D/CS%20%
 
 ***** 백엔드 개발에 필요한 지식 *****
 https://d2.naver.com/news/3435170
+
+***** 재고시스템으로 알아보는 동시성이슈 해결방법
+    https://thalals.tistory.com/370

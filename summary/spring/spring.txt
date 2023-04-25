@@ -28,3 +28,15 @@ DDD
 
 * PUT vs PATCH
     https://tecoble.techcourse.co.kr/post/2020-08-17-put-vs-patch/
+
+***** 생성자 주입의 장점
+    https://velog.io/@mooh2jj/%EC%83%9D%EC%84%B1%EC%9E%90-%EC%A3%BC%EC%9E%85%EC%9D%98-%EC%9E%A5%EC%A0%90-RequiredArgsConstructor-%EC%93%B0%EB%8A%94-%EC%9D%B4%EC%9C%A0
+
+***** IoC, DI
+    https://velog.io/@mooh2jj/Spring-Ioc-DI
+
+***** 객체지향을 위한 SOLID 원칙
+    https://velog.io/@mooh2jj/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%84%A4%EA%B3%84-5%EC%9B%90%EC%B9%99-SOLID%EB%A5%BC-%ED%8C%8C%ED%9B%BC%EC%B3%90%EB%B3%B4%EC%9E%90
+
+
+
