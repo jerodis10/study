@@ -598,3 +598,8 @@ public class ErrorResponse {
 
 * 면접 tip (공백기간 길 때)
     https://www.jobplanet.co.kr/contents/news-2442
+
+****** ApplicationEventPublisher 기반으로 강결합 및 트랜잭션 문제 해결
+    https://cheese10yun.github.io/event-transaction/
+    https://cheese10yun.github.io/application-event/
+

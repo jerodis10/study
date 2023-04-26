@@ -812,4 +812,9 @@ Repository : (querydsl같은) custom한 repository에 대한 쿼리 테스트
 ***** test tip
     롤백되는 기능은 편리하지만, 만약 트랜잭션이 보장되지 않았을 경우 실패하는 테스트를 작성했을 때 오히려 성공하는 경우가 많아서 사용하지 않는다고 하셨습니다.
     그래서 다음과 같이 @SpringBootTest와 함께 @After절에서 모든 데이터를 직접 삭제하는 방식으로 테스트를 작성한다고 가이드해 주셨습니다.
-    
+
+****** JPA 기반 테스트 코드 작성 팁
+    https://cheese10yun.github.io/jpa-test-support/
+
+***** Spring Guide - 테스트 전략
+    https://cheese10yun.github.io/spring-guide-test-1/
