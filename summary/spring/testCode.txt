@@ -793,6 +793,9 @@ Repository : (querydsl같은) custom한 repository에 대한 쿼리 테스트
                 .isInstanceOf(ConstraintViolationException.class);
     }
 
+- 통합 테스트는 일반적으로 '외부 시스템 모킹(mocking)이 어렵다', '유지 보수에 비용이 많이 든다'
+
+
 
 ***** Effective Unit Testing -> 위 테스트의 전반적인 이야기를 예제코드와 함께 잘 소개
     http://www.yes24.com/Product/goods/11361087?scode=032&OzSrank=1

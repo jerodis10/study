@@ -62,6 +62,17 @@ https://mangkyu.tistory.com/242
 ***** 개발 커뮤니티
     https://www.surfit.io/
 
+****** 면접 질문
+    https://notspoon.tistory.com/49
+    https://notspoon.tistory.com/40
+    https://notspoon.tistory.com/33
+
+********* 기술 면접 질문
+    https://dev-coco.tistory.com/163?category=1056309
+
+****** 면접 후기
+    https://notspoon.tistory.com/32
+
 
 ***** 멀티모듈 관련
     https://techblog.woowahan.com/10600/
@@ -603,3 +614,5 @@ public class ErrorResponse {
     https://cheese10yun.github.io/event-transaction/
     https://cheese10yun.github.io/application-event/
 
+* 인텔리제이 단축키
+    https://ktae23.tistory.com/188
