@@ -79,3 +79,72 @@ API 조합과 CQRS
 
 ***** 트랜잭션은 도메인 모델이 아니다
     https://blog.gangnamunni.com/post/isolate-transaction-from-domain-model
+
+***** Spring Rest Docs 적용
+    https://leejonghyun89.tistory.com/7
+    https://velog.io/@bagt/API-%EB%AC%B8%EC%84%9C%ED%99%94%EC%99%80-Spring-Rest-Docs
+
+
+***** Spring Rest Docs VS Swagger
+    - Spring Rest Docs
+        - 프로덕션 코드에 영향이 없다.
+        - 테스트 코드가 성공해야 문서 작성이 가능하다.
+            => Controller에 정의되어 있는 Request Body나 Response Body 등의 API 스펙 정보와 일치하는 API 문서가 만들어진다는 것이다.
+               따라서 API 스펙 정보와 API 문서 내의 정보의 불일치로 인해 발생하는 문제를 방지해준다.
+        - 문서를 위한 테스트 코드를 관리해야 한다.
+            - 개발 시에 테스트 케이스 작성은 필수이므로, 딱히 단점이 아니라고 생각할 수도 있다.
+            - 하지만, 개발 도중에 API가 수시로 변경되는 상황에서는 변경사항에 대해 테스트 코드까지 일일이 수정하는 작업은 번거로울 수 있으므로,
+              이러한 상황에선 Swagger를 사용하는 편이 더 적합하다고 볼 수 있다.
+
+    - Swagger
+        - 문서상에 api를 테스트할 수 있는 기능이 있다.
+        - 테스트 코드가 없으므로 적용이 쉽다.
+
+        - 프로덕션 코드에 어노테이션 추가해야한다. (라이브러리가 바뀌는 등의 경우 불편하다.)
+        - 프로덕션 코드와 동기화가 안될 수 있다.
+        - API 문서의 목적은 개발하는 스펙을 정의하는것이라 생각합니다. Swagger는 API 동작을 테스트하는 용도에 더 특화
+
+    - AsciiDoc VS Markdown (문서화 도구)
+        - Markdown은 문법이 굉장이 편하다.
+          Slate를 사용하면 가능하다고 하지만 결과물이 우리가 생각한 doc파일과는 다르며 별도 설정을 해야하는 번거로움이 있습니다.
+        - AsciiDoc은 문법은 조금 불편하지만 include가 가능하기 때문에 html을 작성하는 것처럼 재활용이 가능
+          자동생성된 스니펫과 자신이 원하는 문서를 결합해서 사용할 수 있습니다.
+
+    - MockMvc(@WebMvcTest) vs Rest Assured(@SpringBootTest)
+        - 보통 문서를 작성할 때 서비스 계층은 Mocking을 하여 작성합니다. Rest Assured는 BDD 스타일로 직관적이지만 별도의 구성없이는 @SpringBootTest로 수행해야합니다.
+          그러면 전체 컨테스트를 로드하여 빈을 주입하기에 속도가 많이 느립니다. 반면에 MockMvc는 @WebMvcTest로 수행이 가능합니다.
+          그래서 Controller Layer만 테스트 하기에 속도가 빠릅니다. 만약 통합테스트를 한다면 Rest Assured가 좋은 선택일것 같지만
+          Spring Rest Docs로 문서를 작성하는데에는 MockMvc가 더 나은 선택이라 생각됩니다.
+
+    - Rest Docs 적용해보기
+        1. Spring TEST에 의해 성공한 케이스들에 대한 snippet이 자동으로 생성된다.
+        2. 문서를 직접 작성하고 코드들에 대한 정보는 아까 생성된 snippet을 include하여 추가하여 완성한다.
+
+    - Spring Rest Docs의 API 문서 생성 흐름
+        - 테스트 코드 작성 -> test 태스크(task) 실행 -> API 문서 스니핏(.doc 파일) 생성 -> API 문서 생성 -> API 문서를 HTML로 변환
+
+    - 관련 용어
+        스니핏(snippet) : 문서/코드의 일부 조각을 의미한다.
+
+        스니핏은 테스트 케이스 하나 당 하나의 스니핏이 생성되며, 여러개의 스니핏을 모아서 하나의 API 문서를 생성할 수 있다.
+        Asciidoc : Spring Rest Docs를 통해 생성되는 텍스트 기반 문서 포맷.
+
+        주로 기술 문서 작성을 위해 설계된 가벼운 마크업 언어이다.
+        Asciidoctor : AsciiDoc 포맷의 문서를 파싱해서 HTML 5, 매뉴얼 페이지, PDF 등의 문서를 생성하는 툴.
+
+- 프레임워크와 라이브러리의 차이점
+    - Framework(프레임워크)
+        - Application 개발 시 필수적인 코드, 알고리즘, 데이터베이스 연동 등과 같은 기능들을 위해 어느정도 뼈대(구조)를 제공해주는 것
+        - 소프트웨어의 특정 문제를 해결하기 위해서 상호 협력하는 클래스와 인터페이스의 집합
+
+    - Library(라이브러리)
+        - 프로그래머가 개발하는데 필요한 것들을 모아둔 것
+
+    - Framework와 Library의 차이는 Flow(흐름)에 대한 제어 권한이 어디에 있느냐의 차이
+    - 프레임워크는 전체적인 흐름을 자체적으로 가지고 있으며, 프로그래머가 그 안에 필요한 코드를 작성하는
+      반면에 라이브러리는 사용자가 흐름에 대해 제어를 하며 필요한 상황에 가져다 쓰는 것입니다.
+      프레임워크에는 제어의 역전(Inversion Of Control)이 적용되어있다는 것
+
+****** [Server] Restful API란?
+    https://mangkyu.tistory.com/46
+

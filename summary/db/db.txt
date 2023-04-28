@@ -970,11 +970,41 @@ https://programmingyoon.tistory.com/264    http://ojc.asia/bbs/board.php?bo_tabl
 * x-lock vs s-lock
     https://velog.io/@soongjamm/Select-%EC%BF%BC%EB%A6%AC%EB%8A%94-S%EB%9D%BD%EC%9D%B4-%EC%95%84%EB%8B%88%EB%8B%A4.-X%EB%9D%BD%EA%B3%BC-S%EB%9D%BD%EC%9D%98-%EC%B0%A8%EC%9D%B4
 
+***** DB Connection Pool
+    https://hyuntaeknote.tistory.com/12
+
 
 * 역인덱스?
 
+* 역정규화
+
 * 오라클 힌트
     https://devuna.tistory.com/35
+
+
+***** 자연키(Natural key)와 대체키(Surrogate Key), PK(기본키)를 대체키로 설정해야 하는 이유
+    https://mangkyu.tistory.com/287
+
+*******  B-Tree로 인덱스(Index)에 대해 쉽고 완벽하게 이해하기
+    https://mangkyu.tistory.com/286
+
+******* 프라이머리 키(PK, Primary Key)에 대해 쉽고 완벽하게 이해하기
+    https://mangkyu.tistory.com/285
+
+***** 리플리케이션(Replication) vs 클러스터링(Clustering)
+    https://mangkyu.tistory.com/97
+
+***** 인덱스(index)란?
+    https://mangkyu.tistory.com/96
+
+***** MVCC(다중 버전 동시성 제어)란?
+    https://mangkyu.tistory.com/53
+
+***** 데이터베이스 프로그래밍
+    https://mangkyu.tistory.com/26
+
+***** 정규화(Normalization)
+    https://mangkyu.tistory.com/28
 
 - JPA
     - 영속성 컨텍스트 관련 (이점 등)
