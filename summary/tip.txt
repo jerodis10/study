@@ -11,7 +11,7 @@ https://mangkyu.tistory.com/242
     https://snow-line.tistory.com/category/%EB%A9%B4%EC%A0%91%20-%20%EC%9E%90%EB%B0%94
 
 ******* 쉬운코드
-    https://www.youtube.com/@ez.
+    https://www.youtube.com/@ez
 
 ***** cs 관련 질문 *****
     https://onejunu.tistory.com/category/CS
@@ -616,3 +616,4 @@ public class ErrorResponse {
 
 * 인텔리제이 단축키
     https://ktae23.tistory.com/188
+
