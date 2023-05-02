@@ -47,16 +47,16 @@ https://mangkyu.tistory.com/242
 ***** inpa dev *****
     https://inpa.tistory.com/
 
-***** 코딩 공부 일지 *****
+** 코딩 공부 일지 **
     https://cocoon1787.tistory.com/746
 
-***** 후디 블로그 *****
+** 후디 블로그 **
     https://hudi.blog/do-not-use-system-out-println-for-logging/
 
-***** 다람쥐 블로그 *****
+** 다람쥐 블로그 **
     https://itchipmunk.tistory.com/437
 
-***** 라인 기술 블로그
+** 라인 기술 블로그
     https://engineering.linecorp.com/ko/blog
 
 ***** 개발 커뮤니티
