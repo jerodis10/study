@@ -47,6 +47,9 @@ https://mangkyu.tistory.com/242
 ***** inpa dev *****
     https://inpa.tistory.com/
 
+** Goodgid 기술 블로그
+    https://goodgid.github.io/category/#DB
+
 ** 코딩 공부 일지 **
     https://cocoon1787.tistory.com/746
 

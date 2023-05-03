@@ -99,3 +99,6 @@ https://lenditkr.github.io/spring/transactional-event-listener/index.html
 
 * 디자인 패턴-Factory Method
     https://youngkyonyou.github.io/interview/2021/12/14/Interview-interview-01.html
+
+* 빈후처리기
+    https://velog.io/@kiwonkim/%EC%9D%91%EC%9A%A9-7.%EB%B9%88-%ED%9B%84%EC%B2%98%EB%A6%AC%EA%B8%B0
