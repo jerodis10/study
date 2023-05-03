@@ -1,0 +1,118 @@
+- sql 최적화
+    https://developer-talk.tistory.com/420
+
+* 조인 순서
+    https://loklee9.tistory.com/96
+
+- 마이바티스
+    http://125.132.25.164/dokuwiki/doku.php?id=wiki:spring:mybatis
+
+- SQL SELECT 쿼리 실행 순서 처리 과정
+    https://myjamong.tistory.com/172
+    https://soo-vely-dev.tistory.com/220
+    http://www.yes24.com/Product/Goods/6960931
+
+***** Real MySQL 8.0
+    http://www.yes24.com/Product/Goods/103415627
+
+***** INDEX 기본 구조와 사용
+    https://kwomy.tistory.com/72
+
+***** Oracle 반드시 알아야 하는 오라클 힌트절 7가지
+    https://exmemory.tistory.com/44
+
+****** [Real MySQL] B-Tree 인덱스
+    https://12bme.tistory.com/138
+
+****** 커버링 인덱스
+    https://frogand.tistory.com/195
+
+****** 데이터베이스 인덱스는 왜 'B-Tree'를 선택하였는가
+    https://helloinyong.tistory.com/296
+
+****** 옵티마이저와 힌트
+    https://velog.io/@tastestar/%EC%98%B5%ED%8B%B0%EB%A7%88%EC%9D%B4%EC%A0%80%EC%99%80-%ED%9E%8C%ED%8A%B8
+
+* x-lock vs s-lock
+    https://velog.io/@soongjamm/Select-%EC%BF%BC%EB%A6%AC%EB%8A%94-S%EB%9D%BD%EC%9D%B4-%EC%95%84%EB%8B%88%EB%8B%A4.-X%EB%9D%BD%EA%B3%BC-S%EB%9D%BD%EC%9D%98-%EC%B0%A8%EC%9D%B4
+
+***** SQL과 NOSQL의 차이
+    https://gyoogle.dev/blog/computer-science/data-base/SQL%20&%20NOSQL.html
+
+***** 저장 프로시저
+    https://gyoogle.dev/blog/computer-science/data-base/Stored%20PROCEDURE.html
+
+***** DB Connection Pool
+    https://hyuntaeknote.tistory.com/12
+
+****** 정규화/역정규화
+    https://inpa.tistory.com/entry/DB-%F0%9F%93%9A-%EC%A0%9C-1-2-3-%EC%A0%95%EA%B7%9C%ED%99%94-%EC%97%AD%EC%A0%95%EA%B7%9C%ED%99%94
+
+* 오라클 힌트
+    https://devuna.tistory.com/35
+
+***** 자연키(Natural key)와 대체키(Surrogate Key), PK(기본키)를 대체키로 설정해야 하는 이유
+    https://mangkyu.tistory.com/287
+
+*******  B-Tree로 인덱스(Index)에 대해 쉽고 완벽하게 이해하기
+    https://mangkyu.tistory.com/286
+
+******* 프라이머리 키(PK, Primary Key)에 대해 쉽고 완벽하게 이해하기
+    https://mangkyu.tistory.com/285
+
+***** 리플리케이션(Replication) vs 클러스터링(Clustering)
+    https://mangkyu.tistory.com/97
+
+***** 인덱스(index)란?
+    https://mangkyu.tistory.com/96
+
+***** MVCC(다중 버전 동시성 제어)란?
+    https://mangkyu.tistory.com/53
+
+***** 데이터베이스 프로그래밍
+    https://mangkyu.tistory.com/26
+
+***** 정규화(Normalization)
+    https://mangkyu.tistory.com/28
+
+***** 인덱스와 인덱싱 알고리즘 (hash table, b-tree, b+tree)
+    https://hudi.blog/db-index-and-indexing-algorithms/
+
+***** 클러스터형 인덱스와 비클러스터형 인덱스
+    https://hudi.blog/db-clustered-and-non-clustered-index/
+
+***** NOT IN 쿼리 성능 개선하기
+    https://jojoldu.tistory.com/632
+
+******* Oracle Real-Time SQL Monitoring
+
+* 튜닝관련
+    https://dncjf0223.tistory.com/69
+
+* 실행 계획
+    https://velog.io/@haron/SQL-%EC%BF%BC%EB%A6%AC-%ED%8A%9C%EB%8B%9D%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%A4%80%EB%B9%84-%EC%8B%A4%ED%96%89-%EA%B3%84%ED%9A%8D
+
+* 와탭(WhaTap) 소개 및 설치
+    https://archmond.net/archives/3137
+
+* 와탭(WhaTap)의 모니터링 기능에 빠져보자
+    https://archmond.net/archives/3241
+
+* 트랜잭션 격리 수준
+    https://code-lab1.tistory.com/52
+
+** 릴레이션 키 개념&종류 (슈퍼키,대체키,후보키,기본키,외래키)
+    https://jerryjerryjerry.tistory.com/49
+    https://jhnyang.tistory.com/71
+    https://velog.io/@00yubin00/DB-%ED%82%A4%EC%9D%98-%EC%A2%85%EB%A5%98-%EC%8A%88%ED%8D%BC%ED%82%A4-%ED%9B%84%EB%B3%B4%ED%82%A4-%EA%B8%B0%EB%B3%B8%ED%82%A4-%EB%8C%80%EC%B2%B4%ED%82%A4-%EC%99%B8%EB%9E%98%ED%82%A4
+
+* 힌트
+    https://tnsgud.tistory.com/400
+
+******* '친절한 SQL 튜닝' 요약정리 2탄
+    https://sigmasabjil.tistory.com/11
+    https://sigmasabjil.tistory.com/17
+    https://sigmasabjil.tistory.com/18
+    https://sigmasabjil.tistory.com/29
+    https://sigmasabjil.tistory.com/30
+    https://sigmasabjil.tistory.com/31

@@ -59,20 +59,9 @@
         - Join with DTO : 영속화 없이 데이터 조회만 할 수 있을 경우
 
 
-- fetch join
-    https://jojoldu.tistory.com/457
-
 - NoArgsConstructor 접근권한을 주지 않았었는데요. JPA에서는 프록시를 생성을 위해서 기본 생성자를 반드시 하나를 생성해야합니다.
   이때 접근 권한을 AccessLevel.PROTECTED로 설정하여 JPA에서의 Entity 클래스 생성만 허용해줍니다.
 
-- [JPA] Querydsl 에서 Fetch Join 적용 안되는 이유
-    https://elsboo.tistory.com/34
-
-- 읽기 전용 쿼리 성능 최적화
-    https://willseungh0.tistory.com/75
-
-- querydsl pagination (커버링 인덱스)
-    https://jaehoney.tistory.com/333
 
 - Join, Fetch Join 차이점 요약
     - 일반 Join
@@ -108,6 +97,3 @@
     - flush를 할 필요가 없기 때문에 Dirty Checking을 할 필요가 없고, 그에 따라서 엔티티의 스냅샷도 만들지 않는 것이다. -> 성능 최적화
     - 데이터베이스가 master와 slave로 나누어져 있다면, readOnly = true 설정을 주었을 때 읽기 전용인 slave를 호출하게 된다. 즉, 상황에 따라 데이터베이스 서버 부하를 줄일 수 있다.
 
-
-** [JPA] JPA Entity 왜 단일키가 좋은가?
-    https://jwkim96.tistory.com/166

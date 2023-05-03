@@ -1,0 +1,17 @@
+***** querydsl 성능개선
+    https://www.youtube.com/watch?v=zMAX7g6rO_Y&t=295s
+
+* fetch join
+    https://jojoldu.tistory.com/457
+
+* [JPA] Querydsl 에서 Fetch Join 적용 안되는 이유
+    https://elsboo.tistory.com/34
+
+* 읽기 전용 쿼리 성능 최적화
+    https://willseungh0.tistory.com/75
+
+* querydsl pagination (커버링 인덱스)
+    https://jaehoney.tistory.com/333
+
+** [JPA] JPA Entity 왜 단일키가 좋은가?
+    https://jwkim96.tistory.com/166
