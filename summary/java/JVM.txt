@@ -180,3 +180,59 @@
                 ex) jstat -gcutil -t 8844 1000 10
             - jstat gccapacity 명령을 통해 프로세스가 heap 영역을 얼마나 사용 중인지 정확한 수치 확인 가능
                 ex) jstat -gccapacity -t 8844 1000 10
+
+
+- JVM과 JRE, JDK의 차이
+     - JVM : java virtual machine, 프로그램을 구동하는 실행자 역할
+     - JRE : java runtime environment,  자바 프로그램을 실행할 수 있는 환경, Class Roader , Bytecode Verifier , java virtual machine
+             Class Roader란 컴파일된 클래스 파일을 메모리로 로드하는 역할을 하며 Bytecode verifier 는 실행되기 직전 코드를 검증하는 역할을 하고
+             JVM은 최종적으로 실행하는 역할입니다. 이렇게 3가지를 JRE라고 부릅니다.
+     - JDK : java Development Kit, JDK 는 JRE 에 어떤 toolset 같은 것들이 추가된 것. 예를 들어 컴파일러
+             컴파일러는 javac 명령어로 class 파일로 컴파일 할 수 있으며 디버깅 기능도 제공
+
+
+- GC란 무엇이고, 왜 써야할까요?
+    * Java Garbage Collection  https://d2.naver.com/helloworld/1329
+    * Garbage Collection 모니터링 방법  https://d2.naver.com/helloworld/6043
+    * Garbage Collection 튜닝  https://d2.naver.com/helloworld/37111
+
+    - 힙과 스택의 참조가 끊어진 Object의 메모리를 정리하는 일을 Garbage Collection
+
+    - 개발자가 GC 튜닝을 하는 궁극적인 목표는 무엇일까요?
+        - GC 튜닝을 꼭 해야 할까?
+            - GC 튜닝이 필요 없다는 이야기는 운영 중인 Java 기반 시스템의 옵션과 동작이 다음과 같다는 의미이다.
+                - -Xms 옵션과 -Xmx 옵션으로 메모리 크기를 지정했다.
+                - server 옵션이 포함되어 있다.
+                - 시스템에 Timeout 로그와 같은 로그가 남지 않는다.
+            - 다시 말하면, 메모리 크기도 지정하지 않고 Timeout 로그가 수도 없이 출력된다면 여러분의 시스템에서 GC 튜닝을 하는 것이 좋다.
+            - 그런데 한 가지 꼭 명심해야 하는 점이 있다. GC 튜닝은 가장 마지막에 하는 작업이라는 것이다.
+
+            - GC 튜닝을 하는 이유가 무엇인지 근본적인 원인을 생각해 보자. Java 에서 생성된 객체는 가비지 컬렉터(Garbage Collector)가
+              처리해서 지운다. 생성된 객체가 많으면 많을수록 가비지 컬렉터가 가 처리해야 하는 대상도 많아지고, GC를 수행하는 횟수도 증가한다.
+              즉, 여러분이 운영하고 만드는 시스템이 GC를 적게 하도록 하려면 객체 생성을 줄이는 작업을 먼저 해야 한다.
+
+            - String 대신 StringBuilder 나 StringBuffer 를 사용하는 것을 생활화하는 것부터가 시작이라고 보면 된다. 그리고,
+              로그를 최대한 적게 쌓도록 하는 것이 좋다. 하지만 어쩔 수 없는 현실도 있다. 경험상 XML 과 JSON 파싱은 메모리를 가장 많이 사용한다.
+              아무리 String 을 최대한 사용 안 하고 Log 처리를 잘 하더라도, 10~100 MB 짜리 XML 이나 JSON 를 파싱하면 엄청난
+              임시 메모리를 사용한다. 그렇다고 XML 과 JSON 을 사용하지 않기는 어렵다.
+
+            - 만약 애플리케이션 메모리 사용도 튜닝을 많이 해서 어느 정도 만족할 만한 상황이 되었다면, 본격적으로 GC 튜닝을 시작하면 된다.
+              필자는 GC 튜닝의 목적을 두 가지로 나눈다. Old 영역으로 넘어가는 객체의 수를 최소화하는 것과 Full GC의 실행 시간을 줄이는 것이다.
+
+    - G1GC 부터는 GC 튜닝에 크게 손이 가진 않는데, G1GC는 어떻게 만들었길래 개발자가 튜닝을 이전보다 덜 해도 되는걸까요?
+    - 리전으로 구성된 구조가 왜 튜닝의 수고를 덜어주는걸까요?
+        * https://imp51.tistory.com/entry/G1-GC-Garbage-First-Garbage-Collector-Tuning
+        * https://steady-coding.tistory.com/590
+
+        - Java process 엔진이 대용량의 실시간 처리를 요구할 때, 성능은 JVM 의 GC 시간에 의존적일 수 밖에 없다. 특히 64bit 환경에서는
+          메모리 제약 사항이 없어졌다고 볼 수 있기 때문에 large heap memory 를 cleaning 하는 시간을 단축하는 것이 전체 성능을
+          개선하는 중요 key 라고 할 수 있다. 전통적인 Serial, Parallel 그리고 CMS 로는 이 성능을 충족하기에는 매우 어려운 것이 현실이다.
+          그렇다고 사용 JVM 인 azul 을 쓰기에도 비용의 제약사항이 있다.
+        - Java 9 버전부터 기본 GC 방식으로 채택되었다.
+        - 전통적인 Garbage Collector(Serial, Parallel 및 CMS)는 세개의 메모리 영역의 구조를 갖는데 비해 G1은 다른 접근 방식을 갖는다.
+          G1 GC의 경우 Heap 은 같은 크기의 heap region 으로 분활하며,
+          이전 Garbage Collector 와 마찬가지로 특정 region 별로 역할을 부여하여 특정한 object 만이 거주하도록 하였다.
+        - 전체 Old Generation 혹은 Young Generation 통째로 Compaction 을 할 필요 없고,
+          해당 Generation 의 일부분 Region 에 대해서만 Compaction 을 하면 된다.
+        - Garbage 로 가득찬 영역을 빠르게 회수하여 빈 공간을 확보하므로 GC 빈도가 줄어든다.
+        - 더 알아보면 좋을 GC의 종류 : ZGC, Shenandoah
