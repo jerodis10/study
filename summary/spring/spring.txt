@@ -493,3 +493,73 @@
                          메인 작업이 실패 -> 로그 작업 롤백
                          로그를 저장하는 작업이 실패 -> 메인 작업의 트랜잭션은 롤백 X
                 - 모든 트랜잭션 매니저에 적용 가능하진 않다.
+
+
+- @autowired , @Resouce , @inject
+    - @Inject 와 @Resource 는 JSR 에 실려있는 자바 기존의 어노테이션. 반면 @Autowired 는 스프링에서 등장한 어노테이션.
+      따라서 프로젝트를 스프링이 아닌 다른 프레임워크로 바꿔야 한다면 @Inject 나 @Resource 를 써야 한다.
+    - 연결 방식은 @Autowired 와 @Inject 는 타입에 맞춰서 하는 반면, @Resource 는 이름에 맞춰서 연결.
+
+    @Autowired
+        - 타입 -> 이름 -> @Qualifier -> 실패
+        - 멤버변수, setter메소드, 생성자, 일반 메소드에 적용가능
+
+    @Inject
+        - 타입 -> @Qualifier-> 이름 -> 실패
+        - 멤버변수, setter 메소드, 생성자, 일반 메소드에 적용 가능
+
+    @Resource
+        - 이름 -> 타입 -> @Qualifier -> 실패
+        - 멤버변수 , setter 메소드
+
+
+- 스프링에서 어떤 exception에서 롤백처리를 하냐?
+    - 스프링의 Transcational 어노테이션은 기본 정책이 Unchecked Exception과 Errors 이다.
+      즉, Checked Exception일 경우 Transactional 어노테이션이 작동하지 않는다.
+      컴파일 시 체크할 수 있는 예외에 대한 처리를 호출자에게 강제할 수 있어야 한다.
+    - 아무것도 설정하지 않으면, 스프링은 아래와 같이 인식한다.
+      @Transactional(rollbackFor = {RuntimeException.class,Error.class})
+    - Checked Exception에서 Rollback을 발생시키려면
+      rollbackFor라는 옵션을 이용해 모든 예외에 대해서 rollback을 처리.
+      Checked Exception을 try-catch문으로 더 구체적인 Unchecked Exception으로 처리.
+
+
+- @bean , @Auwired등은 어떻게 동작하냐
+
+- 주입이랑 spring aop차이를 아냐
+
+- spring boot xml로 설정했는지 java cofig로 했는데 config로 하는거랑, xml로 설정하는 것중 머가 더 편한지 편하면 왜 편하지 머가 다른지?
+
+- spring의 핵심기능에 대해 말해주세요.
+
+- spring에서 사용한 최신버전은?
+
+- spring di는 -> di에 사용된 디자인 패턴은 -> 디자인패턴의 예시설명
+
+- string이 불변한 이유는?
+
+- spring aop 동작 원리
+
+- 다이나믹 프록시랑 cglib proxy 차이점은 cglib proxyj는 클래스기반만 가능한가?
+
+- solid에 의존 역전 법칙에 대해 아느냐?
+
+- 의존 역전 법칙은 스프링에 어떤 연관이 있냐?
+
+- 스프링 IOC, DI
+
+- IOC가 왜 스프링 장점인지
+
+- 트랜잭션 처리 어떻게 하는지
+
+- 트랜잭션 프로파게이션?(전파레벨)
+
+- state 패턴과 싱글톤 패턴의 설명요구
+
+- spring boot 부트동작원리 설명?
+
+- dispatcherServlet 리다이렉트,포어딩?
+
+- 싱글톤 패턴은 어떤 패턴인가, 어떤 상황에 사용하는가
+
+- 전략 패턴 템플릿 메소드 패턴
