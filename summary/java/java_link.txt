@@ -1,3 +1,6 @@
+******* stream
+    https://okky.kr/articles/329818
+
 ***** Optional 사용법
     https://www.daleseo.com/java9-optional/
     https://mangkyu.tistory.com/203
