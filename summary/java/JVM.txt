@@ -238,6 +238,49 @@
         - 더 알아보면 좋을 GC의 종류 : ZGC, Shenandoah
 
 
+- 컴파일 과정
+    1. 개발자가 .java파일을 생성한다.
+    2. build를 한다.
+    3. java compliler의 javac의 명령어를 통해 바이트코드(.class)를 생성
+    4. class loader를 통해 jvm내로 로드
+    5. 실행엔진을 통해 컴퓨터가 읽을 수 있는 기계어로 해석되어(각 운영체제에 맞는 기계어)
+       Runtime Data Area에 배치
+
+    - 실행엔진
+        - 실행 엔진은 바이트코드를 명령어 단위로 읽어서 실행하는데, 두 가지 방식을 혼합하여 사용한다.
+
+        - Interpreter 방식
+            - 바이트코드를 한 줄씩 해석, 실행하는 방식이다. 초기 방식으로, 속도가 느리다는 단점이 있다.
+
+        - JIT(Just In Time) 컴파일 방식 또는 동적 번역(Dynamic Translation)
+            그래서 나온 것이 JIT(Just In Time) 컴파일 방식이다. 바이트코드를 JIT 컴파일러를 이용해 프로그램을 실제 실행하는 시점(바이트코드를 실행하는 시점)에
+            각 OS에 맞는 Native Code로 변환하여 실행 속도를 개선하였다. 하지만, 바이트코드를 Native Code로 변환하는 데에도 비용이 소요되므로,
+            JVM은 모든 코드를 JIT 컴파일러 방식으로 실행하지 않고, 인터프리터 방식을 사용하다 일정 기준이 넘어가면 JIT 컴파일 방식으로 명령어를 실행한다.
+            또한, JIT 컴파일러는 같은 코드를 매번 해석하지 않고, 실행할 때 컴파일을 하면서 해당 코드를 캐싱해버린다. 이후에는 바뀐 부분만 컴파일하고, 나머지는 캐싱된 코드를 사용한다.
+
+
+- GC 방식 살펴보기
+    - Serial GC
+        - 하나의 쓰레드로 GC 를 실행하는 방식
+        - Stop The World 시간이 긺
+        - 싱글 쓰레드 환경 및 Heap 이 매우 작을 때 사용
+    - Parallel GC
+        - 여러 개의 쓰레드로 GC 를 실행. 이에 따라 Serial GC 보다 Stop The World 시간이 더 짧음
+        - 멀티코어 환경에서 어플리케이션 처리 속도를 향상하기 위해 사용
+        - Java 8 의 default GC 방식
+    - CMS GC
+        - CMS (Concurrent-Mark-Sweep)
+        - GC 작업을 어플리케이션과 동시에 실행하여 Stop The World 최소화
+        - 메모리와 CPU 를 많이 사용하고 Mark And Sweep 과정 이후 메모리 파편화를 해결하는
+          Compaction 이 기본적으로 제공되지 않다는 단점이 있음
+        - G1 GC 등장에 따라 Deprecated
+    - G1 GC
+        - G1 (가비지 퍼스트)
+        - Heap 을 일정 크기의 Region 으로 잘게 나누어 어떤 영역은 Young Generation, 어떤 영역은 Old Generation 으로 활용
+        - 런타임에 G1 GC 가 필요에 따라 영역별 Region 개수를 튜닝함. 그에 따라 Stop the world 를 최소화할 수 있음
+        - Java 9 부터 default GC 방식
+
+
 - 컴파일러와 인터프리터 차이점
 
 

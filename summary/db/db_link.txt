@@ -152,3 +152,9 @@ SQL 성능 향상 팁
     https://tychejin.tistory.com/199
     https://tychejin.tistory.com/202
     https://tychejin.tistory.com/205
+
+***** REQUIRED, REQUIRES_NEW 옵션과 Try-Catch
+    https://kth990303.tistory.com/388
+
+***** 인덱스 타지 않는 쿼리
+    https://hckcksrl.medium.com/index%EB%A5%BC-%ED%83%80%EC%A7%80%EC%95%8A%EB%8A%94-%EC%BF%BC%EB%A6%AC-41f0417bfe03
