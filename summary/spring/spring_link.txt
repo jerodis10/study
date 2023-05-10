@@ -111,3 +111,8 @@ https://lenditkr.github.io/spring/transactional-event-listener/index.html
 
 * Spring AOP에서 Proxy란 (+ @Transactional)
     https://velog.io/@gwontaeyong/Spring-AOP%EC%97%90%EC%84%9C-Proxy%EB%9E%80
+
+* - REQUIRES_NEW는 부모 트랜잭션에서 완전 독립적인 트랜잭션을 생성하는가 ?
+    https://jobc.tistory.com/214
+    https://woodcock.tistory.com/40
+    https://kth990303.tistory.com/388
