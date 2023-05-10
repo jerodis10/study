@@ -292,6 +292,15 @@
             6. NULL 조건의 사용
                 - NULL 인 값이 많지 않아 인덱스를 통해 엑세스를 하고자 한다면 데이터 생성 시 디폴트로 0과 같이 데이터를 만들어주 는 것이 좋다.
                 - 만약, NOT NULL 이 분석 대상이라면 해당 컬럼을 NULL 허용 컬럼으로 두는 것이 좋다.
+
+                오라클에서는 NULL 값을 인덱스에 저장하지 않는다.    https://kihyun-log.tistory.com/entry/NULLABLE-%EC%BB%AC%EB%9F%BC%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%82%AC%EC%9A%A9-Oracle-vs-MySQL
+                따라서 오라클에서는 NULL 이 허용된 컬럼에 대해 인덱스를 생성해도
+                IS NULL 혹은 IS NOT NULL 조건으로 조회시 인덱스를 사용할 수 없고, group-by 혹은 distinct 사용시 인덱스를 사용할 수 없다.
+                (NULL이 있는지 없는지 FULL SCAN을 해야만 알 수 있으므로)
+
+                하지만 MySQL/Maria 에서는 NULL 값도 인덱스에 저장한다.
+                따라서 컬럼을 IS NULL 혹은 IS NOT NULL로 비교해서 인덱스를 사용할 수 있고,
+                group-by 및 distinct 사용시 인덱스를 사용할 수 있다.
             7. 인덱스 컬럼의 내부적인 데이터 변환
                 - 문자값 데이터타입을 갖는 컬럼에 ‘값’ → 값 을 하지 말고 정확한 데이터 타입을 넣어야 인덱스를 탈 수 있다.
                 - 서로 대입되는 항목끼리 데이터 타입이 다르면 내부적인 형 변환에 의해 컬럼이 함수를 사용한 것과 같은 효과를 나타낸다.

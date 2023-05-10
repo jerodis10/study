@@ -102,3 +102,12 @@ https://lenditkr.github.io/spring/transactional-event-listener/index.html
 
 * 빈후처리기
     https://velog.io/@kiwonkim/%EC%9D%91%EC%9A%A9-7.%EB%B9%88-%ED%9B%84%EC%B2%98%EB%A6%AC%EA%B8%B0
+
+* Swagger 란 무엇이며 사용 방법
+    https://appmaster.io/university/ko/tutorials/endpoints/swagger-ran-mueosimyeo-sayong-bangbeob
+
+* @Transactional 이 동작하지 않을 때
+    https://devgoat.tistory.com/28
+
+* Spring AOP에서 Proxy란 (+ @Transactional)
+    https://velog.io/@gwontaeyong/Spring-AOP%EC%97%90%EC%84%9C-Proxy%EB%9E%80

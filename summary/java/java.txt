@@ -1327,7 +1327,11 @@
 - java String 불변객체인 이유
     https://devlog-wjdrbs96.tistory.com/247
 
+- Java Development Kit (JDK) 버전별 변화( 8 ~ 17까지)
+    https://catsbi.oopy.io/d7f0502c-5ec3-4b8b-a99b-5f61c1097093
 
+- Checked,Unchecked Exception 차이
+    https://cheese10yun.github.io/checked-exception/
 
 
 - hashtable vs concurrentHashMap의 차이점
