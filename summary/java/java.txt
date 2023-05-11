@@ -1319,28 +1319,180 @@
 
 
 - 클래스변수, 인스턴스변수, 지역 변수
-    https://2018-start.tistory.com/44
-
-- java volatile vs atomic
-    https://mygumi.tistory.com/112
-
-- java String 불변객체인 이유
-    https://devlog-wjdrbs96.tistory.com/247
-
-- Java Development Kit (JDK) 버전별 변화( 8 ~ 17까지)
-    https://catsbi.oopy.io/d7f0502c-5ec3-4b8b-a99b-5f61c1097093
-
-- Checked,Unchecked Exception 차이
-    https://cheese10yun.github.io/checked-exception/
+    멤버 변수를 제외한 나머지 변수들은 모두 지역 변수이며, 멤버변수 중 static이 붙은 것은 클래스 변수, 붙지 않은 것은 인스턴스 변수
 
 
-- hashtable vs concurrentHashMap의 차이점
+- java String 불변객체인 이유   https://devlog-wjdrbs96.tistory.com/247
+    - 성능
+        자바에서 문자열은 정말 많이 사용됩니다. 그렇기 때문에 자바에서는 상수 풀이라는 것을 만들었습니다.
+        문자열 리터럴을 캐싱하고 재사용하면 문자열 풀의 다른 문자열 변수가 동일한 개체를 참조하기 때문에 힙 공간을 많이 절약
+
+    - 동기화
+        불변 객체는 값이 바뀔 일이 없기 때문에 멀티스레드 환경에서 Thread-safe 하다는 장점이 있습니다.
+        따라서 일반적으로 불변의 개체는 동시에 실행되는 여러 스레드에서 공유할 수 있습니다.
+        스레드가 값을 변경하면 동일한 문자열을 수정하는 대신 문자열 풀에 새 문자열이 생성되기 때문
+
+    - 해시코드 캐싱
+        문자열 개체는 데이터 구조로 많이 사용되기 때문에 해시맵, 해시테이블, 해시셋 등과 같은 해시 구현에서도 널리 사용됩니다.
+        이러한 해시 구현에 따라 작동할 때 버킷을 위해 hashCode() 메서드가 꽤 자주 호출됩니다.
+        String의 hashCode() 메서드 구현을 보면 아직 hash 값을 계산한 적이 없을 때 최초 1번만 실제 계산 로직을 수행하고,
+        이후부터는 해당 값을 그냥 리턴만 하도록 overriding 되어 있습니다.(계산해놓았던 해시코드를 재사용하는 것입니다.)
+        String이 불변이기 때문에 이렇게 caching이 가능하다는 이점을 활용
+
+    - 보안
+        문자열은 Java 애플리케이션에서 사용자 이름, 암호, 연결 URL, 네트워크 연결 등과 같은 중요한 정보를 저장하는 데 널리 사용됩니다.
+        클래스를 로드하는 동안 JVM 클래스 로더에서도 광범위하게 사용됩니다.
+        따라서 String 클래스 보안은 일반적으로 전체 응용 프로그램의 보안에 매우 중요합니다.
+        String이 불변 객체가 아니라면 메소드를 호출했던 클라이언트는 String에 대한 참조가 메소드를 호출한 이후에도 남아있습니다.
+        이 경우 SQL 주입을 쉽게 수행할 수 있습니다.
+        이러한 보안 이슈가 있기 때문에 자바에서는 String을 불변 객체로 만들었습니다.
+
+
+- Java Development Kit (JDK) 버전별 변화( 8 ~ 17까지)   https://catsbi.oopy.io/d7f0502c-5ec3-4b8b-a99b-5f61c1097093
+    - JDK 8
+        - 람다식: 함수형 프로그래밍을 위한 람다식 추가
+        - Stream API: 컬렉션 처리를 위한 Stream API 추가
+        - 메서드 참조: 람다식을 더 간결하게 표현하는 메서드 참조 추가
+        - Optional 클래스: null 체크를 간편하게 도와주는 Optional 클래스 추가
+
+        함수형 프로그래밍을 위한 람다식과 Stream API가 추가되었다. 람다식은 함수형 프로그래밍을 위한 기능으로, 코드를 더욱 간결하고 가독성 있게
+        작성할 수 있게 해준다. 또한 Stream API는 컬렉션 처리를 위한 API로, 병렬 처리가 가능하며, 많은 양의 데이터를 처리할 때 유용하다.
+        또한 메서드 참조와 Optional 클래스도 추가되었으며, 코드를 더욱 간결하게 작성할 수 있게 해준다.
+
+    - JDK 11
+        - HTTP 클라이언트: HTTP/2를 지원하는 HTTP 클라이언트 추가
+            - HTTP/2를 지원하는 HTTP 클라이언트가 추가되었다. 이를 사용하면 HTTP/2를 지원하는 서버와 더욱 빠르고 안전하게 통신할 수 있게 되었다.
+
+        - 로컬 변수 문법 개선: var 키워드로 로컬 변수를 선언할 때 초기화 구문이 없어도 됨
+            - 타입을 명시하지 않아도 적절한 타입으로 추론할 수 있게 됌
+            ⇒ 하지만 var 키워드를 남용하면 코드의 가독성을 떨어뜨릴 수 있으므로, 적절하게 사용해야한다.
+              또한 var 키워드를 사용하면 변수의 타입을 명시적으로 지정하지 않으므로, 변수의 용도나 목적에 대한 이해가 필요합니다.
+
+        이번 버전에서는 HTTP/2를 지원하는 HTTP 클라이언트와 로컬 변수 문법 개선 기능이 추가됌.
+        HTTP 클라이언트는 HTTP/2를 지원하기 때문에 더욱 빠르고 안전한 웹 개발이 가능해졌으며, 로컬 변수를 선언할 때 초기화 구문이 없어도 되도록
+        개선되었기 때문에, 코드를 더욱 간결하고 가독성 있게 작성할 수 있게 해준다.
+
+    - JDK 17
+        - Pattern Matching for switch 업데이트 (Preview)
+            switch 문에서 pattern matching을 사용할 수 있도록 한다.
+
+        - Pattern Matching for instanceof (Second Preview)
+            instanceof 연산자에서 pattern matching을 사용할 수 있도록 한다.
+
+        - 향상된 난수 생성
+
+        - Sealed 클래스 업데이트
+            sealed 클래스의 경우 클래스의 상속 계층 구조를 미리 선언할 수 있도록 한다.
+            이를 통해 클래스의 확장성과 보안성을 높일 수 있다.
+
+        - Vector API 업데이트
+
+        - Foreign Function and Memory API 업데이트 (Incubator)
+
+
+- Checked,Unchecked Exception 차이   https://cheese10yun.github.io/checked-exception/
+                            Checked Exception	        Unchecked Exception
+    처리 여부	                반드시 예외 처리 해야함	        예외 처리 하지 않아도됨
+    트랜잭션 Rollback 여부	Rollback 안됨	            Rollback 진행
+    대표 Exception	        IOException, SQLException	NullPointerException, IllegalArgumentException
+
+    - Checked Exception
+        - throws로 상위 메서드로 넘기든 자신이 try catch 해서 throw를 던지든 해야 한다.
+        - 왜 Checked Exception은 Rollback되지 않는 것일까?
+          기본적으로 Checked Exception는 복구가 가능하다는 메커니즘을 가지고 있다.
+          기본적으로 복구가 가능하니 네가 복구를 작업을 진행했을 수 있으니까 Rollback은 진행하지 않을게라는 의미가 있다
+          복구하는 것이 아니라 일반적인 코드의 흐름으로 제어해야 합니다.
+
+          하지만 우리가 일반적으로 Checked Exception 예외가 발생했을 경우 복구 전략을 갖고 그것을 복구할 수 있는 경우는 그렇게 많지 않습니다.
+          유니크해야 하는 이메일 값이 중복돼서 SQLException이 발생하는 경우 어떻게 복구 전략을 가질 수 있을까요?
+          Checked Exception을 만나면 더 구체적인 Unchecked Exception을 발생시켜 정확한 정보를 전달하고 로직의 흐름을 끊어야 합니다.
+
+          무책임하게 상위 메서드로 throw를 던지는 행위는 하지 않는 것이 좋습니다. 상위 메서드들의 책임이 그만큼 증가하기 때문입니다.
+
+
+- HashMap vs HashTable vs ConcurrentHashMap   https://tecoble.techcourse.co.kr/post/2021-11-26-hashmap-hashtable-concurrenthashmap/
+    - HashMap
+        key와 value에 null을 허용한다.
+        동기화를 보장하지 않는다.
+            동기화 처리를 하지 않기 때문에 데이터를 탐색하는 속도가 빠르다.
+
+    - HashTable
+        key와 value에 null을 허용하지 않는다.
+        동기화를 보장한다.
+            데이터를 다루는 메소드(get(), put(), remove() 등)에 synchronized 키워드가 붙어 있다.
+            해당 키워드는 메소드를 호출하기 전에 쓰레드간 동기화 락을 건다.
+            그래서 멀티 쓰레드 환경에서도 데이터의 무결성을 보장한다. 그러나, 쓰레드간 동기화 락은 매우 느린 동작이라는 단점이 있다.
+
+    - ConcurrentHashMap
+        key와 value에 null을 허용하지 않는다.
+        동기화를 보장한다.
+            이 구현체는 HashMap의 동기화 문제를 보완하기 위해 나타났다.
+            동기화 처리를 할 때, 어떤 Entry를 조작하는 경우에 해당 Entry에 대해서만 락을 건다.
+            그래서 HashTable보다 데이터를 다루는 속도가 빠르다. 즉, Entry 아이템별로 락을 걸어 멀티 쓰레드 환경에서의 성능을 향상시킨다.
+
 
 - Java Collection의 구현체 (java collection에 대한 종류와 특징)
+    - Set 인터페이스
+        - 순서를 유지하지 않는 데이터의 집합으로 데이터의 중복을 허용하지 않는다.
 
-- check exception , uncheck exception의 차이를 아냐
+        HashSet
+            - 가장빠른 임의 접근 속도
+            - 순서를 예측할 수 없음
+
+        TreeSet
+            - 정렬방법을 지정할 수 있음
+
+    - List 인터페이스
+        - 순서가 있는 데이터의 집합으로 데이터의 중복을 허용한다.
+
+        LinkedList
+            - 양방향 포인터 구조로 데이터의 삽입, 삭제가 빈번할 경우 데이터의 위치정보만 수정하면 되기에 유용
+            - 스택, 큐, 양방향 큐 등을 만들기 위한 용도로 쓰임
+
+        Vector
+            - 과거에 대용량 처리를 위해 사용했으며, 내부에서 자동으로 동기화처리가 일어나 비교적 성능이 좋지 않고 무거워 잘 쓰이지 않음
+
+        ArrayList
+            - 단방향 포인터 구조로 각 데이터에 대한 인덱스를 가지고 있어 조회 기능에 성능이 뛰어남
+
+    - Map 인터페이스
+        - 키(Key), 값(Value)의 쌍으로 이루어진 데이터으 집합으로, 순서는 유지되지 않으며 키(Key)의 중복을 허용하지 않으나 값(Value)의 중복은 허용
+
+        Hashtable
+            - HashMap보다는 느리지만 동기화 지원
+            - null불가
+
+        HashMap
+            - 중복과 순서가 허용되지 않으며 null값이 올 수 있다.
+
+        TreeMap
+            - 정렬된 순서대로 키(Key)와 값(Value)을 저장하여 검색이 빠름
+
 
 - 생성자 대신 정적 팩토리 메서드
+    - 객체 생성의 역할을 하는 클래스 메서드
+
+    1. 이름을 가질 수 있다.
+        정적 팩토리 메서드를 사용하면 메서드 이름에 객체의 생성 목적을 담아 낼 수 있다.
+
+    2. 호출할 때마다 새로운 객체를 생성할 필요가 없다.
+        정적 팩터리 메서드와 캐싱구조를 함께 사용하면 매번 새로운 객체를 생성할 필요가 없어진다.
+
+    3. 하위 자료형 객체를 반환할 수 있다.
+        생성자의 역할을 하는 정적 팩토리 메서드가 반환값을 가지고 있기 때문에
+
+    4. 객체 생성을 캡슐화할 수 있다.
+        정적 팩토리 메서드는 객체 생성을 캡슐화하는 방법이기도 하다.
+        DTO와 Entity간에는 자유롭게 형 변환이 가능해야 하는데, 정적 팩터리 메서드를 사용하면 내부 구현을 모르더라도 쉽게 변환할 수 있다.
+
+    - 정적 팩토리 메서드 네이밍 컨벤션
+        from : 하나의 매개 변수를 받아서 객체를 생성
+        of : 여러개의 매개 변수를 받아서 객체를 생성
+        getInstance | instance : 인스턴스를 생성. 이전에 반환했던 것과 같을 수 있음.
+        newInstance | create : 새로운 인스턴스를 생성
+        get[OtherType] : 다른 타입의 인스턴스를 생성. 이전에 반환했던 것과 같을 수 있음.
+        new[OtherType] : 다른 타입의 새로운 인스턴스를 생성.
+
 
 - 제네릭이란? 제네릭을 쓰면서 얻은 이점
 
@@ -1375,6 +1527,11 @@
 - 자바에서 공유객체 처리 어떻게 하는지
 
 - 맵과 플랫맵 차이가 머고 왜쓰나
+
+- java volatile vs atomic
+    https://mygumi.tistory.com/112
+
+- private static final 의미
 
 ********* 자바 면접 질문
     https://f-lab.kr/blog/java-backend-interview-1
