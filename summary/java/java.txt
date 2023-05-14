@@ -1543,6 +1543,9 @@
 
 - try catch 구문에서 try 에서 발생한 예외를 catch 에서 잡지 않는 경우 어떻게 되나?
 
+- Optional
+    https://www.daleseo.com/java9-optional/
+
 ********* 자바 면접 질문
     https://f-lab.kr/blog/java-backend-interview-1
 
