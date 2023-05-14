@@ -1,0 +1,17 @@
+- [네이밍 컨벤션] 함수 이름 get vs find
+    - get을 사용하는 경우
+        - 데이터를 가져오는 시간이 짧다.
+        - 로직이 간단하다.
+        - 데이터를 가져오는데 오류가 발생하지 않는다.
+
+        ex) function getUser() {};
+            function getEmail() {};
+
+    - find를 사용하는 경우
+        - 검색 프로세스나 연산 알고리즘을 사용하며, 데이터를 가져오는데 걸리는 시간이 좀 더 길다.
+        - 로직이 복잡하다.
+        - 데이터를 가져오는데 오류가 발생한다.
+
+        ex) function findUserFromDB() {};
+            function findUserByEmail() {};
+            function findPostOrderByDate() {};
