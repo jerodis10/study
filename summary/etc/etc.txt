@@ -548,3 +548,6 @@
 - 상글톤 패턴은 안티패턴인가?
 
 - maven vs gradle
+
+******* JVM warm up
+    https://www.youtube.com/watch?v=CQi3SS2YspY
