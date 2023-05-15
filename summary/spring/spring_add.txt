@@ -1,3 +1,41 @@
+- 주입이랑 spring aop차이를 아냐
+
+- spring boot xml로 설정했는지 java cofig로 했는데 config로 하는거랑, xml로 설정하는 것중 머가 더 편한지 편하면 왜 편하지 머가 다른지?
+
+- spring의 핵심기능에 대해 말해주세요.
+
+- spring에서 사용한 최신버전은?
+
+- spring di는 -> di에 사용된 디자인 패턴은 -> 디자인패턴의 예시설명
+
+- string이 불변한 이유는?
+
+- spring aop 동작 원리
+
+- 다이나믹 프록시랑 cglib proxy 차이점은 cglib proxyj는 클래스기반만 가능한가?
+
+- solid에 의존 역전 법칙에 대해 아느냐?
+
+- 의존 역전 법칙은 스프링에 어떤 연관이 있냐?
+
+- 스프링 IOC, DI
+
+- IOC가 왜 스프링 장점인지
+
+- 트랜잭션 처리 어떻게 하는지
+
+- 트랜잭션 프로파게이션?(전파레벨)
+
+- state 패턴과 싱글톤 패턴의 설명요구
+
+- spring boot 부트동작원리 설명?
+
+- dispatcherServlet 리다이렉트,포어딩?
+
+- 싱글톤 패턴은 어떤 패턴인가, 어떤 상황에 사용하는가
+
+- 전략 패턴 템플릿 메소드 패턴
+
 - Filter vs Interceptor vs AOP
     https://baek-kim-dev.site/61
 
