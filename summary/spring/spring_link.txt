@@ -116,3 +116,6 @@ https://lenditkr.github.io/spring/transactional-event-listener/index.html
     https://jobc.tistory.com/214
     https://woodcock.tistory.com/40
     https://kth990303.tistory.com/388
+
+- 이벤트 발행으로 비즈니스 로직 분리하기
+    https://tecoble.techcourse.co.kr/post/2020-09-30-event-publish/

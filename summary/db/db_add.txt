@@ -1,1 +1,13 @@
 - 함수와 프로시저의 차이
+
+- 커버링 인덱스
+    https://tecoble.techcourse.co.kr/post/2021-10-12-covering-index/
+
+- 데드락 해결 예제
+    https://tecoble.techcourse.co.kr/post/2022-11-01-mysql-dead-lock/
+
+- 트랜잭션 내에 외부 리소스 요청이 담기게 되면 어떤 문제가 발생할까?
+    https://tecoble.techcourse.co.kr/post/2022-09-20-external-in-transaction/
+
+- Replication과 Clustering
+    https://tecoble.techcourse.co.kr/post/2021-09-18-replication_clustering/

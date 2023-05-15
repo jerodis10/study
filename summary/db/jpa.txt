@@ -97,3 +97,5 @@
     - flush를 할 필요가 없기 때문에 Dirty Checking을 할 필요가 없고, 그에 따라서 엔티티의 스냅샷도 만들지 않는 것이다. -> 성능 최적화
     - 데이터베이스가 master와 slave로 나누어져 있다면, readOnly = true 설정을 주었을 때 읽기 전용인 slave를 호출하게 된다. 즉, 상황에 따라 데이터베이스 서버 부하를 줄일 수 있다.
 
+- JPA Hibernate 프록시 제대로 알고 쓰기
+    https://tecoble.techcourse.co.kr/post/2022-10-17-jpa-hibernate-proxy/

@@ -7,3 +7,11 @@
 
 - 모델1 vs 모델2
 
+- Spring에서 Server-Sent-Events 구현하기
+    https://tecoble.techcourse.co.kr/post/2022-10-11-server-sent-events/
+
+- SpringBoot 존재하지 않는 API 요청의 응답 커스마이징하기
+    https://tecoble.techcourse.co.kr/post/2021-11-24-spring-customize-unhandled-api/
+
+- AOP에 대한 사실과 오해 그런데 트랜잭션을 사알짝 곁들인..
+    https://tecoble.techcourse.co.kr/post/2022-11-07-transaction-aop-fact-and-misconception/

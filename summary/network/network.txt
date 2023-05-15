@@ -711,3 +711,6 @@
 - osi7계층설명
 
 - cors 설명 어떻게 처리했는지
+
+- cors
+    https://tecoble.techcourse.co.kr/post/2020-07-18-cors/

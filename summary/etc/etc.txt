@@ -555,3 +555,18 @@
         - DevOps
             - Development 와 Operation 을 결합한 단어
             - 개발과 운영이 연계하여 협력하여 서비스를 이끌어 나가는 방법론
+
+
+- JPA 사용시 테스트 코드에서 @Transactional 주의하기
+    https://tecoble.techcourse.co.kr/post/2020-08-31-jpa-transaction-test/
+
+
+- Scale-up과 Scale-out에 대해 알아보자!
+    https://tecoble.techcourse.co.kr/post/2021-10-12-scale-up-scale-out/
+
+- Logback 으로 쉽고 편리하게 로그 관리를 해볼까요?
+    https://tecoble.techcourse.co.kr/post/2021-08-07-logback-tutorial/
+
+- 로드 밸런싱에 대해 알아보자!
+    https://tecoble.techcourse.co.kr/post/2021-11-07-load-balancing/
+
