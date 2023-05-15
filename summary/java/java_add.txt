@@ -1,13 +1,47 @@
+- 제네릭이란? 제네릭을 쓰면서 얻은 이점
+
+- syncronize
+
+- 멀티쓰레드 프로그래밍을 해본 적 있는지
+
+- java에서 파일을 읽어올 때 왜 스트림을 쓰냐?
+
+- 동기화를 언제써야 하는지 (관련된 라이브러리 써본거 없냐?)
+
+- 인터페이스 다중상속을 사용하는 경우(사용하는 이유)
+
+- OOP 에 대해 설명해달라
+
+- java8 이후에 Date vs localDatetime 클래스들의 차이점은?
+
+- java stream paralled 사용시 주의사항
+
+- stream에 lazy란?
+
+- static 클래스, static 변수, static 메소드 차이
+
+- java8에 @FunctionalInterface이란
+
+- 자바에서 공유객체 처리 어떻게 하는지
+
+- 맵과 플랫맵 차이가 머고 왜쓰나
+
+- java volatile vs atomic
+    https://mygumi.tistory.com/112
+
+- private static final 의미
+
+- try catch 구문에서 try 에서 발생한 예외를 catch 에서 잡지 않는 경우 어떻게 되나?
+
+- Optional
+    https://www.daleseo.com/java9-optional/
+
+********* 자바 면접 질문
+    https://f-lab.kr/blog/java-backend-interview-1
+
 - final 단점
 
-- 컬렉션의 복사 방법 (방어적 복사)
-
 - 람다 정리
-
-- string + 연산 최적화  (537)
-
-- 문자열 분리
-	- stringTokenizer 반환 방식 + 성능
 
 - 자바에서 에러 처리
 
@@ -39,6 +73,9 @@
 - heap dump 뜨는 방법
 
 - 메모리 주소만으로 Heap의 인스턴스에 접근할 수 있을까?
+
+- Arrays.asList()와 List.of()의 차이
+    https://atoz-develop.tistory.com/entry/JAVA-ArraysasList%EC%99%80-Listof%EC%9D%98-%EC%B0%A8%EC%9D%B4
 
 
 

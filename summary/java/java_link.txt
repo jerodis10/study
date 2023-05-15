@@ -55,3 +55,6 @@
 
     https://velog.io/@neity16/Java-8-%EA%B8%B0%EB%B3%B8-%EB%A9%94%EC%86%8C%EB%93%9C-Stream
     https://dev-youngjun.tistory.com/192
+
+- string + 연산 내부 구현
+    https://june0122.tistory.com/2

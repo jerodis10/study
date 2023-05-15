@@ -281,6 +281,22 @@
         - Java 9 부터 default GC 방식
 
 
+- JVM 구조
+    - JVM MEMORY영역에 Heap영역과 Native Memory영역에 jdk8에서 변화가 있다.
+
+    - jdk7 vs jdk8 HEAP
+        - JDK 8부터 Permanent Heap 영역이 제거되고 Metaspace 영역이 추가되었다.
+        - Perm은 JVM에 의해 크기가 강제되던 영역이다.(JVM이 관리하는 영)
+        - Metaspace는 Native memory 영역으로, OS가 자동으로 크기를 조절한다.(OS 판단하여 메모리를 조절)
+        - 기존과 비교해 Perm영역에서 사용하던 메모리를 사용할 수 있게 되어 메모리 부족에 대한 부담이 감소한다.
+
+    - Perm영역의 역할은
+        - Perm 영역은 보통 Class의 Meta 정보나 Method의 Meta 정보,
+        - Static 변수와 상수 정보들이 저장되는 공간으로 흔히 메타데이터 저장 영역이라고도 한다.
+        - 이 영역은 Java 8 부터는 Native 영역으로 이동하여 Metaspace 영역으로 변경되었다.
+        - 기존 Perm 영역에 존재하던 Static Object는 Heap 영역으로 옮겨져서 GC의 대상이 최대한 될 수 있도록 하였다.
+
+
 - 컴파일러와 인터프리터 차이점
 
 
