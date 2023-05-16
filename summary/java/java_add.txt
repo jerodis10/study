@@ -1,36 +1,6 @@
-- 메모리 주소만으로 Heap의 인스턴스에 접근할 수 있을까?
-
-- Arrays.asList()와 List.of()의 차이
-    https://atoz-develop.tistory.com/entry/JAVA-ArraysasList%EC%99%80-Listof%EC%9D%98-%EC%B0%A8%EC%9D%B4
-    https://sas-study.tistory.com/413
-
-- Java 로 동기화를 해보자
-    https://tecoble.techcourse.co.kr/post/2021-10-23-java-synchronize/
-
-- Java 8 에서 왜 함수형 프로그래밍이 도입되었을까?
-    https://tecoble.techcourse.co.kr/post/2021-09-30-java8-functional-programming/
-
-- 원시 타입을 포장해야 하는 이유
-    https://tecoble.techcourse.co.kr/post/2020-05-29-wrap-primitive-type/
-
-- 정적 팩토리 메서드(Static Factory Method)는 왜 사용할까?
-    https://tecoble.techcourse.co.kr/post/2020-05-26-static-factory-method/
-
-- new ArrayList<>() vs Arrays.asList()
-    https://tecoble.techcourse.co.kr/post/2020-05-18-ArrayList-vs-Arrays.asList/
-
-- 상속보다는 조합(Composition)을 사용하자.
-    https://tecoble.techcourse.co.kr/post/2020-05-18-inheritance-vs-composition/
-    https://inpa.tistory.com/entry/OOP-%F0%9F%92%A0-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5%EC%9D%98-%EC%83%81%EC%86%8D-%EB%AC%B8%EC%A0%9C%EC%A0%90%EA%B3%BC-%ED%95%A9%EC%84%B1Composition-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0?category=967430
-
-- 인터페이스를 분리하여 테스트하기 좋은 메서드로 만들기
-    https://tecoble.techcourse.co.kr/post/2020-05-17-appropriate_method_for_test_by_interface/
-
-- Stream의 foreach 와 for-loop 는 다르다.
-    https://tecoble.techcourse.co.kr/post/2020-05-14-foreach-vs-forloop/
-
 - 일급 컬렉션을 사용하는 이유
     https://tecoble.techcourse.co.kr/post/2020-05-08-First-Class-Collection/
+    https://dev-cool.tistory.com/28
 
 - 함수형 인터페이스와 람다를 이용한 코드 중복 제거
     https://tecoble.techcourse.co.kr/post/2021-11-21-functional-interface-with-lambda/
@@ -47,14 +17,17 @@
 - [Java] 부모 클래스의 메소드 오버라이딩이 더 큰 범위의 접근 제어자만 가능한 이유 or 더 좁은 범위로 변경할 수 없는 이유
     https://mangkyu.tistory.com/228
 
+- Java 로 동기화를 해보자
+    https://tecoble.techcourse.co.kr/post/2021-10-23-java-synchronize/
+
+- stream 에서 실수하기 쉬운 10가지
+    https://hamait.tistory.com/547
+
 - 서비스를 운영하면 모니터링을 해야할 일이 많은데 어떤 툴들을 사용해볼 수 있을까요?
 
 - JIT 컴파일러란 무엇이고, 이것은 왜 필요할까요?
 
 - 힙에 메모리를 할당하는 과정에서 어떤 일들이 벌어지나요?
-
-- 일급 컬렉션
-    https://dev-cool.tistory.com/28
 
 - try catch 구문에서 try 에서 발생한 예외를 catch 에서 잡지 않는 경우 어떻게 되나?
 
