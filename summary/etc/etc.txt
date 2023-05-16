@@ -414,49 +414,6 @@
         - 일반적으로 상향식 테스트에서 아직 통합되지 않은 상위 컴포넌트의 동작을 시뮬레이션 하기 위해 사용.
 
 
-- msa
-    https://gyoogle.dev/blog/computer-science/software-engineering/MSA.html
-
-- 함수형 프로그래밍
-    https://gyoogle.dev/blog/computer-science/software-engineering/Fuctional%20Programming.html
-
-- 객체지향 프로그래밍
-    https://gyoogle.dev/blog/computer-science/software-engineering/Object-Oriented%20Programming.html
-
-- 애자일
-    https://gyoogle.dev/blog/computer-science/software-engineering/Agile.html
-
-- TDD
-    https://gyoogle.dev/blog/computer-science/software-engineering/TDD.html
-
-- 클린코딩 & 리팩토링
-    https://gyoogle.dev/blog/computer-science/software-engineering/Clean%20Code%20&%20Refactoring.html
-
-- 클린코딩 & 시큐어 코딩
-    https://gyoogle.dev/blog/computer-science/software-engineering/Clean%20Code%20&%20Secure%20Coding.html
-
-- Git vs GitHub vs GitLab Flow
-    https://gyoogle.dev/blog/github/Git%20vs%20GitHub%20vs%20GitLab%20Flow.html
-
-- 효율적으로 로그 모니터링하기 - 로그 레벨 구분하기
-    https://jojoldu.tistory.com/712
-
-- 테스크 코드 커버리지는 어떤 기준으로 측정하는지? private 메서드는 테스트하는지?
-
-- 대량용 요청을 고려한 api를 개발한다면?
-
-- 테스트 코드 작성시 실행시키는 속도가 느릴텐데 어떤방법이 있을까
-
-- 순간에 많은 트래픽이 발생하면 대처방안 (sql튜님말고 , 로드밸런싱말고)
-
-- 상글톤 패턴은 안티패턴인가?
-
-- maven vs gradle
-
-******* JVM warm up
-    https://www.youtube.com/watch?v=CQi3SS2YspY
-
-
 - 빌드와 배포
     - 컴파일
         - 소스 코드를 기계가 읽을 수 있는 바이너리 코드로 변경하는 과정
@@ -557,9 +514,50 @@
             - 개발과 운영이 연계하여 협력하여 서비스를 이끌어 나가는 방법론
 
 
+- msa
+    https://gyoogle.dev/blog/computer-science/software-engineering/MSA.html
+
+- 함수형 프로그래밍
+    https://gyoogle.dev/blog/computer-science/software-engineering/Fuctional%20Programming.html
+
+- 객체지향 프로그래밍
+    https://gyoogle.dev/blog/computer-science/software-engineering/Object-Oriented%20Programming.html
+
+- 애자일
+    https://gyoogle.dev/blog/computer-science/software-engineering/Agile.html
+
+- TDD
+    https://gyoogle.dev/blog/computer-science/software-engineering/TDD.html
+
+- 클린코딩 & 리팩토링
+    https://gyoogle.dev/blog/computer-science/software-engineering/Clean%20Code%20&%20Refactoring.html
+
+- 클린코딩 & 시큐어 코딩
+    https://gyoogle.dev/blog/computer-science/software-engineering/Clean%20Code%20&%20Secure%20Coding.html
+
+- Git vs GitHub vs GitLab Flow
+    https://gyoogle.dev/blog/github/Git%20vs%20GitHub%20vs%20GitLab%20Flow.html
+
+- 효율적으로 로그 모니터링하기 - 로그 레벨 구분하기
+    https://jojoldu.tistory.com/712
+
+- 테스크 코드 커버리지는 어떤 기준으로 측정하는지? private 메서드는 테스트하는지?
+
+- 대량용 요청을 고려한 api를 개발한다면?
+
+- 테스트 코드 작성시 실행시키는 속도가 느릴텐데 어떤방법이 있을까
+
+- 순간에 많은 트래픽이 발생하면 대처방안 (sql튜님말고 , 로드밸런싱말고)
+
+- 상글톤 패턴은 안티패턴인가?
+
+- maven vs gradle
+
+******* JVM warm up
+    https://www.youtube.com/watch?v=CQi3SS2YspY
+
 - JPA 사용시 테스트 코드에서 @Transactional 주의하기
     https://tecoble.techcourse.co.kr/post/2020-08-31-jpa-transaction-test/
-
 
 - Scale-up과 Scale-out에 대해 알아보자!
     https://tecoble.techcourse.co.kr/post/2021-10-12-scale-up-scale-out/
@@ -570,3 +568,10 @@
 - 로드 밸런싱에 대해 알아보자!
     https://tecoble.techcourse.co.kr/post/2021-11-07-load-balancing/
 
+- maven vs gradle
+
+- Gradle Java 플러그인과 implementation와 api의 차이
+    https://mangkyu.tistory.com/296
+
+- [Java] Private 메소드를 테스트하는 방법과 이를 지양해야 하는 이유
+    https://mangkyu.tistory.com/235

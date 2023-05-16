@@ -1,3 +1,6 @@
+******* [Spring Boot] logback과 Sentry를 활용하여 에러 모니터링하기
+    https://zorba91.tistory.com/311
+
 ***** 이벤트 기반 아키텍처 구축
     https://techblog.woowahan.com/7835/
     https://www.youtube.com/watch?v=b65zIH7sDug&t=1035s

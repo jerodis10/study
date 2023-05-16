@@ -714,3 +714,15 @@
 
 - cors
     https://tecoble.techcourse.co.kr/post/2020-07-18-cors/
+
+- [HTTP] HTTP 메소드의 멱등성(Idempotence)과 Delete 메소드가 멱등한 이유
+    https://mangkyu.tistory.com/251
+
+- [Web] Forward와 Redirect 차이
+    https://mangkyu.tistory.com/51
+
+- [Web] GET과 POST의 비교 및 차이
+    https://mangkyu.tistory.com/17
+
+- rest api
+    https://tech.trenbe.com/2022/01/16/rest-api.html

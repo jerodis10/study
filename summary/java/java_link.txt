@@ -58,3 +58,9 @@
 
 - string + 연산 내부 구현
     https://june0122.tistory.com/2
+
+- Optional
+    https://www.daleseo.com/java8-optional-before/
+    https://www.daleseo.com/java8-optional-after/
+    https://www.daleseo.com/java8-optional-effective/
+    https://www.daleseo.com/java9-optional/

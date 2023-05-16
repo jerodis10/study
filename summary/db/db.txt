@@ -1174,33 +1174,3 @@
       DBMS 같은 시스템에서는 효과적으로 버퍼(캐시)를 구현하여 I/O 발생을 최소화하도록 구현하고 있다. 그래서 히트(hit)율이 높을 때는,
       HDD에서 SSD로 교체해도 성능 향상 효과가 미미한 경우가 있다. 하지만 SSD를 사용하면 버퍼 크기를 작게 유지해도 되기 때문에 대용량의 메모리를 유지할 필요가 적어지기도 한다.
 
-
-- SQL 튜닝
-    - Join, Indexing, SQL Execution Plan
-
-- RDBMS는 쿼리 사용시 한 테이블에는 1개의 인덱스만 적용 된다.???
-  즉, course_id 인덱스와 user_id 인덱스가 각각 있을 경우 그 중에서 가장 효율적인 인덱스 1개만 적용 된다.
-
-- Oracle - 실행계획 보는 방법
-     https://yooloo.tistory.com/144
-
-- DBMS_XPLAN.DISPLAY_CURSOR 결과 보는 법
-    https://theone79.tistory.com/865
-
-- MySQL Explain 실행계획 사용법 및 분석    https://nomadlee.com/mysql-explain-sql/#id
-
-
-- 왜 RDB를 선택한건지? nosql로 해도 되는거 아닌지?
-
-- rdb랑 nosql의 차이점
-
-- join의 종류에 대해 아는대로 말해주세요
-
-- spring mybatis에 # , $ 의 차이점
-
-- 디비에 insert,update 성능을 더 빠르게 개선하기 위해 어떤 방법이 있을까요
-
-- DBMS / RDBMS
-
-- 쿼리 튜닝 툴 사이트
-    https://www.eversql.com/

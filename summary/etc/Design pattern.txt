@@ -277,3 +277,8 @@
     - in java
         - BufferedWriter는 FileWriter에 Buffer를 추가해 disk IO의 횟수를 줄여주는 역할
         - 이 때 데코레이터 패턴 사용됨
+
+
+- [디자인 패턴] 싱글톤이 안티 패턴이 될 수 있는 이유와 자바 싱글톤과 스프링 싱글톤의 차이
+    https://mangkyu.tistory.com/153
+
