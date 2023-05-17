@@ -122,3 +122,42 @@ https://lenditkr.github.io/spring/transactional-event-listener/index.html
 
 - 이벤트 발행으로 비즈니스 로직 분리하기
     https://tecoble.techcourse.co.kr/post/2020-09-30-event-publish/
+
+- [Spring] XML 설정보다 Java 설정을 사용해야 하는 이유
+    https://mangkyu.tistory.com/158
+
+- [Spring] 스프링에서 이벤트의 발행과 구독 방법과 주의사항, 이벤트 사용의 장/단점과 사용 예시
+    https://mangkyu.tistory.com/292
+
+- Spring에서 Server-Sent-Events 구현하기
+    https://tecoble.techcourse.co.kr/post/2022-10-11-server-sent-events/
+
+- Filter vs Interceptor vs AOP
+    https://baek-kim-dev.site/61
+
+- [Spring] SpringBoot 소스 코드 분석하기, DispatcherServlet(디스패처 서블릿) 동작 과정
+    https://mangkyu.tistory.com/216
+
+- SpringBoot 존재하지 않는 API 요청의 응답 커스마이징하기
+    https://tecoble.techcourse.co.kr/post/2021-11-24-spring-customize-unhandled-api/
+
+- AOP에 대한 사실과 오해 그런데 트랜잭션을 사알짝 곁들인..
+    https://tecoble.techcourse.co.kr/post/2022-11-07-transaction-aop-fact-and-misconception/
+
+- [Spring] if-else를 사용하지 않는 유연한 팩토리 클래스 구현하기
+    https://mangkyu.tistory.com/252
+
+- [Spring] ControllerAdvice는 AOP로 구현되어 있을까? ControllerAdvice의 동작 과정 살펴보기
+    https://mangkyu.tistory.com/246
+
+- [Spring] 스프링 첫 요청이 처리되는데 오래 걸리는 이유(서블릿 초기화와 JIT 컴파일러)와 해결 방법(웜업, Warm-Up)
+    https://mangkyu.tistory.com/232
+
+- [Spring] SpringBoot 실행 후에 초기화 코드를 넣는 3가지 방법과 이벤트 리스너(CommandLineRunner, ApplicationRunner, EventListener)
+    https://mangkyu.tistory.com/233
+
+- [OOP] 의존성(Dependency)이란? 컴파일타임 의존성과 런타임 의존성의 차이 및 비교
+    https://mangkyu.tistory.com/226
+
+- [Spring] 도메인 주도 설계 및 개발과 도메인 계층(도메인 객체 중심 개발)
+    https://mangkyu.tistory.com/160

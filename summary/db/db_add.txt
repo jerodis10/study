@@ -1,54 +1,9 @@
-- SQL 튜닝
-    - Join, Indexing, SQL Execution Plan
-
-- RDBMS는 쿼리 사용시 한 테이블에는 1개의 인덱스만 적용 된다.???
-  즉, course_id 인덱스와 user_id 인덱스가 각각 있을 경우 그 중에서 가장 효율적인 인덱스 1개만 적용 된다.
-
-- Oracle - 실행계획 보는 방법
-     https://yooloo.tistory.com/144
-
-- DBMS_XPLAN.DISPLAY_CURSOR 결과 보는 법
-    https://theone79.tistory.com/865
-
-- MySQL Explain 실행계획 사용법 및 분석    https://nomadlee.com/mysql-explain-sql/#id
-
-
-- 왜 RDB를 선택한건지? nosql로 해도 되는거 아닌지?
-
-- rdb랑 nosql의 차이점
-
-- join의 종류에 대해 아는대로 말해주세요
-
-- spring mybatis에 # , $ 의 차이점
-    https://madplay.github.io/post/difference-between-dollar-sign-and-sharp-sign-in-mybatis
-
-- 디비에 insert,update 성능을 더 빠르게 개선하기 위해 어떤 방법이 있을까요
-
-- DBMS / RDBMS
-
-- 쿼리 튜닝 툴 사이트
-    https://www.eversql.com/
-
-
-- 함수와 프로시저의 차이
-
-- 커버링 인덱스
-    https://tecoble.techcourse.co.kr/post/2021-10-12-covering-index/
-
-- 데드락 해결 예제
-    https://tecoble.techcourse.co.kr/post/2022-11-01-mysql-dead-lock/
-
-- 트랜잭션 내에 외부 리소스 요청이 담기게 되면 어떤 문제가 발생할까?
-    https://tecoble.techcourse.co.kr/post/2022-09-20-external-in-transaction/
-
-- Replication과 Clustering
-    https://tecoble.techcourse.co.kr/post/2021-09-18-replication_clustering/
-
-- [Database] 자연키(Natural key)와 대체키(Surrogate Key), PK(기본키)를 대체키로 설정해야 하는 이유
-    https://mangkyu.tistory.com/287
-
 - [MySQL] B-Tree로 인덱스(Index)에 대해 쉽고 완벽하게 이해하기
     https://mangkyu.tistory.com/286
 
 - [MySQL] 프라이머리 키(PK, Primary Key)에 대해 쉽고 완벽하게 이해하기
     https://mangkyu.tistory.com/285
+
+- 자연 키 vs 대리 키
+    https://www.inflearn.com/questions/27694/%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%84%A4%EA%B3%84-%EA%B4%80%EB%A0%A8-%EB%AC%B8%EC%9D%98-%EB%B0%8F-mongodb-jpa-%EA%B4%80%EB%A0%A8
+

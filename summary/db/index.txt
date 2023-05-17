@@ -159,6 +159,18 @@
                   인덱스 페이지들의 주소들을 계속해서 변경해야 하는 영향을 주게 된다. 따라서 클러스터링 인덱스가 적용된 칼럼의 실제값이
                   들어있으면 id 가 직접 변경되지 않는 한 인덱스 페이지에 영향을 주지 않도록 구성되어 있다.
 
+            - Clustered Key
+                (1) PK
+                (2) PK가 없을 땐, Unique Key
+                (3) PK가 없고 Unique Key도 없을 땐, 6 bytes의 Hidden Key 생성
+
+            - 흐름   https://tecoble.techcourse.co.kr/post/2021-10-12-covering-index/
+                현재 age와 PK에 인덱스가 걸려있다. 따라서 Non-clustered Key는 age에, Clustered Key는 PK에 인덱스가 있다. 그리고 Non-clustered Key는 age 순으로, Clustered Key는 PK 순으로 정렬된다.
+                Non-clustered Key에는 인덱스 컬럼(age)의 값들과 PK의 값들이 있고, Clustered Key는 테이블의 실제 레코드 위치를 알고 있다. MySQL에서는 Non-clustered Key에 Clustered Key가 항상 포함되어 있다. Non-clustered Key엔 데이터 블록의 위치가 없기 때문이다.
+                그러므로 인덱스 조건에 부합하는 WHERE가 있더라도, SELECT 문에 인덱스에 포함되어 있는 컬럼 외의 다른 컬럼 값이 필요할 때는 Non-clustered Key에 있는 Clustered Key 값으로 데이터 블록을 찾는 과정이 필요하다.
+                그렇지만, PK를 사용하는 경우에는 테이블 액세스 시간이 없어져서 필요로 하는 데이터에 더 빠르게 접근할 수 있다.
+                결국 커버링 인덱스는 이미지의 2. 실제 데이터 접근 과정 없이, 인덱스에 존재하는 컬럼 값으로만 쿼리를 완성하는 것을 얘기한다.
+
     - 인덱스 설정 시 고려사항
         - 인덱스 키 값의 크기
             - 키 값이 클수록 디스크 IO 횟수가 많아져서 성능이 떨어진다. -> 인덱스의 키 값은 작을수록 유리
@@ -444,6 +456,9 @@
         - 여기서 커버링 인덱스가 사용되었다는건 Clustered Index 까지 통하지 않고 Non Clustered Index 만으로도 데이터를 구할 수 있다는 뜻
         - 커버링 인덱스가 적용되면 EXPLAIN 실행 시 Extra 필드에 Using index 라고 표시
 
+        - SELECT / WHERE / GROUP BY / ORDER BY 등에 활용되는 모든 컬럼이 인덱스의 구성 요소인 경우
+        - 커버링 인덱스를 잘 쓰면(특히, 대용량 데이터 처리 시), 조회 성능을 상당 부분 높일 수 있다.
+
     - 결합 인덱스란
         - 결합 인덱스란?
             결합 인덱스란 두 개 이상의 컬럼을 합쳐서 인덱스를 만드는 것을 말합니다. 주로 단일 컬럼으로는 나쁜 분포도를 가지지만
@@ -600,3 +615,10 @@
                 - K의 Lmax 혹은 Rmin과 자리를 바꿔준다. 이후 리프 노드에서의 K 삭제와 과정이 동일
             - Case 2-2) 내부 노드에서 값을 삭제할 때, 현재 노드와 자식 노드 모두 key 개수가 최소인 경우
                 - 트리의 재구조화가 필요
+
+- 커버링 인덱스
+    https://jojoldu.tistory.com/476
+    https://jojoldu.tistory.com/481
+
+- MySQL Ascending index vs Descending index
+    https://tech.kakao.com/2018/06/19/mysql-ascending-index-vs-descending-index/

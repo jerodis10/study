@@ -709,3 +709,5 @@
 - 슬로우 쿼리에 대처하기
     https://hyperconnect.github.io/2020/08/31/improve-slow-query.html
 
+- SQL 튜닝
+    - Join, Indexing, SQL Execution Plan

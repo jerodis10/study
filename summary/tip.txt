@@ -5,6 +5,8 @@
 
 - SOAP을 활용한 웹서비스 구축
 
+package-private == default
+
 ********** 면접 tip
     https://www.jumpit.co.kr/job-interview/301
 

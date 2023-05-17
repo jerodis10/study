@@ -158,3 +158,41 @@ SQL 성능 향상 팁
 
 ***** 인덱스 타지 않는 쿼리
     https://hckcksrl.medium.com/index%EB%A5%BC-%ED%83%80%EC%A7%80%EC%95%8A%EB%8A%94-%EC%BF%BC%EB%A6%AC-41f0417bfe03
+
+- 효과적인 DB index 설정하기
+    https://velog.io/@jwpark06/%ED%9A%A8%EA%B3%BC%EC%A0%81%EC%9D%B8-DB-index-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0
+
+- Postgresql 슬로우 쿼리에 대처하기
+    https://velog.io/@jwpark06/Postgresql-%EC%8A%AC%EB%A1%9C%EC%9A%B0-%EC%BF%BC%EB%A6%AC%EC%97%90-%EB%8C%80%EC%B2%98%ED%95%98%EA%B8%B0
+
+- 실행계획 - postgresql
+    https://bactoria.github.io/2019/06/15/%EC%8B%A4%ED%96%89%EA%B3%84%ED%9A%8D-postgresql/
+
+- RDBMS는 쿼리 사용시 한 테이블에는 1개의 인덱스만 적용 된다.???
+  즉, course_id 인덱스와 user_id 인덱스가 각각 있을 경우 그 중에서 가장 효율적인 인덱스 1개만 적용 된다.
+
+- Oracle - 실행계획 보는 방법
+     https://yooloo.tistory.com/144
+
+- DBMS_XPLAN.DISPLAY_CURSOR 결과 보는 법
+    https://theone79.tistory.com/865
+
+- MySQL Explain 실행계획 사용법 및 분석    https://nomadlee.com/mysql-explain-sql/#id
+
+- spring mybatis에 # , $ 의 차이점
+    https://madplay.github.io/post/difference-between-dollar-sign-and-sharp-sign-in-mybatis
+
+- 쿼리 튜닝 툴 사이트
+    https://www.eversql.com/
+
+- 커버링 인덱스
+    https://tecoble.techcourse.co.kr/post/2021-10-12-covering-index/
+
+- 데드락 해결 예제
+    https://tecoble.techcourse.co.kr/post/2022-11-01-mysql-dead-lock/
+
+- 트랜잭션 내에 외부 리소스 요청이 담기게 되면 어떤 문제가 발생할까?
+    https://tecoble.techcourse.co.kr/post/2022-09-20-external-in-transaction/
+
+- Replication과 Clustering
+    https://tecoble.techcourse.co.kr/post/2021-09-18-replication_clustering/
