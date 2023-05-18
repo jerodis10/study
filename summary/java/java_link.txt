@@ -86,3 +86,9 @@
 
 - Stream의 foreach 와 for-loop 는 다르다.
    https://tecoble.techcourse.co.kr/post/2020-05-14-foreach-vs-forloop/
+
+- 함수형 프로그래밍
+    https://gyoogle.dev/blog/computer-science/software-engineering/Fuctional%20Programming.html
+
+- 객체지향 프로그래밍
+    https://gyoogle.dev/blog/computer-science/software-engineering/Object-Oriented%20Programming.html

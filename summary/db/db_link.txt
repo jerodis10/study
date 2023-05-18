@@ -196,3 +196,21 @@ SQL 성능 향상 팁
 
 - Replication과 Clustering
     https://tecoble.techcourse.co.kr/post/2021-09-18-replication_clustering/
+
+- MySQL Ascending index vs Descending index
+    https://tech.kakao.com/2018/06/19/mysql-ascending-index-vs-descending-index/
+
+- [MySQL] B-Tree로 인덱스(Index)에 대해 쉽고 완벽하게 이해하기
+    https://mangkyu.tistory.com/286
+
+- [MySQL] 프라이머리 키(PK, Primary Key)에 대해 쉽고 완벽하게 이해하기
+    https://mangkyu.tistory.com/285
+
+- 자연 키 vs 대리 키
+    https://www.inflearn.com/questions/27694/%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%84%A4%EA%B3%84-%EA%B4%80%EB%A0%A8-%EB%AC%B8%EC%9D%98-%EB%B0%8F-mongodb-jpa-%EA%B4%80%EB%A0%A8
+
+- MySQL InnoDB Primary Key Choice: GUID/UUID vs Integer Insert Performance
+    https://kccoder.com/mysql/uuid-vs-int-insert-performance/
+
+- 분산 DB 환경에서의 트랜잭션 구현 (Saga Pattern)
+    http://clipsoft.co.kr/wp/blog/%eb%b6%84%ec%82%b0-db-%ed%99%98%ea%b2%bd%ec%97%90%ec%84%9c%ec%9d%98-%ed%8a%b8%eb%9e%9c%ec%9e%ad%ec%85%98-%ea%b5%ac%ed%98%84/

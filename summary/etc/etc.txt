@@ -340,10 +340,14 @@
                 - production 코드를 수정하는 중에도 develop 에서는 계속 개발을 할 수 있다는 장점
                 - master 로 merge 후에는 tag 명령을 통해 이전 버전보다 높은 버전 명시
 
-        - 무슨 전략을 사용해야 할까?
-            - 팀의 브랜칭 전략은 조직의 규모, 서비스의 특징 등을 고려하여 협의를 통해 전략을 결정해야 한다.
-            - production 의 공식 배포 주기가 길고 QA, 테스트, hotfix 등의 여력이 있으면 Git flow 가 적합
-            - 지속적으로 테스트 및 배포를 하는 팀의 경우 간단한 GitHub flow 를 사용하는 것이 적합
+    - GitLab Flow
+        github flow의 간단한 배포 이슈를 보안하기 위해 관련 내용을 추가로 덧붙인 flow 방식
+        Production 브랜치가 존재하여 커밋 내용을 일방적으로 Deploy 하는 형태를 갖추고 있다.
+
+    - 무슨 전략을 사용해야 할까?
+        - 팀의 브랜칭 전략은 조직의 규모, 서비스의 특징 등을 고려하여 협의를 통해 전략을 결정해야 한다.
+        - production 의 공식 배포 주기가 길고 QA, 테스트, hotfix 등의 여력이 있으면 Git flow 가 적합
+        - 지속적으로 테스트 및 배포를 하는 팀의 경우 간단한 GitHub flow 를 사용하는 것이 적합
 
 
 - api 개발시 중요하게 여기는 것   https://www.holaxprogramming.com/2015/01/01/devops-api-design/
@@ -514,17 +518,143 @@
             - 개발과 운영이 연계하여 협력하여 서비스를 이끌어 나가는 방법론
 
 
+- 순간에 많은 트래픽이 발생하면 대처방안 (sql튜님말고 , 로드밸런싱말고)
+
+- 테스트 코드 작성시 실행시키는 속도가 느릴텐데 어떤방법이 있을까   https://tecoble.techcourse.co.kr/post/2022-10-15-test-code-optimization/
+    - 테스트 피라미드를 참고해서 계층별 테스트 비율을 조절하자
+        - 인수 테스트(UI Test)
+            사용자 스토리(시나리오)에 맞춰 수행하는 테스트
+            시나리오에서 요구하는 것은 누가, 어떤 목적으로, 무엇을 하는가이다.
+
+        - 통합 테스트(Integration Test)
+            단위 테스트보다 더 큰 동작을 달성하기 위해 여러 모듈들을 모아 이들이 의도대로 협력하는지 확인하는 테스트
+            @SpringBootTest 를 사용하여 작성
+            단위 테스트와 달리 개발자가 변경할 수 없는 부분(ex. 외부 라이브러리)까지 묶어 검증할 때 사용
+            이는 DB에 접근하거나 전체 코드와 다양한 환경이 제대로 작동하는지 확인하는데 필요한 모든 작업을 수행할 수 있다.
+
+        - 단위 테스트(Unit Test)
+            단위 테스트는 응용 프로그램에서 테스트 가능한 가장 작은 소프트웨어를 실행하여 예상대로 동작하는지 확인하는 테스트이다.
+
+    - 불필요한 설정을 제거하자 (ControllerTest → WebMvcTest 로 내린다든가)
+
+    - 재사용 가능한 테스트 구조를 고민해보자
+        테스트 격리를 위해서 사용했던 MockBean, SpyBean 이 객체마다 다르게 선언되어 있었던 점이 문제
+        해당 어노테이션을 사용하면 대리 객체가 생성되어 실제 객체가 아니라, 대리 객체가 생성되고 있었어요. 따라서 당연하게 Context 에 생성되는
+        기존 객체가 아닌 대리 객체가 추가 되기 때문에 고유 컨텍스트 구성이 오염되었다고 판단해서 새로운 Context 를 띄우게 되는 것.
+
+        처음부터 필요한 대리 객체가 무엇인지 파악한 뒤 Mock, Spy 한번에 선언하여 Context 에 올려두고,
+        Test Class 들이 상속 받아 사용하는 형태로 구현한다면 컨텍스트 초기화를 한번만 하는 것이 가능
+
+    - 데이터 격리 방식으로 DirtiesContext 걷어내자 ??
+
+
+- 대량용 요청을 고려한 api를 개발한다면?
+    https://velog.io/@jiffydev/%EB%8C%80%EC%9A%A9%EB%9F%89-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EC%99%80-%EC%84%B1%EB%8A%A5-%ED%8A%9C%EB%8B%9D-%EB%8C%80%EC%9A%A9%EB%9F%89-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98
+
+- 테스트 코드 커버리지는 어떤 기준으로 측정하는지? private 메서드는 테스트하는지?
+
+- 상글톤 패턴은 안티패턴인가?
+
+- maven vs gradle   https://binco.tistory.com/entry/Maven-VS-Gradle
+    - 빌드 배포 툴
+        프로젝트를 진행하다 보면 많은 라이브러리를 활용해서 개발을 하게 된다. 이 때 사용되는 라이브러리들의 수가 많아지면 그만큼 라이브러리들을
+        관리하는 것이 힘들어지게 됩니다. Maven은 이러한 문제를 해결해주는 일종의 도구입니다. Maven은 내가 사용할 라이브러리뿐만 아니라
+        해당 라이브러리가 작동하는데 필요한 다른 라이브러리들까지 관리하여 네트워크를 통해 자동으로 다운로드 해줍니다.
+
+    - Gradle
+        - 빌드 툴인 Ant Builder와 그루비 스크립트를 기반으로 구축되어 기존 Ant의 역할과 배포 스크립트의 기능을 모두 사용 가능
+        - 기본 Maven의 경우 XML로 라이브러리를 정의하고 활용하도록 되어 있으나(pom.xml), Gradle의 경우 별도의 빌드 스크립트를 통하여 설정
+        - 그루비 스크립트 언어로 구성되어 있기에 XML과 달리 변수 선언, if, else, for 등의 로직 구현이 가능하며 간결하게 구성 가능
+
+    - 그루비
+        - 그루비는 자바에 파이썬, 루비, 스몰토크 등의 특징을 더한 동적 객체 지향 프로그래밍 언어
+        - JVM에서 작동하는 동적 타이핑 프로그래밍 언어
+        - 러닝커브가 낮다.
+        - 도메인 전문 언어와 단순화된 문법을 지원하여 코드를 읽고 유지 보수하기 편함
+
+    - Gradle이 Maven보다 좋은 점
+        - 스크립트 길이와 가독성 면에서 gradle이 우세
+        - 의존성이 늘어날수록 성능과 스크립트 품질 차이가 심해짐
+        - gradle은 그루비를 사용하기 때문에, 동적인 빌드는 그루비 스크립트 플러그인을 호출하거나 직접 코드를 짜면 된다.
+        - 빌드 타임 소곧가 Maven보다 10 ~ 100배 빠르다.
+
+
+- Gradle Java 플러그인과 implementation와 api의 차이   https://mangkyu.tistory.com/296
+    1. Gradle Java 플러그인, Java-Library 플러그인
+        - Java 플러그인이란?
+            Gradle(그레이들)에서 Java 프로젝트를 빌드하려면 기본적으로 java 플러그인이 필요하다. java 플러그인을 통해 컴파일, 테스트, jar 파일 생성 등의 작업들(tasks)이 수행 가능하다.
+
+            Compile classpath: Java 코드를 class 파일로 컴파일 할 때 탐색하는 경로
+            Runtime classpath: 컴파일된 자바 코드(class 파일)을 JVM이 실행할 때 탐색하는 경로
+
+            컴파일 시점에만 필요로 하는 의존성도 있고, 실행 시점에만 필요로 하는 의존성도 있다. 그래서 Gradle에서 의존성(dependency)를 추가할 때 어느 범위로 노출시킬 것인지 결정할 수 있도록 도와준다.
+                complieOnly: 컴파일 경로에만 설정
+                runtimeOnly: 런타임 경로에만 설정
+                implementation: 두 경로에 모두 설정
+                api: 두 경로에 모두 설정
+
+        - Java-Library 플러그인이란?
+            Java-Library 플러그인은 기존의 java 플러그인에 추가적인 정보를 제공함으로써 기능을 확장한 플러그인.
+            이를 활용하면 Java 플러그인에 의해 노출되는 모든 source sets, tasks, configurations를 암시적으로 사용할 수 있다.
+
+    2. Gradle implentation과 api의 차이
+        - 전이 의존성 또는 추이 의존성(transitive dependency)이란?
+            Gradle6 이전에는 compile도 사용 가능했는데, compile이 deprecated 되고 나온 것이 api이다. 그리고 runtime 대신 나온 것은 implementation이다.
+            implementation과 api를 사용하면 모두 컴파일 경로와 런타임 경로에 노출된다.
+            하지만 둘 사이에는 전이 의존성(transitive dependency)의 컴파일 경로 노출 여부에서 차이가 있다.
+
+        - implentation과 api의 사용
+            api는 전이 의존성을 허용
+            implementation으로 선언된 전이 의존성은 사용이 불가능
+
+        - implentation과 api의 차이 요약
+            implementation은 api에 비해 몇 가지 장점
+                의존성이 해당 모듈을 사용하는 컴파일 클래스 경로에 노출되지 않으므로, 실수로 전이 종속성에 빠지지 않음
+                줄어든 클래스 패스 덕분에 컴파일이 빨라짐
+                implementation하는 의존성들이 변경되었을 때, 재컴파일을 하지 않아도 되므로 재컴파일 횟수가 줄어듬
+                새로운 maven-publish 플러그인을 함께 사용하면, java 라이브버리는 컴파일하는데 필요한 것과 런타임에 사용하는데 필요한 것을 정확히 구분하는 POM 파일을 생성하여 더욱 깔끔하게 publish 할 수 있음
+
+            가능하다면 api 보다는 implementation을 우선시하는 것이 좋다.
+            이렇게 하면 모듈을 사용하는 곳의 컴파일 클래스 경로에서 종속성을 유지할 수 있다.
+
+            api는 애플리케이션 바이너리 인터페이스(ABI, Application Binary Interface)로 아래와 같은 경우에 사용하면 좋다.
+                부모 클래스 또는 인터페이에 사용되는 타입
+                제너릭 타입을 포함하여 public 메소드 파라미터로 사용하는 타입
+                퍼블릭 필드에 사용되는 타입
+                퍼블릭 애노테이션 타입
+
+            반면에 아래와 같은 경우는 ABI에 해당하지 않으므로 implementation을 사용해야 한다.
+                메소드의 바디에서만 사용되는 타입
+                프라이빗 멤버로 사용되는 타입
+                내부 클래스에서 발견되는 타입
+
+
+- [Java] Private 메소드를 테스트하는 방법과 이를 지양해야 하는 이유
+    https://mangkyu.tistory.com/235
+
+- JPA 사용시 테스트 코드에서 @Transactional 주의하기
+    https://tecoble.techcourse.co.kr/post/2020-08-31-jpa-transaction-test/
+
+- Scale-up과 Scale-out에 대해 알아보자!
+    https://tecoble.techcourse.co.kr/post/2021-10-12-scale-up-scale-out/
+
+- 로드 밸런싱에 대해 알아보자!
+    https://tecoble.techcourse.co.kr/post/2021-11-07-load-balancing/
+
+******* JVM warm up
+    https://www.youtube.com/watch?v=CQi3SS2YspY
+
+- 대용량 아키텍처와 성능 튜닝
+    https://velog.io/@jiffydev/%EB%8C%80%EC%9A%A9%EB%9F%89-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%EC%99%80-%EC%84%B1%EB%8A%A5-%ED%8A%9C%EB%8B%9D-%EB%8C%80%EC%9A%A9%EB%9F%89-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98
+
+- 효율적으로 로그 모니터링하기 - 로그 레벨 구분하기
+    https://jojoldu.tistory.com/712
+
+- Logback 으로 쉽고 편리하게 로그 관리를 해볼까요?
+    https://tecoble.techcourse.co.kr/post/2021-08-07-logback-tutorial/
+
 - msa
     https://gyoogle.dev/blog/computer-science/software-engineering/MSA.html
-
-- 함수형 프로그래밍
-    https://gyoogle.dev/blog/computer-science/software-engineering/Fuctional%20Programming.html
-
-- 객체지향 프로그래밍
-    https://gyoogle.dev/blog/computer-science/software-engineering/Object-Oriented%20Programming.html
-
-- 애자일
-    https://gyoogle.dev/blog/computer-science/software-engineering/Agile.html
 
 - TDD
     https://gyoogle.dev/blog/computer-science/software-engineering/TDD.html
@@ -535,43 +665,9 @@
 - 클린코딩 & 시큐어 코딩
     https://gyoogle.dev/blog/computer-science/software-engineering/Clean%20Code%20&%20Secure%20Coding.html
 
+- 애자일
+    https://gyoogle.dev/blog/computer-science/software-engineering/Agile.html
+
 - Git vs GitHub vs GitLab Flow
     https://gyoogle.dev/blog/github/Git%20vs%20GitHub%20vs%20GitLab%20Flow.html
 
-- 효율적으로 로그 모니터링하기 - 로그 레벨 구분하기
-    https://jojoldu.tistory.com/712
-
-- 테스크 코드 커버리지는 어떤 기준으로 측정하는지? private 메서드는 테스트하는지?
-
-- 대량용 요청을 고려한 api를 개발한다면?
-
-- 테스트 코드 작성시 실행시키는 속도가 느릴텐데 어떤방법이 있을까
-
-- 순간에 많은 트래픽이 발생하면 대처방안 (sql튜님말고 , 로드밸런싱말고)
-
-- 상글톤 패턴은 안티패턴인가?
-
-- maven vs gradle
-
-******* JVM warm up
-    https://www.youtube.com/watch?v=CQi3SS2YspY
-
-- JPA 사용시 테스트 코드에서 @Transactional 주의하기
-    https://tecoble.techcourse.co.kr/post/2020-08-31-jpa-transaction-test/
-
-- Scale-up과 Scale-out에 대해 알아보자!
-    https://tecoble.techcourse.co.kr/post/2021-10-12-scale-up-scale-out/
-
-- Logback 으로 쉽고 편리하게 로그 관리를 해볼까요?
-    https://tecoble.techcourse.co.kr/post/2021-08-07-logback-tutorial/
-
-- 로드 밸런싱에 대해 알아보자!
-    https://tecoble.techcourse.co.kr/post/2021-11-07-load-balancing/
-
-- maven vs gradle
-
-- Gradle Java 플러그인과 implementation와 api의 차이
-    https://mangkyu.tistory.com/296
-
-- [Java] Private 메소드를 테스트하는 방법과 이를 지양해야 하는 이유
-    https://mangkyu.tistory.com/235

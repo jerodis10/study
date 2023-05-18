@@ -1,9 +1,2 @@
-- [MySQL] B-Tree로 인덱스(Index)에 대해 쉽고 완벽하게 이해하기
-    https://mangkyu.tistory.com/286
 
-- [MySQL] 프라이머리 키(PK, Primary Key)에 대해 쉽고 완벽하게 이해하기
-    https://mangkyu.tistory.com/285
-
-- 자연 키 vs 대리 키
-    https://www.inflearn.com/questions/27694/%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%84%A4%EA%B3%84-%EA%B4%80%EB%A0%A8-%EB%AC%B8%EC%9D%98-%EB%B0%8F-mongodb-jpa-%EA%B4%80%EB%A0%A8
 
