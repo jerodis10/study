@@ -161,3 +161,27 @@ https://lenditkr.github.io/spring/transactional-event-listener/index.html
 
 - [Spring] 도메인 주도 설계 및 개발과 도메인 계층(도메인 객체 중심 개발)
     https://mangkyu.tistory.com/160
+
+- 편리한 객체 간 매핑을 위한 MapStruct 적용기 (feat. SENS)
+    https://medium.com/naver-cloud-platform/%EA%B8%B0%EC%88%A0-%EC%BB%A8%ED%85%90%EC%B8%A0-%EB%AC%B8%EC%9E%90-%EC%95%8C%EB%A6%BC-%EB%B0%9C%EC%86%A1-%EC%84%9C%EB%B9%84%EC%8A%A4-sens%EC%9D%98-mapstruct-%EC%A0%81%EC%9A%A9%EA%B8%B0-8fd2bc2bc33b
+
+- MapStruct 라이브러리로 객체 매핑을 간편하게!
+    https://madplay.github.io/post/mapstruct-in-springboot
+
+- MapStruct의 사용법 및 ModelMapper와의 비교
+    https://dev-splin.github.io/spring/Spring-ModelMapper,MapStruct/
+
+- MapStruct, Entity ↔ DTO 변환
+    https://jforj.tistory.com/95
+
+- Custom Mapper with MapStruct
+    https://jp1020.tistory.com/entry/Custom-Mapper-with-MapStruct
+
+- DTO 변환 시 우아한형제들은 어떻게 처리하시나요?
+    https://www.inflearn.com/questions/15292/dto-%EB%B3%80%ED%99%98-%EC%8B%9C-%EC%9A%B0%EC%95%84%ED%95%9C%ED%98%95%EC%A0%9C%EB%93%A4%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%B2%98%EB%A6%AC%ED%95%98%EC%8B%9C%EB%82%98%EC%9A%94
+
+- Intellij : 유용한 단축키
+    https://dev-splin.github.io/intellij/Intellij-Intellij-shortcut/
+
+******* Lombok의 사용법 및 주의점
+    https://dev-splin.github.io/spring/Spring-Lombok/
