@@ -286,7 +286,7 @@
 
     - jdk7 vs jdk8 HEAP
         - JDK 8부터 Permanent Heap 영역이 제거되고 Metaspace 영역이 추가되었다.
-        - Perm은 JVM에 의해 크기가 강제되던 영역이다.(JVM이 관리하는 영)
+        - Perm은 JVM에 의해 크기가 강제되던 영역이다.(JVM이 관리하는 영역)
         - Metaspace는 Native memory 영역으로, OS가 자동으로 크기를 조절한다.(OS 판단하여 메모리를 조절)
         - 기존과 비교해 Perm영역에서 사용하던 메모리를 사용할 수 있게 되어 메모리 부족에 대한 부담이 감소한다.
 
