@@ -1286,3 +1286,10 @@
 - rdb랑 nosql의 차이점
 
 - join의 종류에 대해 아는대로 말해주세요
+
+- 파일시스템 vs db
+
+- 힌트 사용 예제
+    http://www.gurubee.net/lecture/2147
+
+https://todayscoding.tistory.com/52
