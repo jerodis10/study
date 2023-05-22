@@ -1151,6 +1151,12 @@
             - 객체 사이의 의존성
             - 결합도가 낮으며 변경에 유연함
 
+- aop
+    https://jojoldu.tistory.com/71
+
+
+- 컬리 공통 암호화 모듈의 동시성 이슈 해결하기
+    https://helloworld.kurly.com/blog/concurrency-issue-solving/
 
 - spring di는 -> di에 사용된 디자인 패턴은 -> 디자인패턴의 예시설명
     - 전략 패턴?
@@ -1174,3 +1180,10 @@
 - 트랜잭션 처리 어떻게 하는지
 
 - 트랜잭션 프로파게이션?(전파레벨)
+
+
+- [Spring] 멀티쓰레드 환경에서 MDC를 사용해 요청 별로 식별가능한 로그 남기기
+    https://mangkyu.tistory.com/266
+
+- @Request Body에서는 Setter가 필요없다?
+    https://jojoldu.tistory.com/407
