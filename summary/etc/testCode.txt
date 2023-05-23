@@ -1035,3 +1035,7 @@ Repository : (querydsl같은) custom한 repository에 대한 쿼리 테스트
 ********* gradle test log 설정
     https://somuchthings.tistory.com/105
     https://blog.hkwon.me/gradle-test-task-logging/
+
+********* 유용한 테스트 코드 작성 팁
+    https://dev.gmarket.com/38
+
