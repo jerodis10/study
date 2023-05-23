@@ -1344,8 +1344,21 @@ https://todayscoding.tistory.com/52
         PreparedStatement 는 처음 한 번만 1~3단계를 거친 후, 캐시에 담아 재사용합니다.
         동일 쿼리를 반복적으로 수행한다면 PreparedStatement 가 성능에 좋습니다.
 
+
+******* MySQL Optimizer Error
+    https://medium.com/daangn/mysql-optimizer-error-e438aa02e622
+
+- Index Dive 비용 최적화
+    https://medium.com/daangn/index-dive-%EB%B9%84%EC%9A%A9-%EC%B5%9C%EC%A0%81%ED%99%94-1a50478f7df8
+
 - Spring + MyBatis에서 쿼리의 결과와 객체가 매핑이 되는 과정
     https://zzang9ha.tistory.com/420
 
 - Mybatis의 위험한 where 1=1 사용, trim으로 해결될까?
     https://covenant.tistory.com/253
+
+- SqlSession 사용
+    https://mybatis.org/spring/ko/sqlsession.html
+
+myBatis 는 JdbcTemplate 대신 Connection 객체를 통한 질의를 위해서 SqlSession을 사용한다.
+내부적으로 SqlSessionTemplate가 SqlSession을 구현하게 되는데, Thread에서 안전하고 여러개의 Mapper에서 공유할수 있다.
