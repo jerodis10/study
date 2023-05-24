@@ -816,5 +816,6 @@
 
 - http header안에 담긴 정보
 
-
+- rest api
+    https://www.youtube.com/watch?v=lceS3HbGXt4
 
