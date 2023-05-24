@@ -681,3 +681,6 @@ public class ErrorResponse {
     메모리 누수, 오류, 오버플로우 는 발생하지 않는가?
     최악의 상황 에선 어떤 동작을 하는가? (예측하고 대비하기 위하여)
     장애 조치와 복구 가 잘 동작을 하는가?
+
+- 개발자 툴(DevTools) 적용
+    https://www.youtube.com/watch?v=8dZ38syifGc
