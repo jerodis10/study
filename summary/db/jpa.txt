@@ -99,3 +99,6 @@
 
 - JPA Hibernate 프록시 제대로 알고 쓰기
     https://tecoble.techcourse.co.kr/post/2022-10-17-jpa-hibernate-proxy/
+
+- [JPA] Spring JPA 환경에서 bulk insert를 효율적으로 해보자 - JPA의 한계와 JDBC 활용
+    https://sabarada.tistory.com/220

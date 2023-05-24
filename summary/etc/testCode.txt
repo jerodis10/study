@@ -1039,3 +1039,33 @@ Repository : (querydsl같은) custom한 repository에 대한 쿼리 테스트
 ********* 유용한 테스트 코드 작성 팁
     https://dev.gmarket.com/38
 
+********* mock vs stub
+    https://azderica.github.io/00-test-mock-and-stub/
+    https://ducktyping.tistory.com/17
+
+- Mock은 Stub이 아니다(Mocks Aren't Stubs)
+    https://jaime-note.tistory.com/330
+
+- Test Double
+    Dummy 객체는 전달되지만 실제로 사용되지는 않습니다. 일반적으로 매개변수 목록을 채우는 데만 사용됩니다.
+    Fake 객체는 실제로 작동하는 구현을 가지고 있지만 일반적으로 프로덕션에는 적합하지 않은 방식을 취합니다. (메모리 기반 데이터베이스가 좋은 예시)
+    Stub은 테스트 중에 만들어진 호출에 미리 준비된 답변을 제공하고 일반적으로 테스트를 위해 프로그래밍된 것 외에는 전혀 응답하지 않습니다.
+    Spy는 그들이 어떻게 호출되었는지에 따라 일부 정보를 기록하는 Stub 입니다.
+    Mock은 호출될 것으로 예상되는 사양을 형성하는 기대값으로 미리 프로그래밍 된 객체입니다.
+
+
+
+성능 테스트시 하지 말아야 할 Mocking 방식
+1. 객체 Mocking
+
+객체 Mocking은 테스트 코드를 작성할 때 가장 많이 사용하는 방식이라 친숙할 것 입니다. 그러나 로직에 대해 검증을 하는 테스트와 달리, 성능 테스트는 어플리케이션 동작과 자원의 사용을 모두 보아야만 하는 테스트입니다.
+
+객체 Mocking 은 해당 객체의 행위 뒤로 들어가야 할 동작들을 무시해버리게 됩니다. 예를 들어 Spring Profile 을 사용하여 RestOpertation 을 객체를 Mock 처리하였을 때
+
+http connection Pool 미사용
+connection thread 미사용
+io가 발생하지 않음
+등등 성능 테스트에서 중요한 관점인 Thread 사용, 리소스 사용을 전부 무시하게 됩니다.
+
+외부 인터페이스를 Mocking 하는 것처럼 보이지만, 내부 인터페이스도 Mocking 해버리는 객체 Mocking 은 성능 테스트에서 피해야 합니다.
+

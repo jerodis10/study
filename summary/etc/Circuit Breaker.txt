@@ -196,3 +196,6 @@
     https://bkjeon1614.tistory.com/712
     https://cheese10yun.github.io/resilience4j-basic/
     https://happycloud-lee.tistory.com/219
+
+********* 서킷브레이커
+    https://techblog.woowahan.com/2667/

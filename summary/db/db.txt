@@ -1373,3 +1373,12 @@ myBatis 는 JdbcTemplate 대신 Connection 객체를 통한 질의를 위해서 
 
 - MYSQL 튜닝 예제
     https://dung-beetle.tistory.com/69
+
+- 대량등록(Bulk Inserting) 성능 향상
+    https://www.happyjung.com/lecture/3145?sca=MySQL
+
+- employees Table 데이터 제공
+    https://launchpad.net/test-db
+
+********** 대용량 데이터 처리
+    http://agritsa.blogspot.com/2019/02/java.html

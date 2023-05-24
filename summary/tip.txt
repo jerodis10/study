@@ -664,3 +664,20 @@ public class ErrorResponse {
 - CC와 NPath 통한 코드 복잡도 수치 측정
     https://tech.kakao.com/2023/01/19/kakaotalk-java-app-server-refactoring/
     https://prostars.net/336
+
+- DDD 지향 마이크로 서비스 디자인
+    https://ducktyping.tistory.com/14
+
+- DDD와 Aggregate
+    https://ducktyping.tistory.com/15
+
+- 마이크로서비스 모델링
+    https://engineering-skcc.github.io/agile/microservice-agile/
+
+내가 만든 이 시스템은 실제 장비에서
+    어느 정도의 부하 를 견딜 수 있는가?
+    시스템(데이터베이스, 서버), 자원(cpu, disk, memory 등)에서 병목 이 생기진 않는가?
+    자원을 효율적 으로 사용하는가?
+    메모리 누수, 오류, 오버플로우 는 발생하지 않는가?
+    최악의 상황 에선 어떤 동작을 하는가? (예측하고 대비하기 위하여)
+    장애 조치와 복구 가 잘 동작을 하는가?
