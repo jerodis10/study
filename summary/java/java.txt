@@ -1774,6 +1774,15 @@
         함수형 인터페이스
 
 
+- JDK 와 JRE 의 차이
+    - JRE
+        - JVM + Java class Libraries + Java Class Loader 가 포함된다.
+        - JRE 는 자바 어플리케이션을 실행하는데 필요한 요소만 들어있지 자바를 개발하는 데 필요한 툴은 포함되어 있지 않다.
+    - JDK
+        - JRE 뿐만 아니라 컴파일러, 디버거 등 자바 어플리케이션을 개발하는데 필요한 도구가 포함되어 있다.
+        - JAVA9버전 부터는 JRE 자체가 사라졌다. (JDK 안에 다 있으니..)
+
+
 
 - 자바 요약
     https://www.codelatte.io/courses/java_programming_basic

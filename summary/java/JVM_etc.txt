@@ -1,0 +1,181 @@
+- JIT Compiler
+    - JVM 은 바이트코드를 명령어 단위로 읽어서 해석하는데, Interpreter 방식과 JIT 컴파일 방식 두 가지 방식을 혼합하여 사용합니다.
+      Interpreter 방식은 바이트코드를 한 줄씩 해석, 실행하는 방식입니다. 초기 방식으로, 속도가 느리다는 단점이 있습니다.
+      이렇게 느린 속도를 보완하기 위해 나온 것이 JIT(Just In Time) 컴파일 방식입니다.
+    - 바이트코드를 JIT 컴파일러를 이용해 프로그램을 실제 실행하는 시점(바이트코드를 실행하는 시점)에 각 OS에 맞는 Native Code 로
+      변환하여 실행 속도를 개선하였습니다.
+      하지만, 바이트코드를 Native Code 로 변환하는 데에도 비용이 소요되므로, JVM 은 모든 코드를 JIT 컴파일러 방식으로 실행하지 않고,
+      인터프리터 방식을 사용하다가 일정 기준이 넘어가면 JIT 컴파일 방식으로 명령어를 실행합니다.
+    - 또한, JIT 컴파일러는 같은 코드를 매번 해석하지 않고, 실행할 때 컴파일을 하면서 해당 코드를 캐싱해버립니다.
+      이후에는 바뀐 부분만 컴파일하고, 나머지는 캐싱된 코드를 사용합니다.
+
+
+- 가비지 컬렉션 동작 과정
+    1. 객체가 처음 생성되고 Heap 영역의 Eden 에 age-bit 0으로 할당됩니다. 이 age-bit 는 Minor GC 에서 살아남을 때마다 1씩 증가하게 됩니다.
+    2. 시간이 지나 Heap Area 의 Eden 영역에 객체가 다 쌓이게 되면 Minor GC가 한번 일어나게 되고 참조 정도에 따라 Survivor0 영역으로 이동하거나 회수됩니다.
+    3. 계속해서 Eden 영역에는 신규 객체들이 생성됩니다. 이렇게 또 Eden 영역에 객체가 다 쌓이게 되면
+       Young Generation(Eden+Survivor) 영역에 있는 객체들을 비어있는 Survival 인 Survival1 영역에 이동하고 살아남은 모든 객체들은 age 가 1씩 증가합니다.
+    4. 또다시 Eden 영역에 신규 객체들로 가득 차게 되면 다시한번 minor GC가 일어나고 Young Generation(Eden+Survivor) 영역에 있는 객체들을
+       비어있는 Survivor 인 Survival0으로 이동시킨 뒤 age 를 1 증가시킵니다. 이 과정을 계속 반복합니다.
+    5. 이 과정을 반복하다 보면 age bit 가 특정 숫자 이상으로 되는 경우가 발생합니다. 이때 JVM 에서 설정해놓은 age bit 에 도달하게 되면
+       오랫동안 쓰일 객체라고 판단하고 Old generation 영역으로 이동시킵니다. 이 과정을 프로모션(Promotion)이라고 합니다.
+    6. 시간이 지나 Old 영역에 할당된 메모리가 허용치를 넘게 되면, Old 영역에 있는 모든 객체들을 검사하여 참조되지 않는 객체들을 한꺼번에 삭제하는 GC가 실행됩니다.
+       이렇게 Old generation 영역의 메모리를 회수하는 GC를 Major GC 라고 합니다. 이 때 major gc 가 발생하면서 Mark And Sweep 방식을 통해 필요 없는 메모리를 비워준다.
+       Major GC는 시간이 오래 걸리는 작업이고 이때 GC를 실행하는 스레드를 제외한 모든 스레드는 작업을 멈추게 됩니다. 이를 'Stop-the-World' 라 합니다.
+       이 작업이 너무 잦으면 프로그램 성능에 문제가 될 수 있습니다.
+
+    -> GC 설계자들이 어플리케이션을 분석해보니 대부분의 객체가 수명이 짧은 것을 발견. GC 도 결국 비용인데, 메모리의
+       특정 부분만을 탐색하며 해제하면 더 효율적. 어차피 대다수의 객체가 금방 사라지니 Young Generation 안에서 최대한 처리되도록 함.
+
+
+- GC 는 어떻게 해제할 동적 메모리 영역들을 알아서 판단할까?
+    - Reference Counting
+        Heap 영역에 선언된 객체들이 각각 reference count 라는 별도 숫자를 가지고 있다.
+        reference count 는 몇 가지 방법으로 해당 객체에 접근할 수 있는지를 뜻함.
+        해당 객체에 접근할 수 있는 방법이 하나도 없다면 즉, reference count 가 0에 다다르면 가비지 컬렉션의 대상이 됨
+        Heap Space 내부에서 순환 참조 하고 있을 경우 Memory leak 이 발생
+    - Mark And Sweep
+        Reference Counting 의 순환 참조 문제를 해결할 수 있다.
+        루트에서부터 해당 객체에 접근 가능한지를 해제의 기준으로 삼는다.
+        루트부터 그래프 순회를 통해 연결된 객체들을 찾아내고 연결이 끊어진 객체들은 지우는 방식
+        메모리 파편화를 막는 Compaction. Mark And Sweep 에서 Compaction 은 필수는 아님.
+        자바와 자바스크립트가 Mark And Sweep 방식으로 메모리 관리를 한다.
+        의도적으로 GC 를 실행시켜야 한다.
+        어플리케이션 실행과 GC 실행이 병행된다.
+
+
+- GC 방식
+    - Parallel GC
+        - 여러 개의 쓰레드로 GC 를 실행. 이에 따라 Serial GC 보다 Stop The World 시간이 더 짧음
+        - 멀티코어 환경에서 어플리케이션 처리 속도를 향상하기 위해 사용
+        - Java 8 의 default GC 방식
+
+    - G1 GC
+        - G1 (가비지 퍼스트)
+        - Heap 을 일정 크기의 Region 으로 잘게 나누어 어떤 영역은 Young Generation, 어떤 영역은 Old Generation 으로 활용
+        - 런타임에 G1 GC 가 필요에 따라 영역별 Region 개수를 튜닝함. 그에 따라 Stop the world 를 최소화할 수 있음
+        - Java 9 부터 default GC 방식
+
+        - 전체 Old Generation 혹은 Young Generation 통째로 Compaction 을 할 필요 없고, 해당 Generation 의 일부분 Region 에 대해서만 Compaction 을 하면 된다.
+        - Garbage 로 가득찬 영역을 빠르게 회수하여 빈 공간을 확보하므로 GC 빈도가 줄어든다.
+
+
+- JVM GC 튜닝 맛보기
+    - GC 튜닝은 성능 개선의 최종 단계. 객체 생성 자체를 줄이려는 코드 레벨에서의 개선이 선행되어야 한다.
+    - JVM GC 튜닝의 목표
+        - Old Generation 으로 넘어가는 객체 최소화하기
+        - Major GC 시간을 짧게 유지하기
+        -> Major GC 를 적게 발생시키거나 빠른 시간 내에 끝내는 것이 목표
+    - 한정된 Heap 영역에 Young Generation 과 Old Generation 을 각각 얼마만큼 할당하는 것이 적당한지를 판단해야 한다.
+      메모리가 너무 크다면 GC 가 가끔 일어나겠지만 오래 걸릴 것이고, 메모리가 너무 작다면 GC 는 자주 일어나겠지만 금방 끝날 것.
+      어플리케이션의 구조 및 특성에 따라 판단해야 함.
+    - GC 튜닝 과정
+        - 현재 GC 상태 모니터링하기
+        - 어플리케이션 성격에 알맞은 GC 방식과 메모리 크기 설정
+        - 적용하기
+
+    - JVM 메모리 모니터링
+        - JDK 설치 시 기본으로 제공되는 jstat 이라는 툴 활용 가능
+        - jstat gcutil 명령어로 현재 실행중인 프로세스에 대해 gc 와 관련된 정보 확인 가능
+            ex) jstat -gcutil -t 8844 1000 10
+        - jstat gccapacity 명령을 통해 프로세스가 heap 영역을 얼마나 사용 중인지 정확한 수치 확인 가능
+            ex) jstat -gccapacity -t 8844 1000 10
+
+
+- JVM과 JRE, JDK의 차이
+     - JVM : java virtual machine, 프로그램을 구동하는 실행자 역할
+     - JRE : java runtime environment,  자바 프로그램을 실행할 수 있는 환경, Class Roader , Bytecode Verifier , java virtual machine
+             Class Roader란 컴파일된 클래스 파일을 메모리로 로드하는 역할을 하며 Bytecode verifier 는 실행되기 직전 코드를 검증하는 역할을 하고
+             JVM은 최종적으로 실행하는 역할입니다. 이렇게 3가지를 JRE라고 부릅니다.
+     - JDK : java Development Kit, JDK 는 JRE 에 어떤 toolset 같은 것들이 추가된 것. 예를 들어 컴파일러
+             컴파일러는 javac 명령어로 class 파일로 컴파일 할 수 있으며 디버깅 기능도 제공
+
+
+- GC란 무엇이고, 왜 써야할까요?
+    * Java Garbage Collection  https://d2.naver.com/helloworld/1329
+    * Garbage Collection 모니터링 방법  https://d2.naver.com/helloworld/6043
+    * Garbage Collection 튜닝  https://d2.naver.com/helloworld/37111
+
+    - 힙과 스택의 참조가 끊어진 Object의 메모리를 정리하는 일을 Garbage Collection
+
+    - 개발자가 GC 튜닝을 하는 궁극적인 목표는 무엇일까요?
+        - GC 튜닝을 꼭 해야 할까?
+            - GC 튜닝이 필요 없다는 이야기는 운영 중인 Java 기반 시스템의 옵션과 동작이 다음과 같다는 의미이다.
+                - -Xms 옵션과 -Xmx 옵션으로 메모리 크기를 지정했다.
+                - server 옵션이 포함되어 있다.
+                - 시스템에 Timeout 로그와 같은 로그가 남지 않는다.
+            - 다시 말하면, 메모리 크기도 지정하지 않고 Timeout 로그가 수도 없이 출력된다면 여러분의 시스템에서 GC 튜닝을 하는 것이 좋다.
+            - 그런데 한 가지 꼭 명심해야 하는 점이 있다. GC 튜닝은 가장 마지막에 하는 작업이라는 것이다.
+
+            - GC 튜닝을 하는 이유가 무엇인지 근본적인 원인을 생각해 보자. Java 에서 생성된 객체는 가비지 컬렉터(Garbage Collector)가
+              처리해서 지운다. 생성된 객체가 많으면 많을수록 가비지 컬렉터가 가 처리해야 하는 대상도 많아지고, GC를 수행하는 횟수도 증가한다.
+              즉, 여러분이 운영하고 만드는 시스템이 GC를 적게 하도록 하려면 객체 생성을 줄이는 작업을 먼저 해야 한다.
+
+            - String 대신 StringBuilder 나 StringBuffer 를 사용하는 것을 생활화하는 것부터가 시작이라고 보면 된다. 그리고,
+              로그를 최대한 적게 쌓도록 하는 것이 좋다. 하지만 어쩔 수 없는 현실도 있다. 경험상 XML 과 JSON 파싱은 메모리를 가장 많이 사용한다.
+              아무리 String 을 최대한 사용 안 하고 Log 처리를 잘 하더라도, 10~100 MB 짜리 XML 이나 JSON 를 파싱하면 엄청난
+              임시 메모리를 사용한다. 그렇다고 XML 과 JSON 을 사용하지 않기는 어렵다.
+
+            - 만약 애플리케이션 메모리 사용도 튜닝을 많이 해서 어느 정도 만족할 만한 상황이 되었다면, 본격적으로 GC 튜닝을 시작하면 된다.
+              필자는 GC 튜닝의 목적을 두 가지로 나눈다. Old 영역으로 넘어가는 객체의 수를 최소화하는 것과 Full GC의 실행 시간을 줄이는 것이다.
+
+    - G1GC 부터는 GC 튜닝에 크게 손이 가진 않는데, G1GC는 어떻게 만들었길래 개발자가 튜닝을 이전보다 덜 해도 되는걸까요?
+    - 리전으로 구성된 구조가 왜 튜닝의 수고를 덜어주는걸까요?
+        * https://imp51.tistory.com/entry/G1-GC-Garbage-First-Garbage-Collector-Tuning
+        * https://steady-coding.tistory.com/590
+
+        - Java process 엔진이 대용량의 실시간 처리를 요구할 때, 성능은 JVM 의 GC 시간에 의존적일 수 밖에 없다. 특히 64bit 환경에서는
+          메모리 제약 사항이 없어졌다고 볼 수 있기 때문에 large heap memory 를 cleaning 하는 시간을 단축하는 것이 전체 성능을
+          개선하는 중요 key 라고 할 수 있다. 전통적인 Serial, Parallel 그리고 CMS 로는 이 성능을 충족하기에는 매우 어려운 것이 현실이다.
+          그렇다고 사용 JVM 인 azul 을 쓰기에도 비용의 제약사항이 있다.
+        - Java 9 버전부터 기본 GC 방식으로 채택되었다.
+        - 전통적인 Garbage Collector(Serial, Parallel 및 CMS)는 세개의 메모리 영역의 구조를 갖는데 비해 G1은 다른 접근 방식을 갖는다.
+          G1 GC의 경우 Heap 은 같은 크기의 heap region 으로 분활하며,
+          이전 Garbage Collector 와 마찬가지로 특정 region 별로 역할을 부여하여 특정한 object 만이 거주하도록 하였다.
+        - 전체 Old Generation 혹은 Young Generation 통째로 Compaction 을 할 필요 없고,
+          해당 Generation 의 일부분 Region 에 대해서만 Compaction 을 하면 된다.
+        - Garbage 로 가득찬 영역을 빠르게 회수하여 빈 공간을 확보하므로 GC 빈도가 줄어든다.
+        - 더 알아보면 좋을 GC의 종류 : ZGC, Shenandoah
+
+
+- 컴파일 과정
+    1. 개발자가 .java파일을 생성한다.
+    2. build를 한다.
+    3. java compliler의 javac의 명령어를 통해 바이트코드(.class)를 생성
+    4. class loader를 통해 jvm내로 로드
+    5. 실행엔진을 통해 컴퓨터가 읽을 수 있는 기계어로 해석되어(각 운영체제에 맞는 기계어)
+       Runtime Data Area에 배치
+
+    - 실행엔진
+        - 실행 엔진은 바이트코드를 명령어 단위로 읽어서 실행하는데, 두 가지 방식을 혼합하여 사용한다.
+
+        - Interpreter 방식
+            - 바이트코드를 한 줄씩 해석, 실행하는 방식이다. 초기 방식으로, 속도가 느리다는 단점이 있다.
+
+        - JIT(Just In Time) 컴파일 방식 또는 동적 번역(Dynamic Translation)
+            그래서 나온 것이 JIT(Just In Time) 컴파일 방식이다. 바이트코드를 JIT 컴파일러를 이용해 프로그램을 실제 실행하는 시점(바이트코드를 실행하는 시점)에
+            각 OS에 맞는 Native Code로 변환하여 실행 속도를 개선하였다. 하지만, 바이트코드를 Native Code로 변환하는 데에도 비용이 소요되므로,
+            JVM은 모든 코드를 JIT 컴파일러 방식으로 실행하지 않고, 인터프리터 방식을 사용하다 일정 기준이 넘어가면 JIT 컴파일 방식으로 명령어를 실행한다.
+            또한, JIT 컴파일러는 같은 코드를 매번 해석하지 않고, 실행할 때 컴파일을 하면서 해당 코드를 캐싱해버린다. 이후에는 바뀐 부분만 컴파일하고, 나머지는 캐싱된 코드를 사용한다.
+
+
+- GC 방식 살펴보기
+    - Serial GC
+        - 하나의 쓰레드로 GC 를 실행하는 방식
+        - Stop The World 시간이 긺
+        - 싱글 쓰레드 환경 및 Heap 이 매우 작을 때 사용
+    - Parallel GC
+        - 여러 개의 쓰레드로 GC 를 실행. 이에 따라 Serial GC 보다 Stop The World 시간이 더 짧음
+        - 멀티코어 환경에서 어플리케이션 처리 속도를 향상하기 위해 사용
+        - Java 8 의 default GC 방식
+    - CMS GC
+        - CMS (Concurrent-Mark-Sweep)
+        - GC 작업을 어플리케이션과 동시에 실행하여 Stop The World 최소화
+        - 메모리와 CPU 를 많이 사용하고 Mark And Sweep 과정 이후 메모리 파편화를 해결하는
+          Compaction 이 기본적으로 제공되지 않다는 단점이 있음
+        - G1 GC 등장에 따라 Deprecated
+    - G1 GC
+        - G1 (가비지 퍼스트)
+        - Heap 을 일정 크기의 Region 으로 잘게 나누어 어떤 영역은 Young Generation, 어떤 영역은 Old Generation 으로 활용
+        - 런타임에 G1 GC 가 필요에 따라 영역별 Region 개수를 튜닝함. 그에 따라 Stop the world 를 최소화할 수 있음
+        - Java 9 부터 default GC 방식
