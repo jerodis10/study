@@ -185,3 +185,18 @@ https://lenditkr.github.io/spring/transactional-event-listener/index.html
 
 ******* Lombok의 사용법 및 주의점
     https://dev-splin.github.io/spring/Spring-Lombok/
+
+- aop
+    https://jojoldu.tistory.com/71
+
+- 컬리 공통 암호화 모듈의 동시성 이슈 해결하기
+    https://helloworld.kurly.com/blog/concurrency-issue-solving/
+
+- JDK Dynamic Proxy와 CGLIB의 차이점은 무엇일까?
+    https://gmoon92.github.io/spring/aop/2019/04/20/jdk-dynamic-proxy-and-cglib.html
+
+- [Spring] 멀티쓰레드 환경에서 MDC를 사용해 요청 별로 식별가능한 로그 남기기
+    https://mangkyu.tistory.com/266
+
+- @Request Body에서는 Setter가 필요없다?
+    https://jojoldu.tistory.com/407

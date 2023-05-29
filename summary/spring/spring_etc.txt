@@ -283,3 +283,29 @@
 -  모델2 방식이란?
     - 화면과 비즈니스 로직이 분리되어있는 방식.
     - 화면출력을 위한 뷰 코드는 JSP에서, 로직 처리를 위한 자바코드는 Servlet에서 처리하도록 분리하기 때문에 분업이 용이하고 유지보수가 쉽다.
+
+
+- spring aop vs aspectj
+    - spring aop
+        - 런타임 위빙 만 사용할 수 있다
+        - 덜 강력 함 – 메서드 수준 위빙 만 지원
+        - Spring 컨테이너가 관리하는 Bean에서만 구현 가능
+        - AspectJ보다 훨씬 느림
+            Runtime weaving: Aspect 가 대상 객체의 Proxy(JDK 동적 Proxy 나 CGLIB 의 Proxy)를 실행시 Weaving 된다
+
+    - aspectj
+        - 런타임때 아무것도 안한다. Aspect를 코드에 Weaving하기 위해, AspectJ compiler(ajc)라는 컴파일러를 도입한다.
+        - 컨파일 시점 위빙
+        - 더욱 강력 함 – 필드, 메서드, 생성자, 정적 이니셜 라이저, 최종 클래스 / 메서드 등을 엮을 수 있다
+        - 모든 도메인 개체에서 구현 가능
+        - 모든 포인트 컷 지원
+        - 애플리케이션이 실행되기 전에 (런타임 전에) Aspect가 코드로 직접 짜여짐
+
+
+- jdk dynamic proxy vs CGLIB(code Generator Library)
+    - Spring AOP는 프록시 기반으로 JDK Dynamic Proxy와 CGLIB을 활용하여 AOP 제공하고 있습니다.
+    - JDK Dynamic Proxy는 인터페이스를 구현하여 Proxy를 생성
+    - CGLib은 클래스를 상속받아 Proxy를 생성
+    - 성능의 차이
+        - 성능의 차이의 근본적인 이유는 CGLib은 타깃에 대한 정보를 제공 받기 때문입니다.
+        - 따라서 CGLib은 제공받은 타깃 클래스에 대한 바이트 코드를 조작하여 Proxy를 생성
