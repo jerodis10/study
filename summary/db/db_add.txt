@@ -1,2 +1,3 @@
-
+- [Database] 자연키(Natural key)와 대체키(Surrogate Key), PK(기본키)를 대체키로 설정해야 하는 이유
+    https://mangkyu.tistory.com/287
 

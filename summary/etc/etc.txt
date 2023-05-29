@@ -762,6 +762,36 @@
         여러 노드에 부하를 균등하게 분산시키기 위해 로드 밸런싱(load balancing)이 필요하고, 노드를 확장할수록 문제 발생의 잠재 원인 또한 추가한 만큼 늘어나게 된다.
 
 
+- connection pool
+    - 정의
+        - 애플리케이션의 스레드에서 데이터베이스에 접근하기위해 Connection이 필요
+        - 데이터베이스와 Connection한 객체들을 미리 생성해 Pool에 저장해두었다가, 클라이언트의 요청이 들어올 때마다 사용/반환하는 방식
+
+    - 데이터베이스 접근 과정
+        (1) 웹 컨테이너가 실행되면 데이터베이스와 연결된 Connection 객체들을 미리 생성해 Pool에 저장
+        (2) 클라이언트 요청 시 Pool에서 Connection 객체를 가져와 데이터베이스 접근
+        (3) 요청 처리가 끝나면 사용된 Connection 객체를 다시 Pool에 반환
+
+    - 장점
+        - 매 연결마다 Connection 객체를 생성/제거하는 비용 감소
+        - 미리 생성된 Connection 객체를 사용하므로 데이터베이스 접근 시간 단축
+        - Connection 수를 제한해 부하 조정
+
+    - 단점
+        - Connection 또한 객체이므로 메모리 차지
+        - Connection 개수를 잘 못 설정할 경우, 쓸모없는 Connection이 발생할 수 있음
+
+    - Connection이 부족할 경우
+        - 모든 Connection이 요청을 처리 중일 때, 해당 클라이언트의 요청을 대기 상태로 전환
+        - Pool에 Connection 객체가 반환되면 순차적으로 요청을 처리
+
+    - Thread Pool과 Connection Pool
+        - Thread Pool은 작업 처리에 사용되는 스레드를 제한된 개수만큼 정해 놓고 작업 큐(Queue)에 들어오는 작업들을 하나씩 스레드가 맡아 처리하는 것
+        - WAS(Web Application Server)에서 Thread Pool과 Connection Pool의 Thread와 Connection의 수는 메모리와 직접적으로 관련이 있음
+        - Connection과 Thread 수를 많이 설정하면 메모리를 많이 차지하고, 반대로 적게 설정할 경우 처리하지 못하는 대기 요청이 많아짐
+
+
+
 - 로드 밸런싱에 대해 알아보자!
     https://tecoble.techcourse.co.kr/post/2021-11-07-load-balancing/
 

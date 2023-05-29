@@ -200,3 +200,6 @@ https://lenditkr.github.io/spring/transactional-event-listener/index.html
 
 - @Request Body에서는 Setter가 필요없다?
     https://jojoldu.tistory.com/407
+
+- Spring + MyBatis에서 쿼리의 결과와 객체가 매핑이 되는 과정
+    https://zzang9ha.tistory.com/420

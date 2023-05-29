@@ -53,14 +53,6 @@
           따라서 JPA 는 참조하는 객체들의 데이터를 가져오는 시점을 정할 수 있는데 이것을 Fetch Type - Eager, Lazy
         - 보편적으로 지연로딩을 사용. 즉시 로딩은 모든 객체들을 가져오기 때문에 불필요한 조인으로 인해 성능 저하
 
-    - Fetch Join vs 일반 Join with DTO
-        - Fetch Join : 두 엔티티의 영속화가 필요로 할 때
-        - Join with DTO : 영속화 없이 데이터 조회만 할 수 있을 경우
-
-
-- NoArgsConstructor 접근권한을 주지 않았었는데요. JPA에서는 프록시를 생성을 위해서 기본 생성자를 반드시 하나를 생성해야합니다.
-  이때 접근 권한을 AccessLevel.PROTECTED로 설정하여 JPA에서의 Entity 클래스 생성만 허용해줍니다. ??
-
 
 - Join, Fetch Join 차이점 요약 ??
     - 일반 Join
@@ -95,10 +87,25 @@
     - @Transaction(readOnly = true)로 설정하면 select 할 당시 엔티티의 스냅샷을 만들지 않는다.
     - (JPA) Readonly 트랜잭션은 트랜잭션을 시작하지만 flush를 하지 않는다에서 봤다 싶이 트랜잭션이 커밋될 때 flush를 하지 않는다.
     - flush를 할 필요가 없기 때문에 Dirty Checking을 할 필요가 없고, 그에 따라서 엔티티의 스냅샷도 만들지 않는 것이다. -> 성능 최적화
-    - 데이터베이스가 master와 slave로 나누어져 있다면, readOnly = true 설정을 주었을 때 읽기 전용인 slave를 호출하게 된다. 즉, 상황에 따라 데이터베이스 서버 부하를 줄일 수 있다.
+    - 데이터베이스가 master와 slave로 나누어져 있다면, readOnly = true 설정을 주었을 때 읽기 전용인 slave를 호출하게 된다.
+      즉, 상황에 따라 데이터베이스 서버 부하를 줄일 수 있다.
+
+
+- NoArgsConstructor 접근권한을 주지 않았었는데요. JPA에서는 프록시를 생성을 위해서 기본 생성자를 반드시 하나를 생성해야합니다.
+  이 때 접근 권한을 AccessLevel.PROTECTED로 설정하여 JPA에서의 Entity 클래스 생성만 허용해줍니다. ??
+
 
 - JPA Hibernate 프록시 제대로 알고 쓰기
     https://tecoble.techcourse.co.kr/post/2022-10-17-jpa-hibernate-proxy/
 
 - [JPA] Spring JPA 환경에서 bulk insert를 효율적으로 해보자 - JPA의 한계와 JDBC 활용
     https://sabarada.tistory.com/220
+
+
+- 엔티티 매니저가뭐냐
+
+- 1차캐시가뭐냐
+
+- 영속성컨텍스트가뭐냐
+
+- 영속상태?  라이프사이클?에대해말해라

@@ -214,3 +214,18 @@ SQL 성능 향상 팁
 
 - 분산 DB 환경에서의 트랜잭션 구현 (Saga Pattern)
     http://clipsoft.co.kr/wp/blog/%eb%b6%84%ec%82%b0-db-%ed%99%98%ea%b2%bd%ec%97%90%ec%84%9c%ec%9d%98-%ed%8a%b8%eb%9e%9c%ec%9e%ad%ec%85%98-%ea%b5%ac%ed%98%84/
+
+- 힌트 사용 예제
+    http://www.gurubee.net/lecture/2147
+
+- Index Dive 비용 최적화
+    https://medium.com/daangn/index-dive-%EB%B9%84%EC%9A%A9-%EC%B5%9C%EC%A0%81%ED%99%94-1a50478f7df8
+
+- SqlSession 사용
+    https://mybatis.org/spring/ko/sqlsession.html
+
+- 대량등록(Bulk Inserting) 성능 향상
+    https://www.happyjung.com/lecture/3145?sca=MySQL
+
+- employees Table 데이터 제공
+    https://launchpad.net/test-db

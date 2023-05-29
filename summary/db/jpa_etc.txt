@@ -1,0 +1,4 @@
+영속성 컨텍스트
+    - Fetch Join vs 일반 Join with DTO
+        - Fetch Join : 두 엔티티의 영속화가 필요로 할 때
+        - Join with DTO : 영속화 없이 데이터 조회만 할 수 있을 경우
