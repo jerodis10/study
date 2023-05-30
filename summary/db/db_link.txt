@@ -229,3 +229,19 @@ SQL 성능 향상 팁
 
 - employees Table 데이터 제공
     https://launchpad.net/test-db
+
+- DBMS는 어떻게 트랜잭션을 관리할까?
+    https://d2.naver.com/helloworld/407507
+
+- HikariCP Dead lock에서 벗어나기 (이론편)
+    https://techblog.woowahan.com/2664/
+
+- HikariCP Dead lock에서 벗어나기 (실전편)
+    https://techblog.woowahan.com/2663/
+
+- NoSQL
+    https://khj93.tistory.com/entry/Database-RDBMS%EC%99%80-NOSQL-%EC%B0%A8%EC%9D%B4%EC%A0%90
+    https://velog.io/@coding_egg/CS-Nosql%EC%9D%B4-%EC%88%98%ED%8F%89%ED%99%95%EC%9E%A5Scale-Out%EC%97%90-%EC%9C%A0%EB%A6%AC%ED%95%9C-%EC%9D%B4%EC%9C%A0
+    https://broccoli45.tistory.com/46
+    https://chankim.tistory.com/5
+    https://shoark7.github.io/programming/knowledge/what-is-NoSQL

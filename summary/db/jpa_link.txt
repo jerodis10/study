@@ -15,3 +15,6 @@
 
 ** [JPA] JPA Entity 왜 단일키가 좋은가?
     https://jwkim96.tistory.com/166
+
+- 트랜잭션과 락, 2차 캐시
+    https://incheol-jung.gitbook.io/docs/study/jpa/16#undefined-9
