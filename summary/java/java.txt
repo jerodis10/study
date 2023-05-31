@@ -1876,3 +1876,9 @@
 
 - new ArrayList<>() vs Arrays.asList()
     https://tecoble.techcourse.co.kr/post/2020-05-18-ArrayList-vs-Arrays.asList/
+
+- 동시성 보장하기 위한 방법
+    https://velog.io/@maketheworldwise/ConcurrentHashMap
+
+- IO가 느린 이유가 뭘까? NIO는 뭘까?
+    https://velog.io/@maketheworldwise/IO%EA%B0%80-%EB%8A%90%EB%A6%B0-%EC%9D%B4%EC%9C%A0%EA%B0%80-%EB%AD%98%EA%B9%8C-NIO%EB%8A%94-%EB%AD%98%EA%B9%8C
