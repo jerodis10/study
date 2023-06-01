@@ -6,7 +6,7 @@
 
 
 - springBoot의 장점   https://mangkyu.tistory.com/208
-    - starter를 통한 dependency를 자동화
+    - starter를 통한 dependency를 자동화 ??
         - 기존의 Spring에서는 dependency들의 호환되는 버전을 직접 설정
         - 스프링 부트에서는 이 starter를 통해 종속된 모든 라이브러리를 알맞게 찾아서 함께 가져오기 때문에 의존성이나 호환버전에 대해 신경 쓸 필요가 없다.
 
@@ -973,3 +973,6 @@
 
 - 트랜잭션 프로파게이션?(전파레벨)
 
+
+
+- starter를 통한 dependency를 자동화 ??
