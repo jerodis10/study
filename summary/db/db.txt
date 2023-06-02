@@ -57,7 +57,7 @@
             INDEX 가 없어 부득이하게 FULL TABLE SCAN 을 한다면 INDEX 를 하나 만드는 것이 좋습니다. 물론 INDEX 를
             필요할 때마다 만드는 것도 UPDATE 와, DELETE 등의 속도를 저해하기에 마냥 좋은 것은 아닙니다.
 
-        ROWID SCAN 을 타는 상황
+        ROWID SCAN 을 타는 상황 ??
             1. 조건절에 ROWID 를 직접 명시할 경우
             2. INDEX SCAN 을 통해 ROWID 를 추출한 후 테이블에 접근할 경우
 
@@ -220,7 +220,7 @@
         ex) UUID, Auto Increment
 
 
-- DDL vs DML vs DCl
+- DDL vs DML vs DCl ??
     - DDL : 스키마, 도메인, 테이블, 뷰, 인덱스 등을 정의하거나 결정하는 언어.
     - DML : 저장된 데이터를 실질적으로 처리하는데 쓰이는 언어.
     - DCL : 데이터의 보안, 무결성, 수행 제어 등을 정의하는 데 사용
@@ -968,3 +968,7 @@ myBatis 는 JdbcTemplate 대신 Connection 객체를 통한 질의를 위해서 
 - 실행계획 보는법 ??
 
 - 파일시스템 vs db ??
+
+ROWID SCAN 을 타는 상황 ??
+
+- DDL vs DML vs DCl ??

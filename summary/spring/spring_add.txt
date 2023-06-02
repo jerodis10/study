@@ -1,3 +1,157 @@
 - spring boot 부트동작원리 설명?
 
 - dispatcherServlet 리다이렉트,포어딩?
+
+
+- SpringBoot 실행 후에 초기화 코드를 넣는 방법
+    - 커맨드라인 파라미터를 위한 CommandLineRunner
+        - CommandLineRunner를 구현하는 클래스 생성
+            CommandLineRunner는 스프링 부트 1.0에 추가된 함수형 인터페이스로써 스프링 애플리케이션이 구동된 후에 실행되어야 하는 빈을 정의하기 위해 사용된다.
+            CommandLineRunner는 파라미터로 String 타입의 가변 인자를 받고 있으며 인터페이스 이름 그대로 커맨드 라인으로 받은 스트링 타입의 인자를 파라미터로 받아서 사용하기 위해 만들어졌다.
+            CommandLineRunner는 이를 구현하는 클래스를 정의하고 빈이 등록하면 애플리케이션이 구동된 후에 자동으로 run 메소드가 실행된다.
+
+        - CommandLineRunner를 람다식으로 구현
+            우리가 필요로 하는 작업은 애플리케이션 실행 후에 1회 초기화 작업인데, 위와 같이 클래스로 만드는 것은 무거우며 번거롭다.
+            CommandLineRunner는 함수형 인터페이스이므로 다음과 같이 main 클래스에 @Bean과 함께 람다식으로 구현하여 간소화할 수 있다.
+                @SpringBootApplication
+                public class TestingApplication {
+
+                    public static void main(String[] args) {
+                        SpringApplication.run(TestingApplication.class, args);
+                    }
+
+                    @Bean
+                    public CommandLineRunner commandLineRunner() {
+                        return args -> System.out.println("MangKyu");
+                    }
+                }
+
+            @Bean은 @Configuration이 있는 클래스 안에서만 동작하는데, @SpringBootApplication이 갖고 있는 @SpringBootConfiguration 안에
+            @Configuration이 존재하므로 메인 클래스 역시 빈으로 등록이 되어 가능한 것이다.
+
+    - 다양한 파라미터를 위한 ApplicationRunner
+        ApplicationRunner 역시 마찬가지로 함수형 인터페이스로써 스프링 애플리케이션이 구동된 후에 실행되어야 하는 빈을 정의하기 위한 인터페이스
+        목적 자체는 동일하지만 ApplicationRunner는 CommandLineRunner와 달리 다양한 종류의 파라미터를 받아서 실행하는 경우에 사용할 수 있다.
+        CommandLineRunner는 스프링 부트 1.0에 추가된 반면에 ApplicationRunner는 스프링 부트 2.0에 추가되었다.
+        ApplicationRunner도 비슷하게 이 인터페이스를 구현하는 클래스를 등록할수도 있고 람다식으로 직접 사용할 수도 있다.
+            @SpringBootApplication
+            public class TestingApplication {
+
+                public static void main(String[] args) {
+                    SpringApplication.run(TestingApplication.class, args);
+                }
+
+                @Bean
+                public ApplicationRunner applicationRunner() {
+                    return args -> System.out.println("MangKyu");
+                }
+            }
+
+    - 이벤트 수신을 위한 EventListener
+        - 이벤트 리스너 등록 및 이벤트 발행
+            스프링은 초기부터 애플리케이션 컨텍스트 내부에서 특정 타입의 이벤트를 던지고, 이를 리슨하는 리스너에게 전달해주는 메커니즘을 사용하고 있었다.
+            그리고 우리가 이를 애플리케이션 레벨에서 이용할 수도 있는데, 특정 타입의 이벤트를 수신하기 위해서는 해당 리스너를 구현해 빈으로 등록해두면 된다.
+                @SpringBootApplication
+                public class TestingApplication {
+
+                    public static void main(String[] args) {
+                        ConfigurableApplicationContext context = SpringApplication.run(TestingApplication.class, args);
+                        context.addApplicationListener(event -> System.out.println("MangKyu"));
+                        context.publishEvent(new ApplicationEvent(context) {
+                        });
+                    }
+                }
+
+        - @EventListener를 사용한 이벤트 리스너 등록
+            하지만 위와 같이 이벤트 리스너를 직접 구현하는 방식은 상당히 번거롭다. 그래서 스프링 4.2부터는 @EventListener 어노테이션이 추가되었는데,
+            @EventListener를 스프링 빈 안에 구현해두면 리스너가 동작하게 된다.
+            스프링은 애플리케이션이 준비되었을 때 ApplicationReadyEvent 타입의 이벤트를 발행하므로, 애플리케이션이 준비되었을 때 어떤 코드를 실행하기 위해서는 다음과 같이 이용할 수 있다.
+                @SpringBootApplication
+                public class TestingApplication {
+
+                    public static void main(String[] args) {
+                        SpringApplication.run(TestingApplication.class, args);
+                    }
+
+                    @EventListener(ApplicationReadyEvent.class)
+                    public void init() {
+                        System.out.println("MangKyu");
+                    }
+
+                    @EventListener
+                    public void init(ApplicationReadyEvent event) {
+                        System.out.println("MangKyu");
+                    }
+                }
+
+            앞서 @EventListener는 스프링 빈 안에 넣어야 한다고 했는데, 앞서 살펴보았듯 메인 클래스 역시 스프링 빈으로 등록되므로
+            메인 클래스 안에서 @EventListener 사용이 가능하다. 또한 @EventListener는 여러 타입의 메세지를 받을 수 있는데,
+            특정 타입의 메세지를 받기 위해서는 @EventListener 어노테이션에 이벤트 타입을 넣어주면 되며, 만약 해당 타입이 파라미터로 필요하다면
+            어노테이션에 적어줄 필요 없이 파라미터로만 명시해주어도 된다.
+            스프링은 ApplicationReadyEvent 타입의 이벤트를 1회만 발행하는데, 위의 코드에서는 수신하는 리스너가 2개가 존재한다.
+            이벤트 리스너는 기본적으로 멀티 캐스팅 관계이므로 동일한 타입의 여러 리스너가 등록되었다면 모든 리스너가 이벤트를 받게 된다.
+
+        - 커스텀 이벤트와 커스텀 이벤트 리스너의 구현
+            ApplicationListener의 제네릭 타입으로 ApplicationEvent 하위의 이벤트 클래스를 주면 해당 타입의 이벤트만을 받도록 구현할 수 있다.
+            또한 직접 리스너 어노테이션을 구현할수도 있는데, 이를 코드로 작성하면 다음과 같다.
+                @SpringBootApplication
+                public class TestingApplication {
+
+                    public static void main(String[] args) {
+                        ConfigurableApplicationContext context = SpringApplication.run(TestingApplication.class, args);
+                        context.publishEvent(new MangKyuEvent(context, "MangKyuEvent"));
+                    }
+
+                    static class MangKyuEvent extends ApplicationEvent {
+
+                        private final String message;
+
+                        public MangKyuEvent(Object source, String message) {
+                            super(source);
+                            this.message = message;
+                        }
+                    }
+
+                    @Target(ElementType.METHOD)
+                    @Retention(RetentionPolicy.RUNTIME)
+                    @EventListener
+                    @interface MangKyuListener {
+
+                    }
+
+                    @MangKyuListener
+                    public void mangKyuEvent(MangKyuEvent mangKyuEvent) {
+                        System.out.println(mangKyuEvent.message);
+                    }
+
+                }
+
+            이러한 이벤트를 발행하고 리스너를 통해 수신하는 개발 방식은 빈들 사이의 관계를 끊어 느슨하게 함으로써 결합도를 낮출 수 있다.
+            또한 이를 중심으로 개발하는 설계 등을 이벤트 주도 설계(Event Driven Architecture) 등이라고도 한다.
+
+            스프링 부트에서는 애플리케이션의 시점에 따라 이벤트를 발행하기 위해 ApplicationEvent를 상속받는 SpringApplicationEvent 추상클래스를 구현해두었고,
+            다음과 같은 구현체들 역시 만들어두었다.
+                - ApplicationStartingEvent
+                    애플리케이션이 실행되고나서 가능한 빠른 시점에 발행됨
+                    Environment와 ApplicationContext는 준비되지 않았지만 리스너들은 등록이 되었음
+                    이벤트 발행 source로 SpringApplication이 넘어오는데, 이후 내부 상태가 바뀌므로 내부 상태의 변경은 최소화해야 함
+                - ApplicationContextInitializedEvent
+                    애플리케이션이 시작되고 애플리케이션 컨텍스트가 준비되었으며 initializer가 호출되었음
+                    하지만 빈 정보들은 불러와지기 전에 발행됨
+                - ApplicationEnvironmentPreparedEvent
+                    애플리케이션이 실행되고 Environment가 준비되었을 때 발행됨
+                - ApplicationPreparedEvent
+                    애플리케이션이 시작되고 애플리케이션 컨텍스트가 완전히 준비되었지만 refresh 되기 전에 발행됨
+                    빈 정보들은 불러와졌으며 Environment 역시 준비가 된 상태임
+                - ApplicationStartedEvent:
+                    애플리케이션 컨텍스트가 refesh 되고나서 발행됨
+                    ApplicationRunner와 CommandLineRunner가 실행되기 전의 시점임
+                - ApplicationReadyEvent:
+                    애플리케이션이 요청을 받아서 처리할 준비가 되었을 때 발행됨
+                    이벤트 발행 source로 SpringApplication이 넘어오는데, 이후에 초기화 스텝이 진행되므로 내부 변경은 최소화해야 함
+                - ApplicationFailedEvent
+                    애플리케이션이 실행에 실패했을 때 발행됨
+
+            위의 3가지 중에서 편한 방법을 이용하면 애플리케이션 실행 시에 warm-up을 시킴으로써 첫 요청이 느린 문제를 해결할 수 있다.
+            물론 이벤트 리스너는 비지니스 로직에서 불필요하게 연관관계가 복잡해지는 문제들을 해결하기 위해서도 사용할 수 있다.
+            이러한 경우에 만약 트랜잭션과 연관된 작업이라면 @TransactionalEventListener를 사용해주면 된다.
