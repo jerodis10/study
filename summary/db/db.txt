@@ -983,3 +983,6 @@ ROWID SCAN 을 타는 상황 ??
 
 - 함수와 프로시저의 차이 ??
 
+- [Spring] @Transactional로 DB 동시성 문제를 방지하자
+    https://kth990303.tistory.com/313
+

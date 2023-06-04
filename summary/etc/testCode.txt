@@ -1053,6 +1053,23 @@ Repository : (querydsl같은) custom한 repository에 대한 쿼리 테스트
     Spy는 그들이 어떻게 호출되었는지에 따라 일부 정보를 기록하는 Stub 입니다.
     Mock은 호출될 것으로 예상되는 사양을 형성하는 기대값으로 미리 프로그래밍 된 객체입니다.
 
+- mockito 인터뷰 질문
+    https://ko.myservername.com/top-12-mockito-interview-questions
+
+- [Spring] 테스트를 위한 애플리케이션 컨텍스트 관리
+    https://withseungryu.tistory.com/85
+
+******* SpringBootTest @MockBean의 실행과정과 context reload
+    https://taes-k.github.io/2022/02/02/spring-mockbean/
+
+
+- 무엇을 테스트할 것인가? 어떻게 테스트할 것인가?
+    https://www.youtube.com/watch?v=YdtknE_yPk4
+
+Spring 에서는 보통 객체생성시 직접 생성하지 않고 Dependency Injection(DI)을 통해 프레임워크에 위임하여 생성하기 때문에
+직접적으로 Mocking 테스트환경을 만드는것이 쉽지 않습니다.
+이러한 어려움을 도와주는것이 바로 @MockBean과 @SpyBean입니다. Bean등록 과정에서 테스트에 필요한 Mocking객체를 기존 객체 대신에 Bean으로
+등록시켜 사용할수 있게 만들어주기때문에 해당 Bean을 의존 하는 모든 다른 객체들에 DI하여 손쉽게 Mocking객체를 사용 할 수 있도록 해줍니다.
 
 
 성능 테스트시 하지 말아야 할 Mocking 방식
