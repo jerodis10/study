@@ -1086,3 +1086,23 @@ io가 발생하지 않음
 
 외부 인터페이스를 Mocking 하는 것처럼 보이지만, 내부 인터페이스도 Mocking 해버리는 객체 Mocking 은 성능 테스트에서 피해야 합니다.
 
+- [Test] Mock 테스트와 Stub 테스트 차이
+    https://azderica.github.io/00-test-mock-and-stub/
+
+- Stub 을 이용한 Service 계층 단위 테스트 하기
+    https://jojoldu.tistory.com/637
+
+- Mock은 Stub이 아니다.
+    https://jaime-note.tistory.com/330
+
+- [Spring] 테스트를 위한 애플리케이션 컨텍스트 관리
+    https://withseungryu.tistory.com/85
+
+- SpringBootTest @MockBean의 실행과정과 context reload
+    https://taes-k.github.io/2022/02/02/spring-mockbean/
+
+- [230422] Spring Camp 2023 갔다온 후기
+    https://kth990303.tistory.com/440
+
+- 테스트 코드와 관련 프레임워크
+    https://choibulldog.tistory.com/67
