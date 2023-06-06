@@ -421,8 +421,16 @@
     - NEVER: 트랜젝션을 사용하지 않도록 강제한다. 이미 진행중인 트랜잭션도 존재하면 안됨. 있다면 예외 발생
 
 
-- Spring Rest Docs VS Swagger
+- Spring Rest Docs VS Swagger   https://shirohoo.github.io/backend/test/2021-07-17-swagger-rest-docs/
     - Spring Rest Docs
+        - API 문서를 작성하기 위해선 테스트 코드가 강제되므로 문서의 신뢰성이 매우 높다.
+        - Spring Boot starter로 매우 간편하게 설정 가능
+
+        - 테스트 코드가 익숙하지 않다면 도입 난이도가 높다.
+        - 문서를 커스터마이징 하려면 AsciiDoc 문법을 알아야 한다.
+        - Swagger와 달리 문서에서 API를 즉석으로 테스트 할 수 없다.
+
+
         - 프로덕션 코드에 영향이 없다.
         - 테스트 코드가 성공해야 문서 작성이 가능하다.
             => Controller에 정의되어 있는 Request Body나 Response Body 등의 API 스펙 정보와 일치하는 API 문서가 만들어진다는 것이다.
@@ -433,8 +441,15 @@
               이러한 상황에선 Swagger를 사용하는 편이 더 적합하다고 볼 수 있다.
             - 테스트가 성공하는 올바른 프로덕션 코드에 대해서만 문서를 작성할 수 있다.
               API 스펙과 항상 일치하는 문서를 작성할 수 있다.
+            -> 테스트 코드가 강제되므로 문서의 신뢰성이 매우 높다.
 
     - Swagger
+        - API 문서에서 API를 즉시 테스트할 수 있다.
+
+        - 테스트 코드 없이 문서 작성이 가능하므로 신뢰도가 낮다.
+        - 프로덕션 코드에 어노테이션 추가해야한다.
+
+
         - 문서상에 api를 테스트할 수 있는 기능이 있다.
         - 테스트 코드가 없으므로 적용이 쉽다.
 
@@ -451,6 +466,21 @@
         - AsciiDoc은 문법은 조금 불편하지만 include가 가능하기 때문에 html을 작성하는 것처럼 재활용이 가능
           자동생성된 스니펫과 자신이 원하는 문서를 결합해서 사용할 수 있습니다.
 
+        - Markdown 단점
+            - slate에 의존해야만 하는 구조
+                팀 구성원 전체가 Ruby & Gem을 설치하고 bundler까지 설치해야하는게 너무 번잡합니다.
+
+            - 만들어지는 문서가 기존 스프링 관련 문서들에 비해 UI가 친숙하지 않습니다.
+
+            - 빌드시간이 너무 오래 걸립니다.
+                Ruby 의존성들이 많아 빌드시간이 전체적으로 너무 오래걸립니다.
+
+
+            - Markdown으로 Rest Docs를 작성하려면 Ruby 프로젝트인 slate가 필요
+            - Gradle로 관리되는 프로젝트가 아니기 때문에 프로젝트를 직접 Download받아서 진행해야만 합니다.
+
+        - AsciiDoc은 훨씬 더 간편하게 문서가 자동화
+
     - MockMvc(@WebMvcTest) vs Rest Assured(@SpringBootTest)
         - 보통 문서를 작성할 때 서비스 계층은 Mocking을 하여 작성합니다. Rest Assured는 BDD 스타일로 직관적이지만 별도의 구성없이는 @SpringBootTest로 수행해야합니다.
           그러면 전체 컨테스트를 로드하여 빈을 주입하기에 속도가 많이 느립니다. 반면에 MockMvc는 @WebMvcTest로 수행이 가능합니다.
@@ -463,8 +493,38 @@
         1. Spring TEST에 의해 성공한 케이스들에 대한 snippet이 자동으로 생성된다.
         2. 문서를 직접 작성하고 코드들에 대한 정보는 아까 생성된 snippet을 include하여 추가하여 완성한다.
 
-    - Spring Rest Docs의 API 문서 생성 흐름
+    - Spring Rest Docs의 API 문서 생성 흐름   https://velog.io/@wnguswn7/Section3-12.-Spring-MVC-API-%EB%AC%B8%EC%84%9C%ED%99%94
         - 테스트 코드 작성 -> test 태스크(task) 실행 -> API 문서 스니펫(.doc 파일) 생성 -> API 문서 생성 -> API 문서를 HTML로 변환
+
+        1. 테스트 코드 작성
+            슬라이스 테스트 코드 작성
+            API 스펙 정보 코드 작성
+
+        2. 테스트 태스크 (test task) 실행
+            작성된 슬라이스 테스트 코드를 실행
+                ➜ 일반적으로 Gradle의 빌드 태스크(task)중 하나인 test task를 실행 시켜서 API 문서 스니핏(snippet)을 일괄 생성
+            테스트 결과가 passed면 다음 작업 / failed면 테스트 케이스 수정 후 다시 실행
+
+        3. API 문서 스니핏(.adoc 파일) 생성
+            테스트 결과가 passed면 테스트 코드의 API 스펙 정보 코드를 기반으로 API 문서 스니핏이 .adoc 확장자를 가진 파일로 생성됨
+                ✔️ 스니핏 (snippet)
+                문서의 일부 조각을 의미
+                테스트 케이스 하나 당 하나의 스니핏이 생성
+                여러개의 스니핏을 모아서 하나의 API 문서 생성 가능
+
+        4. API 문서 생성
+            생성된 API 문서 스니핏을 모아 하나의 API 문서로 생성
+
+            모든 테스트를 마치고 스니핏들이 모두 생성되면,
+            Spring Rest Docs 설정에서 만들어 두었던 템플릿 문서를 작성할 src/docs/asciidoc/index.adoc 파일에
+            아래와 같이 스니핏들을 모두 합쳐 HTML로 변환을 위한 최종 API 문서를 만들어주면 됨
+
+        5. API 문서를 HTML로 변환
+            생성된 API 문서를 HTML 파일로 변환
+            HTML로 변환된 문서는 HTML 파일 자체를 공유할 수도 있고, URL을 통해 해당 HTML에 접속해서 확인할 수 있음
+
+            Spring Rest Docs에서는 Asciidoc 포맷의 문서를 HTML 파일로 변환하기 위해 내부적으로 Asciidoctor를 사용하고 있음
+
 
     - 관련 용어
         스니핏(snippet) : 문서/코드의 일부 조각을 의미한다.
