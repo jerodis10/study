@@ -849,3 +849,6 @@
 
 - maven vs gradle
     https://www.youtube.com/watch?v=3Jp9kGDb01g&t=7s
+
+- 소나큐브
+    https://joypinkgom.tistory.com/20

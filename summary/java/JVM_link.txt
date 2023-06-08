@@ -1,2 +1,9 @@
 - 다양한 가비지 컬렉션(Garbage Collection) 알고리즘
     https://kimtaesoo99.tistory.com/212
+
+- OutOfMemoryError: Metaspace 튜닝
+    https://rutgo-letsgo.tistory.com/128
+
+- OOM 해결
+    http://honeymon.io/tech/2019/05/30/java-memory-leak-analysis.html
+    https://techblog.woowahan.com/2628/
