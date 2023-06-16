@@ -827,7 +827,6 @@ Repository : (querydsl같은) custom한 repository에 대한 쿼리 테스트
                     - 외부 API에 의존하는 경우
 
                     - 특히, 데이터베이스를 사용하는 테스트들은 느린 테스트의 주범이다.
-                    - 특히, 데이터베이스를 사용하는 테스트들은 느린 테스트의 주범이다.
                     - 수백 ~ 수천개의 테스트 코드들을 수행하기 위해서 테스트 속도는 중요한데, 데이터베이스와 같이 외부환경을 사용하는 테스트가 많을수록 테스트 시간은 기하급수적으로 늘어난다.
 
 
@@ -1106,3 +1105,15 @@ io가 발생하지 않음
 
 - 테스트 코드와 관련 프레임워크
     https://choibulldog.tistory.com/67
+
+- fixture-monkey
+    https://github.com/naver/fixture-monkey
+    https://jiwondev.tistory.com/272
+    https://velog.io/@wleo04/Fixture-Monkey-%EA%B0%84%EB%8B%A8-%EC%82%AC%EC%9A%A9%EB%B2%95
+    https://taes-k.github.io/2021/12/12/fixture-monkey/
+
+- 다이나믹 테스트(Dynamic Test)란?
+    https://tecoble.techcourse.co.kr/post/2020-07-31-dynamic-test/
+
+********* junit test
+    https://www.devkuma.com/docs/junit5/dynamic-test/
