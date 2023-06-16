@@ -690,6 +690,18 @@ public class ErrorResponse {
 - 인텔리제이 팁
     https://cheese10yun.github.io/intellij-tip/
 
+- SonarQube
+    SonarSource에서 만든 SonarQube는 코드를 분석하여 중복, 테스트 커버리지, 코드 복잡도, 버그, 보안 취약성 등을 리포팅 해주며,
+    IDE, 빌드 도구 CI와 통합하여 사용할 수 있다. 이에 더해 단일 프로그래밍 언어만 분석 가능한 것이 아니라 다양한 프로그래밍 언어로 만든
+    코드를 분석 할 수 있다.
+
+- JaCoCo
+    JaCoCo는 Java 코드의 커버리지를 체크하는 라이브러리이다. 테스트 코드를 돌리고 그 커버리지 결과를 눈으로 보기 좋도록 html이나 xml, csv 같은
+    리포트로 생성한다. 그리고 테스트 결과가 내가 설정한 커버리지 기준을 만족하는지 확인하는 기능도 있다.
+
+- 소나큐브 + jacoco (build.gradle)
+    https://jeeneee.dev/springboot/springboot-2-introduction-of-sonarqube/
+
 - 소나큐브
     http://ngmsoftware.com/bbs/board.php?bo_table=study&wr_id=403&sst=wr_datetime&sod=asc&sop=and&page=19
 
@@ -732,3 +744,6 @@ public class ErrorResponse {
             ex) 너무 긴 코드, 3개 미만의 switch 문 등
         - Info
             버그이거나 품질상의 결함이 아닙니다. 인지를 위한 알람
+
+- 코드 커버리지(Code Coverage)가 뭔가요?
+    https://tecoble.techcourse.co.kr/post/2020-10-24-code-coverage/
