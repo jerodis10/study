@@ -1002,3 +1002,8 @@ Spring AOP에서는 기본적으로 JDK dynamic proxy를 사용한다. ??
 - spring boot xml로 설정했는지 java cofig로 했는데 config로 하는거랑, xml로 설정하는 것중 머가 더 편한지 편하면 왜 편하지 머가 다른지 ??
 
 - spring 버전별 특징
+
+- 스프링과 스프링부트(Spring Boot)ㅣ정의, 특징, 사용 이유, 생성 방법
+    https://www.codestates.com/blog/content/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8
+
+- 캐싱
