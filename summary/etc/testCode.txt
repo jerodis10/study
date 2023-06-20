@@ -1117,3 +1117,11 @@ io가 발생하지 않음
 
 ********* junit test
     https://www.devkuma.com/docs/junit5/dynamic-test/
+
+- 테스트코드 성능 개선기
+    https://tecoble.techcourse.co.kr/post/2022-10-15-test-code-optimization/
+
+- Java 프로젝트 빌드할 때 테스트 분기 및 제외
+    https://blog.leocat.kr/notes/2021/10/28/gralde-exclude-test-task-when-build-a-project
+
+- gradle 통합테스트 / 유닛테스트 task 분리 ???
