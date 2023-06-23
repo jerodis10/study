@@ -1011,3 +1011,10 @@ ROWID SCAN 을 타는 상황 ??
     https://www.tencentcloud.com/ko/document/product/236/40515
 
 - SELECT 문장 실행 순서 -> 옵티마이저가 SQL 문장의 SYNTAX, SEMANTIC 에러를 점검하는 순서이기도 함.
+
+- 트랜잭션 격리수준
+    https://mangkyu.tistory.com/299
+    https://mangkyu.tistory.com/300
+
+- PostgreSQL의 슬로우 쿼리에 대처하기
+    https://hyperconnect.github.io/2020/08/31/improve-slow-query.html

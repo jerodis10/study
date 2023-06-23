@@ -1125,3 +1125,29 @@ io가 발생하지 않음
     https://blog.leocat.kr/notes/2021/10/28/gralde-exclude-test-task-when-build-a-project
 
 - gradle 통합테스트 / 유닛테스트 task 분리 ???
+
+- 단위 테스트 구조 (AAA 패턴, 테스트 픽스터, 명명법)
+    https://kukim.tistory.com/47
+
+- 테스트 픽스처 올바르게 사용하기
+    https://jojoldu.tistory.com/611?category=1036934
+
+- private 메서드도 테스트를 해야 할까? (private 메서드 테스트 하고 싶을 때...)
+    https://kukim.tistory.com/84
+
+************ unit testing
+    https://ojt90902.tistory.com/category/Test
+
+- Mockito @Mock @MockBean @Spy @SpyBean 차이점
+    https://cobbybb.tistory.com/16#4.%20SpringBootTest%20%26%20Mockito-1
+
+- [Spring] Mockito.mock() vs @Mock vs @MockBean
+    https://bepoz-study-diary.tistory.com/369
+
+- @Mock과 @MockBean
+    => Spring Boot Container가 테스트 시에 필요하고, Bean이 Container에 존재한다면 @MockBean을 사용하고 아닌 경우에는 @Mock을 사용합니다.
+
+- @Mock
+    Mockito.mock() 코드를 대체
+    @Mock으로 mock 객체 생성
+

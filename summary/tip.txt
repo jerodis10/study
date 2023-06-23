@@ -756,3 +756,74 @@ public class ErrorResponse {
 
 - 레디스, RDB 혼용
     https://techblog.woowahan.com/2709/
+
+
+- 테스트 코드 최적화
+    - 팩토리 메서드를 통한 테스트 픽스처 생성 -> 테스트 간 결합도를 낮추고 가독성 향상
+    - 재사용 가능한 테스트 구조로 리팩토링
+        - 처음부터 필요한 대리 객체가 무엇인지 파악한 뒤 Mock, Spy 한번에 선언하여 Context 에 올려두고,
+          Test Class 들이 상속 받아 사용하는 형태로 구현한다면 컨텍스트 초기화를 한번만 하는 것이 가능
+
+
+- 스프링 빈의 상태를 유지하는 필드를 제거해서 무상태로 수정.
+    - 전역으로 선언되어 메모리에 올라와있던 재고 수량 필드를 도메인 객체 내에서 처리되도록 수정
+
+
+- Redis의 Redisson 라이브러리 이용한 분산락 구현   https://helloworld.kurly.com/blog/distributed-redisson-lock/
+    - 어노테이션 기반으로 AOP를 이용해 분산락 컴포넌트 활용
+    - 락 사용에 대한 생산성 및 핵심 로직과의 분리를 통한 가독성 향상
+
+
+https://hyperconnect.github.io/2020/08/31/improve-slow-query.html
+[문제]
+- 수주 현황 화면 조회 시 슬로우 쿼리로 인한 서버 부하로 인해 접속 장애 발생.
+[원인]
+- WhaTap(APM) 을 이용한 모니터링을 통해 CPU 사용량이 97.34% 로 과도하게 높은 수준인 것을 확인.
+-> WhaTap(APM) 을 이용한 모니터링을 통해 CPU 사용량이 90%를 넘어가는 현상 확인.
+   실행 계획을 통해 Full Table Scan이 한 쿼리에 두 번이나 사용됨.
+[해결]
+- 인덱스를 타지 않는 쿼리 개선 및 힌트를 활용해 옵티마이저 최적화 통해 슬로우 쿼리 개선.
+-> 부분 복합 인덱스 생성하여 걸어줌 (특정 칼럼이 비대칭적인 데이터 분포를 가짐.)
+   개선 이후 10% 대를 유지하는 안정적인 모습 확인.
+
+
+https://kim-solshar.tistory.com/73
+1. 진행 여부 표시 (고객 요청)
+- 건당 처리를 실시간 양방향 통신이 가능한 웹 소켓으로 API 를 수정하여 화면에서 프로그래스 바 구현
+2. 웹 소켓 연결 끊김
+- 파라미터 용량 기준으로 분기 처리하여 65535 Byte 넘지 않도록 파라미터 크기를 분할하여 API 호출되도록 웹 소켓 연결 문제를 해결
+3. 대용량 데이터 처리 속도 이슈 발생
+- batch insert 및 멀티 쓰레드를 통한 대용량 insert 속도 개선
+- 100,000건 데이터 기준 28초 -> 1.7초로 개선
+4. 성능 테스트 (nGrinder)
+- Vuser, Duration 등 부하 조정을 통한 시나리오별 테스트
+
+
+API 문서 자동화 개발
+[문제]
+- API 에 필드를 추가하고 API 문서를 확인해보니 변경된 코드와 차이 발생.
+[원인]
+- API 문서를 wiki 로 공유.
+[해결]
+- Swagger 는 API 동작을 테스트하는 용도에 더 특화되어 있기에 Spring Rest Docs 가 문서 제공용으로 더 적합.
+- Spring Rest Docs 를 통해서 현재 운영 중인 API 와 API 문서를 동일하게 관리.
+- Spring Rest Docs는 test code 기반으로 API 에 대한 신뢰성 증대.
+- slate 에 의존적인 Markdown 대신 AsciiDoc 사용.
+
+[문제]
+- API 에 필드를 추가하고 API 문서를 확인해보니 변경된 코드와 차이 발생.
+[원인]
+- API 문서를 wiki 로 공유.
+[해결]
+- Spring Rest Docs + SwaggerUI 연동 구현
+- 모든 Controller 테스트에 들어가는 부분 공통 부분 추상화 -> 가독성 및 빌드 속도 개선
+
+
+
+https://kim-solshar.tistory.com/81
+
+
+이벤트
+캐시
+spring rest docs + swaggerUI
+소나큐브 + jacoco

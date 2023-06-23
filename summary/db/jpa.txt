@@ -151,3 +151,12 @@
 
 
 - Join, Fetch Join 차이점 요약 ??
+
+- JPA 연관관계 외래키 매핑시 주의점
+    https://kim-solshar.tistory.com/70
+
+- 영속성 컨텍스트
+    https://kim-solshar.tistory.com/67
+
+- [JPA] JPA Entity 왜 단일키가 좋은가?
+    https://jwkim96.tistory.com/166

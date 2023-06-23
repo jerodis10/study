@@ -1913,3 +1913,7 @@
     https://kth990303.tistory.com/418
 
 - Atomic 변수, concurrentHashMap
+
+
+- 자바 웹 애플리케이션 Out of memory 오류 해결기
+    https://kim-solshar.tistory.com/66
