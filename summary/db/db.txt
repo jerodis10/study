@@ -1018,3 +1018,4 @@ ROWID SCAN 을 타는 상황 ??
 
 - PostgreSQL의 슬로우 쿼리에 대처하기
     https://hyperconnect.github.io/2020/08/31/improve-slow-query.html
+
