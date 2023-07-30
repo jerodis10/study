@@ -634,3 +634,7 @@ group-by 혹은 distinct 사용시 인덱스를 사용할 수 없다.??
 - Index Fast Full Scan ??
 
 - Covering Index ??
+
+- https://hoon93.tistory.com/52
+
+- https://inpa.tistory.com/entry/MYSQL-%F0%9F%93%9A-%EC%9D%B8%EB%8D%B1%EC%8A%A4index-%ED%95%B5%EC%8B%AC-%EC%84%A4%EA%B3%84-%EC%82%AC%EC%9A%A9-%EB%AC%B8%EB%B2%95-%F0%9F%92%AF-%EC%B4%9D%EC%A0%95%EB%A6%AC

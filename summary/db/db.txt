@@ -1019,3 +1019,5 @@ ROWID SCAN 을 타는 상황 ??
 - PostgreSQL의 슬로우 쿼리에 대처하기
     https://hyperconnect.github.io/2020/08/31/improve-slow-query.html
 
+- 선택도와 카디널리티 차이
+    https://www.inflearn.com/questions/720337/%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%B9%B4%EB%94%94%EB%84%90%EB%A6%AC%ED%8B%B0-%EB%B6%80%EB%B6%84-%EC%A7%88%EB%AC%B8%EC%9D%B4%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4
