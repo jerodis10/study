@@ -186,6 +186,24 @@
               여러 Index를 사용한 후 결과를 Merge하는 Acees방식도 선택합니다.
             - Index가 지정되지 않으면 Optimizer는 테이블의 이용가능한 모든 Index에 대해 Scan Cost를 고려 후 최저비용이 드는 Index Scan을 선택합니다.
 
+- SQL 튜닝 절차  https://yooloo.tistory.com/144  https://theone79.tistory.com/865
+    1. 튜닝대상 SQL 식별 :
+         AWR report, APM 툴, DB 모니터링 툴, 개발자 요청, 전수조사, 샘플조사 등
+
+    2. 튜닝대상 SQL의 sql_id 추출 :
+         SQL_ID가 제공된 경우에는 제공된 sql_id를 사용하고 그렇지 않은 경우에는V$SQLAREA, V$SQL,
+         DBA_HIST_SQLTEXT, DBA_HIST_SQLSTAT 등의 뷰에서 추출합니다.
+
+    3. DBMS_XPLAN.DISPLAY_CURSOR 수행 :
+        추출한 sql_id 를 가지고  DBMS_XPLAN.DISPLAY_CURSOR 패키지로 실행계획, 통계 정보 등을 조회합니다.
+        SQL튜닝을 위한 상세 정보를 위해서는 DBMS_XPLAN.DISPLAY_CURSOR를 활용
+
+        DBMS_XPLAN.DISPLAY_CURSOR : shared pool 커서의 실제 실행계획 출력
+        sql_id :  커서 캐시에 있는 SQL 문의 SQL_ID를 지정
+
+    4. SQL 튜닝
+        인덱스 생성, SQL 재작성, SQL분리, 힌트 사용, 데이터모델 변경, 반정규화, 요약테이블 생성  등으로 SQL 문장을 튜닝합니다.
+
 
 - 릴레이션 키
     1. 슈퍼키(Super Key)
@@ -401,6 +419,7 @@
               업데이트. 반면 다른 사용자는 뒤늦게 구매를 완료하고 버전을 다시 읽어온다. 이미 버전이 업데이트 되었으므로 버전이 달라서
               충돌이 발생하고 롤백을 시켜줌.
             - 동시 업데이트가 거의 없는 경우
+            - 낙관적인 락은 Version을 사용해 관리합니다.
         - 비관적 잠금 (Pessimistic Lock)
             - 동일한 데이터를 동시에 수정할 가능성이 높다고 보는 잠금
             - 데이터에 접근하기 전 Lock 을 걸어줌. 일련의 과정들을 거치고 Unlock 을 시켜줌. Lock 이 걸리고 Unlock 이 걸리는 동안
