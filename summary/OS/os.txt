@@ -1,14 +1,11 @@
 - 동기, 비동기, Blocking, Non-Blocking   https://youngkyonyou.github.io/interview/2021/12/23/Interview-interview-07.html
     - Blocking vs Non-Blocking
         다른 주체가 작업을 할 때 자신의 제어권이 있는지 없는지로 볼 수 있다.
-
         - Blocking: 자신의 작업을 진행하다가 다른 주체의 작업이 시작되면 다른 작업이 끝날 때까지 기다렸다가 자신의 작업을 시작하는 것
         - Non-Blocking: 다른 주체의 작업에 관련없이 자신의 작업을 하는 것
 
-
     - Synchronous vs Asynchronous
         작업 완료를 누가 신경 쓰는가 이다.
-
         - Synchronous: 호출된 함수의 수행 결과 및 종료를 호출한 함수가 신경 쓴다.
         - Asynchronous: 호출되는 함수에게 callback을 전달해서 호출되는 함수의 작업이 완료되면 호출되는 함수가 전달받은 callback을 실행.
                         즉, 호출하는 함수는 작업 완료 여부를 신경쓰지 않는다.

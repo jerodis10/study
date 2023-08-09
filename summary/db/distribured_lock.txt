@@ -187,8 +187,34 @@
                         - Redisson 이 Lettuce 보다 좋은 이유
                           https://it-hhhj2.tistory.com/102
 
-
     -> 중요한 점은 Lock 을 정말로 사용해야 하는 상황인지 판단하는 것과 어떤 Lock 을 사용해서 해결해야 하는지 판단하는 능력인 것 같다.
+
+
+    - 왜 Redisson 이라는 라이브러리를 사용했는지  https://devroach.tistory.com/83  https://hyperconnect.github.io/2019/11/15/redis-distributed-lock-1.html
+        - Lettuce 에서 Lock 을 구현할때는 스핀락 구조의 형태로 락을 많이 이용
+            - 정상적으로 Lock 해제를 못해줄시 문제 발생
+                스핀락은 계속해서 Lock 을 획득하기 위해 순회하기 때문에 만약 Lock 을 획득한 스레드나 프로세스가 Lock 을 정상적으로
+                해제해주지 못한다면 현재 스레드는 계속해서 락을 획득하려 시도하느라 어플리케이션이 중지될 것
+
+            - 계속해서 Redis 에 요청을 보내야 함
+                setnx 메소드는 만약 키가 존재하지 않는다면 설정하게 되는 것이므로 Redis 에 계속해서 LockKeyName 이 존재하는지 확인해야만 합니다.
+                따라서 순회하는 동안 계속해서 Redis 에 요청을 보내게 되는 것이므로 스레드 혹은 프로세스가 많다면 Redis 에 부하가 가게 될 것
+
+        - Redisson 에서 해결한 방식
+            - Pub-Sub 구조
+                - pub-sub 이란 마치 인터럽트처럼, Lock 획득을 기다리는 클라이언트에게 Lock 획득할 수 있다는 신호를 보내주는 것이다.
+                  알림을 주어서 일일이 레디스에 요청을 보내 락의 획득가능여부를 체크하지 않아도 되도록 개선했습니다.
+                - 이벤트기반의 Pub-Sub 구조로 진행해서 Redis 에 가는 스핀락에 관해서 부하를 줄임
+
+            - Lock 만료기간
+                - Redisson 은 tryLock 메소드에 타임아웃을 명시하도록 되어있어 락이 해제되지 않는 문제로 무한 루프에 빠질 위험이 사라짐.
+                - Lock 을 해제하는 과정 중 정상적으로 Lock 이 해제가 되지 않는다면 문제가 발생할 수 있으므로
+                  Redisson 에서는 LockExpire 를 설정 가능
+                  Lock 의 만료기간을 설정하여 위에서 설명했던 정상적으로 Lock 이 해제되지 않아 발생하는 문제를 해결
+
+            - Lua 스크립트
+              Lua 스크립트를 사용하여 연산의 atomic을 보장 (락의 획득가능 여부 확인과 획득 / 락의 해제와 pubsub 알림)
+
 
     *  ExecutorService
         - 멀티스레드 이용 ExecutorService : 비동기를 단순하게 처리할 수 있또록 해주는 java api
