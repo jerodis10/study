@@ -1,3 +1,6 @@
+- 테스트 더블 (Test Double)
+    https://hudi.blog/test-double/
+
 - 테스트
     - Rest-assured 와 Spring MVC Test Integration 을 이용해서 HTTP API 를 통합 테스트
 
@@ -1084,6 +1087,9 @@ io가 발생하지 않음
 등등 성능 테스트에서 중요한 관점인 Thread 사용, 리소스 사용을 전부 무시하게 됩니다.
 
 외부 인터페이스를 Mocking 하는 것처럼 보이지만, 내부 인터페이스도 Mocking 해버리는 객체 Mocking 은 성능 테스트에서 피해야 합니다.
+
+- 격리된 테스트
+    https://hudi.blog/isolated-test/
 
 - [Test] Mock 테스트와 Stub 테스트 차이
     https://azderica.github.io/00-test-mock-and-stub/

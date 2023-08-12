@@ -1,3 +1,15 @@
+- 데이터베이스의 확장성과 가용성을 위한 MySQL Replication
+    https://hudi.blog/mysql-replication/
+
+- 데이터베이스 레플리케이션을 통한 쿼리 성능 개선 (feat. Mysql, SpringBoot)
+    https://hudi.blog/database-replication-with-springboot-and-mysql/
+
+- DB 인덱스를 효과적으로 설정하는 방법 - 고려해야 할 4가지
+    https://yurimkoo.github.io/db/2020/03/14/db-index.html
+
+- 인덱스(INDEX) 개념 및 효과적인 인덱스 설계 방법 정리
+    https://chiefcoder.tistory.com/67
+
 - 옵티마이저
     - 정의
         - 옵티마이저는 SQL을 가장 빠르고 효율적으로 수행할 최적의 처리 경로를 생성해주는 DBMS 내부의 핵심 엔진입니다.

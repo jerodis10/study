@@ -1,0 +1,100 @@
+[상]
+- 스프링이란?
+
+- springBoot의 장점
+
+- 제어의 역전
+
+- 의존성 주입
+- di에 사용된 디자인 패턴은
+
+- AOP
+- AOP란?
+- AOP의 장점은?
+- 프록시 패턴과 특징을 설명하라.
+- Spring AOP 동작 원리를 설명하라.
+- JDK Dynamic Proxy란?
+- JDK Dynamic Proxy의 동작 과정을 설명하라.
+- JDK Dynamic Proxy의 장단점을 설명하라.
+- CGLIB란?
+- CGLIB의 동작 과정을 설명하라.
+- CGLIB의 장단점을 설명하라.
+- 다이나믹 프록시랑 cglib proxy 차이점은? cglib proxyj는 클래스기반만 가능한가?
+- Spring AOP를 사용할 때 주의할 점이 있는가?
+
+- 스프링 빈(Bean)이란?
+- 수동 빈 등록을 사용하는 시점
+
+- MVC는 어떠한 흐름으로 요청을 처리하는지 설명해주세요.
+
+- Filter vs Interceptor vs AOP
+- 필터란?
+- 필터의 사용 시기는?
+- 인터셉터란?
+- 인터셉터의 사용 시기는?
+- 필터와 인터셉터의 차이는?
+
+- 트랜잭션 전파 방식
+
+
+
+[중]
+- 싱글톤 빈은 Thread-Safe한가?
+- Singleton 빈이란?
+- Prototype 빈이란?
+- 언제 Singleton 빈을 사용하고, 언제 Prototype 빈을 사용하는가?
+- Singleton 빈과 Prototype 빈과 같이 사용할 때 어떤 문제가 생길 수 있는가?
+- Singleton 빈 내부의 Prototype 빈을 사용할 때마다 다른 인스턴스를 받아오려면 어떻게 해야 하는가?
+- 웹 스코프가 무엇인가?
+- 웹 스코프의 종류는?
+- Singleton 빈의 생명 주기를 설명하라.
+- Prototype 빈의 생명 주기를 설명하라.
+
+- Spring Rest Docs VS Swagger
+
+- @Transactional의 동작 원리에 대해 설명해주세요.
+- @Transactional를 스프링 Bean의 메소드 A에 적용하였고, 해당 Bean의 메소드 B가 호출되었을 때, B 메소드 내부에서 A 메소드를 호출하면 어떤 요청 흐름이 발생하는지 설명해주세요.
+- @Transactional 이 동작하지 않을 때
+- A 라는 Service 객체의 메소드가 존재하고, 그 메소드 내부에서 로컬 트랜잭션 3개(다른 Service 객체의 트랜잭션 메소드를 호출했다는 의미)가 존재한다고 할 때,
+  @Transactional을 A 메소드에 적용하면 어떤 요청 흐름이 발생하는지 설명해주세요.
+- REQUIRES_NEW는 부모 트랜잭션에서 완전 독립적인 트랜잭션을 생성하는가 ?
+- Read only Transaction을 사용하는 일반적인 이유
+
+- 스프링에서 어떤 exception에서 롤백처리를 하냐?
+
+- Argument Resolver란?
+- Argument Resolver의 사용 시기는?
+- 인터셉터와 Argument Resolver의 차이는?
+
+- Autowiring 동작 과정은?
+
+- AOP가 Proxy 방식이라 발생할 수 있는 단점(self invocation)
+
+- Bean Factory(빈팩토리)/Application Context(애플리케이션 컨텍스트)란?
+
+- Servlet
+- 서블릿의 동작 방식에 대해 설명해주세요.
+
+- Spring WebFlux
+
+- @RequestBody, @RequestParam, @ModelAttribute의 차이를 설명해주세요.
+
+- 모델1 vs 모델2
+
+- @compent로도 빈 설정을 할 수있는데 @service ,@repositorty를 나눠서 사용하는지
+
+- @bean , @Auwired등은 어떻게 동작하냐
+
+- spring boot xml로 설정했는지 java cofig로 했는데 config로 하는거랑, xml로 설정하는 것중 머가 더 편한지 편하면 왜 편하지 머가 다른지 ??
+
+- ControllerAdvice는 AOP로 구현되어 있을까? ControllerAdvice의 동작 과정 살펴보기
+
+- 스프링 첫 요청이 처리되는데 오래 걸리는 이유
+
+- 의존성(Dependency)이란? 컴파일타임 의존성과 런타임 의존성의 차이 및 비교
+
+- spring에서 사용한 최신버전은??
+
+
+[하]
+- @autowired , @Resouce , @inject
