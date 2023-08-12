@@ -1,0 +1,140 @@
+[java]
+- 객체 지향 프로그래밍의 특징
+
+- OOP 의 4가지 특징
+
+- 객체지향의 설계 원칙
+
+- 접근제어자를 사용하는 이유
+
+- 인터페이스 vs 추상클래스
+
+- 오버로딩과 오버라이딩
+
+- 람다식
+
+- 함수형 인터페이스
+
+- 제네릭
+
+- 컬렉션 프레임워크
+
+- 자바의 모든 클래스는 Object 클래스를 상속받습니다. 그리고 Object 클래스에는 equals() 와 hashCode() 라는 메소드가 선언되어 있습니다.
+  이 메소드들은 각각 어떤 역할일까요? 이 둘의 차이점은 무엇일까요?
+
+- 자바에서 == 와 Equals() 메서드의 차이는
+
+- 불변 객체(Immutable Object) 및 final을 사용해야 하는 이유
+
+- String 객체 생성
+
+- string + 연산 최적화
+
+- StringBuilder 와 StringBuffer 의 차이
+
+- 깊은 복사 (Deep Copy) vs 얕은 복사
+
+- 컬렉션의 방어적 복사
+
+- stream vs for
+
+- 스트림 지연 연산과 최적화
+
+- java map flatmap 차이
+
+- static을 사용하는 이유
+
+- 자바의 참조형은 Call by Reference 인가
+
+- 자바 메모리 영역이 할당되는 시점은 언제인가요?
+
+- 메모리 주소만으로 Heap의 인스턴스에 접근할 수 있을까
+
+- 자바 LTS(Long-Term Support) 버전별 특징 (8, 11, 17)
+
+
+
+- 함수형 프로그래밍
+
+- 데이터를 담고 처리하는 방법에는 배열(Array)이 있는데 왜 Collection을 사용하는 걸까?
+
+- Set과 Map의 타입이 Wrapper Class가 아닌 Object를 받을 때 중복 검사는 어떻게 할건지 설명해주세요.
+
+- Collection 에 list , map들은 불변한가? 이유는?
+
+- main 메서드에 Static 이 생략되면 실행이 되나요?
+
+- 초기화 진행순서
+
+- 리플렉션(Reflection)이란 무엇인지 설명해주세요.
+
+- Exception 구조
+
+- Checked,Unchecked Exception 차이
+
+- 자바에서 Exception Handling 을 어떻게 하나요?
+
+- throw vs throws 의 차이는 무엇인가요?
+
+- 0이 들어있는 변수에 10개의 스레드가 동시에 접근해서 ++ 연산을 하면 우리 예상과 다르게 10이 나오지 않습니다. 왜 그럴까요?
+
+- 동시성 프로그래밍에서 발생할 수 있는 문제는
+
+- syncronize
+
+- 쓰레드 풀
+
+- 잘 운영하고 있던 어플리케이션이 갑자기 Out of Memory Error(OOM)를 내며 프로세스가 종료되었습니다. 어떻게 대처해볼 수 있을까요
+
+- 직렬화/역직렬화
+
+- 생성자 대신 정적 팩토리 메서드
+- 정적 팩토리 메서드(Static Factory Method)는 왜 사용할까?
+
+- enum 이 뭐냐? 사용하는 이유?
+
+- printStackTrace()를 사용하면 안되는 이유
+
+- 자바에서 스레드를 생성하는 방법은 무엇인가요?
+
+- Inner Class(내부 클래스)의 장점에 대해 설명해주세요.
+
+- java8 이후에 Date vs localDatetime 클래스들의 차이점은?
+
+- Arrays.asList()와 List.of()의 차이
+
+- Stack vs Heap
+
+- 제어자 조합해서 사용할 때 주의할 사항
+
+
+
+- Marker Interface가 무엇인가요?
+
+- 자바 어노테이션
+
+- parallelStream
+
+- Wrapper class
+
+- 오토박싱과 언박싱은 어떤 차이가 있습니까?
+
+- 문자열 분리
+
+- java String 불변객체인 이유
+
+- final / finally / finalize 의 차이
+
+- Try Catch Finally 에 Try 안에서 System.exit(0) 를 한다면 Finally는 실행이 되나요?
+
+- try-with-resources에 대해 설명해주세요.
+
+- SerialVersionUID를 선언해야 하는 이유에 대해 설명해주세요.
+
+- Java SE와 Java EE 애플리케이션 차이
+
+- JAVA RMI  가 무엇인가요?
+
+- java에서 파일을 읽어올 때 왜 스트림을 쓰냐?
+
+- JDK 와 JRE 의 차이
