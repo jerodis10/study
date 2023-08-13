@@ -31,7 +31,6 @@
 - string + 연산 최적화
 - StringBuilder 와 StringBuffer 의 차이
 
-- 깊은 복사 (Deep Copy) vs 얕은 복사
 - 컬렉션의 방어적 복사
 
 - stream vs for
@@ -53,13 +52,12 @@
 
 - JVM 이란 무엇인가
 - 실행하는 방법
-- JIT Compiler
 - JVM 구성 요소
 - 자바 가상 머신(JVM)의 동작 방식
+- JIT Compiler
 - JVM MEMORY 영역에 Heap 영역과 Native Memory 영역에 jdk8에서 변화
 
 - 가비지 컬렉션이란?
-- 가비지 컬렉션의 대상이 되는 객체들
 - GC의 대상이 되는 Heap 영역
 - 가비지 컬렉션 청소 방식
 - 가비지 컬렉션 동작 과정
@@ -69,6 +67,8 @@
 
 [중]
 - 객체지향 5원칙(SOLID) 중 본인이 가장 중요하다고 생각하는 원칙에 대해 설명하시오.
+
+- 깊은 복사 (Deep Copy) vs 얕은 복사
 
 - 함수형 프로그래밍
 
@@ -158,14 +158,13 @@
 
 - BigInteger와 BigDecimal
 
-- GC 옵션
-- GC 튜닝의 절차
-
-
 [하]
 - Marker Interface가 무엇인가요?
 
 - 자바 어노테이션
+
+- GC 옵션
+- GC 튜닝의 절차
 
 - parallelStream
 
