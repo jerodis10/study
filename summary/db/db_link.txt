@@ -1,3 +1,6 @@
+그림으로 공부하는 오라클 구조
+real mysql
+
 - sql 최적화
     https://developer-talk.tistory.com/420
 

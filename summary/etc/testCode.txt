@@ -1,6 +1,9 @@
 - 테스트 더블 (Test Double)
     https://hudi.blog/test-double/
 
+- 외부 API 연동 테스트 코드 @RestClientTest
+    https://cobbybb.tistory.com/24
+
 - 테스트
     - Rest-assured 와 Spring MVC Test Integration 을 이용해서 HTTP API 를 통합 테스트
 
