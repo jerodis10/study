@@ -18,3 +18,5 @@
 
 - 트랜잭션과 락, 2차 캐시
     https://incheol-jung.gitbook.io/docs/study/jpa/16#undefined-9
+
+https://yozm.wishket.com/magazine/detail/2160/
