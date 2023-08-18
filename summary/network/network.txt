@@ -1,9 +1,63 @@
-- RESTful
-    - 기존의 웹은 주로 클라이언트 측의 요청에 따라 서버가 완성된 HTML 파일을 만들어 제공하는 것이 기본이었습니다.
-      하지만 클라이언트와 서버 간의 통신의 경우에는 데이터만 주고 받을 수 있는 API가 필요했는데 여기에 대한 표준이 없었습니다.
-      REST는 HTTP의 메서드를 활용해 CRUD를 구현하고, URI를 통해 자원을 명시하는 등 HTTP 통신의 특성을 최대한 활용하는 아키텍처.
+- RESTful   https://donghun.dev/Restful-API
+    - 정의
+        REST는 HTTP의 메서드를 활용해 CRUD를 구현하고, URI를 통해 자원을 명시하는 등 HTTP 통신의 특성을 최대한 활용하는 아키텍처.
+
+    - 구성 요소
+        - 자원(Resource) : URI
+        - 행위(Verb) : HTTP 메소드
+        - 표현(Respresentations) : 리소스에 대한 표현 (HTTP Message Body)
+
+    - 제약조건
+        - Client-Server Architecture
+            REST 서버는 API 제공, 클라이언트는 사용자 인증이나 컨텍스트(세션, 로그인 정보)등을 직접 관리하는 구조로 각각의 역할이 확실히 구분
+            클라이언트와 서버에서 개발해야 할 내용이 명확해지고 서로간 의존성이 줄어들게 된다.
+
+        - Layered System (계층형 구조)
+            서버는 중개 서버(게이트 웨이, 프록시)나 로드밸런싱, 공유 캐시 등의 기능을 사용하여 확장성 있는 시스템을 구성할 수 있다.
+
+        - Statelessness
+            세션 정보나 쿠키 정보를 별도로 저장하고 관리하지 않기 때문에 API 서버는 들어오는 요청만을 단순히 처리
+
+        - Cacheable
+            HTTP가 가진 캐싱 기능이 적용 가능해야 한다.
+
+        - Uniform Interface
+            URI로 지정된 리소스에 균일하고 통일된 인터페이스를 제공
+
+            - Self-Descriptive Messages
+                각 메세지는 자신을 어떻게 처리해야 하는지 충분히 정보를 포함해야 한다.
+
+            - HATEOAS(Hypermedia As The Engine Of Application State)
+                클라이언트에 응답할 때 단순히 결과 데이터만 제공해주기 보다는 URI를 함께 제공해야 한다는 원칙이다.
+
+            - Resource Identification In Requests
+                요청에 의한 자원 식별은 웹 기반의 REST에서 자원 접근은 주로 URI를 사용한다는 것을 나타낸다.
+
+            - Resource Manipulation Through Representations
+                클라이언트가 특정 메세지나 메타 데이터를 갖고 있으면 자원을 수정, 삭제하는 충분한 정보를 갖고 있는 것
+
+    - 장단점
+        - 장점
+            - API를 Open API로 제공하기가 쉽다.
+            - 멀티 플랫폼 지원 및 연동이 용이하다.
+            - 원하는 타입으로 데이터를 주고 받을 수 있다.
+            - 기존의 웹 인프라(HTTP 기반의 웹)를 그대로 사용할 수 있다.
+
+        - 단점
+            - 사용할 수 있는 HTTP 메서드가 4가지 밖에 되지 않는다.
+            - 분산 환경에는 부적합하다.
+            - HTTP 통신 모델에 대해서만 지원한다.
+
 
 - HTTP와 TCP의 차이
+    - HTTP
+        클라이언트에서 서버로 Request를 보내고 서버가 Response하는 방식
+        TCP 위에서 동작하지만 TCP 와는 다르게 비연결지향적인 단방향 통신
+
+    - TCP
+        TCP 통신은 Handshake라는 과정으로 서로가 통신 할 수 있는 상태인지를 먼저 인증 후에 통신
+        연결지향적인 양방향 통신
+
 
 - HTTP 가 무엇인가요?
     - 서버와 클라이언트 모델을 따르고 웹상에서 Request 와 Response 구조로 메세지를 주고받을 수 있는 프로토콜 입니다.
