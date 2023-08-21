@@ -1,0 +1,29 @@
+- MSA
+
+- 고가용성을 확보하기 위한 아키텍처 설계
+
+- Web Server와 WAS의 차이점
+
+- System.out.println 메소드는 현업에서 절대 쓰지 말라고하는 메소드인데요. 그 이유가 무엇일까요?
+
+- api/라이브러리/프레임워크
+
+- CSR/SSR
+
+- TDD
+
+- DDD
+
+- 스케일 업(Scale-Up)과 스케일 아웃(Scale-Out)이란
+
+- git branch 전략
+
+- 테스트의 종류
+
+- 빌드와 배포
+
+- CI/CD
+
+- maven vs gradle
+
+- 크롤링
