@@ -1,0 +1,41 @@
+- RESTful
+    - 정의
+    - 구성 요소
+    - 제약 조건
+    - 장단점
+
+- www.google.com  에 접속하는 과정
+
+- HTTP
+    - 정의
+    - 버전별 특징
+
+- 3 way handshake
+
+- 4 way-handshaking
+
+- TCP가 무엇인가요?
+
+- TCP와 IP의 차이가 무엇인가요?
+
+- HTTP와 TCP의 차이
+
+- TCP와 UDP의 차이
+
+- Connection Timeout과 Read Timeout의 차이
+
+- connection timeout , socket timeout , read timeout
+
+- Request 구조
+
+- Response 구조
+
+- 쿠키 vs 세션 vs 캐시
+
+- forward vs redirect
+
+- JWT 토큰
+
+- 세션 기반 인증과 토큰 기반 인증의 차이
+
+- cors 설명, 어떻게 처리했는지
