@@ -1,3 +1,6 @@
+Java Garbage Collection
+    https://d2.naver.com/helloworld/1329
+
 - 자바 가상 머신 JVM (Java Virtual Machine)
     - JVM 이란 무엇인가
         - 자바 프로그램 실행환경을 만들어 주는 소프트웨어

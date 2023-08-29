@@ -1,3 +1,6 @@
+TCP/IP 네트워크 스택 이해하기
+    https://d2.naver.com/helloworld/47667
+
 - RESTful   https://donghun.dev/Restful-API
     - 정의
         REST는 HTTP의 메서드를 활용해 CRUD를 구현하고, URI를 통해 자원을 명시하는 등 HTTP 통신의 특성을 최대한 활용하는 아키텍처.

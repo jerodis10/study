@@ -1,3 +1,6 @@
+확장성 있는 웹 아키텍처와 분산 시스템
+    https://d2.naver.com/helloworld/206816
+
 - MSA   https://sihyung92.oopy.io/architecture/woowa-msa-travel
     - Why - 왜 MSA를 도입해야 했을까?
         사업적 요구사항을 처리하며 점점 비대해진 시스템은 많은 장애를 유발했고, 모놀리식 아키텍처였기에 각 도메인의 장애는 단일 장애점으로 동작
