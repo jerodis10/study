@@ -1,3 +1,5 @@
+https://sabarada.tistory.com/205
+
 - 서킷 브레이커 패턴(Circuit Breaker Pattern)   https://mangkyu.tistory.com/261  https://godekdls.github.io/Resilience4j/circuitbreaker/
     - 정의
         - 외부 서비스에 의한 문제를 방지하기 위해 등장한 것이 서킷 브레이커 패턴이다. 문제가 발생한 지점을 감지하고 실패하는 요청을 계속하지 않도록 방지.

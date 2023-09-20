@@ -1,8 +1,38 @@
+- 실무에서 적용하는 테스트 코드 작성 방법과 노하우
+    https://tech.kakaopay.com/post/mock-test-code/
+    https://tech.kakaopay.com/post/mock-test-code-part-2/
+
+
 - 테스트 더블 (Test Double)
     https://hudi.blog/test-double/
 
 - 외부 API 연동 테스트 코드 @RestClientTest
     https://cobbybb.tistory.com/24
+
+- BDDMockito.given() 은 어떻게 사용해야 하나요?
+    https://velog.io/@topqr123q/BDDMockito.given-%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC-%ED%95%98%EB%82%98%EC%9A%94-Strict-stubbing-argument-mismatch
+
+- Spring Boot(2) Mockito를 이용한 단위 테스트
+https://plz-exception.tistory.com/29
+
+- Mockito @Mock @MockBean @Spy @SpyBean 차이점
+https://cobbybb.tistory.com/16#1.%C2%A0%20Test%20Double%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%20%EC%9D%B4%EC%9C%A0-1
+
+- Mockito 사용법 (2) - 설정, Mock 생성 (@Mock, @Spy, @InjectMocks)
+https://effortguy.tistory.com/142
+
+- spring security 테스트용 설정 방법
+https://jiwondev.tistory.com/270
+
+- [SpringBoot(4)] 스프링 시큐리티 - 암호화, JWT, TDD
+https://velog.io/@qowl880/SpringBoot4-%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8B%B0-%EC%95%94%ED%98%B8%ED%99%94
+https://tecoble.techcourse.co.kr/post/2020-09-30-spring-security-test/
+
+- Spring Cloud Feign Testing - Feign Client를 테스트해보자
+https://huisam.tistory.com/entry/feigntest
+
+- Junit5 Parameterized Test 가이드
+https://lannstark.tistory.com/52
 
 - 테스트
     - Rest-assured 와 Spring MVC Test Integration 을 이용해서 HTTP API 를 통합 테스트

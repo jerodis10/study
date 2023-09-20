@@ -7,6 +7,8 @@
 
 - 의존성 주입
 
+- 스프링 빈(Bean)이란?
+
 - AOP란?
 - 프록시 패턴과 특징을 설명하라.
 - Spring AOP 동작 원리를 설명하라.
@@ -15,8 +17,6 @@
 - JDK Dynamic Proxy란?
 - CGLIB란?
 - Spring AOP를 사용할 때 주의할 점이 있는가?
-
-- 스프링 빈(Bean)이란?
 
 - MVC는 어떠한 흐름으로 요청을 처리하는지 설명해주세요.
 
@@ -34,6 +34,8 @@
 - 모델1 vs 모델2
 
 - @compent로도 빈 설정을 할 수있는데 @service ,@repositorty를 나눠서 사용하는지
+
+- AOP가 Proxy 방식이라 발생할 수 있는 단점(self invocation)
 
 - Spring Rest Docs VS Swagger
 

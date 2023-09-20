@@ -1,3 +1,17 @@
+spring cache
+https://adjh54.tistory.com/165#3)%20Spring%20Boot%20Cache%20%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0-1
+https://adjh54.tistory.com/166
+https://pamyferret.tistory.com/8
+https://lovethefeel.tistory.com/70
+
+방어적 복사
+https://tecoble.techcourse.co.kr/post/2021-04-26-defensive-copy-vs-unmodifiable/
+https://pparksean.tistory.com/122
+https://velog.io/@injoon2019/%EC%9D%BC%EA%B8%89%EC%BB%AC%EB%A0%89%EC%85%98%EC%9D%98-%EB%B6%88%EB%B3%80%EA%B0%9D%EC%B2%B4-unmodifiable-%EB%B0%A9%EC%96%B4%EC%A0%81-%EB%B3%B5%EC%82%AC
+
+static
+https://mangkyu.tistory.com/47
+
 ******* [Spring Boot] logback과 Sentry를 활용하여 에러 모니터링하기
     https://zorba91.tistory.com/311
 
