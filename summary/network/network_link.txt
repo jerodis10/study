@@ -16,3 +16,8 @@
 - rest api
     https://tech.trenbe.com/2022/01/16/rest-api.html
 
+- 웹 개발 키워드 1
+    https://devlog.mi.igaw.io/web-keyword-1
+
+- 웹 개발 키워드 2
+    https://devlog.mi.igaw.io/web-keyword-2

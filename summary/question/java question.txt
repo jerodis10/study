@@ -140,10 +140,14 @@
 
 - java에서 파일을 읽어올 때 왜 스트림을 쓰냐?
 
-- 경쟁 조건의 두 가지 형태: Read-Modify-Write, Check-Then-Act
-    https://hudi.blog/read-modify-write-and-check-then-act/
 
 - 잘 운영하고 있던 어플리케이션이 갑자기 Out of Memory Error(OOM)를 내며 프로세스가 종료되었습니다. 어떻게 대처해볼 수 있을까요
+
+
+
+[하]
+- 경쟁 조건의 두 가지 형태: Read-Modify-Write, Check-Then-Act
+    https://hudi.blog/read-modify-write-and-check-then-act/
 
 - Heap을 왜 모니터링 해야 하는가?
 - Heap Dump는 언제 사용하는가?
@@ -152,8 +156,6 @@
 - 스레드 모니터링과 스레드 덤프가 왜 필요한가?
 
 
-
-[하]
 - 제어자 조합해서 사용할 때 주의할 사항
 
 - synchronized 키워드에 대해 설명하라

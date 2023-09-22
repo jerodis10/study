@@ -35,8 +35,6 @@
 
 - @compent로도 빈 설정을 할 수있는데 @service ,@repositorty를 나눠서 사용하는지
 
-- AOP가 Proxy 방식이라 발생할 수 있는 단점(self invocation)
-
 - Spring Rest Docs VS Swagger
 
 - Spring WebFlux
