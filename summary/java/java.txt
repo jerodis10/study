@@ -85,6 +85,7 @@
         상위 타입은 항상 하위 타입으로 대체할 수 있어야 한다.
         상속 관계가 아닌 클래스들을 상속 관계로 설정하면, 이 원칙이 위배된다.
 
+        자식 객체가 부모 객체의 역할을 완전히 대체하지 못한다는 의미
         자식 클래스가 부모 클래스의 메소드 시그니처를 자기 멋대로 변경하거나,
         자식 클래스가 부모 클래스의 의도와 다르게 메소드를 오버라이딩 하는 경우 LSP 위반
 
@@ -365,6 +366,8 @@
 
     - 메소드 참조(Method Reference)
         - 함수형 인터페이스를 람다식이 아닌 일반 메소드를 참조시켜 선언하는 방법
+        - 메서드 참조를 사용하면 코드를 더 간결하고 가독성 있게 만들 수 있습니다.
+        - 메서드 참조는 이중 콜론(::)을 사용하여 클래스 이름과 메서드 이름을 구분하며, 람다식과 달리 인수를 전달할 필요가 없습니다. 인수는 메서드 참조 타입에 따라 처리됩니다.
         - 일반 메소드를 참조하기 위해서는 다음의 3가지 조건을 만족해야 한다.
             함수형 인터페이스의 매개변수 타입 = 메소드의 매개변수 타입
             함수형 인터페이스의 매개변수 개수 = 메소드의 매개변수 개수
@@ -873,6 +876,17 @@
         - 모든 클래스 변수를 private와 final로 선언하라.
         - 객체를 생성하기 위한 생성자나 팩토리 메소드를 추가하라.
         - 참조에 의해 변경 가능성이 있는 경우 방어적 복사를 이용하여 전달하라.
+
+        - Immutable Object를 만드는 기본적인 아이디어는 필드에 final을 사용하고, Setter를 구현하지 않는 것
+        - 이 아이디어는 불변객체의 필드가 모두 원시 타입일 경우에만 가능하고, 참조 타입일 경우엔 추가적인 작업이 필요
+            - 참조 변수가 일반 객체인 경우
+                참조 변수도 불변 객체로 만들어야 함
+            - Array일 경우
+                생성자에서 배열을 받아 copy해서 저장
+                getter를 clone을 반환하도록
+            - List인 경우
+                생성시 생성자 인자를 그대로 참조하지 않고, 새로운 List를 만들어 값을 복사
+                getter를 통해 값 추가/삭제가 불가능하도록 List.copyOf() 메서드를 사용
 
     - 단점
         객체가 가지는 값마다 새로운 객체가 필요합니다. 따라서 메모리 누수와 새로운 객체를 계속 생성해야하기 때문에 성능저하를 발생시킬 수 있습니다.
@@ -1501,35 +1515,57 @@
 
 - 자바 LTS 버전별 특징
     - 자바 8
-        - interface default Method
         - Lambda
+            Java 8 이전 익명 클래스의 사용을 람다를 이용하여 더욱 간결하고 직관적으로 구현 가능
+
         - Stream
+            스트림 API를 통해 컬렉션을 처리하면서 발생하는 모호함과 반복적인 코드 문제와 멀티코어 활용 어려움이라는 두 가지 문제를 모두 해결
+
         - Optional
+
         - LocalDateTime
+            기존 Date와 Calendar 클래스의 기능 부족과 비 표준적인 명명 규칙,
+            그리고 일관되지 못한 속성 값의 문제를 해결하기 위해 새로운 날짜 API가 추가되었습니다.
+
+        - interface default Method
+
+        - PermGen Area 제거
+            Java8 이전에는 초기 설정 시 PermSize와 MaxPermSize를 설정해주어야 했으나,
+            Java8부터는 Permanent Generation이 Metaspace로 대체되었습니다.
+            Metaspace는 런타임 시 메모리 요구 사항에 따라 자체 크기를 조정하며,
+            필요하다면 MaxMetaspaceSize 매개변수를 설정하여 Metaspace의 양을 조절할 수 있습니다.
+
+            - Permanent Generation
+                Permanent Generation은 Class 혹은 Method Code가 저장되는 영역
+
+            - Metaspace
+                JVM에 의해 관리되는 Heap 영역이 아니라 OS 레벨에서 관리되는 Native 메모리 영역에 위치
+
         - Java 8의 Default GC는 Paralle GC
 
     - 자바 11
         - 자바 파일 실행
+            Java 소스 파일을 먼저 컴파일 하지 않고도 실행할 수 있다.
             이전 java는 소스를 컴파일하여 class로 뽑은 후 class를 실행했는데 java를 통해 바로 실행할 수 있게 되었다.
+
         - String, Files 클래스에 메소드 추가
+
         - default GC 변경 - G1GC
 
     - 자바 17
-        - 텍스트 블록 기능 추가
-            기존 String을 여러 줄 작성할 때 사용 가능한 기능, 가독성 있는 코드 지원
-
-        - Record Data class 추가
-            immutable 객체를 생성하는 새로운 유형의 클래스로 기존 toString, equals, hashCode Method에 대한 구현을 자동 제공
-
-        - Pattern Matching for switch
-            switch 문에서 pattern matching을 사용할 수 있도록 한다.
-
         - Sealed 클래스 업데이트
             무분별한 상속을 막기 위한 목적으로 등장한 기능으로 지정한 클래스 외 상속을 허용하지 않으며, 지정한 클래스 외 상속 불가능
             sealed 클래스의 경우 클래스의 상속 계층 구조를 미리 선언할 수 있도록 한다.
+            어떠한 Super Class의 Sub Class들을 명확히 인지
             이를 통해 클래스의 확장성과 보안성을 높일 수 있다.
 
+        - Pattern Matching for switch
+            이제 객체를 전달하여 기능을 전환하고 특정 유형을 확인할 수 있다.
+
         - 향상된 난수 생성기 제공
+
+        - Record Data class 추가 (jdk 14)
+            immutable 객체를 생성하는 새로운 유형의 클래스로 기존 toString, equals, hashCode Method에 대한 구현을 자동 제공
 
 
 - 생성자 대신 정적 팩토리 메서드
